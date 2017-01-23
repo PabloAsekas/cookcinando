@@ -66,14 +66,13 @@
 }
 #img2{
     background-color: red;
-     height: 100px;
+    height: 100px;
 }
 
 /* Cabecera*/
 #cab1{
     height: 200px;
     background: url(img/CabRestaurantes.png) center center;
-    background-size: 100%;
     padding-left: 90px;
     padding-top: 60px;
 }
@@ -83,30 +82,25 @@
     background: url(img/CabRecetas.png) center center;
     padding-left: 280px;
     padding-top: 25px;
-    background-size: 100%;
 }
-
 
 #cab3{
     height: 100px;
     background: url(img/CabPlatoRestaurante.png) center center;
     padding-left: 190px;
     padding-top: 25px;
-    background-size: 100%;
 }
 #cab4{
     height: 200px;
     background: url(img/CabFavoritos.png) center center;
     padding-left: 138px;
     padding-top: 60px;
-    background-size: 100%;
 }
 #cab5{
     height: 100px;
     background: url(img/CabRestauranteMes.png) center center;
     padding-left: 41px;
     padding-top: 36px;
-    background-size: 100%;
 }
 #cab5 .tituloGrande {
 	font-size: 18px;
@@ -117,16 +111,18 @@
     background: url(img/CabPlato.png) center center;
     padding-left: 56.8px;
     padding-top: 28px;
-    background-size: 100%;
+}
+#cab6 .tituloGrande {
+	font-size: 26px;
 }
 
 /* PlatosFavoritos/RestauranteDelMes */
  #imgFavGrande{
     background-color: red;
     height: 600px;
-    background: url(img/crema-de-guisantes-al-queso.jpg)crema-de-guisantes-al-queso.jpg center center;
+    background: url(img/crema-de-guisantes-al-queso.jpg) center center;
     background-size: 100%;
-     padding: 1%;
+    padding: 1%;
 }
 
 .tituloGrande{
@@ -164,50 +160,41 @@
 
 #imgFav1{
     background: url(img/FavoritoPequenio1.png) center center;
-    background-size: 100%;
 }
 
 #imgFav2{
     background: url(img/FavoritoPequenio2.png) center center;
-    background-size: 100%;
 }
 
 #imgFav3{
     background: url(img/FavoritoPequenio3.png) center center;
-    background-size: 100%;
 }
 
 #imgFav4{
     background: url(img/FavoritoPequenio4.png) center center;
-    background-size: 100%;
 }
 
 #imgRestGrande{
     background-color: red;
     height: 600px;
     background: url(img/TGBGrande.jpg) center center;
-    background-size: 100%;
     padding:1%; 
 }
 
 #imgRest1{
     background: url(img/FosterPequenio.jpg) center center;
-    background-size: 100%;
 }
 
 #imgRest2{
     background: url(img/TagliatellaPequenio.jpg) center center;
-    background-size: 100%;
 }
 
 #imgRest3{
     background: url(img/TGBPequenio.jpg) center center;
-    background-size: 100%;
 }
 
 #imgRest4{
     background: url(img/RibsPequenio.png) center center;
-    background-size: 100%;
 }
 
 
