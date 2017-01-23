@@ -4,21 +4,21 @@ Project coded in HTML, CSS, JS, Spring and Angular
 
 ## Description
 
-Cookcinando es una aplicación web que permitirá a los usuarios ver y publicar recetas de comida para que toda la comunidad las use.
+Cookcinando is a web application that allows the users to watch and to post recipes so the rest of the users could use.
 
-La parte pública de la web mostrará las distintas secciones de la web así como el contenido que generen los usuarios.
+The web's interface shows the different sections and the content that users generate.
 
-La parte privada de la web dejará a los usuarios modificar su perfil y añadir contenido (recetas, vídeos, comentarios, gestionar los favoritos, etc).
+The web's private part lets users to modify their profile and include more content (recipies, videos, comments, manage the favorites, etc)
 
-## Entidades
+## Entities
 
-- **Recetas**: una entidad donde se encuentren todas las recetas que los usuarios han publicado (público y privado)
-- **Restaurantes:** una entidad donde se encuentren los restaurantes que consideremos de interés (público y privado)
-- **Usuarios:** una entidad donde se encuentren todos los usuarios registrados que pueden hacer uso de la plataforma (público y privado)
-- **Eventos:** una entidad donde se encuentren todos los eventos que queramos mostrar a los usuarios para que acudan a ellos si son de su interés (público y privado)
-- **Bebidas:** una entidad donde se encuentren todas las recetas de bebidas que los usuarios han publicado (público y privado)
+- **Recipies:** an entity which contains where you can find all the recipes thar users have posted (public and private).
+- **Restaurants:** an entity where you can find the group of differents retaurants that we consider important (public and private).
+- **Users:** an entity where you can find the list of registed users who use the web application (public and private).
+- **Events:** an entity where you can find all the events which we want to show the users and they can dedice to go or not to go wheter they are interested or not (public and private).
+- **Drinks:** an entity where you can find all drinks' recipies that users have posted (public and private).
 
-## Integrantes del equipo
+## Group members
 
 María Ballesteros López - m.ballesteroslo@alumnos.urjc.es - mariablopez
 
