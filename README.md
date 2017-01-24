@@ -25,6 +25,6 @@ The web's private part lets users to modify their profile and include more conte
 | María Ballesteros López | m.ballesteroslo@alumnos.urjc.es | mariablopez |
 | Pablo Bermejo Gómez     | p.bermejogo@alumnos.urjc.es     | PabloAsekas |
 
-| Ignacio López Lòpez | i.lopezlope@alumnos.urjc.es | ilopezlopez |
+| Ignacio López Lòpez     | i.lopezlope@alumnos.urjc.es     | ilopezlopez |
 
-| Blanca Romero Rico | b.romerori@alumnos.urjc.es | bromerori |
+| Blanca Romero Rico      | b.romerori@alumnos.urjc.es      | bromerori   |
