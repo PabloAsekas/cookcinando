@@ -34,6 +34,15 @@
 	text-indent: -9999px;
 	background-size: 100%;
 }
+/*---------------------------------------------*/
+#cookcinando {
+    padding-left: 4%;
+    width: 350px;
+	height: 68px;
+	text-indent: -9999px;
+	background-size: 100%;
+}
+/*---------------------------------------------*/
 .logo h1 {
     width: 350px;
     height: 68px;
@@ -342,7 +351,8 @@
 }
 
 .footer .imagenes img{
-    padding-right: 8%;    
+    //padding-right: 8%;
+    padding: 8%;  
 }
 
 /* Fin de Index */
