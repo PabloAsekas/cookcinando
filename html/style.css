@@ -39,6 +39,16 @@
     font-size: 20px;
 }
 
++/*---------------------------------------------*/
+ +#cookcinando {
+ +    padding-left: 4%;
+ +    width: 350px;
+ +	height: 68px;
+ +	text-indent: -9999px;
+ +	background-size: 100%;
+ +}
+ +/*---------------------------------------------*/
+
 .tituloPequenio2{
     background-color: black;
     opacity: 0.8;
@@ -440,7 +450,7 @@
 }
 
 .footer .imagenes img{
-    padding-right: 8%;    
+    padding: 8%; 
 }
 
 /* Fin de Index */
