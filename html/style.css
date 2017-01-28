@@ -19,6 +19,89 @@
 /*INDEX*/
 
 
+.img-contenedor1 p{
+    top: 65px;
+}
+.contenedorPequenio1{
+    top: 25px;
+}
+.contenedorPequenio2{
+    top: 125px;
+}
+.tituloPequenio1{
+    background-color: black;
+    opacity: 0.8;
+    position: absolute;
+    font-family: ‘Lucida Console’, Monaco, monospace;
+    color: snow;
+    right: 0;
+    z-index: 2;
+    font-size: 20px;
+}
+
+.tituloPequenio2{
+    background-color: black;
+    opacity: 0.8;
+    position: absolute;
+    font-family: ‘Lucida Console’, Monaco, monospace;
+    color: snow;
+    right: 0;
+    z-index: 2;
+    font-size: 25px;
+}
+
+.img-contenedor1 img {
+    -webkit-filter: grayscale(0.8) sepia(0.2);
+    -webkit-transition:all .9s ease; /* Safari y Chrome */
+    -moz-transition:all .9s ease; /* Firefox */
+    -o-transition:all .9s ease; /* IE 9 */
+    -ms-transition:all .9s ease; /* Opera */
+    -webkit-transform:scale(1.10);
+    -moz-transform:scale(1.10);
+    -ms-transform:scale(1.10);
+    -o-transform:scale(1.10);
+    transform:scale(1.10);
+    z-index: 1;
+}
+.img-contenedor1:hover img {
+    -webkit-filter: none;
+    -webkit-transform:scale(1.25);
+    -moz-transform:scale(1.25);
+    -ms-transform:scale(1.25);
+    -o-transform:scale(1.25);
+    transform:scale(1.25);
+}
+.img-contenedor1 {/*Ancho y altura son modificables al requerimiento de cada uno*/
+    height: 200px;
+    overflow:hidden;
+}
+.img-contenedor2 img {
+    -webkit-filter: grayscale(0.8) sepia(0.2);
+    -webkit-transition:all .9s ease; /* Safari y Chrome */
+    -moz-transition:all .9s ease; /* Firefox */
+    -o-transition:all .9s ease; /* IE 9 */
+    -ms-transition:all .9s ease; /* Opera */
+    -webkit-transform:scale(1.10);
+    -moz-transform:scale(1.10);
+    -ms-transform:scale(1.10);
+    -o-transform:scale(1.10);
+    transform:scale(1.10);
+}
+.img-contenedor2:hover img {
+    -webkit-filter: none;
+    -webkit-transform:scale(1.25);
+    -moz-transform:scale(1.25);
+    -ms-transform:scale(1.25);
+    -o-transform:scale(1.25);
+    transform:scale(1.25);
+}
+.img-contenedor2 {/*Ancho y altura son modificables al requerimiento de cada uno*/
+    height: 100px;
+    overflow:hidden;
+}
+
+/***********************************************************************************/
+
 
 .menu{
     padding-top: 1.5%;    
@@ -34,15 +117,6 @@
 	text-indent: -9999px;
 	background-size: 100%;
 }
-/*---------------------------------------------*/
-#cookcinando {
-    padding-left: 4%;
-    width: 350px;
-	height: 68px;
-	text-indent: -9999px;
-	background-size: 100%;
-}
-/*---------------------------------------------*/
 .logo h1 {
     width: 350px;
     height: 68px;
@@ -75,13 +149,14 @@
 }
 #img2{
     background-color: red;
-    height: 100px;
+     height: 100px;
 }
 
 /* Cabecera*/
 #cab1{
     height: 200px;
     background: url(img/CabRestaurantes.png) center center;
+    background-size: 100%;
     padding-left: 90px;
     padding-top: 60px;
 }
@@ -91,25 +166,30 @@
     background: url(img/CabRecetas.png) center center;
     padding-left: 280px;
     padding-top: 25px;
+    background-size: 100%;
 }
+
 
 #cab3{
     height: 100px;
     background: url(img/CabPlatoRestaurante.png) center center;
     padding-left: 190px;
     padding-top: 25px;
+    background-size: 100%;
 }
 #cab4{
     height: 200px;
     background: url(img/CabFavoritos.png) center center;
     padding-left: 138px;
     padding-top: 60px;
+    background-size: 100%;
 }
 #cab5{
     height: 100px;
     background: url(img/CabRestauranteMes.png) center center;
     padding-left: 41px;
     padding-top: 36px;
+    background-size: 100%;
 }
 #cab5 .tituloGrande {
 	font-size: 18px;
@@ -120,9 +200,7 @@
     background: url(img/CabPlato.png) center center;
     padding-left: 56.8px;
     padding-top: 28px;
-}
-#cab6 .tituloGrande {
-	font-size: 26px;
+    background-size: 100%;
 }
 
 /* PlatosFavoritos/RestauranteDelMes */
@@ -130,7 +208,8 @@
     background-color: red;
     height: 600px;
     background: url(img/crema-de-guisantes-al-queso.jpg) center center;
-    padding: 1%;
+    background-size: 100%;
+     padding: 1%;
 }
 
 .tituloGrande{
@@ -141,6 +220,7 @@
     color: snow;
     font-size: 30px;
     right: 0;
+    z-index: 2;
 }
 
 .imagenGrande {
@@ -167,42 +247,51 @@
 }
 
 #imgFav1{
-    background: url(img/FavoritoPequenio1.png) center center;
+    background: url(img/roscon-de-hojaldre-con-crema-de-turron-y-mascarpone.jpg) center center;
+    background-size: 100%;
 }
 
 #imgFav2{
-    background: url(img/FavoritoPequenio2.png) center center;
+    background: url(img/solomillo-con-salsa-de-setas-y-cappelletti.jpg) center center;
+    background-size: 100%;
 }
 
 #imgFav3{
-    background: url(img/FavoritoPequenio3.png) center center;
+    background: url(img/empanadas-burguer-con-queso.jpg) center center;
+    background-size: 100%;
 }
 
 #imgFav4{
-    background: url(img/FavoritoPequenio4.png) center center;
+    background: url(img/pijama-helado.jpg) center center;
+    background-size: 100%;
 }
 
 #imgRestGrande{
     background-color: red;
     height: 600px;
     background: url(img/TGBGrande.jpg) center center;
+    background-size: 100%;
     padding:1%; 
 }
 
 #imgRest1{
     background: url(img/FosterPequenio.jpg) center center;
+    background-size: 100%;
 }
 
 #imgRest2{
-    background: url(img/TagliatellaPequenio.jpg) center center;
+    background: url(img/RibsPequenio.png) center center;
+    background-size: 100%;
 }
 
 #imgRest3{
-    background: url(img/TGBPequenio.jpg) center center;
+    background: url(img/TagliatellaPequenio.jpg) center center;
+    background-size: 100%;
 }
 
 #imgRest4{
-    background: url(img/RibsPequenio.png) center center;
+    background: url(img/telepizza.png) center center;
+    background-size: 100%;
 }
 
 
@@ -351,8 +440,7 @@
 }
 
 .footer .imagenes img{
-    //padding-right: 8%;
-    padding: 8%;  
+    padding-right: 8%;    
 }
 
 /* Fin de Index */
@@ -378,15 +466,16 @@
 .info-usuario {
     padding-left: 4%;
 }
-.fecha {
-    float: left;
+.ingredientes, .tipo-comida {
+	height: 30px;
 }
-.restaurante {
-    float: left;
-    margin-left: 15px;
+.ingredientes ul, .tipo-comida ul {
+	float: left;
+	padding-left: 0;
+	display: inline;
 }
+
 .contenido {
-    padding-top: 20px;
     font-size: 18px;
 }
 .contenido img {
@@ -400,6 +489,7 @@
     float: left;
 }
 .recetas1 {
+<<<<<<< HEAD
     background: url(img/DulceriaCriolla.jpg) center center no-repeat;
     background-size: 100%;
 }
@@ -410,6 +500,7 @@
 .recetas3 {
     background: url(img/PizcaAndina.jpg) center center no-repeat;
     background-size: 100%;
+=======
     background: black;
 }
 .recetas2 {
@@ -417,6 +508,7 @@
 }
 .recetas3 {
     background: blue;
+>>>>>>> origin/master
 }
 .comentario {
     width: 100%;
@@ -442,9 +534,25 @@
 .thumbnail-restaurante {
     width: 100%;
     height: 450px;
+    background: url(img/fostershollywood-restaurante.jpg) no-repeat 0 30px fixed;
     background-size: 100%;
 }
 
+.tipo-comida-restaurante {
+	float: right;
+    position: relative;
+    left: -50%;
+}
+.tipo-comida-restaurante ul {
+    list-style: none;
+    position: relative;
+    left: 50%;
+    padding-left: 0;
+    height: 25px;
+}
+.contenido-restaurante {
+	margin-top: 50px;
+}
 /* Fin de perfil privado */
 .cabecera-subrayada {
     width: 100%;
