@@ -548,6 +548,27 @@
     background-size: 100%;
 }
 
+.restaurente-botones {
+	position: relative;
+	left: 50%;
+	margin-bottom: 10px;
+}
+
+#ucreador {
+	width: 153px;
+	margin-left: -76.5px;
+}
+
+#unoregistrado {
+	width: 235px;
+	margin-left: -117.5px
+}
+
+#uregistrado {
+	width: 140px;
+	margin-left: -70px;
+}
+
 .tipo-comida-restaurante {
 	float: right;
     position: relative;
