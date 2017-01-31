@@ -668,6 +668,7 @@
 
 .inputs-receta button.publicar {
     width: 100%;
+    margin-top : 20px 
 }
 
 /* Fin nueva receta */
