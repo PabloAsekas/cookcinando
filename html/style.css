@@ -39,15 +39,36 @@
     font-size: 20px;
 }
 
-+/*---------------------------------------------*/
- +#cookcinando {
- +    padding-left: 4%;
- +    width: 350px;
- +	height: 68px;
- +	text-indent: -9999px;
- +	background-size: 100%;
- +}
- +/*---------------------------------------------*/
++/*---------- MODIFICACIONES BLANCA ----------*/
+ #cookcinando {
+    padding-left: 4%;
+    width: 350px;
+ 	height: 68px;
+ 	text-indent: -9999px;
+ 	background-size: 100%;
+ }
+
+#login {
+    
+    margin-right: 10px;
+}
+
+.navbar-inverse {
+    border-radius: initial;
+    margin: 0;
+}
+
+.nav-pills {
+    position: relative;
+    float: right;
+}
+
+.tipoEvento {
+    text-align: center;
+}
+
+
+/*---------- MODIFICACIONES BLANCA ----------*/
 
 .tituloPequenio2{
     background-color: black;
@@ -114,7 +135,7 @@
 
 
 .menu{
-    padding-top: 1.5%;    
+    padding-top: 1.5%;
 }
 
 .titulo{
@@ -395,7 +416,19 @@
  
 
 
-.masPlatos{
+.mas{
+    padding-top: 5%; 
+    padding-bottom: 5%;
+}
+
+.btnMas{
+    width: 50%;
+    height: 200%;
+    padding: 2%;
+    font-size: 240% 
+}
+
+/*.masPlatos{
     padding-top: 5%; 
     padding-bottom: 5%;
 }
@@ -418,7 +451,7 @@
     height: 200%;
     padding: 2%;
     font-size: 240%
-}
+}*/
 
 .seccInter{
     padding-left: 15%;
