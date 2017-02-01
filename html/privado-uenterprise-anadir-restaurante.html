@@ -8,14 +8,24 @@
     <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/editor.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#txtEditor").Editor();
+        });
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="js/editor.css" type="text/css" rel="stylesheet"/>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-7">
-                <!--<h1>Cookcinando</h1>-->
-                <h1><img id="cookcinando" src="img/cookcinando.png" class="img-responsive"></h1>
+                <h1>Cookcinando</h1>
             </div>
             <div class="col-md-5 menu">
                 <ul class="nav nav-pills">
@@ -67,8 +77,10 @@
                 </div>
                 <div class="inputs-receta">
                     <input type="text" class="form-control" placeholder="Título">
-                    <textarea rows="9" class="form-control" placeholder="Detalles de la receta"></textarea>
-                    <button type="submit" class="btn btn-default separado">Añadir imagen</button>
+                    <h2>Cuerpo del restaurante</h2>
+                    <div class="col-md-12 nopadding">
+                        <textarea id="txtEditor"></textarea> 
+                    </div>
                     <button type="submit" class="btn btn-default publicar">Publicar</button>
                 </div>
             </div>
@@ -139,8 +151,8 @@
         </div>    
     </div>
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/js/bootstrap.min.js"></script>
+    <!--<script src="js/jquery.min.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>-->
 </body>
 
 </html>
