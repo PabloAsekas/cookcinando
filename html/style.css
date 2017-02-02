@@ -67,6 +67,45 @@
     text-align: center;
 }
 
+.container-fluid .jumbotron{
+    padding: 0;
+    border-radius: 0;
+}
+
+.container-fluid > .row > .col-md-4 > .jumbotron > h3 {
+    padding: 20px;
+    color: white;
+} 
+
+.container-fluid > .row > .col-md-4 > .jumbotron > h1 {
+    text-align: center;
+    margin: 0
+}
+
+.container-fluid > .row > .col-md-4 > .jumbotron > p, .tarifa > p{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    margin: 0;
+}
+
+.container-fluid > .row > .col-md-4 > .jumbotron > a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.tarifa > h6{
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+hr{
+    margin: 20;
+}
 
 /*---------- MODIFICACIONES BLANCA ----------*/
 
