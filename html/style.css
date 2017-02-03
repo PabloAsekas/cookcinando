@@ -752,6 +752,11 @@ hr{
 	outline: none;
 }
 
+.redes-sociales-botones {
+	position: relative;
+	left: 47%;
+	margin-bottom: 10px;
+}
 .contenedor-variado{
     margin-bottom: 10px;
 }
