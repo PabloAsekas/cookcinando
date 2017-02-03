@@ -756,8 +756,10 @@ hr{
 
 .redes-sociales-botones {
 	position: relative;
-	left: 47%;
+	left: 50%;
 	margin-bottom: 10px;
+    width:74px;
+    margin-left:-37px;
 }
 .contenedor-variado{
     margin-bottom: 10px;
