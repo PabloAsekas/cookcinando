@@ -681,18 +681,20 @@ hr{
 }
 .botones-foto button {
     width: 150%;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .inputs {
-    clear: both;
+    /*clear: both;
     margin-top: 30px;
+    */
 }
 .inputs span {
-    float: left;
+   /* float: left;*/
 }
 .inputs input, .inputs button, .inputs textarea {
-    width: 40%;
-    margin-top: 20px;
+   /* width: 40%;*/
+    margin-bottom: 20px;
+    float: left;
 }
 
 /* Fin de perfil privado */
