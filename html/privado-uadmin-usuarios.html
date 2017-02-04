@@ -1,198 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Cookcinando</title>
-    <link rel="stylesheet" href="js/css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-7 titulo">
-                <h1>Cookcinando</h1>
-            </div>
-            <div class="col-md-5 menu">
-                <ul class="nav nav-pills">
-                    <li class="active"><a>Cerrar sesión</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
-                    <li>
-                        <a href="privado-uadmin-perfil.html">Mi Cuenta</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-favoritos.html">Favoritos</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-mis-recetas.html">Mis Recetas</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-anadir-receta.html">Añadir Receta</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-mis-restaurantes.html">Mis Restaurantes</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-anadir-restaurante.html">Añadir Restaurantes</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-mis-eventos.html">Mis Eventos</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-anadir-evento.html">Añadir Eventos</a>
-                    </li>
-                    <li>
-                        <a href="privado-uadmin-ajustes.html">Ajustes</a>
-                    </li>
-                    <li class="active">
-                        <a>Usuarios</a>
-                    </li>
-                    <li>
-                    	<a href="privado-uadmin-todas-las-recetas.html">Todas las recetas</a>
-                    </li>
-                    <li>
-                    	<a href="privado-uadmin-todos-los-restaurantes.html">Todos los restaurantes</a>
-                    </li>
-                    <li>
-                    	<a href="privado-uadmin-todos-los-eventos.html">Todos los eventos</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-8">
-                <div class="cabecera-subrayada">
-                    <h1>Usuarios</h1>
-                </div>
-                <div>
-                    <div class="container col-md-12">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#usuarios">Usuarios</a></li>
-                            <li><a data-toggle="tab" href="#empresas">Empresas</a></li>
-                        </ul>
-                    </div>
-                    
-                    
-                    <div class="tab-content">
-                        <div id="usuarios" class="tab-pane fade in active">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Usuario</th>
-                                        <th>Email</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Pablo Bermejo</td>
-                                        <td><a>@capitanSalami</a></td>
-                                        <td>pb@me.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Maria Ballesteros</td>
-                                        <td><a>@pabloMariquita</a></td>
-                                        <td>mb@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Blanca Romero</td>
-                                        <td><a>@achooo</a></td>
-                                        <td>br@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                            <div id="empresas" class="tab-pane fade">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Usuario</th>
-                                        <th>Email</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Foster Hollywood</td>
-                                        <td><a>@foster</a></td>
-                                        <td>fh@me.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>La Risueña</td>
-                                        <td><a>@risu</a></td>
-                                        <td>laRisu@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>El Kebap de la Esquina</td>
-                                        <td><a>@kbap</a></td>
-                                        <td>ekde@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid footer">
-        <div class="row">
-            <div class="col-md-3 logo">
-                <h1>Cookcinando</h1>
-            </div>
-            <div class="col-md-5 enlaces">
-                <h1>ENLACES</h1>
-                <div class="col-md-4">
-                    <ul>
-                        <li>Acerca de</li>
-                        <li>Ayuda</li>
-                        <li>Inicia sesión</li>
-                        <li>Registrate</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul>
-                        <li>Recetas</li>
-                        <li>Vídeos</li>
-                        <li>Restaurantes</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-4 imagenes">
-                <h1>Redes Sociales</h1>
-                <img src="img/facebook.png" width="100px" height="auto" />
-                <img src="img/twitter.png" width="100px" height="auto" />
-                <img src="img/googleplus.png" width="100px" height="auto" />
-            </div>
-        </div>
-    </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/js/bootstrap.min.js"></script>
-</body>
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Cookcinando</title>
+	    <link rel="stylesheet" href="js/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
+	    <link rel="stylesheet" href="style.css">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	
+	<body>
+	    <div class="container-fluid">
+	        <div class="row">
+	            <div class="col-md-7 titulo">
+	                <h1>Cookcinando</h1>
+	            </div>
+	            <div class="col-md-5 menu">
+	                <ul class="nav nav-pills">
+	                    <li class="active"><a>Cerrar sesión</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="container-fluid ">
+	        <div class="row">
+	            <div class="col-md-2">
+	                <ul class="nav nav-pills nav-stacked">
+	                    <li>
+	                        <a href="privado-uadmin-perfil.html">Mi Cuenta</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-favoritos.html">Favoritos</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-mis-recetas.html">Mis Recetas</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-anadir-receta.html">Añadir Receta</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-mis-restaurantes.html">Mis Restaurantes</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-anadir-restaurante.html">Añadir Restaurantes</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-mis-eventos.html">Mis Eventos</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-anadir-evento.html">Añadir Eventos</a>
+	                    </li>
+	                    <li>
+	                        <a href="privado-uadmin-ajustes.html">Ajustes</a>
+	                    </li>
+	                    <li class="active">
+	                        <a>Usuarios</a>
+	                    </li>
+	                    <li>
+	                    	<a href="privado-uadmin-todas-las-recetas.html">Todas las recetas</a>
+	                    </li>
+	                    <li>
+	                    	<a href="privado-uadmin-todos-los-restaurantes.html">Todos los restaurantes</a>
+	                    </li>
+	                    <li>
+	                    	<a href="privado-uadmin-todos-los-eventos.html">Todos los eventos</a>
+	                    </li>
+	                </ul>
+	            </div>
+	            <div class="col-md-8">
+	                <div class="cabecera-subrayada">
+	                    <h1>Usuarios</h1>
+	                </div>
+	                <div>
+	                    <div class="container col-md-12">
+	                        <ul class="nav nav-tabs">
+	                            <li class="active"><a data-toggle="tab" href="#usuarios">Usuarios</a></li>
+	                            <li><a data-toggle="tab" href="#empresas">Empresas</a></li>
+	                        </ul>
+	                    </div>
+	                    
+	                    
+	                    <div class="tab-content">
+	                        <div id="usuarios" class="tab-pane fade in active">
+	                            <table class="table">
+	                                <thead>
+	                                    <tr>
+	                                        <th>Nombre</th>
+	                                        <th>Usuario</th>
+	                                        <th>Email</th>
+	                                        <th></th>
+	                                        <th></th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+	                                    <tr>
+	                                        <td>Pablo Bermejo</td>
+	                                        <td><a>@capitanSalami</a></td>
+	                                        <td>pb@me.com</td>
+	                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
+	                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>Maria Ballesteros</td>
+	                                        <td><a>@pabloMariquita</a></td>
+	                                        <td>mb@example.com</td>
+	                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
+	                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>Blanca Romero</td>
+	                                        <td><a>@achooo</a></td>
+	                                        <td>br@example.com</td>
+	                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
+	                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                            <div id="empresas" class="tab-pane fade">
+	                            <table class="table">
+	                                <thead>
+	                                    <tr>
+	                                        <th>Nombre</th>
+	                                        <th>Usuario</th>
+	                                        <th>Email</th>
+	                                        <th></th>
+	                                        <th></th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+	                                    <tr>
+	                                        <td>Foster Hollywood</td>
+	                                        <td><a>@foster</a></td>
+	                                        <td>fh@me.com</td>
+	                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
+	                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>La Risueña</td>
+	                                        <td><a>@risu</a></td>
+	                                        <td>laRisu@example.com</td>
+	                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
+	                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>El Kebap de la Esquina</td>
+	                                        <td><a>@kbap</a></td>
+	                                        <td>ekde@example.com</td>
+	                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
+	                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	
+	    <div class="container-fluid footer">
+	        <div class="row">
+	            <div class="col-md-3 logo"> 
+	                <h1>Cookcinando</h1>
+	            </div>
+	            <div class="col-md-5 enlaces"> 
+	                <h1>ENLACES</h1>
+	                <div class=" col-md-4">
+	                    <ul>
+	                        <li>Acerca de</li>
+	                        <li>Ayuda</li>
+	                        <li>Inicia sesión</li>
+	                        <li>Registrate</li>
+	                    </ul>
+	                </div>
+	                <div class="col-md-4">
+	                    <ul>
+	                        <li>Recetas</li>
+	                        <li>Vídeos</li>
+	                        <li>Restaurantes</li>
+	                    </ul>
+	                </div>
+	            </div>
+	            <div class="col-md-4 imagenes"> 
+	                <h1>REDES SOCIALES</h1>
+	                <div class=" col-md-4"><img src="img/facebook.png" width="100px" height="auto" class="img-responsive"/></div>
+	                <div class=" col-md-4"><img src="img/twitter.png" width="100px" height="auto" class="img-responsive" /></div>
+	                <div class=" col-md-4"><img src="img/googleplus.png" width="100px" height="auto" class="img-responsive" /></div>
+	            </div>
+	        </div>    
+	    </div>
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/js/bootstrap.min.js"></script>
+	</body>
 
 </html>
