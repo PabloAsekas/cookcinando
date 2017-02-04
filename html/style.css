@@ -62,6 +62,9 @@
     position: relative;
     float: right;
 }
+#nav-pills {
+    float: none;
+}
 
 .tipoEvento {
     text-align: center;
