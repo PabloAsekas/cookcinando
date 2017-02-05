@@ -63,14 +63,6 @@
     margin: 0;
 }
 
-.nav-pills {
-    position: relative;
-    //float: right;
-}
-#nav-pills {
-    float: none;
-}
-
 .tipoEvento {
     text-align: center;
 }
@@ -188,7 +180,7 @@ hr{
 }
 
 .titulo{
-    padding-left: 4%;
+    padding-left: 4% !important;
 }
 .titulo h1 {
 	width: 350px;
