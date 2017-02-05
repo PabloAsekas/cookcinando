@@ -525,6 +525,10 @@ hr{
     list-style: none;
 }
 
+.enlaces a{
+    color: #fff;
+}
+
 .footer .imagenes img{
     padding: 8%; 
 }
