@@ -1,112 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 
-	<head>
-	    <meta charset="UTF-8">
-	    <title>Cookcinando</title>
-	    <link rel="stylesheet" href="js/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
-	    <link rel="stylesheet" href="style.css">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	</head>
-	
-	<body>
-	    <div class="container-fluid">
-	        <div class="row">
-	            <div class="col-md-7 titulo">
-	                <h1>Cookcinando</h1>
-	            </div>
-	            <div class="col-md-5 menu">
-	                <ul class="nav nav-pills">
-	                    <li class="active"><a>Cerrar sesión</a></li>
-	                </ul>
-	            </div>
-	        </div>
-	    </div>
-	    <div class="container-fluid">
-	        <div class="row">
-	            <div class="col-md-2">
-	                <ul class="nav nav-pills nav-stacked">
-	                    <li>
-	                        <a href="privado-uenterprise-perfil.html">Mi Cuenta</a>
-	                    </li>
-	                    <li>
-	                        <a href="privado-uenterprise-favoritos.html">Favoritos</a>
-	                    </li>
-	                    <li>
-	                        <a href="privado-uenterprise-mis-recetas.html">Mis Recetas</a>
-	                    </li>
-	                    <li>
-	                        <a href="privado-uenterprise-anadir-receta.html">Añadir Receta</a>
-	                    </li>
-	                    <li>
-	                        <a href="privado-uenterprise-mis-restaurantes.html">Mis Restaurantes</a>
-	                    </li>
-	                    <li>
-	                        <a href="privado-uenterprise-anadir-restaurante.html">Añadir Restaurantes</a>
-	                    </li>
-	                    <li>
-	                        <a href="privado-uenterprise-mis-eventos.html">Mis Eventos</a>
-	                    </li>
-	                    <li>
-	                        <a href="privado-uenterprise-anadir-evento.html">Añadir Eventos</a>
-	                    </li>
-	                    <li class="active">
-	                        <a>Ajustes</a>
-	                    </li>
-	                </ul>
-	            </div>
-	            <div class="col-md-8">
-	                <div class="cabecera-subrayada">
-	                    <h1>Ajustes</h1>
-	                </div>
-	                <div class="inputs-ajustes">
-	                    <label for="nombreUsuario">Cambiar nombre de usuario</label>
-	                    <input type="text" class="form-control" placeholder="@..." id="nombreUsuario">
-	                    <label for="direccionEmail">Cambiar dirección de email</label>
-	                    <input type="text" class="form-control" placeholder="Nuevo email" id="direccionEmail">
-	                    <label for="ContrasenaNueva">Cambiar contraseña</label>
-	                    <input type="password" class="form-control" placeholder="Contraseña nueva" id="contrasenaNueva">
-	                    <input type="password" class="form-control" placeholder="Repetir contraseña">
-	                    <button type="submit" class="btn btn-default">Guardar</button>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	
-	    <div class="container-fluid footer">
-	        <div class="row">
-	            <div class="col-md-3 logo"> 
-	                <h1>Cookcinando</h1>
-	            </div>
-	            <div class="col-md-5 enlaces"> 
-	                <h1>ENLACES</h1>
-	                <div class=" col-md-4">
-	                    <ul>
-	                        <li>Acerca de</li>
-	                        <li>Ayuda</li>
-	                        <li>Inicia sesión</li>
-	                        <li>Registrate</li>
-	                    </ul>
-	                </div>
-	                <div class="col-md-4">
-	                    <ul>
-	                        <li>Recetas</li>
-	                        <li>Vídeos</li>
-	                        <li>Restaurantes</li>
-	                    </ul>
-	                </div>
-	            </div>
-	            <div class="col-md-4 imagenes"> 
-	                <h1>REDES SOCIALES</h1>
-	                <div class=" col-md-4"><img src="img/facebook.png" width="100px" height="auto" class="img-responsive"/></div>
-	                <div class=" col-md-4"><img src="img/twitter.png" width="100px" height="auto" class="img-responsive" /></div>
-	                <div class=" col-md-4"><img src="img/googleplus.png" width="100px" height="auto" class="img-responsive" /></div>
-	            </div>
-	        </div>    
-	    </div>
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/js/bootstrap.min.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title>Cookcinando</title>
+    <link rel="stylesheet" href="js/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 titulo">
+                <h1>Cookcinando</h1>
+            </div>
+            <div class="col-md-5 menu">
+                <ul class="nav nav-pills cerrar-sesion">
+                    <li class="active"><a href="index.html">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="privado-uenterprise-perfil.html">Mi Cuenta</a>
+                    </li>
+                    <li>
+                        <a href="privado-uenterprise-favoritos.html">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#recetas-privado">Recetas <span class="caret"></span></a>
+                        <div id="recetas-privado" class=" collapse">
+                            <ul class="list-group">
+                              <li class="list-group-item"><a href="privado-uenterprise-mis-recetas.html"> Mis Recetas</a></li>
+                              <li class="list-group-item"><a href="privado-uenterprise-anadir-receta.html">Añadir Receta</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#restaurantes-privado">Restaurantes <span class="caret"></span></a>
+                        <div id="restaurantes-privado" class=" collapse">
+                            <ul class="list-group">
+                              <li class="list-group-item"><a href="privado-uenterprise-mis-restaurantes.html">Mis Restaurantes</a></li>
+                              <li class="list-group-item"><a href="privado-uenterprise-anadir-restaurante.html">Añadir Restaurante</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#eventos-privado">Eventos <span class="caret"></span></a>
+                        <div id="eventos-privado" class=" collapse">
+                            <ul class="list-group">
+                              <li class="list-group-item"><a href="privado-uenterprise-mis-eventos.html">Mis Eventos</a></li>
+                              <li class="list-group-item"><a href="privado-uenterprise-anadir-evento.html">Añadir Evento</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a>Ajustes <span class="glyphicon glyphicon-cog"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="cabecera-subrayada">
+                    <h1>Ajustes</h1>
+                </div>
+                <div class="inputs-ajustes">
+                    <label for="nombreUsuario">Cambiar nombre de usuario</label>
+                    <input type="text" class="form-control" placeholder="@..." id="nombreUsuario">
+                    <label for="direccionEmail">Cambiar dirección de email</label>
+                    <input type="text" class="form-control" placeholder="Nuevo email" id="direccionEmail">
+                    <label for="ContrasenaNueva">Cambiar contraseña</label>
+                    <input type="password" class="form-control" placeholder="Contraseña nueva" id="contrasenaNueva">
+                    <input type="password" class="form-control" placeholder="Repetir contraseña">
+                    <button type="submit" class="btn btn-default">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer">
+        <div class="row">
+            <div class="col-md-3 logo">
+                <h1>Cookcinando</h1>
+            </div>
+            <div class="col-md-5 enlaces">
+                <h1>ENLACES</h1>
+                <div class="col-md-4">
+                    <ul>
+                        <li>Acerca de</li>
+                        <li>Ayuda</li>
+                        <li>Inicia sesión</li>
+                        <li>Registrate</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li>Recetas</li>
+                        <li>Vídeos</li>
+                        <li>Restaurantes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 imagenes"> 
+                <h1>REDES SOCIALES</h1>
+                <div class=" col-md-4"><img src="img/facebook.png" width="100px" height="auto" class="img-responsive"/></div>
+                <div class=" col-md-4"><img src="img/twitter.png" width="100px" height="auto" class="img-responsive" /></div>
+                <div class=" col-md-4"><img src="img/googleplus.png" width="100px" height="auto" class="img-responsive" /></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>
+</body>
 
 </html>

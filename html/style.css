@@ -53,6 +53,11 @@
     margin-right: 10px;
 }
 
+.cerrar-sesion {
+    position: relative;
+    float: right;
+}
+
 .navbar-inverse {
     border-radius: initial;
     margin: 0;
@@ -60,7 +65,7 @@
 
 .nav-pills {
     position: relative;
-    float: right;
+    //float: right;
 }
 #nav-pills {
     float: none;
@@ -109,6 +114,8 @@
 hr{
     margin: 20;
 }
+
+
 
 /*---------- MODIFICACIONES BLANCA ----------*/
 
