@@ -33,26 +33,26 @@ The web's private part lets users to modify their profile and include more conte
 INDEX: Main page of the web, where you can see a sample of the content.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/INDEX.png)
 
-REGISTRO/LOGIN - Página a través de la cuál se puede acceder a la parte privada de los usuarios.
-![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/RESGISTRO-LOGIN.png)
+REGISTRO/LOGIN - Page through which the private part of the users can be accessed.
+![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/REGISTRO-LOGIN.png)
 
-CUADRO PRIVADO DE USUARIO - Página donde el usuario puede administrar su cuenta y sus contenidos.
+CUADRO PRIVADO DE USUARIO - Page where the user can manage his account and its contents.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/CUADRO-PRIVADO-USUARIO.png)
 
-RECETAS - Página donde se pueden encontrar todas las recetas.
+RECETAS - Page where you can find all the recipes.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/RECETAS.png)
 
-RESTAURANTES - Página donde se pueden encontrar todos los restaurantes.
+RESTAURANTES - Page where you can find all restaurants.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/RESTAURANTES.png)
 
-EVENTOS - Página donde se pueden encontrar todos los eventos.
+EVENTOS - Page where you can find all the events.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/EVENTOS.png)
 
-PERFIL PÚBLICO - Página donde podemos conocer a un usuario de la página.
+PERFIL PÚBLICO - Page where we can meet a user and his content.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/PERFIL-PUBLICO.png)
 
-CREACIÓN DE CONTENIDO - Página para que los usuarios creen contenido para la página.
+CREACIÓN DE CONTENIDO - Page for users to create content for the page.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/CREACION-DE-CONTENIDO.png)
 
-VISTA DE CONTENIDO - Página donde se encuentra el contenido desplegado
+VISTA DE CONTENIDO - Page where the content is displayed.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/VISTA-DE-CONTENIDO.png)
