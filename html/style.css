@@ -1,3 +1,27 @@
+@import url ('https://fonts.googleapis.com/css?family=Open+Sans');
+
+a {
+	color: #4ab6ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	color: #151414;
+}
+
+h2 {
+	font-size: 38px;
+}
+
+h3 {
+	font-size: 32px;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+	background: #4ab6ff;
+}
+
 .centrado {
 	position: absolute;
 	max-width: 400px;
@@ -525,7 +549,7 @@ hr{
     list-style: none;
 }
 
-.enlaces a{
+.enlaces a, .footer h1{
     color: #fff;
 }
 
@@ -538,6 +562,7 @@ hr{
 /* Recetas y restaurantes */
 .recetas-h1 {
     margin-bottom: 50px;
+    color: #4ab6ff;
 }
 .centrado-pagination {
     position: relative;
@@ -556,8 +581,24 @@ hr{
 .info-usuario {
     padding-left: 4%;
 }
+.info-usuario a h3 {
+	color: inherit;
+	font-size: 24px;
+}
 .ingredientes, .tipo-comida {
 	height: 30px;
+}
+.ingredientes a, .tipo-comida a, .tipo-comida-restaurante a {
+	color: white;
+}
+.ingredientes li:hover, .tipo-comida li:hover, .tipo-comida-restaurante li:hover {
+	background: #23527c;
+}
+.ingredientes a:hover, .tipo-comida a:hover, .tipo-comida-restaurante a:hover {
+	text-decoration: none;
+}
+.ingredientes li:first-child:hover, .tipo-comida li:first-child:hover, .tipo-comida-restaurante li:first-child:hover {
+	background: #777;
 }
 .ingredientes ul, .tipo-comida ul {
 	float: left;
@@ -573,13 +614,15 @@ hr{
     height: auto !important;
     margin-bottom: 20px;
 }
+.contenido p {
+	color: #151414;
+}
 .recetas1, .recetas2, .recetas3 {
     width: 33.33%;
     height: 200px;
     float: left;
 }
 .recetas1 {
-<<<<<<< HEAD
     background: url(img/DulceriaCriolla.jpg) center center no-repeat;
     background-size: 100%;
 }
@@ -590,15 +633,7 @@ hr{
 .recetas3 {
     background: url(img/PizcaAndina.jpg) center center no-repeat;
     background-size: 100%;
-=======
     background: black;
-}
-.recetas2 {
-    background: red;
-}
-.recetas3 {
-    background: blue;
->>>>>>> origin/master
 }
 .comentario {
     width: 100%;
@@ -618,6 +653,20 @@ hr{
     font-weight: bold;
     font-size: 30px;
 }
+
+.thumbnail .caption h3 {
+	color: #4ab6ff;
+}
+
+.thumbnail>a:hover {
+	text-decoration: none;
+}
+
+.thumbnail>a:hover .caption h3 {
+	color: #23527c;
+}
+
+
 /* Fin de receta */
 
 /* Restaurante */
