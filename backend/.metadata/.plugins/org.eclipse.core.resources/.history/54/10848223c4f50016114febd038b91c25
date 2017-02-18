@@ -1,0 +1,28 @@
+package daw.cookcinando;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class recetaController {
+	
+	private List<Receta> recetas = new ArrayList<>();
+	
+	public recetaController() {
+		recetas.add(new Receta("Filete con patatas", "Un filetito con patatas bien rico", "https://media-cdn.tripadvisor.com/media/photo-s/04/4a/66/98/la-casona.jpg", "Proceso de preparacion:"));
+		recetas.add(new Receta("Hamburguesa de pollo", "Una hamburguesa de pollo que no resbala", "http://cdn.kiwilimon.com/recetaimagen/13823/6183.jpg", "Proceso de preparacion:"));
+	}
+	
+	@RequestMapping("/recetas") //Enlace para las recetas
+	public String index (Model model) {
+		model.addAttribute("recetas", recetas);
+		return "recetas";
+	}
+}
