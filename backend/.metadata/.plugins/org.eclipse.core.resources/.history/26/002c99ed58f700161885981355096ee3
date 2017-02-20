@@ -54,7 +54,7 @@
                         <a href="http://twitter.com/share"><img src="../img/twitter.png" width="30px" height="auto" style="margin-left:10px"/></a>
                     </div>
 	                <div class="contenido">
-	                	{{{receta.cuerpo}}}
+	                	{{receta.cuerpo}}
 	                </div>
 	            </div>
 	        </div>
