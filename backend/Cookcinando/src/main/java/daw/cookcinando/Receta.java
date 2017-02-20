@@ -9,6 +9,7 @@ public class Receta {
 	private String cuerpo;
 	private List<String> ingredientes;
 	private List<String> tiposComida;
+	private String prueba;
 	
 	public Receta (String titulo, String descripcion, String thumbnail, String cuerpo, List<String> ingredientes, List<String> tiposComida) {
 		this.titulo = titulo;
