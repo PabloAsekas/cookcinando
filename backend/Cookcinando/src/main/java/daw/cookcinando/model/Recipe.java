@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -20,9 +22,15 @@ public class Recipe {
 	private String title;
 	private String description;
 	private String thumbnail; //Image
+	@Column(length=1000000000)
 	private String preparation; //Cuerpo
 	
+	@Column
+	@ElementCollection
 	private List<String> ingredients = new ArrayList<String>();
+	
+	@Column
+	@ElementCollection(targetClass=String.class)
 	private List<String> typesFood = new ArrayList<String>();
 //	private String tips; //Consejos
 //	private List<String> relatedRecipes; //Recetas relacionadas
