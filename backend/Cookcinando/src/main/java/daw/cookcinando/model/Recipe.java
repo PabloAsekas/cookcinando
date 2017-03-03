@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Recipe {
@@ -22,18 +20,17 @@ public class Recipe {
 	private String title;
 	private String description;
 	private String thumbnail; //Image
+	
 	@Column(length=1000000000)
 	private String preparation; //Cuerpo
 	
 	@Column
-	@ElementCollection
+	@ElementCollection(targetClass=String.class)
 	private List<String> ingredients = new ArrayList<String>();
 	
 	@Column
 	@ElementCollection(targetClass=String.class)
 	private List<String> typesFood = new ArrayList<String>();
-//	private String tips; //Consejos
-//	private List<String> relatedRecipes; //Recetas relacionadas
 	
 	//private User author;
 	
@@ -41,14 +38,13 @@ public class Recipe {
 	
 	public Recipe (String title, String description, String thumbnail, String preparation, 
 			       List<String> ingredients, List<String> typesFood) {
+		super();
 		this.title = title;
 		this.description = description;
 		this.thumbnail = thumbnail; //Image
 		this.preparation = preparation; //Cuerpo
 		this.ingredients = ingredients;
 		this.typesFood = typesFood;
-//		this.tips = tips; //Consejos
-//		this.relatedRecipes = relatedRecipes; //Recetas relacionadas
 		//this.author = author;
 	}
 
