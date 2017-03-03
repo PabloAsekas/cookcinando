@@ -103,8 +103,16 @@ public class RecipeController {
 	
 	@RequestMapping("/privado/crearreceta")
 	public String crearreceta(Model model, @RequestParam String titulo, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
-		List<String> ingredientesRecetas = new ArrayList<>(Arrays.asList(ingredientes.split(" , ")));//no funciona el separar por comas
-		List<String> comidasRecetas = new ArrayList<>(Arrays.asList(comidas.split(" , ")));
+		List<String> ingredientesRecetas = new ArrayList<>();
+		String ingredientesSeparados[] = ingredientes.split(",");
+		for(int i=0; i<ingredientesSeparados.length; i++){
+			ingredientesRecetas.add(ingredientesSeparados[i]);
+		}
+		List<String> comidasRecetas = new ArrayList<>();
+		String comidasSeparadas[] = comidas.split(",");
+		for(int i=0; i<comidasSeparadas.length; i++){
+			comidasRecetas.add(comidasSeparadas[i]);
+		}
 		Recipe recipe = new Recipe(titulo, "", "", cuerpo, ingredientesRecetas, comidasRecetas);
 		model.addAttribute("receta", recipe);
 		return "editarReceta";
