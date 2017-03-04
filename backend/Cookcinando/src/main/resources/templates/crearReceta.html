@@ -14,6 +14,10 @@
 	    <script>
 	        $(document).ready(function() {
 	            $("#txtEditor").Editor();
+	            $( "#form-receta" ).submit(function( event ) {
+	        	 	var contenido = $('#txtEditor').Editor("getText");
+	        	 	$('#txtEditor').val(contenido);
+	        	});
 	        });
 	        $(document).ready(function(){
 	            $('[data-toggle="popover"]').popover();   
@@ -65,7 +69,7 @@
 	                    <h1>Añadir nueva receta</h1>
 	                </div>
 	                <div class="inputs-receta">
-	                	<form action="crearreceta" method="POST">
+	                	<form action="crearreceta" method="POST" id="form-receta">
 		                    <input type="text" name="titulo" class="form-control" placeholder="Título">
 		                    <h2>Cuerpo de la receta</h2>
 		                    <div class="col-md-12 nopadding editorHTML">

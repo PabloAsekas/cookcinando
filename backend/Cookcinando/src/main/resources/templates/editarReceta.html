@@ -5,11 +5,16 @@
 		<title></title>
 	</head>
 	<body>
+	<h1>{{receta.title}}</h1>
+	<h3>Preparacion</h3>
+	<p>{{receta.preparation}}</p>
+	<a>Ingredientes:</a>
 		{{#receta.ingredients}}
 			<ul>
 				<li>{{.}}</li>
 			</ul>
 		{{/receta.ingredients}}
+	<a>Tipos de comida:</a>
 		{{#receta.typesFood}}
 			<ul>
 				<li>{{.}}</li>
@@ -17,3 +22,4 @@
 		{{/receta.typesFood}}
 	</body>
 </html>
+
