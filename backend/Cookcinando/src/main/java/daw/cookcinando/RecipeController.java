@@ -115,6 +115,13 @@ public class RecipeController {
 		}
 		Recipe recipe = new Recipe(titulo, "", "", cuerpo, ingredientesRecetas, comidasRecetas);
 		model.addAttribute("receta", recipe);
-		return "editarReceta";
+		recipeRepository.save(recipe);
+		model.addAttribute("receta", recipe);
+		List<Recipe> recomendadas = new ArrayList<Recipe>();
+		for (long i = 1; i < 4; i++) {
+			recomendadas.add(recipeRepository.getOne(i));
+		}
+		model.addAttribute("recomendadas", recomendadas);
+		return "receta";
 	}
 }
