@@ -1,6 +1,9 @@
 package daw.cookcinando.security;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,7 +20,10 @@ public class WebController {
     }
 	
 	@RequestMapping("/nuevareceta")
-    public String nuevaReceta() {
+    public String nuevaReceta(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
         return "crearReceta";
     }
 }

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="security_ejem1"/>
+<aop-project name="security_ejem2"/>
+<aop-project name="security_ejem3"/>
+<aop-project name="security_ejem4"/>
+<aop-project name="security_ejem5"/>
+<aop-project name="security_ejem6"/>
+<aop-project name="security_ejem3b"/>
 <aop-project name="cookcinando"/>
 </aop-reference-model>

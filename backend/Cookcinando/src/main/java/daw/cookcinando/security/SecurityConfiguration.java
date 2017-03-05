@@ -18,7 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/recetas").permitAll();
 		
 		//Private pages
-		http.authorizeRequests().antMatchers("/nuevareceta").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers("/nuevareceta").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
 		
 		//Login form
 		http.formLogin().loginPage("/login");
@@ -38,8 +38,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		//USERS
-		auth.inMemoryAuthentication().withUser("user").password("pass").roles("USER");
-		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("USER","ADMIN");
+		auth.inMemoryAuthentication().withUser("basic").password("pass").roles("BASIC");
+		auth.inMemoryAuthentication().withUser("enterprise").password("pass").roles("BASIC","ENTERPRISE");
+		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("BASIC","ENTERPRISE","ADMIN");
 	}
 
 	
