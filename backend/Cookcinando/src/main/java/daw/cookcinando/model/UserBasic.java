@@ -24,8 +24,8 @@ public class UserBasic extends User {
 	protected UserBasic(){}
 	
 	public UserBasic(String name, String surname, String description, String image, String nick,
-		    		 String email, String password){
-		super(name,surname,description,image,nick,email,password);
+		    		 String email, String password,String... roles){
+		super(name,surname,description,image,nick,email,password,roles);
 		this.myRecipes = new ArrayList<Recipe>();
 	}
 

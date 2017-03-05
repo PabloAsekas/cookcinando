@@ -1,5 +1,6 @@
 package daw.cookcinando.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,6 +8,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	public UserRepositoryAuthenticationProvider authenticationProvider;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -16,6 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/login").permitAll();
 		http.authorizeRequests().antMatchers("/logout").permitAll();
 		http.authorizeRequests().antMatchers("/recetas").permitAll();
+		http.authorizeRequests().antMatchers("/crearreceta").permitAll();
 		
 		//Private pages
 		http.authorizeRequests().antMatchers("/nuevareceta").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
@@ -37,10 +42,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
+		// Database authentication provider
+		auth.authenticationProvider(authenticationProvider);
+		
 		//USERS
-		auth.inMemoryAuthentication().withUser("basic").password("pass").roles("BASIC");
-		auth.inMemoryAuthentication().withUser("enterprise").password("pass").roles("BASIC","ENTERPRISE");
-		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("BASIC","ENTERPRISE","ADMIN");
+//		auth.inMemoryAuthentication().withUser("basic").password("pass").roles("BASIC");
+//		auth.inMemoryAuthentication().withUser("enterprise").password("pass").roles("BASIC","ENTERPRISE");
+//		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("BASIC","ENTERPRISE","ADMIN");
 	}
 
 	

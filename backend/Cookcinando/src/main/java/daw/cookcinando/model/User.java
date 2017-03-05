@@ -1,9 +1,17 @@
 package daw.cookcinando.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
@@ -18,7 +26,10 @@ public class User {
 	private String image;
 	private String nick;
 	private String email;
-	private String password;
+	private String passwordHash;
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
 	
 	//private Favorites favorites;
 //	private List<Recipe> recipes;
@@ -28,7 +39,7 @@ public class User {
 	protected User(){}
 	
 	public User(String name, String surname, String description, String image, String nick,
-			    String email, String password){
+			    String email, String password, String... roles){
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -36,7 +47,8 @@ public class User {
 		this.image = image;
 		this.nick = nick;
 		this.email = email;
-		this.password = password;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public long getId() {
@@ -95,17 +107,26 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPasswordHash() {
+		return passwordHash;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", description=" + description
-				+ ", image=" + image + ", nick=" + nick + ", email=" + email + ", password=" + password + "]";
+				+ ", image=" + image + ", nick=" + nick + ", email=" + email + ", passwordHash=" + passwordHash
+				+ ", roles=" + roles + "]";
 	}
 }

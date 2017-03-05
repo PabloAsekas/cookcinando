@@ -114,7 +114,6 @@ public class RecipeController {
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
 		Recipe recipe = new Recipe(titulo, "", "", cuerpo, ingredientesRecetas, comidasRecetas);
-		model.addAttribute("receta", recipe);
 		recipeRepository.save(recipe);
 		model.addAttribute("receta", recipe);
 		List<Recipe> recomendadas = new ArrayList<Recipe>();

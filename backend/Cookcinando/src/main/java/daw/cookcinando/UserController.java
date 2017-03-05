@@ -10,13 +10,13 @@ import daw.cookcinando.model.UserBasic;
 @Controller
 public class UserController {
 
-	@Autowired
-	private UserRepository userRepository;
-	
-	@PostConstruct
-	public void init() {
-		UserBasic basic = new UserBasic("A", "A", "A", "A", "A","A","A");
-		userRepository.save(basic);
-		
-	}
+//	@Autowired
+//	private UserRepository userRepository;
+//	
+//	@PostConstruct
+//	public void init() {
+//		UserBasic basic = new UserBasic("A", "A", "A", "A", "A","A","A");
+//		userRepository.save(basic);
+//		
+//	}
 }
