@@ -1,0 +1,5 @@
+package daw.cookcinando.security;
+
+public class WebController {
+
+}
