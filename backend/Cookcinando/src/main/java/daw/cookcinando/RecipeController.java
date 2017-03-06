@@ -123,4 +123,41 @@ public class RecipeController {
 		model.addAttribute("recomendadas", recomendadas);
 		return "receta";
 	}
+	
+	@RequestMapping("/privado/modificarReceta")
+	public String modificarReceta(Model model){
+		long  numero = 1;
+		Recipe receta = recipeRepository.findOne(numero);
+		model.addAttribute("receta", receta);
+		return "formularioEditar";
+	}
+	
+	@RequestMapping("/privado/editarreceta")
+	public String editarreceta(Model model, @RequestParam Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
+		List<String> ingredientesRecetas = new ArrayList<>();
+		String ingredientesSeparados[] = ingredientes.split(",");
+		for(int i=0; i<ingredientesSeparados.length; i++){
+			ingredientesRecetas.add(ingredientesSeparados[i]);
+		}
+		List<String> comidasRecetas = new ArrayList<>();
+		String comidasSeparadas[] = comidas.split(",");
+		for(int i=0; i<comidasSeparadas.length; i++){
+			comidasRecetas.add(comidasSeparadas[i]);
+		}
+		Recipe recipe = recipeRepository.findOne(id);
+		recipe.setTitle(titulo);
+		recipe.setDescription(descripcion);
+		recipe.setPreparation(cuerpo);
+		recipe.setIngredients(ingredientesRecetas);
+		recipe.setTypesFood(comidasRecetas);
+		recipeRepository.save(recipe);
+		model.addAttribute("receta", recipe);
+		
+		List<Recipe> recomendadas = new ArrayList<Recipe>();
+		for (long i = 1; i < 4; i++) {
+			recomendadas.add(recipeRepository.getOne(i));
+		}
+		model.addAttribute("recomendadas", recomendadas);
+		return "receta";
+	}
 }
