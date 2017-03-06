@@ -102,7 +102,7 @@ public class RecipeController {
 	}
 	
 	@RequestMapping("/privado/crearreceta")
-	public String crearreceta(Model model, @RequestParam String titulo, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
+	public String crearreceta(Model model, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
 		for(int i=0; i<ingredientesSeparados.length; i++){
@@ -113,7 +113,7 @@ public class RecipeController {
 		for(int i=0; i<comidasSeparadas.length; i++){
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
-		Recipe recipe = new Recipe(titulo, "", "", cuerpo, ingredientesRecetas, comidasRecetas);
+		Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas);
 		recipeRepository.save(recipe);
 		model.addAttribute("receta", recipe);
 		List<Recipe> recomendadas = new ArrayList<Recipe>();
