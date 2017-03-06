@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -97,12 +98,14 @@ public class RecipeController {
 	}
 	
 	@RequestMapping("/privado/recetas/crear")
-	public String nuevaReceta(Model model) {
+	public String nuevaReceta(Model model, HttpServletRequest request) {
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "crearReceta";
 	}
 	
 	@RequestMapping("/privado/recetas/form-crear")
-	public String crearreceta(Model model, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
+	public String crearreceta(Model model, HttpServletRequest request, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
 		for(int i=0; i<ingredientesSeparados.length; i++){
@@ -121,6 +124,8 @@ public class RecipeController {
 			recomendadas.add(recipeRepository.getOne(i));
 		}
 		model.addAttribute("recomendadas", recomendadas);
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return ("redirect:/recetas/"+recipe.getId());
 	}
 	

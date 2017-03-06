@@ -61,9 +61,47 @@
 	                            <ul class="list-group">
 	                              <li class="list-group-item"><a href="privado-ubasico-mis-recetas.html"> Mis Recetas</a></li>
 	                              <li class="list-group-item"><a href="privado-ubasico-anadir-receta.html">Añadir Receta</a></li>
+	                              {{#admin}}
+	                              <li class="list-group-item"><a href="privado-uadmin-todas-las-recetas.html">Todas las recetas</a></li>
+	                              {{/admin}}
 	                            </ul>
 	                        </div>
 	                    </li>
+	                    
+	                    {{#enterprise}}
+	                    <li>
+	                        <a data-toggle="collapse" href="#restaurantes-privado">Restaurantes <span class="caret"></span></a>
+	                        <div id="restaurantes-privado" class="collapse">
+	                            <ul class="list-group">         	
+	                              <li class="list-group-item"><a href="privado-uadmin-mis-restaurantes.html">Mis Restaurantes</a></li>
+	                              <li class="list-group-item"><a href="privado-uadmin-anadir-restaurante.html">Añadir Restaurante</a></li> 
+	                              {{#admin}}
+	                              <li class="list-group-item"><a href="privado-uadmin-todos-los-restaurantes.html">Todos los restaurantes</a></li>
+	                              {{/admin}}
+	                            </ul>
+	                        </div> 
+                    	</li>
+                    	{{/enterprise}}
+	                    
+	                    {{#enterprise}}
+	                    <li>
+	                        <a data-toggle="collapse" href="#eventos-privado">Eventos <span class="caret"></span></a>
+	                        <div id="eventos-privado" class="collapse">
+	                            <ul class="list-group">
+	                              <li class="list-group-item"><a href="privado-uadmin-mis-eventos.html">Mis Eventos</a></li>
+	                              <li class="list-group-item"><a href="privado-uadmin-anadir-evento.html">Añadir Evento</a></li> 
+	                              {{#admin}}
+	                              <li class="list-group-item"><a href="privado-uadmin-todos-los-eventos.html">Todos los eventos</a></li> 
+	                              {{/admin}}  
+	                            </ul>
+	                        </div>
+                    	</li>
+                    	{{/enterprise}} 
+       					{{#admin}}
+	                    <li>
+	                        <a href="privado-uadmin-usuarios.html">Usuarios</a>
+	                    </li>
+	                    {{/admin}}
 	                    <li>
 	                        <a href="privado-ubasico-ajustes.html">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
 	                    </li>

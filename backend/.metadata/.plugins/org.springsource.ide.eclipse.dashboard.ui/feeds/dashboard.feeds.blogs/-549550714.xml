@@ -5,7 +5,7 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-03-03T17:09:27Z</updated>
+  <updated>2017-03-03T17:09:00Z</updated>
   <entry>
     <title>Spring Boot 1.4.5 and 1.5.2 Available Now</title>
     <link rel="alternate" href="https://spring.io/blog/2017/03/03/spring-boot-1-4-5-and-1-5-2-available-now" />
@@ -14,11 +14,11 @@
       <name>Stéphane Nicoll</name>
     </author>
     <id>tag:spring.io,2017-03-03:2859</id>
-    <updated>2017-03-03T17:09:27Z</updated>
-    <content type="html">&lt;p&gt;It is my pleasure to announce that Spring Boot &lt;code&gt;1.4.5&lt;/code&gt; and &lt;code&gt;1.5.2&lt;/code&gt; haven been released and are available now from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;
+    <updated>2017-03-03T17:09:00Z</updated>
+    <content type="html">&lt;p&gt;It is my pleasure to announce that Spring Boot &lt;code&gt;1.4.5&lt;/code&gt; and &lt;code&gt;1.5.2&lt;/code&gt; have been released and are available now from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;
 &lt;p&gt;Spring Boot 1.4.5 includes &lt;a href="https://github.com/spring-projects/spring-boot/milestone/81?closed=1"&gt;50 fixes and a selection of improvements and dependency upgrades&lt;/a&gt;. The second (&lt;a href="https://spring.io/blog/2017/01/30/spring-boot-1-5-1-released#what-happened-to-1-5-0"&gt;first, really!&lt;/a&gt;) maintenance release of the 1.5 line contains &lt;a href="https://github.com/spring-projects/spring-boot/milestone/83?closed=1"&gt;over 60 fixes, improvements and 3rd party dependency updates&lt;/a&gt;. Thanks to all that have contributed!&lt;/p&gt;&lt;h3&gt;&lt;a href="#what-rsquo-s-next" class="anchor" name="what-rsquo-s-next"&gt;&lt;/a&gt;What&amp;rsquo;s next?&lt;/h3&gt;
 &lt;p&gt;The team is now working full speed on Spring Boot 2: a first milestone, including the first release candidate of Spring Framework 5, is expected early April. There are quite a lot of reactive-related features already in 2.0 snapshots. If you’d like to try them out, and we’d love to hear your feedback if you do, please go to &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt; and look for the Reactive starters.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask at &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask at &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
   <entry>
