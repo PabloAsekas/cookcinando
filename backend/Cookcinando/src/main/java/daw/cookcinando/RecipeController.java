@@ -124,16 +124,15 @@ public class RecipeController {
 		return "receta";
 	}
 	
-	@RequestMapping("/privado/modificarReceta")
-	public String modificarReceta(Model model){
-		long  numero = 1;
-		Recipe receta = recipeRepository.findOne(numero);
+	@RequestMapping("/privado/modificarReceta/{id}")
+	public String modificarReceta(Model model, @PathVariable Long id){
+		Recipe receta = recipeRepository.findOne(id);
 		model.addAttribute("receta", receta);
 		return "formularioEditar";
 	}
 	
-	@RequestMapping("/privado/editarreceta")
-	public String editarreceta(Model model, @RequestParam Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
+	@RequestMapping("/privado/editarreceta/{id}")
+	public String editarreceta(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
 		for(int i=0; i<ingredientesSeparados.length; i++){
@@ -151,13 +150,14 @@ public class RecipeController {
 		recipe.setIngredients(ingredientesRecetas);
 		recipe.setTypesFood(comidasRecetas);
 		recipeRepository.save(recipe);
+/*		No hace falta añadir cosas al model porque llamando a receta/id hace que se cargue todo
 		model.addAttribute("receta", recipe);
-		
 		List<Recipe> recomendadas = new ArrayList<Recipe>();
 		for (long i = 1; i < 4; i++) {
 			recomendadas.add(recipeRepository.getOne(i));
 		}
 		model.addAttribute("recomendadas", recomendadas);
-		return "receta";
+*/
+		return ("redirect:/receta/"+id);
 	}
 }

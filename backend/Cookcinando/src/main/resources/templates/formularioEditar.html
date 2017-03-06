@@ -4,13 +4,15 @@
 	<head>
 		<meta charset="UTF-8">
 	    <title>Cookcinando</title>
-	    <link rel="stylesheet" href="../js/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="../js/css/bootstrap-theme.min.css">
-	    <link rel="stylesheet" href="../style.css">
+	    <link rel="stylesheet" href="../../js/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="../../js/css/bootstrap-theme.min.css">
+	    <link rel="stylesheet" href="../../style.css">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <script src="../js/jquery.min.js"></script>
-	    <script src="../js/js/bootstrap.min.js"></script>
-	    <script src="../js/editor.js"></script>
+	    <script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/js/bootstrap.min.js"></script>
+	    <script src="../../js/editor.js"></script>
+	     <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
+	    <link href="../../js/editor.css" type="text/css" rel="stylesheet"/>
 	    <script>
 	        $(document).ready(function() {
 	            $("#txtEditor").Editor();
@@ -28,8 +30,6 @@
 	            $('[data-toggle="popover"]').popover();   
 	        });
 	    </script>
-	    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-	    <link href="../js/editor.css" type="text/css" rel="stylesheet"/>
 	</head>
 	
 	<body>
@@ -74,7 +74,7 @@
 	                    <h1>Editar receta</h1>
 	                </div>
 	                <div class="inputs-receta">
-	                	<form action="editarreceta" method="POST" id="form-receta">
+	                	<form action="/privado/editarreceta/{{receta.id}}" method="POST" id="form-receta">
 		                	<input type="hidden" name="id" class="form-control" value="{{receta.id}}">
 		                	<h3>Título</h3>
 		                	<input type="text" name="titulo" class="form-control" value="{{receta.title}}">
