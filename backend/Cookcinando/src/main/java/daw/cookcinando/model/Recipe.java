@@ -32,7 +32,8 @@ public class Recipe {
 	@ElementCollection(targetClass=String.class)
 	private List<String> typesFood = new ArrayList<String>();
 	
-	private User author;
+	
+	//private User author;
 	
 	protected Recipe(){}
 	
@@ -104,13 +105,13 @@ public class Recipe {
 		this.typesFood = typesFood;
 	}
 
-	public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
-	}
+//	public User getAuthor() {
+//		return author;
+//	}
+//
+//	public void setAuthor(User author) {
+//		this.author = author;
+//	}
 
 	@Override
 	public String toString() {
