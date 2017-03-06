@@ -1,5 +1,0 @@
-package daw.cookcinando.security;
-
-public class UserRepositoryAuthenticationProvider {
-
-}
