@@ -40,7 +40,7 @@ public class Recipe {
 	protected Recipe(){}
 	
 	public Recipe (String title, String description, String thumbnail, String preparation, 
-			       List<String> ingredients, List<String> typesFood) {
+			       List<String> ingredients, List<String> typesFood, User author) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -48,7 +48,7 @@ public class Recipe {
 		this.preparation = preparation; //Cuerpo
 		this.ingredients = ingredients;
 		this.typesFood = typesFood;
-		//this.author = author;
+		this.author = author;
 	}
 
 	public long getId() {

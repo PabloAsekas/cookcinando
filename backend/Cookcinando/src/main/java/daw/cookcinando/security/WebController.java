@@ -11,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import daw.cookcinando.RecipeRepository;
 import daw.cookcinando.model.Recipe;
+import daw.cookcinando.repository.RecipeRepository;
 
 @Controller
 public class WebController {
@@ -32,7 +32,7 @@ public class WebController {
         return "login";
     }
 	
-	@RequestMapping("/crearreceta")
+	/*@RequestMapping("/crearreceta")
 	public String receta(Model model, @RequestParam String titulo, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
@@ -44,7 +44,7 @@ public class WebController {
 		for(int i=0; i<comidasSeparadas.length; i++){
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
-		Recipe recipe = new Recipe(titulo, "", "", cuerpo, ingredientesRecetas, comidasRecetas);
+		Recipe recipe = new Recipe(titulo, "", "", cuerpo, ingredientesRecetas, comidasRecetas,null);
 		recipeRepository.save(recipe);
 		model.addAttribute("receta", recipe);
 		List<Recipe> recomendadas = new ArrayList<Recipe>();
@@ -53,6 +53,6 @@ public class WebController {
 		}
 		model.addAttribute("recomendadas", recomendadas);
 		return "receta";
-    }
+    }*/
 	
 }
