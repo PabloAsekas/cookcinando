@@ -22,12 +22,16 @@ public class RecipeController {
 	
 	@Autowired
 	private RecipeRepository recipeRepository;
+	
+	//@Autowired
+	//private UserRepository userRepository;
+	
 	private List<String> ingredients = new ArrayList<>();
 	private List<String> typesFood = new ArrayList<>();
 	
 	@PostConstruct
 	public void init() {
-		
+		//System.out.println(userRepository.findAll());
 		ingredients.add("Ingrediente1");
 		ingredients.add("Ingrediente2");
 		ingredients.add("Ingrediente3");

@@ -3,12 +3,14 @@ package daw.cookcinando.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserBasic extends User {
@@ -18,7 +20,7 @@ public class UserBasic extends User {
 	private long id;
 	
 	@Column
-	@ElementCollection(targetClass=String.class)
+	@OneToMany(mappedBy="author", cascade=CascadeType.ALL)
 	private List<Recipe> myRecipes;
 	
 	protected UserBasic(){}
@@ -43,6 +45,10 @@ public class UserBasic extends User {
 
 	public void setMyRecipes(List<Recipe> myRecipes) {
 		this.myRecipes = myRecipes;
+	}
+	
+	public void setRecipe(Recipe recipe) {
+		this.myRecipes.add(recipe);
 	}
 
 	@Override

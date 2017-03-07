@@ -19,4 +19,10 @@
 <fullyQualifiedTypeName name="daw.cookcinando.UserRepository"/>
 <fullyQualifiedTypeName name="daw.cookcinando.model.User"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Recipe"/>
+<fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
 </qualifiedTypeNameHistroy>

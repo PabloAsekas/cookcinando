@@ -3,6 +3,7 @@ package daw.cookcinando.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -18,8 +19,8 @@ public class UserEnterprise extends User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-//	@OneToMany(mappedBy="author")
-//	private List<Recipe> myRecipes;
+	@OneToMany(mappedBy="author", cascade=CascadeType.ALL)
+	private List<Recipe> myRecipes;
 	
 //	@OneToMany
 //	private List<Restaurant> myRestaurants;
@@ -32,7 +33,7 @@ public class UserEnterprise extends User {
 	public UserEnterprise(String name, String surname, String description, String image, String nick,
 		    		 	  String email, String password){
 		super(name,surname,description,image,nick,email,password);
-		//this.myRecipes = new ArrayList<Recipe>();
+		this.myRecipes = new ArrayList<Recipe>();
 //		this.myRestaurants = new ArrayList<Restaurant>();
 //		this.myEvents = new ArrayList<Event>();
 	}
@@ -45,13 +46,13 @@ public class UserEnterprise extends User {
 		this.id = id;
 	}
 
-//	public List<Recipe> getMyRecipes() {
-//		return myRecipes;
-//	}
-//
-//	public void setMyRecipes(List<Recipe> myRecipes) {
-//		this.myRecipes = myRecipes;
-//	}
+	public List<Recipe> getMyRecipes() {
+		return myRecipes;
+	}
+
+	public void setMyRecipes(List<Recipe> myRecipes) {
+		this.myRecipes = myRecipes;
+	}
 
 //	public List<Restaurant> getMyRestaurants() {
 //		return myRestaurants;

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Recipe {
@@ -32,8 +34,8 @@ public class Recipe {
 	@ElementCollection(targetClass=String.class)
 	private List<String> typesFood = new ArrayList<String>();
 	
-	
-	//private User author;
+	@ManyToOne
+	private User author;
 	
 	protected Recipe(){}
 	
@@ -105,17 +107,18 @@ public class Recipe {
 		this.typesFood = typesFood;
 	}
 
-//	public User getAuthor() {
-//		return author;
-//	}
-//
-//	public void setAuthor(User author) {
-//		this.author = author;
-//	}
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
 
 	@Override
 	public String toString() {
 		return "Recipe [id=" + id + ", title=" + title + ", description=" + description + ", thumbnail=" + thumbnail
-				+ ", preparation=" + preparation + ", ingredients=" + ingredients + ", typesFood=" + typesFood + "]";
+				+ ", preparation=" + preparation + ", ingredients=" + ingredients + ", typesFood=" + typesFood
+				+ ", author=" + author + "]";
 	}
 }
