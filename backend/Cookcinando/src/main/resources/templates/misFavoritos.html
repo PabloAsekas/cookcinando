@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cookcinando</title>
+    <link rel="stylesheet" href="js/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 titulo">
+                <a href="index.html"><h1>Cookcinando</h1></a>
+            </div>
+            <div class="col-md-5 menu">
+                <ul class="nav nav-pills cerrar-sesion">
+                    <li class="active"><a href="index.html">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="privado-ubasico-perfil.html">Mi Cuenta</a>
+                    </li>
+                    <li class="active">
+                        <a href="privado-ubasico-favoritos.html">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#recetas-privado">Recetas <span class="caret"></span></a>
+                        <div id="recetas-privado" class=" collapse">
+                            <ul class="list-group">
+                              <li class="list-group-item"><a href="privado-ubasico-mis-recetas.html"> Mis Recetas</a></li>
+                              <li class="list-group-item"><a href="privado-ubasico-anadir-receta.html">Añadir Receta</a></li>
+                              {{#admin}}
+                              <li class="list-group-item"><a href="privado-uadmin-todas-las-recetas.html">Todas las recetas</a></li>
+                              {{/admin}}
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    {{#enterprise}}
+                    <li>
+                        <a data-toggle="collapse" href="#restaurantes-privado">Restaurantes <span class="caret"></span></a>
+                        <div id="restaurantes-privado" class="collapse">
+                            <ul class="list-group">         	
+                              <li class="list-group-item"><a href="privado-uadmin-mis-restaurantes.html">Mis Restaurantes</a></li>
+                              <li class="list-group-item"><a href="privado-uadmin-anadir-restaurante.html">Añadir Restaurante</a></li> 
+                              {{#admin}}
+                              <li class="list-group-item"><a href="privado-uadmin-todos-los-restaurantes.html">Todos los restaurantes</a></li>
+                              {{/admin}}
+                            </ul>
+                        </div> 
+                	</li>
+                	{{/enterprise}}   
+                    
+                    {{#enterprise}} 
+                    <li>
+                        <a data-toggle="collapse" href="#eventos-privado">Eventos <span class="caret"></span></a>
+                        <div id="eventos-privado" class="collapse">
+                            <ul class="list-group">
+                              <li class="list-group-item"><a href="privado-uadmin-mis-eventos.html">Mis Eventos</a></li>
+                              <li class="list-group-item"><a href="privado-uadmin-anadir-evento.html">Añadir Evento</a></li> 
+                              {{#admin}}
+                              <li class="list-group-item"><a href="privado-uadmin-todos-los-eventos.html">Todos los eventos</a></li> 
+                              {{/admin}}  
+                            </ul>
+                        </div>
+                	</li>
+                	{{/enterprise}} 
+   					{{#admin}}
+                    <li>
+                        <a href="privado-uadmin-usuarios.html">Usuarios</a>
+                    </li>
+                    {{/admin}}
+                    <li>
+                        <a href="privado-ubasico-ajustes.html">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="cabecera-subrayada">
+                    <h1>Favoritos</h1>
+                </div>
+                <div>
+                    <div class="container col-md-12 contenedor-variado">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#favrecetas">Recetas <span class="badge">6</span></a></li>
+                            <li><a data-toggle="tab" href="#favrestaurantes">Restaurantes <span class="badge">6</span></a></li>
+                            <li><a data-toggle="tab" href="#faveventos">Eventos <span class="badge">3</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div id="favrecetas" class="tab-pane fade in active">
+                            <div class="container-fluid recetasFav">
+                                <a href="publico-receta-uregistrado.html">
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="img/RibsGrande.jpg" alt="Pabellon Criollo">
+                                            <div class="caption">
+                                                <h3>Costillas BBQ</h3>
+                                                <p>Las famosas del Ribs</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="publico-receta-uregistrado.html">
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="img/FavoritoGrande4.png" alt="Pabellon Criollo">
+                                            <div class="caption">
+                                                <h3>Tortilla de Patatas</h3>
+                                                <p>Plato español</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="publico-receta-uregistrado.html">
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="img/FavoritoGrande3.png" alt="Pabellon Criollo">
+                                            <div class="caption">
+                                                <h3>Pulpo a la Gallega</h3>
+                                                <p>Plato de Galicia</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="publico-receta-uregistrado.html">
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="img/FavoritoGrande2.png" alt="Pabellon Criollo">
+                                            <div class="caption">
+                                                <h3>Raviolis con Salsa de Queso</h3>
+                                                <p>Plato de pasta exquisíto</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                                <a href="publico-receta-uregistrado.html">
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="img/FavoritoGrande1.png" alt="Pabellon Criollo">
+                                            <div class="caption">
+                                                <h3>Burger Queso de Cabra y Nueces</h3>
+                                                <p>Revolucionando los sabores clásicos</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="publico-receta-uregistrado.html">
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="img/FosterGrande.jpg" alt="Pabellon Criollo">
+                                            <div class="caption">
+                                                <h3>Bacon Cheese Fries</h3>
+                                                <p>Del Foster's a tu casaasdfdddddddddddddddddddd ddasdfasd</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>    
+                            </div>
+                        </div>
+                        <div id="favrestaurantes" class="tab-pane fade">
+                            
+                                <div class="container-fluid restaurantesFav">
+                                    <a href="publico-restaurante-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/TGBGrande.jpg" alt="Pabellon Criollo">
+                                                <div class="caption">
+                                                    <h3>The good burger</h3>
+                                                    <p>Especialistas de la hamburguesa</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a> 
+                                    <a href="publico-restaurante-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/FosterGrande.jpg" alt="Pabellon Criollo">
+                                                <div class="caption">
+                                                    <h3>Foster Hollywood</h3>
+                                                    <p>Sabor americano de alta calidad</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="publico-restaurante-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/RibsGrande.jpg" alt="Pabellon Criollo">    
+                                                <div class="caption">
+                                                    <h3>RIBS</h3>
+                                                    <p>De las mejores parrillas actualmente</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="publico-restaurante-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/TagliatellaGrande.jpg" alt="Pabellon Criollo">
+                                                <div class="caption">
+                                                    <h3>Tagliatella</h3>
+                                                    <p>El toque italiano más fresco</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="publico-restaurante-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/telepizza.png" alt="Pabellon Criollo"> 
+                                                <div class="caption">
+                                                    <h3>Telepizza</h3>
+                                                    <p>Uno de los referentes en pizzas</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a> 
+                                    <a href="publico-restaurante-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/kfc.png" alt="Pabellon Criollo">   
+                                                <div class="caption">
+                                                    <h3>KFC</h3>
+                                                    <p>Expertos del pollo frito</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>    
+                                </div>
+                             </div>
+                        <div id="faveventos" class="tab-pane fade">
+                                <div class="container-fluid restaurantesFav">
+                                    <a href="publico-evento-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/taller-cocteleria.jpg" alt="Taller cocteleria">
+                                                <div class="caption">
+                                                    <h3>Taller de coctelería</h3>
+                                                    <p>Perfecto para ser el rey o la reina de la fiesta.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="publico-evento-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/curso-de-cortar-jamon.jpg" alt="Curso de cortar jamon">   
+                                                <div class="caption">
+                                                    <h3>Aprende a cortar jamón</h3>
+                                                    <p>Incluye un jamón ibérico de 7/8 kg.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="publico-evento-uregistrado.html">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail">
+                                                <img src="img/cata-de-quesos.jpg" alt="Cata de quesos">  
+                                                <div class="caption">
+                                                    <h3>Cata de quesos y maridaje</h3>
+                                                    <p>Recorrido por diferentes quesos del mundo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>    
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer">
+        <div class="row">
+            <div class="col-md-3 logo">
+                <a href="index.html"><h1>Cookcinando</h1></a>
+            </div>
+            <div class="col-md-5 enlaces">
+                <h1>ENLACES</h1>
+                <div class="col-md-4">
+                    <ul>
+                        <li>Acerca de</li>
+                        <li>Ayuda</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <a href="publico-recetas.html"><li>Recetas</li></a>
+                        <a href="publico-restaurantes.html"><li>Restaurantes</li></a>
+                        <a href="publico-eventos.html"><li>Eventos</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 imagenes"> 
+                <h1>REDES SOCIALES</h1>
+                <div class=" col-md-4"><a href="https://www.facebook.com/"><img src="img/facebook.png" width="100px" height="auto" class="img-responsive"/></a></div>
+                <div class=" col-md-4"><a href="https://twitter.com/?lang=es"><img src="img/twitter.png" width="100px" height="auto" class="img-responsive" /></a></div>
+                <div class=" col-md-4"><a href="https://accounts.google.com/"><img src="img/googleplus.png" width="100px" height="auto" class="img-responsive"/></a></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>
+</body>
+
+</html>
