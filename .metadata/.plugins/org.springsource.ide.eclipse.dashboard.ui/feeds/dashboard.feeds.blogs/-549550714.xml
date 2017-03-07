@@ -5,7 +5,33 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-03-03T17:09:00Z</updated>
+  <updated>2017-03-07T01:01:00Z</updated>
+  <entry>
+    <title>This Week in Spring - March 7th, 2017</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/03/07/this-week-in-spring-march-7th-2017" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2017-03-07:2861</id>
+    <updated>2017-03-07T01:01:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! As usual, we&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring ninja Stéphane Nicoll &lt;a href="https://spring.io/blog/2017/03/03/spring-boot-1-4-5-and-1-5-2-available-now"&gt;has just announced Spring Boot 1.4.5 and 1.5.2&lt;/a&gt;, both of which are packed with small improvements and bug-fixes.&lt;/li&gt;
+  &lt;li&gt;Spring Security ninja Joe Grandja just &lt;a href="https://spring.io/blog/2017/03/03/spring-security-oauth-2-1-0-and-2-0-13-released"&gt;announced Spring Security OAuth 2.1.0 and 2.0.13&lt;/a&gt;. This release includes new features supporting JSON Web Signature (JWS) verification using JSON Web Key (JWK). This feature provides support for authorization servers and have implemented key rollover/rotation.&lt;/li&gt;
+  &lt;li&gt;Spring Security lead &lt;a href="https://spring.io/blog/2017/03/02/spring-security-4-2-2-released"&gt;Rob Winch just announced Spring Security 4.2.2, a bug-fix release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I liked this &lt;a href="https://www.infoq.com/news/2017/02/scdf-for-cloudfoundry"&gt;InfoQ interview with the Spring Cloud Data Flow&amp;rsquo;s Eric Bottard&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;last week, continuing the Spring Tips series, &lt;a href="https://spring.io/blog/2017/03/01/spring-tips-programmatic-bean-registration-in-spring-framework-5"&gt;we looked at Spring 5&amp;rsquo;s programmatic bean registration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Christophe has put together a nice look at &lt;a href="https://medium.com/@christophef/container-networking-with-cloudfoundry-pws-pcf-part1-8840d7f9a985#.7salcdvym"&gt;container networking on Pivotal Web Services with Spring Cloud&lt;/a&gt; - check it out!&lt;/li&gt;
+  &lt;li&gt;Spring ninja Stéphane Nicoll &lt;a href="https://spring.io/blog/2017/03/01/spring-framework-4-3-7-released"&gt;also just announced Spring Framework 4.3.7, a maintenance release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The folks at Solace, makers of a message broker, have put together a nice post &lt;a href="https://solace.com/blog/devops/solace-java-meet-spring-boot-starters"&gt;introducing their Solace Spring Boot starters&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The NewStack has &lt;a href="https://thenewstack.io/apache-geode-spawns-sorts-memory-things/"&gt;a nice look at Apache Geode&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;while this has nothing to do with Pivotal, it&amp;rsquo;s very interesting: &lt;a href="https://www.youtube.com/watch?v=7R-Y2DwWOr0"&gt;former Rent the Runway CTO Camille Fournier talks about motivating strong (dev) teams&lt;/a&gt;. Worth a watch!&lt;/li&gt;
+  &lt;li&gt;another great talk from community legends &lt;a href="https://www.youtube.com/watch?v=acnbD_zf7fo"&gt;Matt Raible and Micah Silverman at the Kentucky Spring User Group&lt;/a&gt; on Prospecting the Security Landscape with Spring Boot, Zuul, and Stormpath&lt;/li&gt;
+  &lt;li&gt;Spring Data lead &lt;a href="https://spring.io/blog/2017/03/02/spring-data-ingalls-sr1-and-hopper-sr8-released"&gt;Oliver Gierke just announced the Ingalls SR1 and Hopper SR8 releases&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I liked this very interesting Twitter discussion starting with the Spring team&amp;rsquo;s &lt;a href="https://twitter.com/rob_winch/status/837741123552571392"&gt;Rob Winch looking for good options for integration tests&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring Boot 1.4.5 and 1.5.2 Available Now</title>
     <link rel="alternate" href="https://spring.io/blog/2017/03/03/spring-boot-1-4-5-and-1-5-2-available-now" />
@@ -534,20 +560,5 @@ In the process of addressing above mentioned instability patterns, we have built
     <content type="html">&lt;p&gt;Recorded at SpringOne Platform 2016.&lt;br/&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/streaming-live-data-and-the-hadoop-ecosystem"&gt;http://www.slideshare.net/SpringCentral/streaming-live-data-and-the-hadoop-ecosystem&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;It’s not always easy to get the data you need for analysis. And it becomes even more challenging if it is live streaming data you are working with. Learn how you can make Hadoop work for you in the most effective way possible, especially when it comes to adapting to the agile business requirements of today’s competitive environment. We will cover the Hadoop ecosystem – what is Hadoop, HDFS, MapReduce, Yarn, and then how leading open source projects such as Hive, Ambari, Ranger, Atlas, NiFi interact and integrate to support the variety of data used for analytics today.&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/MFPHXezrPF0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
-  </entry>
-  <entry>
-    <title>SpringOne Platform 2016 Replay: Spring with ApacheNiFi</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/02/13/springone-platform-2016-replay-spring-with-apachenifi" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2017-02-14:2840</id>
-    <updated>2017-02-13T18:28:00Z</updated>
-    <content type="html">&lt;p&gt;Recorded at SpringOne Platform 2016.&lt;br/&gt;Speaker: Oleg Zhurakousky&lt;br/&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/spring-with-apachenifi"&gt;http://www.slideshare.net/SpringCentral/spring-with-apachenifi&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Spring Integration has long captured the hearts and minds of the developers world wide for its emphasis on simplicity, modularity and productivity when it comes to all things related to work-flow orchestration and complex event processing and is successfully used in a variety of Big Data solutions. Apache NiFi, on the other hand, is a new addition to the already rich Big Data technology stack.&lt;/p&gt;
-&lt;p&gt;Can the two complement one another?&lt;/p&gt;
-&lt;p&gt;This hands-on talk, based on real field work and consisting of live demos and code, will provide a quick introduction to Apache NiFi, demonstrate its core features while concentrating on the WHY/WHERE and HOW of integrating the two technologies.&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/F98NLule18I" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
   </entry>
 </feed>

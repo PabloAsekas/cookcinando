@@ -6,5 +6,6 @@ import daw.cookcinando.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 	
-	User findByName(String name);
+	//User findByName(String name);
+	User findByEmail(String email);
 }
