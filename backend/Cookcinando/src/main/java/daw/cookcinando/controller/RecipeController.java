@@ -1,5 +1,6 @@
 package daw.cookcinando.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Recipe;
@@ -22,6 +24,8 @@ import daw.cookcinando.repository.RecipeRepository;
 
 @Controller
 public class RecipeController {
+	
+	private static final String FILES_FOLDER = "target/classes/static/img";
 	
 	@Autowired
 	private RecipeRepository recipeRepository;
@@ -135,7 +139,7 @@ public class RecipeController {
 	}
 	
 	@RequestMapping("/privado/recetas/form-crear")
-	public String crearreceta(Model model, HttpServletRequest request, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
+	public String crearreceta(Model model, HttpServletRequest request, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam MultipartFile imagenCabecera, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
 		for(int i=0; i<ingredientesSeparados.length; i++){
@@ -147,8 +151,38 @@ public class RecipeController {
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
 		User userLogged = userComponent.getLoggedUser();
-		Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
-		recipeRepository.save(recipe);
+		if (!imagenCabecera.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
+				}
+				Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
+				recipeRepository.save(recipe);
+				
+				long id = recipe.getId();
+				
+				String fileName = "cabReceta" + id + ".jpg";
+				String thumbnail = "../img/" + fileName;
+				recipe.setThumbnail(thumbnail);
+				recipeRepository.save(recipe);
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagenCabecera.transferTo(uploadedFile);
+		
+		
+				
+				
+				return ("redirect:/recetas/"+recipe.getId());
+			} catch (Exception e) {
+				model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
+			}
+		} else {
+			model.addAttribute("error",	"The file is empty");
+			return ("redirect:/recetas/");
+		}
+		return ("redirect:/recetas/");
+
 //		model.addAttribute("receta", recipe);
 //		List<Recipe> recomendadas = new ArrayList<Recipe>();
 //		for (long i = 1; i < 4; i++) {
@@ -157,7 +191,6 @@ public class RecipeController {
 //		model.addAttribute("recomendadas", recomendadas);
 //		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
 //		model.addAttribute("admin", request.isUserInRole("ADMIN"));
-		return ("redirect:/recetas/"+recipe.getId());
 	}
 	
 	@RequestMapping("/privado/recetas/editar/{id}")
