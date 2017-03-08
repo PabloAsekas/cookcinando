@@ -115,13 +115,8 @@ public class RecipeController {
 			if (receta.getAuthor().getId() == userLogged.getId()) {
 				model.addAttribute("creator", true);
 			} else {
-				model.addAttribute("notcreator", true);
+				model.addAttribute("userlogged", true);
 			}
-		}
-		if (userLogged != null) {
-			model.addAttribute("userlogged", true);
-		} else {
-			model.addAttribute("usernotlogged", true);
 		}
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "receta";

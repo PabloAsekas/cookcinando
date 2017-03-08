@@ -36,7 +36,7 @@
 	            <div class="col-md-5 menu">
 	                <ul class="nav nav-pills cerrar-sesion">
 	                    <form action="/logout" method="post">
-	                    	<li class="active"><input class="btn" type="submit" value="Cerrar sesión"></li>
+	                    <li class="active"><input class="btn" type="submit" value="Cerrar sesión"></li>
 	                    </form>
 	                </ul>
 	            </div>

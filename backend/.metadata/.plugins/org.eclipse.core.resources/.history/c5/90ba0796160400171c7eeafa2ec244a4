@@ -30,11 +30,9 @@ public class WebController {
 	@RequestMapping("/")
     public String index(Model model) {
 		User userLogged = userComponent.getLoggedUser();
-		if (userLogged != null) {
-			model.addAttribute("userlogged", true);
-		} else {
-			model.addAttribute("usernotlogged", true);
-		}
+		//if (user2 != null) {
+			//model.addAttribute("usuario", user2);
+		//}
         return "index";
     }
 	

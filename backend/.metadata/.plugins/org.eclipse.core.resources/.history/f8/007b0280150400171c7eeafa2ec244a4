@@ -91,12 +91,6 @@ public class RecipeController {
 	@RequestMapping("/recetas") //Enlace para las recetas
 	public String recetas (Model model) {
 		model.addAttribute("recetas", recipeRepository.findAll());
-		User userLogged = userComponent.getLoggedUser();
-		if (userLogged != null) {
-			model.addAttribute("userlogged", true);
-		} else {
-			model.addAttribute("usernotlogged", true);
-		}
 		return "recetas";
 	}
 	
@@ -115,13 +109,8 @@ public class RecipeController {
 			if (receta.getAuthor().getId() == userLogged.getId()) {
 				model.addAttribute("creator", true);
 			} else {
-				model.addAttribute("notcreator", true);
+				model.addAttribute("userlogged", true);
 			}
-		}
-		if (userLogged != null) {
-			model.addAttribute("userlogged", true);
-		} else {
-			model.addAttribute("usernotlogged", true);
 		}
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "receta";
