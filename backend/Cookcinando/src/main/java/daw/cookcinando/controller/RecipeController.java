@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Recipe;
+import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RecipeRepository;
 
 @Controller
@@ -23,6 +25,9 @@ public class RecipeController {
 	
 	@Autowired
 	private RecipeRepository recipeRepository;
+	
+	@Autowired
+	private UserComponent userComponent;
 	
 	//@Autowired
 	//private UserRepository userRepository;
@@ -90,15 +95,24 @@ public class RecipeController {
 	}
 	
 	@RequestMapping("/recetas/{id}")
-	public String verReceta(Model model, @PathVariable long id) {
+	public String verReceta(Model model, @PathVariable long id, HttpServletRequest request) {
 		Recipe receta = recipeRepository.findOne(id);
-		model.addAttribute("receta", receta);
-		
+		model.addAttribute("receta", receta);		
 		List<Recipe> recomendadas = new ArrayList<Recipe>();
 		for (long i = 1; i < 4; i++) {
 			recomendadas.add(recipeRepository.getOne(i));
 		}
 		model.addAttribute("recomendadas", recomendadas);
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		User userLogged = userComponent.getLoggedUser();
+		if (userLogged != null) {
+			if (receta.getAuthor().getId() == userLogged.getId()) {
+				model.addAttribute("creator", true);
+			} else {
+				model.addAttribute("userlogged", true);
+			}
+		}
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "receta";
 	}
 	
@@ -121,16 +135,17 @@ public class RecipeController {
 		for(int i=0; i<comidasSeparadas.length; i++){
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
-		Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas,null);
+		User userLogged = userComponent.getLoggedUser();
+		Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
 		recipeRepository.save(recipe);
-		model.addAttribute("receta", recipe);
-		List<Recipe> recomendadas = new ArrayList<Recipe>();
-		for (long i = 1; i < 4; i++) {
-			recomendadas.add(recipeRepository.getOne(i));
-		}
-		model.addAttribute("recomendadas", recomendadas);
-		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+//		model.addAttribute("receta", recipe);
+//		List<Recipe> recomendadas = new ArrayList<Recipe>();
+//		for (long i = 1; i < 4; i++) {
+//			recomendadas.add(recipeRepository.getOne(i));
+//		}
+//		model.addAttribute("recomendadas", recomendadas);
+//		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+//		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return ("redirect:/recetas/"+recipe.getId());
 	}
 	

@@ -30,6 +30,18 @@
 	            	<img class="avatar" src="../img/avatar.jpg" width="200px" height="200px"/>
                     <a href="publico-perfil-ubasico.html"><h3>Manuela Carmena</h3></a>
 					<p>Descripción de los usuarios</p>
+					<div>
+						{{#admin}}
+							<button type="submit" class="btn btn-default publicar">Eliminar</button>
+						{{/admin}}
+						{{#creator}}
+							<button type="submit" class="btn btn-default publicar">Eliminar</button>
+							<button style="margin-left: 10px" type="submit" class="btn btn-default publicar">Editar</button>
+						{{/creator}}
+						{{#userlogged}}
+							<button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Añadir a Favoritos</button>
+						{{/userlogged}}
+                	</div>
 	            </div>
 	            <div class="col-md-9">
 	                <h2>{{receta.title}}</h2>

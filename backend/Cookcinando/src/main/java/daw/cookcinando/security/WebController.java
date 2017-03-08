@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Recipe;
+import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RecipeRepository;
 
 @Controller
@@ -22,8 +24,15 @@ public class WebController {
 	private List<String> ingredients = new ArrayList<>();
 	private List<String> typesFood = new ArrayList<>();
 	
+	@Autowired
+	private UserComponent userComponent;
+	
 	@RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+		User userLogged = userComponent.getLoggedUser();
+		//if (user2 != null) {
+			//model.addAttribute("usuario", user2);
+		//}
         return "index";
     }
 	

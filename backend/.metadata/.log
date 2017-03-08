@@ -178,3 +178,28 @@ java.lang.OutOfMemoryError: Java heap space
 	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.notifyIdle(IndexManager.java:644)
 	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:377)
 	at java.lang.Thread.run(Thread.java:745)
+!SESSION 2017-03-08 15:06:19.829 -----------------------------------------------
+eclipse.buildId=3.8.3.201612191351-RELEASE-e46
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=es_ES
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/PabloAsekas/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/PabloAsekas/.eclipse_keyring
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-08 15:10:09.202
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-08 15:10:09.213
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-08 15:10:30.962
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-08 15:10:30.963
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-08 15:55:57.463
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-08 15:55:57.464
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
