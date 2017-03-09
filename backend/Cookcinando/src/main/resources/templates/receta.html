@@ -55,7 +55,10 @@
 							
 						{{/creator}}
 						{{#notcreator}}
-							<button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Añadir a Favoritos</button>
+							<form action="/privado/recetas/add-fav/{{receta.id}}">
+								<button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Añadir a Favoritos</button>
+							</form>
+							<!--  <button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Añadir a Favoritos</button> -->
 						{{/notcreator}}
                 	</div>
 	            </div>

@@ -254,5 +254,13 @@ public class RecipeController {
 		return ("redirect:/recetas/");
 	}
 	
+	@RequestMapping("/privado/recetas/add-fav/{id}")
+	public String aniadirRecetaFavorito(Model model, @PathVariable Long id){
+		Recipe receta = recipeRepository.findOne(id);
+		User userLogged = userComponent.getLoggedUser();
+//	añadir a la receta id a la lista de recetas favoritas del usuario userlogged
+		return ("redirect:/recetas/");
+	}
+	
 	
 }
