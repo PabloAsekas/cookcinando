@@ -24,7 +24,7 @@ import daw.cookcinando.repository.RestaurantRepository;
 @Controller
 public class RestaurantController {
 	
-	/*@Autowired
+	@Autowired
 	private RestaurantRepository restaurantRepository;
 	
 	@Autowired
@@ -135,6 +135,6 @@ public class RestaurantController {
 		recipeRepository.save(recipe);
 		return ("redirect:/recetas/"+id);
 	}
-}*/
+}
 	
 }

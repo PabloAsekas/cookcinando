@@ -39,9 +39,7 @@ public class User {
 	private List<Recipe> myRecipes;
 	
 	//private Favorites favorites;
-	@OneToMany
 	private List<Recipe> favRecipes;
-	@OneToMany
 	private List<Restaurant> favRestaurants;
 	//private List<Events> favEvents;
 	
