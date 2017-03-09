@@ -2252,3 +2252,8 @@ org.eclipse.jface.text.BadLocationException: null
 2017-03-09 16:28:07,741 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 166 resources
 2017-03-09 16:28:07,781 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-03-09 16:28:07,781 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maria\Desktop\DAW PRACTICA\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-09 18:32:40,460 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-09 18:32:40,492 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-09 18:32:40,513 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 166 resources
+2017-03-09 18:32:40,776 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-09 18:32:40,869 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maria\Desktop\DAW PRACTICA\cookcinando\backend\Cookcinando\src\test\resources
