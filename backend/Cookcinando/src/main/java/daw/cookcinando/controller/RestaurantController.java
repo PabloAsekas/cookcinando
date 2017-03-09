@@ -102,12 +102,7 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping("/privado/restaurantes/form-editar/{id}")
-	public String editarreceta(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
-		List<String> ingredientesRecetas = new ArrayList<>();
-		String ingredientesSeparados[] = ingredientes.split(",");
-		for(int i=0; i<ingredientesSeparados.length; i++){
-			ingredientesRecetas.add(ingredientesSeparados[i]);
-		}
+	public String editarestaurante(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion,@RequestParam String imagen, @RequestParam String comidas) {
 		List<String> comidasRestaurantes = new ArrayList<>();
 		String comidasSeparadas[] = comidas.split(",");
 		for(int i=0; i<comidasSeparadas.length; i++){
@@ -116,6 +111,7 @@ public class RestaurantController {
 		Restaurant restaurant = restaurantRepository.findOne(id);
 		restaurant.setTitle(titulo);
 		restaurant.setDescription(descripcion);
+		restaurant.setThumbnail(imagen);
 		restaurant.setTypesFood(comidasRestaurantes);
 		restaurantRepository.save(restaurant);
 		return ("redirect:/restaurantes/"+id);
