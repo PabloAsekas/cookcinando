@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -31,10 +34,14 @@ public class User {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
+	@Column
+	@OneToMany(mappedBy="author")
+	private List<Recipe> myRecipes;
+	
 	//private Favorites favorites;
-//	private List<Recipe> recipes;
-//	private List<Restaurants> restaurants;
-//	private List<Events> events;
+	private List<Recipe> favRecipes;
+	private List<Restaurant> favRestaurants;
+	//private List<Events> favEvents;
 	
 	protected User(){}
 	
@@ -49,6 +56,10 @@ public class User {
 		this.email = email;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+		this.myRecipes = new ArrayList<Recipe>();
+		this.favRecipes = new ArrayList<Recipe>();
+		this.favRestaurants = new ArrayList<Restaurant>();
+		//this.favEvents = new ArrayList<Event>();
 	}
 
 	public long getId() {
@@ -123,10 +134,39 @@ public class User {
 		this.roles = roles;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", description=" + description
-				+ ", image=" + image + ", nick=" + nick + ", email=" + email + ", passwordHash=" + passwordHash
-				+ ", roles=" + roles + "]";
+	public List<Recipe> getMyRecipes() {
+		return myRecipes;
 	}
+
+	public void setMyRecipes(List<Recipe> myRecipes) {
+		this.myRecipes = myRecipes;
+	}
+	
+	public void setRecipe(Recipe recipe) {
+		this.myRecipes.add(recipe);
+	}
+
+	public List<Recipe> getFavRecipes() {
+		return favRecipes;
+	}
+
+	public void setFavRecipes(List<Recipe> favRecipes) {
+		this.favRecipes = favRecipes;
+	}
+
+	public List<Restaurant> getFavRestaurants() {
+		return favRestaurants;
+	}
+
+	public void setFavRestaurants(List<Restaurant> favRestaurants) {
+		this.favRestaurants = favRestaurants;
+	}
+
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", description=" + description
+//				+ ", image=" + image + ", nick=" + nick + ", email=" + email + ", passwordHash=" + passwordHash
+//				+ ", roles=" + roles + ", myRecipes=" + myRecipes + ", favRecipes=" + favRecipes + ", favRestaurants="
+//				+ favRestaurants + "]";
+//	}
 }

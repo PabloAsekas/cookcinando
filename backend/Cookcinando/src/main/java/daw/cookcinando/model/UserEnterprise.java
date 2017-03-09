@@ -19,12 +19,10 @@ public class UserEnterprise extends User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@OneToMany(mappedBy="author", cascade=CascadeType.ALL)
-	private List<Recipe> myRecipes;
+	@Column
+	@OneToMany(mappedBy="author")
+	private List<Restaurant> myRestaurants;
 	
-//	@OneToMany
-//	private List<Restaurant> myRestaurants;
-//	
 //	@OneToMany
 //	private List<Event> myEvents;
 	
@@ -32,9 +30,9 @@ public class UserEnterprise extends User {
 	
 	public UserEnterprise(String name, String surname, String description, String image, String nick,
 		    		 	  String email, String password){
+		
 		super(name,surname,description,image,nick,email,password);
-		this.myRecipes = new ArrayList<Recipe>();
-//		this.myRestaurants = new ArrayList<Restaurant>();
+		this.myRestaurants = new ArrayList<Restaurant>();
 //		this.myEvents = new ArrayList<Event>();
 	}
 
@@ -46,22 +44,14 @@ public class UserEnterprise extends User {
 		this.id = id;
 	}
 
-	public List<Recipe> getMyRecipes() {
-		return myRecipes;
+	public List<Restaurant> getMyRestaurants() {
+		return myRestaurants;
 	}
 
-	public void setMyRecipes(List<Recipe> myRecipes) {
-		this.myRecipes = myRecipes;
+	public void setMyRestaurants(List<Restaurant> myRestaurants) {
+		this.myRestaurants = myRestaurants;
 	}
 
-//	public List<Restaurant> getMyRestaurants() {
-//		return myRestaurants;
-//	}
-//
-//	public void setMyRestaurants(List<Restaurant> myRestaurants) {
-//		this.myRestaurants = myRestaurants;
-//	}
-//
 //	public List<Event> getMyEvents() {
 //		return myEvents;
 //	}

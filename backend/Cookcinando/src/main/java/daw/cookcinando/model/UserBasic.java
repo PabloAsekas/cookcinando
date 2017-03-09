@@ -19,9 +19,7 @@ public class UserBasic extends User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Column
-	@OneToMany(mappedBy="author", cascade=CascadeType.ALL)
-	private List<Recipe> myRecipes;
+	
 	
 	protected UserBasic(){}
 	
@@ -29,7 +27,6 @@ public class UserBasic extends User {
 		    		 String email, String password,String... roles){
 		
 		super(name,surname,description,image,nick,email,password,roles);
-		this.myRecipes = new ArrayList<Recipe>();
 	}
 
 	public long getId() {
@@ -40,20 +37,8 @@ public class UserBasic extends User {
 		this.id = id;
 	}
 
-	public List<Recipe> getMyRecipes() {
-		return myRecipes;
-	}
-
-	public void setMyRecipes(List<Recipe> myRecipes) {
-		this.myRecipes = myRecipes;
-	}
-	
-	public void setRecipe(Recipe recipe) {
-		this.myRecipes.add(recipe);
-	}
-
 	@Override
 	public String toString() {
-		return "UserBasic [id=" + id + ", myRecipes=" + myRecipes + "]";
+		return "UserBasic [id=" + id + "]";
 	}
 }

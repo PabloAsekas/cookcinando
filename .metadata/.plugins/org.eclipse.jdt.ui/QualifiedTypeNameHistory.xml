@@ -27,4 +27,5 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="daw.cookcinando.repository.RecipeRepository"/>
 <fullyQualifiedTypeName name="daw.cookcinando.model.User"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 </qualifiedTypeNameHistroy>
