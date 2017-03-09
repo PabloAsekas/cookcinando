@@ -24,7 +24,7 @@ import daw.cookcinando.repository.RestaurantRepository;
 @Controller
 public class RestaurantController {
 	
-	/*@Autowired
+	@Autowired
 	private RestaurantRepository restaurantRepository;
 	
 	@Autowired
@@ -59,7 +59,7 @@ public class RestaurantController {
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged != null) {
-			if (restaurante.getAuthor().getId() == userLogged.getId()) {
+			if (restaurant.getAuthor().getId() == userLogged.getId()) {
 				model.addAttribute("creator", true);
 			} else {
 				model.addAttribute("notcreator", true);
@@ -82,59 +82,43 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping("/privado/restaurantes/form-crear")
-	public String crearrestaurante(Model model, HttpServletRequest request, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
-		List<String> ingredientesRecetas = new ArrayList<>();
-		String ingredientesSeparados[] = ingredientes.split(",");
-		for(int i=0; i<ingredientesSeparados.length; i++){
-			ingredientesRecetas.add(ingredientesSeparados[i]);
-		}
-		List<String> comidasRecetas = new ArrayList<>();
+	public String crearrestaurante(Model model, HttpServletRequest request, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String imagen, @RequestParam String comidas) {
+		List<String> comidasRestaurantes = new ArrayList<>();
 		String comidasSeparadas[] = comidas.split(",");
 		for(int i=0; i<comidasSeparadas.length; i++){
-			comidasRecetas.add(comidasSeparadas[i]);
+			comidasRestaurantes.add(comidasSeparadas[i]);
 		}
 		User userLogged = userComponent.getLoggedUser();
-		Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
-		recipeRepository.save(recipe);
-//		model.addAttribute("receta", recipe);
-//		List<Recipe> recomendadas = new ArrayList<Recipe>();
-//		for (long i = 1; i < 4; i++) {
-//			recomendadas.add(recipeRepository.getOne(i));
-//		}
-//		model.addAttribute("recomendadas", recomendadas);
-//		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
-//		model.addAttribute("admin", request.isUserInRole("ADMIN"));
-		return ("redirect:/recetas/"+recipe.getId());
+		Restaurant restaurant = new Restaurant(titulo, descripcion, imagen, comidasRestaurantes, userLogged);
+		restaurantRepository.save(restaurant);
+		return ("redirect:/restaurantes/"+restaurant.getId());
 	}
 	
-	@RequestMapping("/privado/recetas/editar/{id}")
-	public String modificarReceta(Model model, @PathVariable Long id){
-		Recipe receta = recipeRepository.findOne(id);
-		model.addAttribute("receta", receta);
+	@RequestMapping("/privado/restaurantes/editar/{id}")
+	public String modificarRestaurante(Model model, @PathVariable Long id){
+		Restaurant restaurante = restaurantRepository.findOne(id);
+		model.addAttribute("restaurante", restaurante);
 		return "formularioEditar";
 	}
 	
-	@RequestMapping("/privado/recetas/form-editar/{id}")
+	@RequestMapping("/privado/restaurantes/form-editar/{id}")
 	public String editarreceta(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
 		for(int i=0; i<ingredientesSeparados.length; i++){
 			ingredientesRecetas.add(ingredientesSeparados[i]);
 		}
-		List<String> comidasRecetas = new ArrayList<>();
+		List<String> comidasRestaurantes = new ArrayList<>();
 		String comidasSeparadas[] = comidas.split(",");
 		for(int i=0; i<comidasSeparadas.length; i++){
-			comidasRecetas.add(comidasSeparadas[i]);
+			comidasRestaurantes.add(comidasSeparadas[i]);
 		}
-		Recipe recipe = recipeRepository.findOne(id);
-		recipe.setTitle(titulo);
-		recipe.setDescription(descripcion);
-		recipe.setPreparation(cuerpo);
-		recipe.setIngredients(ingredientesRecetas);
-		recipe.setTypesFood(comidasRecetas);
-		recipeRepository.save(recipe);
-		return ("redirect:/recetas/"+id);
+		Restaurant restaurant = restaurantRepository.findOne(id);
+		restaurant.setTitle(titulo);
+		restaurant.setDescription(descripcion);
+		restaurant.setTypesFood(comidasRestaurantes);
+		restaurantRepository.save(restaurant);
+		return ("redirect:/restaurantes/"+id);
 	}
-}*/
-	
 }
+	
