@@ -263,7 +263,8 @@ public class RecipeController {
 	public String aniadirRecetaFavorito(Model model, @PathVariable Long id){
 		Recipe recipe = recipeRepository.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
-		userLogged.setFavRecipes(recipe);
+		userLogged.getFavRecipes().add(recipe);
+		System.out.println(userLogged.getFavRecipes().get(0));
 		return ("redirect:/recetas/");
 	}
 }

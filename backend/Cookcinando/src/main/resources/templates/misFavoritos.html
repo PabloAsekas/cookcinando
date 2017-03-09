@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Cookcinando</title>
-    <link rel="stylesheet" href="js/css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../js/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -100,72 +102,19 @@
                     <div class="tab-content">
                         <div id="favrecetas" class="tab-pane fade in active">
                             <div class="container-fluid recetasFav">
-                                <a href="publico-receta-uregistrado.html">
-                                    <div class="col-md-4">
-                                        <div class="thumbnail">
-                                            <img src="img/RibsGrande.jpg" alt="Pabellon Criollo">
-                                            <div class="caption">
-                                                <h3>Costillas BBQ</h3>
-                                                <p>Las famosas del Ribs</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="publico-receta-uregistrado.html">
-                                    <div class="col-md-4">
-                                        <div class="thumbnail">
-                                            <img src="img/FavoritoGrande4.png" alt="Pabellon Criollo">
-                                            <div class="caption">
-                                                <h3>Tortilla de Patatas</h3>
-                                                <p>Plato español</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="publico-receta-uregistrado.html">
-                                    <div class="col-md-4">
-                                        <div class="thumbnail">
-                                            <img src="img/FavoritoGrande3.png" alt="Pabellon Criollo">
-                                            <div class="caption">
-                                                <h3>Pulpo a la Gallega</h3>
-                                                <p>Plato de Galicia</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="publico-receta-uregistrado.html">
-                                    <div class="col-md-4">
-                                        <div class="thumbnail">
-                                            <img src="img/FavoritoGrande2.png" alt="Pabellon Criollo">
-                                            <div class="caption">
-                                                <h3>Raviolis con Salsa de Queso</h3>
-                                                <p>Plato de pasta exquisíto</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a> 
-                                <a href="publico-receta-uregistrado.html">
-                                    <div class="col-md-4">
-                                        <div class="thumbnail">
-                                            <img src="img/FavoritoGrande1.png" alt="Pabellon Criollo">
-                                            <div class="caption">
-                                                <h3>Burger Queso de Cabra y Nueces</h3>
-                                                <p>Revolucionando los sabores clásicos</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="publico-receta-uregistrado.html">
-                                    <div class="col-md-4">
-                                        <div class="thumbnail">
-                                            <img src="img/FosterGrande.jpg" alt="Pabellon Criollo">
-                                            <div class="caption">
-                                                <h3>Bacon Cheese Fries</h3>
-                                                <p>Del Foster's a tu casaasdfdddddddddddddddddddd ddasdfasd</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>    
+                            	{{#recipes}}
+	                            	<div class="col-md-4">
+	                                    <a href="/recetas/{{id}}">
+	                                        <div class="thumbnail">
+	                                            <img src="{{thumbnail}}" alt="{{title}}">
+	                                            <div class="caption">
+	                                                <h3>{{title}}</h3>
+	                                                <p>{{description}}</p>
+	                                            </div>
+	                                        </div>
+	                                    </a>
+	                            	</div>
+                                {{/recipes}} 
                             </div>
                         </div>
                         <div id="favrestaurantes" class="tab-pane fade">
@@ -310,8 +259,6 @@
             </div>
         </div>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/js/bootstrap.min.js"></script>
 </body>
 
 </html>

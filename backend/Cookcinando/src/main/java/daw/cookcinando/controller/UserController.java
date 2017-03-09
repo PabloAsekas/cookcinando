@@ -42,7 +42,22 @@ public class UserController {
 		}
 		return "login";
 	}
+	
+	@RequestMapping("/privado/mi-cuenta")
+	public String myprofile(Model model, HttpServletRequest request) {
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", userComponent.getLoggedUser());
+		return("miCuenta");
+	}
 
+	@RequestMapping("/privado/mis-favoritos")
+	public String myfavourites(Model model, HttpServletRequest request) {
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("recipes", userComponent.getLoggedUser().getFavRecipes());
+		return("misFavoritos");
+	}
 	@RequestMapping("/privado/todos-usuarios")
 	public String allUsers(Model model, HttpServletRequest request){
 		
