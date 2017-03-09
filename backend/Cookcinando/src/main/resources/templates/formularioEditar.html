@@ -112,11 +112,13 @@
 	                    <h1>Editar receta</h1>
 	                </div>
 	                <div class="inputs-receta">
-	                	<form action="/privado/recetas/form-editar/{{receta.id}}" method="POST" id="form-receta">
+	                	<form action="/privado/recetas/form-editar/{{receta.id}}" method="POST" id="form-receta" enctype="multipart/form-data">
 		                	<h3>Título</h3>
 		                	<input type="text" name="titulo" class="form-control" value="{{receta.title}}">
 		                	<h3>Descripción</h3>
 		                	<input type="text" name="descripcion" class="form-control" value="{{receta.description}}">
+		                    <h3>Imagen de Cabecera</h3>
+							<input type="file" name="imagenCabecera">
 		                    <h2>Cuerpo de la receta</h2>
 		                    <div class="col-md-12 nopadding editorHTML">
 		                        <input name="cuerpo" id="txtEditor"> 

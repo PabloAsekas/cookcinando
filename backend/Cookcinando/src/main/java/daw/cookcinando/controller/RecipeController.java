@@ -160,28 +160,23 @@ public class RecipeController {
 				}
 				Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
 				recipeRepository.save(recipe);
-				
 				long id = recipe.getId();
-				
 				String fileName = "cabReceta" + id + ".jpg";
 				String thumbnail = "../img/" + fileName;
 				recipe.setThumbnail(thumbnail);
 				recipeRepository.save(recipe);
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
 				imagenCabecera.transferTo(uploadedFile);
-		
-		
-				
-				
 				return ("redirect:/recetas/"+recipe.getId());
 			} catch (Exception e) {
 				model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
 			}
 		} else {
-			model.addAttribute("error",	"The file is empty");
-			return ("redirect:/recetas/");
+			Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
+			recipeRepository.save(recipe);
+			return ("redirect:/recetas/"+recipe.getId());
 		}
-		return ("redirect:/recetas/");
+		return ("redirect:/recetas");
 
 //		model.addAttribute("receta", recipe);
 //		List<Recipe> recomendadas = new ArrayList<Recipe>();
@@ -201,7 +196,7 @@ public class RecipeController {
 	}
 	
 	@RequestMapping("/privado/recetas/form-editar/{id}")
-	public String editarreceta(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
+	public String editarreceta(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam MultipartFile imagenCabecera, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
 		for(int i=0; i<ingredientesSeparados.length; i++){
@@ -213,12 +208,38 @@ public class RecipeController {
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
 		Recipe recipe = recipeRepository.findOne(id);
-		recipe.setTitle(titulo);
-		recipe.setDescription(descripcion);
-		recipe.setPreparation(cuerpo);
-		recipe.setIngredients(ingredientesRecetas);
-		recipe.setTypesFood(comidasRecetas);
-		recipeRepository.save(recipe);
+		if (!imagenCabecera.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
+				}
+				
+				String fileName = "cabReceta" + id + ".jpg";
+				String thumbnail = "../img/" + fileName;
+				
+				recipe.setTitle(titulo);
+				recipe.setDescription(descripcion);
+				recipe.setPreparation(cuerpo);
+				recipe.setIngredients(ingredientesRecetas);
+				recipe.setTypesFood(comidasRecetas);
+				recipe.setThumbnail(thumbnail);
+				recipeRepository.save(recipe);
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagenCabecera.transferTo(uploadedFile);
+				return ("redirect:/recetas/"+recipe.getId());
+			} catch (Exception e) {
+				model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
+			}
+		} else {
+			recipe.setTitle(titulo);
+			recipe.setDescription(descripcion);
+			recipe.setPreparation(cuerpo);
+			recipe.setIngredients(ingredientesRecetas);
+			recipe.setTypesFood(comidasRecetas);
+			recipeRepository.save(recipe);
+		}
 		return ("redirect:/recetas/"+id);
 	}
 }
