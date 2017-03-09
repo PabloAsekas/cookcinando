@@ -108,31 +108,26 @@
 	                </ul>
 	            </div>
 	            <div class="col-md-8">
-	            	{{#creator}}
-		                <div class="cabecera-subrayada">
-		                    <h1>Editar receta</h1>
-		                </div>
-		                <div class="inputs-receta">
-		                	<form action="/privado/recetas/form-editar/{{receta.id}}" method="POST" id="form-receta">
-			                	<h3>Título</h3>
-			                	<input type="text" name="titulo" class="form-control" value="{{receta.title}}">
-			                	<h3>Descripción</h3>
-			                	<input type="text" name="descripcion" class="form-control" value="{{receta.description}}">
-			                    <h2>Cuerpo de la receta</h2>
-			                    <div class="col-md-12 nopadding editorHTML">
-			                        <input name="cuerpo" id="txtEditor"> 
-			                    </div>
-			                    <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>
-			                    <input class="form-control" name="ingredientes" type="text" value='{{#receta.ingredients}}{{.}},{{/receta.ingredients}}'>
-			                    <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>
-			                    <input class="form-control" name="comidas"  type="text" value='{{#receta.typesFood}}{{.}},{{/receta.typesFood}}'>
-			                    <button type="submit" class="btn btn-default publicar">Publicar</button>
-		                    </form>
-		                </div>
-		        	{{/creator}}
-		        	{{#deny}}
-		        	<p>No tienes permisos para editar esta receta.</p>
-		        	{{/deny}}
+	                <div class="cabecera-subrayada">
+	                    <h1>Editar receta</h1>
+	                </div>
+	                <div class="inputs-receta">
+	                	<form action="/privado/recetas/form-editar/{{receta.id}}" method="POST" id="form-receta">
+		                	<h3>Título</h3>
+		                	<input type="text" name="titulo" class="form-control" value="{{receta.title}}">
+		                	<h3>Descripción</h3>
+		                	<input type="text" name="descripcion" class="form-control" value="{{receta.description}}">
+		                    <h2>Cuerpo de la receta</h2>
+		                    <div class="col-md-12 nopadding editorHTML">
+		                        <input name="cuerpo" id="txtEditor"> 
+		                    </div>
+		                    <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>
+		                    <input class="form-control" name="ingredientes" type="text" value='{{#receta.ingredients}}{{.}},{{/receta.ingredients}}'>
+		                    <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>
+		                    <input class="form-control" name="comidas"  type="text" value='{{#receta.typesFood}}{{.}},{{/receta.typesFood}}'>
+		                    <button type="submit" class="btn btn-default publicar">Publicar</button>
+	                    </form>
+	                </div>
 	            </div>
 	        </div>
 	    </div>

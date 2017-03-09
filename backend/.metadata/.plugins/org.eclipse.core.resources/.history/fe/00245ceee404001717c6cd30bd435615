@@ -152,8 +152,8 @@ public class User {
 		return favRecipes;
 	}
 
-	public void setFavRecipes(Recipe recipe) {
-		this.favRecipes.add(recipe);
+	public void setFavRecipes(List<Recipe> favRecipes) {
+		this.favRecipes = favRecipes;
 	}
 
 	public List<Restaurant> getFavRestaurants() {
@@ -162,10 +162,6 @@ public class User {
 
 	public void setFavRestaurants(List<Restaurant> favRestaurants) {
 		this.favRestaurants = favRestaurants;
-	}
-	
-	public boolean isAdmin() {
-		return this.roles.contains("ROLE_ADMIN");
 	}
 
 //	@Override

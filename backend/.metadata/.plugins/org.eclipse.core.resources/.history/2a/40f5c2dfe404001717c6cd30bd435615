@@ -106,24 +106,28 @@ public class RecipeController {
 	
 	@RequestMapping("/recetas/{id}")
 	public String verReceta(Model model, @PathVariable long id, HttpServletRequest request) {
-		Recipe recipe = recipeRepository.findOne(id);
-		model.addAttribute("receta", recipe);		
+		Recipe receta = recipeRepository.findOne(id);
+		model.addAttribute("receta", receta);		
 		List<Recipe> recomendadas = new ArrayList<Recipe>();
 		for (long i = 1; i < 4; i++) {
 			recomendadas.add(recipeRepository.getOne(i));
 		}
 		model.addAttribute("recomendadas", recomendadas);
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged != null) {
-			model.addAttribute("userlogged", true);
-			if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
+			if (receta.getAuthor().getId() == userLogged.getId()) {
 				model.addAttribute("creator", true);
 			} else {
 				model.addAttribute("notcreator", true);
 			}
+		}
+		if (userLogged != null) {
+			model.addAttribute("userlogged", true);
 		} else {
 			model.addAttribute("usernotlogged", true);
 		}
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "receta";
 	}
 	
@@ -186,14 +190,8 @@ public class RecipeController {
 	
 	@RequestMapping("/privado/recetas/editar/{id}")
 	public String modificarReceta(Model model, @PathVariable Long id){
-		Recipe recipe = recipeRepository.findOne(id);
-		model.addAttribute("receta", recipe);
-		User userLogged = userComponent.getLoggedUser();
-		if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
-			model.addAttribute("creator", true);
-		} else {
-			model.addAttribute("deny", true);
-		}
+		Recipe receta = recipeRepository.findOne(id);
+		model.addAttribute("receta", receta);
 		return "formularioEditar";
 	}
 	
@@ -210,40 +208,37 @@ public class RecipeController {
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
 		Recipe recipe = recipeRepository.findOne(id);
-		User userLogged = userComponent.getLoggedUser();
-		if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
-			if (!imagenCabecera.isEmpty()) {
-				try {
-	
-					File filesFolder = new File(FILES_FOLDER);
-					if (!filesFolder.exists()) {
-						filesFolder.mkdirs();
-					}
-					
-					String fileName = "cabReceta" + id + ".jpg";
-					String thumbnail = "../img/" + fileName;
-					
-					recipe.setTitle(titulo);
-					recipe.setDescription(descripcion);
-					recipe.setPreparation(cuerpo);
-					recipe.setIngredients(ingredientesRecetas);
-					recipe.setTypesFood(comidasRecetas);
-					recipe.setThumbnail(thumbnail);
-					recipeRepository.save(recipe);
-					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
-					imagenCabecera.transferTo(uploadedFile);
-					return ("redirect:/recetas/"+recipe.getId());
-				} catch (Exception e) {
-					model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
+		if (!imagenCabecera.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
 				}
-			} else {
+				
+				String fileName = "cabReceta" + id + ".jpg";
+				String thumbnail = "../img/" + fileName;
+				
 				recipe.setTitle(titulo);
 				recipe.setDescription(descripcion);
 				recipe.setPreparation(cuerpo);
 				recipe.setIngredients(ingredientesRecetas);
 				recipe.setTypesFood(comidasRecetas);
+				recipe.setThumbnail(thumbnail);
 				recipeRepository.save(recipe);
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagenCabecera.transferTo(uploadedFile);
+				return ("redirect:/recetas/"+recipe.getId());
+			} catch (Exception e) {
+				model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
 			}
+		} else {
+			recipe.setTitle(titulo);
+			recipe.setDescription(descripcion);
+			recipe.setPreparation(cuerpo);
+			recipe.setIngredients(ingredientesRecetas);
+			recipe.setTypesFood(comidasRecetas);
+			recipeRepository.save(recipe);
 		}
 		return ("redirect:/recetas/"+id);
 	}
@@ -251,19 +246,21 @@ public class RecipeController {
 	
 	@RequestMapping("/privado/recetas/eliminar/{id}")
 	public String eliminarReceta(Model model, @PathVariable Long id){
-		Recipe recipe = recipeRepository.findOne(id);
-		User userLogged = userComponent.getLoggedUser();
-		if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
-			recipeRepository.delete(recipe);
-		}
+		Recipe receta = recipeRepository.findOne(id);
+//		User userLogged = userComponent.getLoggedUser();
+//		if(receta.getAuthor() == userLogged){
+			recipeRepository.delete(receta);
+//		}
 		return ("redirect:/recetas/");
 	}
 	
 	@RequestMapping("/privado/recetas/add-fav/{id}")
 	public String aniadirRecetaFavorito(Model model, @PathVariable Long id){
-		Recipe recipe = recipeRepository.findOne(id);
+		Recipe receta = recipeRepository.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
-		userLogged.setFavRecipes(recipe);
+//	añadir a la receta id a la lista de recetas favoritas del usuario userlogged
 		return ("redirect:/recetas/");
 	}
+	
+	
 }

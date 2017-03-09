@@ -40,14 +40,19 @@
                     <a href="publico-perfil-ubasico.html"><h3>Manuela Carmena</h3></a>
 					<p>Descripción de los usuarios</p>
 					<div>
+						{{#admin}}
+							<button type="submit" class="btn btn-default publicar">Eliminar</button>
+						{{/admin}}
 						{{#creator}}
 							<form action="/privado/recetas/eliminar/{{receta.id}}">
 								<button type="submit" class="btn btn-default publicar">Eliminar</button>
 							</form>
+							
 							<form action="/privado/recetas/editar/{{receta.id}}">
 								<button style="margin-left: 10px" type="submit" class="btn btn-default publicar">Editar</button>
 							</form>
 							<!--<button style="margin-left: 10px" type="submit" class="btn btn-default publicar" href="/privado/recetas/editar/{{receta.id}}">Editar</button>-->
+							
 						{{/creator}}
 						{{#notcreator}}
 							<form action="/privado/recetas/add-fav/{{receta.id}}">
