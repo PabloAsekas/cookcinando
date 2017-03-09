@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
+import daw.cookcinando.model.UserAdmin;
 import daw.cookcinando.model.UserBasic;
+import daw.cookcinando.model.UserEnterprise;
 import daw.cookcinando.repository.RecipeRepository;
 import daw.cookcinando.repository.UserRepository;
 
@@ -66,8 +68,15 @@ public class DataLoader implements CommandLineRunner{
 		
 		user_basic.getMyRecipes().add(recipeRepository.findOne((long)1));
 		
+		UserBasic basic = new UserBasic("A", "A", "A", "A", "A","basic1","pass","ROLE_BASIC");
 		
+		UserEnterprise enterprise = new UserEnterprise("B", "B", "B", "B", "B","enterprise","pass","ROLE_BASIC","ROLE_ENTERPRISE");
 		
+		UserAdmin admin = new UserAdmin("C", "C", "C", "C", "C","admin","adminpass","ROLE_BASIC","ROLE_ENTERPRISE", "ROLE_ADMIN");
+		
+		userRepository.save(basic);
+		userRepository.save(enterprise);
+		userRepository.save(admin);
 	}
 	
 	

@@ -25,5 +25,9 @@ public class UserComponent {
 	public boolean isLoggedUser() {
 		return this.user != null;
 	}
+	
+	public void setLogout(){
+		this.user = null;
+	}
 
 }

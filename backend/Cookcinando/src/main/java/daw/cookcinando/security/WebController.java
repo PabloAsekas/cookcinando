@@ -43,6 +43,14 @@ public class WebController {
         return "login";
     }
 	
+	@RequestMapping("/logout")
+    public String logout() {
+        userComponent.setLogout();
+        System.out.println(userComponent.getLoggedUser().getEmail());
+        return "index";
+		
+    }
+	
 	/*@RequestMapping("/crearreceta")
 	public String receta(Model model, @RequestParam String titulo, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();

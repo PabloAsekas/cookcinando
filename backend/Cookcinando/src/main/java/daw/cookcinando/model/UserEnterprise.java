@@ -29,9 +29,9 @@ public class UserEnterprise extends User {
 	protected UserEnterprise(){}
 	
 	public UserEnterprise(String name, String surname, String description, String image, String nick,
-		    		 	  String email, String password){
+		    		 	  String email, String password, String...roles){
 		
-		super(name,surname,description,image,nick,email,password);
+		super(name,surname,description,image,nick,email,password,roles);
 		this.myRestaurants = new ArrayList<Restaurant>();
 //		this.myEvents = new ArrayList<Event>();
 	}

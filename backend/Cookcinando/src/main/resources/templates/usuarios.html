@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Cookcinando</title>
-    <link rel="stylesheet" href="js/css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../js/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../js/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -18,7 +18,9 @@
             </div>
             <div class="col-md-5 menu">
                 <ul class="nav nav-pills cerrar-sesion">
-                    <li class="active"><a href="index.html">Cerrar sesión</a></li>
+                    <form action="/logout" method="post">
+                    	<li class="active"><input class="btn" type="submit" value="Cerrar sesión"></li>
+                    </form>
                 </ul>
             </div>
         </div>
@@ -38,7 +40,7 @@
                         <div id="recetas-privado" class=" collapse">
                             <ul class="list-group">
                               <li class="list-group-item"><a href="privado-ubasico-mis-recetas.html"> Mis Recetas</a></li>
-                              <li class="list-group-item"><a href="privado-ubasico-anadir-receta.html">Añadir Receta</a></li>
+                              <li class="list-group-item"><a href="/privado/recetas/crear">Añadir Receta</a></li>
                               {{#admin}}
                               <li class="list-group-item"><a href="privado-uadmin-todas-las-recetas.html">Todas las recetas</a></li>
                               {{/admin}}
@@ -77,7 +79,7 @@
                 	{{/enterprise}} 
    					{{#admin}}
                     <li class="active">
-                        <a href="privado-uadmin-usuarios.html">Usuarios</a>
+                        <a href="/privado/todos-usuarios">Usuarios</a>
                     </li>
                     {{/admin}}
                     <li>
@@ -92,8 +94,8 @@
                 <div>
                     <div class="container col-md-12">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#usuarios">Usuarios <span class="badge">3</span></a></li>
-                            <li><a data-toggle="tab" href="#empresas">Empresas <span class="badge">3</span></a></li>
+                            <li class="active"><a data-toggle="tab" href="#usuarios">Usuarios <span class="badge">{{users_basic.size}}</span></a></li>
+                            <li><a data-toggle="tab" href="#empresas">Empresas <span class="badge">{{users_enterprise.size}}</span></a></li>
                         </ul>
                     </div>
                     
@@ -111,27 +113,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Pablo Bermejo</td>
-                                        <td><a href="publico-perfil-ubasico.html">@capitanSalami</a></td>
-                                        <td>pb@me.com</td>
+                                	{{#users_basic}}
+                                		<tr>
+                                        <td>{{name}} {{surname}}</td>
+                                        <td><a href="publico-perfil-ubasico.html">{{nick}}</a></td>
+                                        <td>{{email}}</td>
                                         <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
                                         <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Maria Ballesteros</td>
-                                        <td><a href="publico-perfil-ubasico.html">@pabloMariquita</a></td>
-                                        <td>mb@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Blanca Romero</td>
-                                        <td><a href="publico-perfil-ubasico.html">@achooo</a></td>
-                                        <td>br@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
+                                    	</tr>
+                                	{{/users_basic}}
                                 </tbody>
                             </table>
                         </div>
@@ -147,27 +137,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Foster Hollywood</td>
-                                        <td><a href="publico-perfil-uentreprise-uadmin.html">@foster</a></td>
-                                        <td>fh@me.com</td>
+                                    {{#users_enterprise}}
+                                		<tr>
+                                        <td>{{name}} {{surname}}</td>
+                                        <td><a href="publico-perfil-ubasico.html">{{nick}}</a></td>
+                                        <td>{{email}}</td>
                                         <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
                                         <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>La Risueña</td>
-                                        <td><a href="publico-perfil-uentreprise-uadmin.html">@risu</a></td>
-                                        <td>laRisu@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>El Kebap de la Esquina</td>
-                                        <td><a href="publico-perfil-uentreprise-uadmin.html">@kbap</a></td>
-                                        <td>ekde@example.com</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm">EDITAR</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">ELIMINAR</button></td>
-                                    </tr>
+                                    	</tr>
+                                	{{/users_enterprise}}
                                 </tbody>
                             </table>
                         </div>
@@ -209,8 +187,8 @@
 	        </div>    
 	    </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/js/bootstrap.min.js"></script>
 </body>
 
 </html>
