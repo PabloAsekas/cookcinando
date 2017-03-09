@@ -16,6 +16,7 @@ import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserBasic;
 import daw.cookcinando.model.UserEnterprise;
 import daw.cookcinando.repository.UserRepository;
+import daw.cookcinando.UserComponent;
 
 @Controller
 public class UserController {
@@ -23,32 +24,22 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@RequestMapping("/registry")
+	@Autowired
+	private UserComponent userComponent;
+	
+	@RequestMapping("/registro")
 	public String registry(Model model, @RequestParam String nick, @RequestParam String email, 
-						   @RequestParam String password, @RequestParam String type){
-		
-		model.addAttribute("nick", nick);
-		model.addAttribute("email", email);
-		model.addAttribute("password", password);
-		model.addAttribute("type", type);
-		
-//		if(type == "individual"){
-//			UserBasic user = new UserBasic("", "", "", "", nick,email,password,"ROLE_BASIC");
-//			System.out.println(user);
-//			userRepository.save(user);
-//		}
-//		else if(type == "empresa"){
-//			UserEnterprise user = new UserEnterprise("", "", "", "", nick,email,password,"ROLE_BASIC","ROLE_ENTERPRISE");
-//			System.out.println(user);
-//			userRepository.save(user);
-//		}
-		
-		System.out.println(type);
-		
-//		User user = new User("", "", "", "", nick,email,password,"ROLE_BASIC","ROLE_ENTERPRISE");
-//		System.out.println(user.getEmail());
-//		userRepository.save(user);
-		
+						   @RequestParam String password, @RequestParam String tipoUsuario){
+		if(tipoUsuario.equals("individual")){
+			User user = new UserBasic("", "", "", "", nick,email,password,"ROLE_BASIC");
+			userRepository.save(user);
+			userComponent.setLoggedUser(user);
+		}
+		else if(tipoUsuario.equals("empresa")){
+			User user = new UserEnterprise("", "", "", "", nick,email,password,"ROLE_BASIC","ROLE_ENTERPRISE");
+			userRepository.save(user);
+			userComponent.setLoggedUser(user);
+		}
 		return "login";
 	}
 

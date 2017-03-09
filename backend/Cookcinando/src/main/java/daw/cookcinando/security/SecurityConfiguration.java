@@ -23,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/recetas/{id}").permitAll();
 		
 		//Private pages
-//		http.authorizeRequests().antMatchers("/privado/recetas/crear").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
+		http.authorizeRequests().antMatchers("/privado/recetas/crear").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
 //		http.authorizeRequests().antMatchers("/privado/recetas/form-crear").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
 //		http.authorizeRequests().antMatchers("/privado/recetas/editar/{id}").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
 //		http.authorizeRequests().antMatchers("/privado/recetas/form-editar/{id}").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
