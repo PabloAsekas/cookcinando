@@ -242,4 +242,17 @@ public class RecipeController {
 		}
 		return ("redirect:/recetas/"+id);
 	}
+	
+	
+	@RequestMapping("/privado/recetas/eliminar/{id}")
+	public String eliminarReceta(Model model, @PathVariable Long id){
+		Recipe receta = recipeRepository.findOne(id);
+//		User userLogged = userComponent.getLoggedUser();
+//		if(receta.getAuthor() == userLogged){
+			recipeRepository.delete(receta);
+//		}
+		return ("redirect:/recetas/");
+	}
+	
+	
 }
