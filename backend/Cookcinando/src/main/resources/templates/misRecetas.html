@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Cookcinando</title>
-    <link rel="stylesheet" href="../../js/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../js/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../js/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -40,7 +40,7 @@
                               <li class="list-group-item"><a href="/privado/mis-recetas"> Mis Recetas</a></li>
                               <li class="list-group-item"><a href="/privado/recetas/crear">Añadir Receta</a></li>
                               {{#admin}}
-                              <li class="list-group-item"><a href="#">Todas las recetas</a></li>
+                              <li class="list-group-item"><a href="/privado/todas-recetas">Todas las recetas</a></li>
                               {{/admin}}
                             </ul>
                         </div>
@@ -94,7 +94,7 @@
                     	{{#myRecipes}}
                     		<div class="col-md-4 todas-recetas">
                             	<a href="/recetas/{{-index}}"><div class="thumbnail">
-                                	<img src="{{thumbnail}}" alt="Pabellon Criollo">
+                                	<img src="{{thumbnail}}" alt="{{title}}">
                                 	<div class="caption">
                                     	<h3>{{title}}</h3>
                                     	<p>{{description}}</p>
@@ -141,8 +141,8 @@
 	        </div>    
 	    </div>
 
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/js/bootstrap.min.js"></script>
 </body>
 
 </html>

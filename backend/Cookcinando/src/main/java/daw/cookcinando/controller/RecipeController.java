@@ -271,7 +271,10 @@ public class RecipeController {
 	}
 	
 	@RequestMapping("/privado/mis-recetas")
-	public String misRecetas(Model model) {
+	public String misRecetas(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		
 		User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		
@@ -280,5 +283,18 @@ public class RecipeController {
 		model.addAttribute("myRecipes", myRecipes);
 		
 		return "misRecetas";
+	}
+	
+	@RequestMapping("/privado/todas-recetas")
+	public String todasRecetas(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		
+		List<Recipe> allRecipes = recipeRepository.findAll();
+		
+		model.addAttribute("allRecipes", allRecipes);
+		
+		return "todasRecetas";
 	}
 }
