@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,11 +60,11 @@ public class UserController {
 	@RequestMapping("/privado/ajustar-cuenta/{id}")
 	public String ajustProfile(Model model, @PathVariable Long id, @RequestParam String nick, @RequestParam String email, @RequestParam String pass1, @RequestParam String pass2) {
 		User userLogged = userComponent.getLoggedUser();
-		if ( ((pass1!="") && (pass2!="")) && pass1==pass2) {
-			userLogged.setNick("funsiona el cambio wey");
+		if ( ((pass1!="") && (pass2!="")) && pass1.equals(pass2)) {
+			userLogged.setNick(nick);
 			userLogged.setEmail(email);
+			userLogged.setPasswordHash(new BCryptPasswordEncoder().encode(pass1));
 			userRepository.save(userLogged);
-		
 		} else {
 			userLogged.setNick(nick);
 			userLogged.setEmail(email);

@@ -91,7 +91,7 @@
                 </div>
                 <div class="inputs-ajustes">
                 {{#user}}
-                	<form>
+                	<form action="/privado/ajustar-cuenta/{{id}}" method="POST" id="form-cuenta">
 	                    <label for="nombreUsuario">Cambiar nombre de usuario</label>
 	                    <input type="text" class="form-control" placeholder="@..." name="nick" value="{{nick}}">
 	                    <label for="direccionEmail">Cambiar dirección de email</label>
