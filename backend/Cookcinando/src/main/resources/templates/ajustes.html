@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Cookcinando</title>
-    <link rel="stylesheet" href="js/css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../js/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -90,14 +90,18 @@
                     <h1>Ajustes</h1>
                 </div>
                 <div class="inputs-ajustes">
-                    <label for="nombreUsuario">Cambiar nombre de usuario</label>
-                    <input type="text" class="form-control" placeholder="@..." id="nombreUsuario">
-                    <label for="direccionEmail">Cambiar dirección de email</label>
-                    <input type="text" class="form-control" placeholder="Nuevo email" id="direccionEmail">
-                    <label for="ContrasenaNueva">Cambiar contraseña</label>
-                    <input type="password" class="form-control" placeholder="Contraseña nueva" id="contrasenaNueva">
-                    <input type="password" class="form-control" placeholder="Repetir contraseña">
-                    <button type="submit" class="btn btn-default">Guardar</button>
+                {{#user}}
+                	<form>
+	                    <label for="nombreUsuario">Cambiar nombre de usuario</label>
+	                    <input type="text" class="form-control" placeholder="@..." name="nick" value="{{nick}}">
+	                    <label for="direccionEmail">Cambiar dirección de email</label>
+	                    <input type="text" class="form-control" placeholder="Nuevo email" name="email" value="{{email}}">
+	                    <label for="ContrasenaNueva">Cambiar contraseña</label>
+	                    <input type="password" class="form-control" placeholder="Contraseña nueva" name="pass1" >
+	                    <input type="password" class="form-control" placeholder="Repetir contraseña" name="pass2">
+	                    <button type="submit" class="btn btn-default">Guardar</button>
+                    </form>
+                {{/user}}
                 </div>
             </div>
         </div>
@@ -126,14 +130,14 @@
             </div>
             <div class="col-md-4 imagenes"> 
                 <h1>REDES SOCIALES</h1>
-                <div class=" col-md-4"><a href="https://www.facebook.com/"><img src="img/facebook.png" width="100px" height="auto" class="img-responsive"/></a></div>
-                <div class=" col-md-4"><a href="https://twitter.com/"><img src="img/twitter.png" width="100px" height="auto" class="img-responsive" /></a></div>
-                <div class=" col-md-4"><a href="https://accounts.google.com/"><img src="img/googleplus.png" width="100px" height="auto" class="img-responsive" /></a></div>
+                <div class=" col-md-4"><a href="https://www.facebook.com/"><img src="../../img/facebook.png" width="100px" height="auto" class="img-responsive"/></a></div>
+                <div class=" col-md-4"><a href="https://twitter.com/"><img src="../../img/twitter.png" width="100px" height="auto" class="img-responsive" /></a></div>
+                <div class=" col-md-4"><a href="https://accounts.google.com/"><img src="../../img/googleplus.png" width="100px" height="auto" class="img-responsive" /></a></div>
             </div>
         </div>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/js/bootstrap.min.js"></script>
 </body>
 
 </html>

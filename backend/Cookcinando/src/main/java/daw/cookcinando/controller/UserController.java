@@ -48,6 +48,30 @@ public class UserController {
 		return "login";
 	}
 	
+	@RequestMapping("/privado/ajustes")
+	public String ajustes(Model model, HttpServletRequest request) {
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", userComponent.getLoggedUser());
+		return("ajustes");
+	}
+	
+	@RequestMapping("/privado/ajustar-cuenta/{id}")
+	public String ajustProfile(Model model, @PathVariable Long id, @RequestParam String nick, @RequestParam String email, @RequestParam String pass1, @RequestParam String pass2) {
+		User userLogged = userComponent.getLoggedUser();
+		if ( ((pass1!="") && (pass2!="")) && pass1==pass2) {
+			userLogged.setNick("funsiona el cambio wey");
+			userLogged.setEmail(email);
+			userRepository.save(userLogged);
+		
+		} else {
+			userLogged.setNick(nick);
+			userLogged.setEmail(email);
+			userRepository.save(userLogged);
+		}
+		return ("redirect:/privado/ajustes");
+	}
+	
 	@RequestMapping("/privado/mi-cuenta")
 	public String myprofile(Model model, HttpServletRequest request) {
 		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
@@ -58,10 +82,6 @@ public class UserController {
 	
 	@RequestMapping("/privado/modificar-cuenta/{id}")
 	public String editProfile(Model model, @PathVariable Long id, @RequestParam MultipartFile imagen, @RequestParam String name, @RequestParam String surname, @RequestParam String description) {
-//		System.out.println(id);
-//		System.out.println(name);
-//		System.out.println(surname);
-//		System.out.println(description);
 		User userLogged = userComponent.getLoggedUser();
 		if (!imagen.isEmpty()) {
 			try {
