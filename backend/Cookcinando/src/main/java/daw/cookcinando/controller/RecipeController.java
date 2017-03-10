@@ -21,6 +21,7 @@ import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RecipeRepository;
+import daw.cookcinando.repository.UserRepository;
 
 @Controller
 public class RecipeController {
@@ -33,8 +34,8 @@ public class RecipeController {
 	@Autowired
 	private UserComponent userComponent;
 	
-	//@Autowired
-	//private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 	
 	private List<String> ingredients = new ArrayList<>();
 	private List<String> typesFood = new ArrayList<>();
@@ -260,11 +261,12 @@ public class RecipeController {
 	}
 	
 	@RequestMapping("/privado/recetas/add-fav/{id}")
-	public String aniadirRecetaFavorito(Model model, @PathVariable Long id){
+	public String aniadirRecetaFavorito(Model model, @PathVariable long id){
 		Recipe recipe = recipeRepository.findOne(id);
-		User userLogged = userComponent.getLoggedUser();
+		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		userLogged.getFavRecipes().add(recipe);
-		System.out.println(userLogged.getFavRecipes().get(0));
+		userRepository.saveAndFlush(userLogged);
+		//System.out.println(userLogged.getFavRecipes().get(0));
 		return ("redirect:/recetas/");
 	}
 }

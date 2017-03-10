@@ -151,8 +151,12 @@ public class User {
 	public List<Recipe> getFavRecipes() {
 		return favRecipes;
 	}
+	
+	public void setFavRecipes(List<Recipe> favRecipes) {
+		this.favRecipes = favRecipes;
+	}
 
-	public void setFavRecipes(Recipe recipe) {
+	public void setFavRecipe(Recipe recipe) {
 		this.favRecipes.add(recipe);
 	}
 

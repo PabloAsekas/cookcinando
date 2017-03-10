@@ -2257,3 +2257,53 @@ org.eclipse.jface.text.BadLocationException: null
 2017-03-09 18:32:40,513 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 166 resources
 2017-03-09 18:32:40,776 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-03-09 18:32:40,869 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Maria\Desktop\DAW PRACTICA\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-09 20:19:41,386 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-09 20:19:41,449 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-09 20:19:41,465 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 165 resources
+2017-03-09 20:20:09,347 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-09 20:20:09,347 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 11:11:32,188 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:11:32,219 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 11:11:32,250 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 165 resources
+2017-03-10 11:11:32,484 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:11:32,484 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 11:28:52,643 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:28:52,659 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-03-10 11:28:52,659 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 11:28:52,659 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:28:52,659 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 11:29:56,763 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:29:56,778 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-03-10 11:29:56,778 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 11:29:56,778 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:29:56,778 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 11:30:11,834 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:30:11,896 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 11:30:11,943 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 166 resources
+2017-03-10 11:30:12,021 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:30:12,021 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 11:31:03,191 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:31:03,191 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-03-10 11:31:03,191 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 11:31:03,191 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:31:03,191 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 11:51:32,879 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:51:32,895 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-03-10 11:51:32,895 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 11:51:32,942 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 11:51:32,942 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 12:12:53,127 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 12:12:53,173 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 12:12:53,207 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 166 resources
+2017-03-10 12:12:53,248 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 12:12:53,249 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 12:15:10,892 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 12:15:10,948 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 12:15:10,987 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 166 resources
+2017-03-10 12:15:11,036 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 12:15:11,037 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
+2017-03-10 12:17:52,038 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 12:17:52,088 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-10 12:17:52,127 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 166 resources
+2017-03-10 12:17:52,184 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-10 12:17:52,185 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Blanca\Documents\GitHub\cookcinando\backend\Cookcinando\src\test\resources
