@@ -120,7 +120,12 @@ public class RecipeController {
 			if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
 				model.addAttribute("creator", true);
 			} else {
-				model.addAttribute("notcreator", true);
+				User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
+				if(user.getFavRecipes().contains(recipe)){
+					model.addAttribute("notcreatorFAV", true);
+				}else{
+					model.addAttribute("notcreator", true);
+				}
 			}
 		} else {
 			model.addAttribute("usernotlogged", true);
@@ -174,15 +179,6 @@ public class RecipeController {
 			return ("redirect:/recetas/"+recipe.getId());
 		}
 		return ("redirect:/recetas");
-
-//		model.addAttribute("receta", recipe);
-//		List<Recipe> recomendadas = new ArrayList<Recipe>();
-//		for (long i = 1; i < 4; i++) {
-//			recomendadas.add(recipeRepository.getOne(i));
-//		}
-//		model.addAttribute("recomendadas", recomendadas);
-//		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
-//		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 	}
 	
 	@RequestMapping("/privado/recetas/editar/{id}")
@@ -265,6 +261,16 @@ public class RecipeController {
 		Recipe recipe = recipeRepository.findOne(id);
 		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		userLogged.getFavRecipes().add(recipe);
+		userRepository.saveAndFlush(userLogged);
+		//System.out.println(userLogged.getFavRecipes().get(0));
+		return ("redirect:/recetas/");
+	}
+	
+	@RequestMapping("/privado/recetas/remove-fav/{id}")
+	public String quitarRecetaFavorito(Model model, @PathVariable long id){
+		Recipe recipe = recipeRepository.findOne(id);
+		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
+		userLogged.getFavRecipes().remove(recipe);
 		userRepository.saveAndFlush(userLogged);
 		//System.out.println(userLogged.getFavRecipes().get(0));
 		return ("redirect:/recetas/");

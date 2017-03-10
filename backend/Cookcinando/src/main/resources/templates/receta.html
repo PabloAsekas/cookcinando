@@ -49,6 +49,11 @@
 							</form>
 							<!--<button style="margin-left: 10px" type="submit" class="btn btn-default publicar" href="/privado/recetas/editar/{{receta.id}}">Editar</button>-->
 						{{/creator}}
+						{{#notcreatorFAV}}
+							<form action="/privado/recetas/remove-fav/{{receta.id}}">
+								<button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Quitar de Favoritos</button>
+							</form>
+						{{/notcreatorFAV}}
 						{{#notcreator}}
 							<form action="/privado/recetas/add-fav/{{receta.id}}">
 								<button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Añadir a Favoritos</button>
