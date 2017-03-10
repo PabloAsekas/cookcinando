@@ -40,7 +40,7 @@ public class DataLoader implements CommandLineRunner{
 		typesFood.add("Comida3");
 		typesFood.add("Comida4");
 		
-		UserBasic user_basic = new UserBasic("A", "A", "A", "A", "A","basic","pass","ROLE_BASIC");
+		UserBasic user_basic = new UserBasic("A", "A", "A", "http://cdn.kiwilimon.com/recetaimagen/13823/6183.jpg", "A","basic","pass","ROLE_BASIC");
 		UserBasic user_basic2 = new UserBasic("B", "B", "B", "B", "B","bbasic","pass","ROLE_BASIC");
 		UserBasic user_admin = new UserBasic("C", "C", "C", "C", "C","cbasic","pass","ROLE_BASIC", "ROLE_ENTERPRISE", "ROLE_ADMIN");
 		userRepository.save(user_basic);

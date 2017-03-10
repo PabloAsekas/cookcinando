@@ -1,5 +1,6 @@
 package daw.cookcinando.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserBasic;
@@ -20,6 +23,8 @@ import daw.cookcinando.UserComponent;
 
 @Controller
 public class UserController {
+	
+	private static final String FILES_FOLDER = "target/classes/static/img";
 
 	@Autowired
 	private UserRepository userRepository;
@@ -49,6 +54,46 @@ public class UserController {
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("user", userComponent.getLoggedUser());
 		return("miCuenta");
+	}
+	
+	@RequestMapping("/privado/modificar-cuenta/{id}")
+	public String editProfile(Model model, @PathVariable Long id, @RequestParam MultipartFile imagen, @RequestParam String name, @RequestParam String surname, @RequestParam String description) {
+//		System.out.println(id);
+//		System.out.println(name);
+//		System.out.println(surname);
+//		System.out.println(description);
+		User userLogged = userComponent.getLoggedUser();
+		if (!imagen.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
+				}
+				
+				String fileName = "imgUser" + id + ".jpg";
+				String userImg = "../img/" + fileName;
+				
+				userLogged.setName(name);
+				userLogged.setSurname(surname);
+				userLogged.setDescription(description);
+				userLogged.setImage(userImg);
+				userRepository.save(userLogged);
+				
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagen.transferTo(uploadedFile);
+				return ("redirect:/privado/mi-cuenta");
+			} catch (Exception e) {
+				model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
+			}
+		} else {
+			userLogged.setName(name);
+			userLogged.setSurname(surname);
+			userLogged.setDescription(description);
+			userRepository.save(userLogged);
+			return ("redirect:/privado/mi-cuenta");
+		}
+		return ("redirect:/privado/mi-cuenta");
 	}
 
 	@RequestMapping("/privado/mis-favoritos")
