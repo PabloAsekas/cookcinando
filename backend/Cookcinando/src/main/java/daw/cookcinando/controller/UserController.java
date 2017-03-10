@@ -98,11 +98,16 @@ public class UserController {
 
 	@RequestMapping("/privado/mis-favoritos")
 	public String myfavourites(Model model, HttpServletRequest request) {
+		
+		User user = userRepository.findOne(userComponent.getLoggedUser().getId());
+		
 		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
-		model.addAttribute("recipes", userComponent.getLoggedUser().getFavRecipes());
+		model.addAttribute("recipes", user.getFavRecipes());
+		
 		return("misFavoritos");
 	}
+	
 	@RequestMapping("/privado/todos-usuarios")
 	public String allUsers(Model model, HttpServletRequest request){
 		

@@ -269,4 +269,16 @@ public class RecipeController {
 		//System.out.println(userLogged.getFavRecipes().get(0));
 		return ("redirect:/recetas/");
 	}
+	
+	@RequestMapping("/privado/mis-recetas")
+	public String misRecetas(Model model) {
+		
+		User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
+		
+		List<Recipe> myRecipes = user.getMyRecipes();
+		
+		model.addAttribute("myRecipes", myRecipes);
+		
+		return "misRecetas";
+	}
 }

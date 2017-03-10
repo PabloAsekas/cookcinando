@@ -23,7 +23,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/recetas/{id}").permitAll();
 		
 		//Private pages
-		http.authorizeRequests().antMatchers("/privado/recetas/crear").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
+//		http.authorizeRequests().antMatchers("/privado/mi-cuenta").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
+//		http.authorizeRequests().antMatchers("/privado/mis-favoritos").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
+//		http.authorizeRequests().antMatchers("/privado/mis-recetas").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
+//		http.authorizeRequests().antMatchers("/privado/recetas/crear").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
 //		http.authorizeRequests().antMatchers("/privado/recetas/form-crear").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
 //		http.authorizeRequests().antMatchers("/privado/recetas/editar/{id}").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
 //		http.authorizeRequests().antMatchers("/privado/recetas/form-editar/{id}").hasAnyRole("BASIC","ENTERPRISE","ADMIN");
@@ -33,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/login");
 		http.formLogin().usernameParameter("email");
 		http.formLogin().passwordParameter("password");
-		http.formLogin().defaultSuccessUrl("/");
+		http.formLogin().defaultSuccessUrl("/privado/mi-cuenta");
 		
 		// Logout
         http.logout().logoutUrl("/logout");
