@@ -38,6 +38,10 @@ public class User {
 	@OneToMany(mappedBy="author")
 	private List<Recipe> myRecipes;
 	
+	@Column
+	@OneToMany(mappedBy="author")
+	private List<Restaurant> myRestaurants;
+	
 	//private Favorites favorites;
 	@OneToMany
 	private List<Recipe> favRecipes;
@@ -59,6 +63,7 @@ public class User {
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.myRecipes = new ArrayList<Recipe>();
+		this.myRestaurants = new ArrayList<Restaurant>();
 		this.favRecipes = new ArrayList<Recipe>();
 		this.favRestaurants = new ArrayList<Restaurant>();
 		//this.favEvents = new ArrayList<Event>();
@@ -143,7 +148,7 @@ public class User {
 	public void setMyRecipes(List<Recipe> myRecipes) {
 		this.myRecipes = myRecipes;
 	}
-	
+		
 	public void setRecipe(Recipe recipe) {
 		this.myRecipes.add(recipe);
 	}
@@ -159,6 +164,15 @@ public class User {
 	public void setFavRecipe(Recipe recipe) {
 		this.favRecipes.add(recipe);
 	}
+
+	public List<Restaurant> getMyRestaurants() {
+		return myRestaurants;
+	}
+
+	public void setMyRestaurants(List<Restaurant> myRestaurants) {
+		this.myRestaurants = myRestaurants;
+	}
+	
 
 	public List<Restaurant> getFavRestaurants() {
 		return favRestaurants;

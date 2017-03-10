@@ -21,6 +21,7 @@ import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RestaurantRepository;
+import daw.cookcinando.repository.UserRepository;
 
 @Controller
 public class RestaurantController {
@@ -33,8 +34,8 @@ public class RestaurantController {
 	@Autowired
 	private UserComponent userComponent;
 	
-	//@Autowired
-	//private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 	
 	private List<String> typesFood = new ArrayList<>();
 	
@@ -183,9 +184,35 @@ public class RestaurantController {
 	public String aniadirRestauranteFavorito(Model model, @PathVariable Long id){
 		Restaurant restaurante = restaurantRepository.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
-//	añadir a la receta id a la lista de recetas favoritas del usuario userlogged
+
 		return ("redirect:/restaurantes/");
 	}
 	
+	@RequestMapping("/privado/mis-restaurantes")
+	public String misRestaurantes(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		
+		User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
+		
+		List<Restaurant> myRestaurants = user.getMyRestaurants();
+		
+		model.addAttribute("myRestaurants", myRestaurants);
+		
+		return "misRestaurantes";
+	}
 	
+	@RequestMapping("/privado/todos-restaurantes")
+	public String todosRestaurantes(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		
+		List<Restaurant> allRestaurants = restaurantRepository.findAll();
+		
+		model.addAttribute("allRestaurants", allRestaurants);
+		
+		return "todosRestaurantes";
+	}
 }
