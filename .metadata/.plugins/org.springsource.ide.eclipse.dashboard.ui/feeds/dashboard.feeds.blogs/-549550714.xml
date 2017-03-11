@@ -5,7 +5,31 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-03-09T23:00:30Z</updated>
+  <updated>2017-03-10T21:59:02Z</updated>
+  <entry>
+    <title>Spring Cloud Camden.SR6 is available</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/03/10/spring-cloud-camden-sr6-is-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Ryan Baxter</name>
+    </author>
+    <id>tag:spring.io,2017-03-10:2867</id>
+    <updated>2017-03-10T21:59:02Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team, I am pleased to announce that Service Release 6 of the &lt;a href="http://cloud.spring.io"&gt;Spring Cloud Camden&lt;/a&gt; Release Train is available today. The release can be found in our &lt;a href="http://repo.spring.io/release"&gt;Spring Release repository&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22spring-cloud-dependencies%22"&gt;Maven Central&lt;/a&gt;. The documentation can be found &lt;a href="http://cloud.spring.io/spring-cloud-static/Camden.SR6/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;NOTE: There was an upstream fix in Spring Cloud Streams that fixes issues with Spring Cloud Bus, Hystrix, and Turbine. See this &lt;a href="https://github.com/spring-cloud/spring-cloud-stream/issues/810"&gt;issue&lt;/a&gt; for more information.&lt;/p&gt;&lt;h4&gt;&lt;a href="#the-following-modules-were-updated-as-part-of-camden-sr6" class="anchor" name="the-following-modules-were-updated-as-part-of-camden-sr6"&gt;&lt;/a&gt;The following modules were updated as part of Camden.SR6:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Cloud Commons &lt;a href="https://github.com/spring-cloud/spring-cloud-commons/milestone/21?closed=1"&gt;1.1.8.RELEASE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Stream &lt;a href="https://github.com/spring-cloud/spring-cloud-stream/issues/810"&gt;Brooklyn.SR3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Bus &lt;a href="https://github.com/spring-cloud/spring-cloud-bus/milestone/19?closed=1"&gt;1.2.2.RELEASE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Config &lt;a href="https://github.com/spring-cloud/spring-cloud-config/issues/638"&gt;1.2.3.RELEASE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Netflix &lt;a href="https://github.com/spring-cloud/spring-cloud-netflix/milestone/38?closed=1"&gt;1.2.6.RELEASE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Consul &lt;a href="https://github.com/spring-cloud/spring-cloud-consul/milestone/14?closed=1"&gt;1.1.3.RELEASE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Zookeeper &lt;a href="https://github.com/spring-cloud/spring-cloud-zookeeper/milestone/8?closed=1"&gt;1.0.4.RELEASE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Sleuth &lt;a href="https://github.com/spring-cloud/spring-cloud-sleuth/milestone/20?closed=1"&gt;1.1.3.RELEASE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Contract &lt;a href="https://github.com/spring-cloud/spring-cloud-contract/milestone/7?closed=1"&gt;1.0.4.RELEASE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And, as always, we welcome feedback: either on &lt;a href="https://github.com/spring-cloud"&gt;GitHub&lt;/a&gt;, on &lt;a href="https://gitter.im/spring-cloud/spring-cloud"&gt;gitter&lt;/a&gt;, on &lt;a href="http://stackoverflow.com/questions/tagged/spring-cloud"&gt;Stack Overflow&lt;/a&gt;, or on &lt;a href="https://twitter.com/SpringCloud"&gt;Twitter&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Spring Integration Extension for AWS 1.1.0 M1 Available</title>
     <link rel="alternate" href="https://spring.io/blog/2017/03/09/spring-integration-extension-for-aws-1-1-0-m1-available" />
@@ -637,33 +661,5 @@ In the process of addressing above mentioned instability patterns, we have built
     <content type="html">&lt;p&gt;Speaker: &lt;a href="https://www.twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Hi Spring fans! In this tip, we&amp;rsquo;ll look at mapping objects to and from SQL using Apache MyBatis and Spring Boot&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/JyythoOXdbU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - February 21st, 2017</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/02/21/this-week-in-spring-february-21st-2017" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2017-02-21:2845</id>
-    <updated>2017-02-21T21:37:00Z</updated>
-    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Atlanta, GA for &lt;a href="http://DevNexus.com"&gt;the incredible DevNexus event&lt;/a&gt; and then it&amp;rsquo;s off to Geneva, Switzerland for the Voxxed CERN event. As usual, &lt;a href="http://twitter.com/starbuxman"&gt;don&amp;rsquo;t hesitate to say &amp;ldquo;Hi&amp;rdquo;&lt;/a&gt; if you&amp;rsquo;re around!&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2017/02/15/spring-cloud-data-flow-1-2-m1-released"&gt;Thomas Risberg just announced Spring Cloud Data Flow 1.2.M1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring IO Platform lead Andy Wilkinson has just &lt;a href="https://spring.io/blog/2017/02/21/spring-io-platform-brussels-release"&gt;announced the Spring IO Platform Brussels release&lt;/a&gt; which introduces Spring Kafka to the release train and updates several others.&lt;/li&gt;
-  &lt;li&gt;InfoQ&amp;rsquo;s &lt;a href="https://www.twitter.com/charleshumble"&gt;Charles Humble&lt;/a&gt; takes a look at &lt;a href="https://www.infoq.com/articles/enterprise-java-opinion"&gt;the future of Enterprise Java&lt;/a&gt; via the lens of the Geoffrey Moore&amp;rsquo;s Chasm metaphor in this article.&lt;/li&gt;
-  &lt;li&gt;Last week, in another installment of &lt;em&gt;Spring Tips&lt;/em&gt;, we looked at &lt;a href="https://spring.io/blog/2017/02/15/spring-tips-jooq"&gt;how to use JOOQ with Spring Boot&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Using Java FX? This nice post by Gregg Bolinger shows how to use &lt;a href="http://www.greggbolinger.com/let-spring-be-your-javafx-controller-factory/"&gt;Spring with JavaFX&lt;/a&gt;, and have it be your controller factory.&lt;/li&gt;
-  &lt;li&gt;Check out community hero Michael Simons&amp;rsquo; &lt;a href="https://jaxenter.de/spring-boot-starter-2-52525"&gt;German-language JAX talk introducing Spring Boot starters&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Deepak Tyagi put together a nice post on &lt;a href="https://dzone.com/articles/safeguard-spring-app-from-cache-failure"&gt;building applications that carry on in the face of a cache failure using the Spring Cache abstraction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Aboullaite Mohammed put together &lt;a href="https://aboullaite.me/spring-boot-token-authentication-using-jwt/"&gt;an interesting look at using JWT with Spring Boot&lt;/a&gt;. It&amp;rsquo;s a good first cut!&lt;/li&gt;
-  &lt;li&gt;Want to test against an in-memory MongoDB database? This Brazillian-language blog explaining how &lt;a href="https://www.paradigmadigital.com/dev/tests-integrados-spring-boot-fongo/"&gt;to use Spring Boot and Fongo might be just for you&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Matt McCandless does a nice &lt;a href="https://keyholesoftware.com/2017/01/30/spring-boot-the-right-boot-for-you/"&gt;job introducing Spring Boot in this post&lt;/a&gt;: &amp;ldquo;just put them on and lace them up!&amp;rdquo;&lt;/li&gt;
-  &lt;li&gt;Interesting post on the OpenShift blog on &lt;a href="https://blog.openshift.com/performance-metrics-apm-spring-boot-microservices-openshift/"&gt;how to use Spring Boot and their Hawkular APM tool&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;This is an interesting look at &lt;a href="http://pappanyn.me/blog/2017/02/17/a-run-around-with-hazelcast/"&gt;using Spring Boot with Hazelcast&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Dhiraj Ray explains how &lt;a href="http://www.devglan.com/faq/spring-boot-mvc-apache-tiles-example"&gt;to use Spring MVC (in a Spring Boot application) with Apache Tiles&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Christoph Burmeister looks at &lt;a href="http://christoph-burmeister.eu/?p=2951"&gt;how to load-balance Spring Boot applications with Nginx&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This DZone post introduces &lt;a href="https://dzone.com/articles/spring-core-dependency-injection"&gt;basic dependency injection with Spring&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
   </entry>
 </feed>

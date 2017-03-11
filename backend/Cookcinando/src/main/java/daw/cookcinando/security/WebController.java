@@ -51,6 +51,11 @@ public class WebController {
 		
     }
 	
+	@RequestMapping("/login-error")
+    public String loginError() {
+        return "login-error";
+    }
+	
 	/*@RequestMapping("/crearreceta")
 	public String receta(Model model, @RequestParam String titulo, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();

@@ -46,7 +46,7 @@ public class UserController {
 			userRepository.save(user);
 			userComponent.setLoggedUser(user);
 		}
-		return "login";
+		return "registro-completado";
 	}
 	
 	@RequestMapping("/privado/ajustes")

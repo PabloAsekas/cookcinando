@@ -1,0 +1,102 @@
+$(document).ready(function() {
+	
+	var rad = document.registro.type;
+	$('#type').val("individual");
+	for(var i = 0; i< rad.length; i++) {
+		rad[i].onclick = function() {
+			$('#type').val(this.value);
+			var tipo = $('#type').val();
+  		};
+  	}
+});
+
+function validateNick(){
+	
+	var expresion = /^@{1}\w+/g;
+	var nick = $('#nick').val();
+	var nick2 = $('#nick2').val();
+	
+	if(expresion.test(nick) || expresion.test(nick2)){
+		$("#nick-input").removeClass("has-error");
+		$("#nick-input").addClass("has-success");
+		return true;
+	}
+	else {
+		$("#nick-input").removeClass("has-success");
+		$("#nick-input").addClass("has-error");
+		return false;
+	}
+}
+
+function validateEmail() {
+	
+	var expresion = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	var email = $('#email').val();
+	
+	if(expresion.test(email)){
+		$("#email-input").removeClass("has-error");
+		$("#email-input").addClass("has-success");
+		return true;
+	}
+	else {
+		$("#email-input").removeClass("has-success");
+		$("#email-input").addClass("has-error");
+		return false;
+	}
+}
+
+function validatePassword() {
+	
+	var expresion = /[0-9a-zA-Z]+$/;
+	var password = $('#password').val();
+	
+	if(expresion.test(password) && password.length >= 4){
+		$("#password-input").removeClass("has-error");
+		$("#password-input").addClass("has-success");
+		return true;
+	}
+	else {
+		$("#password-input").removeClass("has-success");
+		$("#password-input").addClass("has-error");
+		return false;
+	}
+}
+
+function comparePasswords() {
+	
+	var password = $('#password').val();
+	var repeatedPassword = $('#repeated-password').val();
+	
+	if(password === repeatedPassword){
+		$("#repeated-password-input").removeClass("has-error");
+		$("#repeated-password-input").addClass("has-success");
+		return true;
+	}
+	else {
+		$("#repeated-password-input").removeClass("has-success");
+		$("#repeated-password-input").addClass("has-error");
+		return false;
+	}
+}
+
+function validate() {
+	
+	var nick = $('#nick').val();
+	var email = $('#email').val();
+	var password = $('#password').val();
+	var repeatedPassword = $('#repeated-password').val();
+	
+	if((nick !== "") && (email !== "") && (password !== "") && (repeatedPassword !== "")){
+		if(validateNick() && validateEmail() && validatePassword() && comparePassword()){
+			return true;
+		}
+		else {
+			alert("Todos los campos deben de estar correctos");
+			return false;
+		}
+	}	
+	else {
+		alert("Todos los campos deben de estar completados");
+		return false;
+	}
+}
