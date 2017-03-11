@@ -8,11 +8,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import daw.cookcinando.model.Recipe;
+import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserAdmin;
 import daw.cookcinando.model.UserBasic;
 import daw.cookcinando.model.UserEnterprise;
 import daw.cookcinando.repository.RecipeRepository;
+import daw.cookcinando.repository.RestaurantRepository;
 import daw.cookcinando.repository.UserRepository;
 
 @Component
@@ -23,6 +25,9 @@ public class DataLoader implements CommandLineRunner{
 	
 	@Autowired
 	RecipeRepository recipeRepository;
+	
+	@Autowired
+	RestaurantRepository restaurantRepository;
 	
 	@Override
 	public void run(String... arg0) throws Exception {
@@ -79,6 +84,25 @@ public class DataLoader implements CommandLineRunner{
 		userRepository.save(basic);
 		userRepository.save(enterprise);
 		userRepository.save(admin);
+		
+		Restaurant restaurant1 = new Restaurant("Ribs1", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant2 = new Restaurant("Ribs2", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant3 = new Restaurant("Ribs3", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant4 = new Restaurant("Ribs4", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant5 = new Restaurant("Ribs5", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant6 = new Restaurant("Ribs6", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant7 = new Restaurant("Ribs7", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant8 = new Restaurant("Ribs8", "Prueba", "", "Algo", typesFood, admin);
+		
+		restaurantRepository.saveAndFlush(restaurant1);
+		restaurantRepository.save(restaurant2);
+		restaurantRepository.save(restaurant3);
+		restaurantRepository.save(restaurant4);
+		restaurantRepository.save(restaurant5);
+		restaurantRepository.save(restaurant6);
+		restaurantRepository.save(restaurant7);
+		restaurantRepository.save(restaurant8);
+		
 	}
 	
 	

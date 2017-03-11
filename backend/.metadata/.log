@@ -277,3 +277,25 @@ Caused by: java.io.IOException: Could not find daw.cookcinando.controller$UserCo
 
 !ENTRY org.eclipse.jface.text 2 0 2017-03-09 19:07:28.040
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+!SESSION 2017-03-11 17:16:21.001 -----------------------------------------------
+eclipse.buildId=3.8.3.201612191351-RELEASE-e46
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=es_ES
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/PabloAsekas/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/PabloAsekas/.eclipse_keyring
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-03-11 17:16:28.637
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-11 17:40:36.552
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-11 17:40:36.557
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-11 17:41:02.510
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-11 17:41:02.510
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

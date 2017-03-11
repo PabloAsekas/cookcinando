@@ -22,6 +22,9 @@ public class Restaurant {
 	private String description;
 	private String thumbnail; //Image
 	
+	@Column(length=1000000000)
+	private String body; //Cuerpo
+	
 	@Column
 	@ElementCollection(targetClass=String.class)
 	private List<String> typesFood = new ArrayList<String>();
@@ -31,11 +34,12 @@ public class Restaurant {
 	
 	protected Restaurant(){}
 	
-	public Restaurant (String title, String description, String thumbnail, List<String> typesFood, User author) {
+	public Restaurant (String title, String description, String thumbnail, String body, List<String> typesFood, User author) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.thumbnail = thumbnail; //Image
+		this.body = body;
 		this.typesFood = typesFood;
 		this.author = author;
 	}
@@ -70,6 +74,14 @@ public class Restaurant {
 
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
 	}
 
 	public List<String> getTypesFood() {
