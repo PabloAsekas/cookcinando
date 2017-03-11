@@ -70,7 +70,7 @@ public class RestaurantController {
 				model.addAttribute("creator", true);
 			} else {
 				User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
-				if(user.getFavRestaurants().contains(restaurante)){
+				if(user.getFavRecipes().contains(restaurante)){
 					model.addAttribute("notcreatorFAV", true);
 				}else{
 					model.addAttribute("notcreator", true);
@@ -185,10 +185,9 @@ public class RestaurantController {
 	
 	@RequestMapping("/privado/restaurantes/add-fav/{id}")
 	public String aniadirRestauranteFavorito(Model model, @PathVariable Long id){
-		Restaurant restaurant = restaurantRepository.findOne(id);
-		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
-		userLogged.getFavRestaurants().add(restaurant);
-		userRepository.saveAndFlush(userLogged);
+		Restaurant restaurante = restaurantRepository.findOne(id);
+		User userLogged = userComponent.getLoggedUser();
+
 		return ("redirect:/restaurantes/");
 	}
 	

@@ -185,10 +185,9 @@ public class RestaurantController {
 	
 	@RequestMapping("/privado/restaurantes/add-fav/{id}")
 	public String aniadirRestauranteFavorito(Model model, @PathVariable Long id){
-		Restaurant restaurant = restaurantRepository.findOne(id);
-		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
-		userLogged.getFavRestaurants().add(restaurant);
-		userRepository.saveAndFlush(userLogged);
+		Restaurant restaurante = restaurantRepository.findOne(id);
+		User userLogged = userComponent.getLoggedUser();
+
 		return ("redirect:/restaurantes/");
 	}
 	
