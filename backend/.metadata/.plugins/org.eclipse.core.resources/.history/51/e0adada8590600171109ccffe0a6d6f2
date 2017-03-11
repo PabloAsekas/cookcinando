@@ -178,13 +178,11 @@ public class RecipeController {
 			recipeRepository.save(recipe);
 			return ("redirect:/recetas/"+recipe.getId());
 		}
-		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return ("redirect:/recetas");
 	}
 	
 	@RequestMapping("/privado/recetas/editar/{id}")
-	public String modificarReceta(Model model, HttpServletRequest request, @PathVariable Long id){
+	public String modificarReceta(Model model, @PathVariable Long id){
 		Recipe recipe = recipeRepository.findOne(id);
 		model.addAttribute("receta", recipe);
 		User userLogged = userComponent.getLoggedUser();
@@ -193,13 +191,11 @@ public class RecipeController {
 		} else {
 			model.addAttribute("deny", true);
 		}
-		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "formularioEditarReceta";
 	}
 	
 	@RequestMapping("/privado/recetas/form-editar/{id}")
-	public String editarreceta(Model model, HttpServletRequest request, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam MultipartFile imagenCabecera, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
+	public String editarreceta(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam MultipartFile imagenCabecera, @RequestParam String cuerpo, @RequestParam String ingredientes, @RequestParam String comidas) {
 		List<String> ingredientesRecetas = new ArrayList<>();
 		String ingredientesSeparados[] = ingredientes.split(",");
 		for(int i=0; i<ingredientesSeparados.length; i++){
@@ -246,8 +242,6 @@ public class RecipeController {
 				recipeRepository.save(recipe);
 			}
 		}
-		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return ("redirect:/recetas/"+id);
 	}
 	

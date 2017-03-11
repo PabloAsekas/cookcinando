@@ -141,7 +141,7 @@ public class EventController {
 	public String modificarEvento(Model model, @PathVariable Long id){
 		Event evento = eventRepository.findOne(id);
 		model.addAttribute("evento", evento);
-		return "formularioEditarEvento";
+		return "formularioEditar";
 	}
 	
 	@RequestMapping("/privado/eventos/form-editar/{id}")
