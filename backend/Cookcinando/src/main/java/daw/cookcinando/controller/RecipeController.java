@@ -9,10 +9,12 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -307,4 +309,65 @@ public class RecipeController {
 		
 		return "todasRecetas";
 	}
+	
+	
+	
+	
+	
+	//Codigo Paginacion	
+		//@RequestMapping(value = "/pages/{pageNumber}", method = RequestMethod.GET)
+		//public String getTitle(@PathVariable String pageNumber, Model model) {
+		    //Page<Recipe> page = receta.getTitle(pageNumber); //En lugar receta, se deberia crear un servicio 
+
+		    //int current = page.getNumber() + 1;
+		    //int begin = Math.max(1, current - 5);
+		    //int end = Math.min(begin + 10, page.getTotalPages());
+
+		    //model.addAttribute("Recipe", page);
+		    //model.addAttribute("beginIndex", begin);
+		    //model.addAttribute("endIndex", end);
+		    //model.addAttribute("currentIndex", current);
+
+		    //return "recetas";
+		//}
+		
+		
+		//Codigo Paginacion 2
+		//@PostConstruct
+		//public void init(){
+		//for(int i=0; i<10; i++){
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//recipeRepotory.save(new Recipe());
+		//recipeRepository.save(new Recipe());
+		//}
+		//}
+		
+		//@RequestMapping
+		//public String recetario (Model model, Pageable pageable){
+		//model.addAtribute("receta"; recipeRepository.findAll(page));
+		//return recetario;
+		//}
+		
+		//@RequestMapping
+		//public String tablon (Model model, Pageable page){
+		//Page<Recipe> recipes = recipeRepository.findAll(page);
+		//model.addAtribute("recetas",recetas);
+		//model.addAtribute("showNext",!recetas.isLast());
+		//model.addAtribute("showPrev",!recetas.isFirst());
+		//model.addAtribute("numPage",recetas.getTitle());
+		//model.addAtribute("nextPage",recetas.getTitle()+1);
+		//model.addAtribute("prevPage",recetas.getTitle()-1);
+		//return tablon;
+		//}
+		
+		
+		
 }
