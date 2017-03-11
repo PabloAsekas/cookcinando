@@ -33,7 +33,7 @@
                         <a>Mi Cuenta</a>
                     </li>
                     <li>
-                        <a href="/privado/mis-favoritos">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
+                        <a>Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
                     </li>
                     <li>
                         <a data-toggle="collapse" href="#recetas-privado">Recetas <span class="caret"></span></a>

@@ -40,7 +40,7 @@
                               <li class="list-group-item"><a href="/privado/mis-recetas"> Mis Recetas</a></li>
                               <li class="list-group-item"><a href="/privado/recetas/crear">Añadir Receta</a></li>
                               {{#admin}}
-                              <li class="list-group-item"><a>Todas las recetas</a></li>
+                              <li class="list-group-item"><a href="/privado/todas-recetas">Todas las recetas</a></li>
                               {{/admin}}
                             </ul>
                         </div>
@@ -51,10 +51,10 @@
                         <a data-toggle="collapse" href="#restaurantes-privado">Restaurantes <span class="caret"></span></a>
                         <div id="restaurantes-privado" class="collapse">
                             <ul class="list-group">         	
-                              <li class="list-group-item"><a href="/privado/mis-restaurantes">Mis Restaurantes</a></li>
+                              <li class="list-group-item"><a href="#">Mis Restaurantes</a></li>
                               <li class="list-group-item"><a href="/privado/restaurantes/crear">Añadir Restaurante</a></li> 
                               {{#admin}}
-                              <li class="list-group-item"><a href="/privado/todos-restaurantes">Todos los restaurantes</a></li>
+                              <li class="list-group-item"><a href="#">Todos los restaurantes</a></li>
                               {{/admin}}
                             </ul>
                         </div> 
@@ -66,10 +66,10 @@
                         <a data-toggle="collapse" href="#eventos-privado">Eventos <span class="caret"></span></a>
                         <div id="eventos-privado" class="collapse">
                             <ul class="list-group">
-                              <li class="list-group-item"><a href="/privado/mis-eventos">Mis Eventos</a></li>
-                              <li class="list-group-item"><a href="/privado/eventos/crear">Añadir Evento</a></li> 
+                              <li class="list-group-item"><a href="#">Mis Eventos</a></li>
+                              <li class="list-group-item"><a href="#">Añadir Evento</a></li> 
                               {{#admin}}
-                              <li class="list-group-item"><a href="/privado/todas-eventos">Todos los eventos</a></li> 
+                              <li class="list-group-item"><a href="#">Todos los eventos</a></li> 
                               {{/admin}}  
                             </ul>
                         </div>
@@ -81,7 +81,7 @@
                     </li>
                     {{/admin}}
                     <li>
-                        <a href="/privado/ajustes">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
+                        <a href="#">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
                     </li>
                 </ul>
             </div>
