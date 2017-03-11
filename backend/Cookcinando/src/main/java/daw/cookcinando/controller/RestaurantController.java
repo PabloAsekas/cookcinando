@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import daw.cookcinando.UserComponent;
+import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RestaurantRepository;
@@ -185,6 +186,16 @@ public class RestaurantController {
 		Restaurant restaurante = restaurantRepository.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
 
+		return ("redirect:/restaurantes/");
+	}
+	
+	@RequestMapping("/privado/restaurantes/remove-fav/{id}")
+	public String quitarRestauranteFavorito(Model model, @PathVariable long id){
+		Restaurant restaurant = restaurantRepository.findOne(id);
+		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
+		userLogged.getFavRestaurants().remove(restaurant);
+		userRepository.saveAndFlush(userLogged);
+		//System.out.println(userLogged.getFavRecipes().get(0));
 		return ("redirect:/restaurantes/");
 	}
 	

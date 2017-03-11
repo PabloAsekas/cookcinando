@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Event;
+import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.repository.EventRepository;
 import daw.cookcinando.repository.UserRepository;
@@ -206,6 +207,16 @@ public class EventController {
 		Event event = eventRepository.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
 //	añadir el id evento a la lista de eventos favoritos del usuario userlogged
+		return ("redirect:/eventos/");
+	}
+	
+	@RequestMapping("/privado/eventos/remove-fav/{id}")
+	public String quitarEventoFavorito(Model model, @PathVariable long id){
+		Event event = eventRepository.findOne(id);
+		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
+		userLogged.getFavEvents().remove(event);
+		userRepository.saveAndFlush(userLogged);
+		//System.out.println(userLogged.getFavRecipes().get(0));
 		return ("redirect:/eventos/");
 	}
 	
