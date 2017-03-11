@@ -62,7 +62,7 @@
             {{#recomendadas}}
             	<div class="col-md-4">
 	                <div class="thumbnail">
-		                <a href="/restaurantes/{{id}}">
+		                <a href="/receta/{{-index}}">
 		                    <img src="{{thumbnail}}" alt="{{title}}">
 		                    <div class="caption">
 		                        <h3>{{title}}</h3>
