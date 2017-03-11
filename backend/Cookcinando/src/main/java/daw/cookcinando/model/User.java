@@ -42,12 +42,17 @@ public class User {
 	@OneToMany(mappedBy="author")
 	private List<Restaurant> myRestaurants;
 	
-	//private Favorites favorites;
+	@Column
+	@OneToMany(mappedBy="author")
+	private List<Event> myEvents;
+	
+	
 	@OneToMany
 	private List<Recipe> favRecipes;
 	@OneToMany
 	private List<Restaurant> favRestaurants;
-	//private List<Events> favEvents;
+	@OneToMany
+	private List<Event> favEvents;
 	
 	protected User(){}
 	
@@ -64,9 +69,10 @@ public class User {
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.myRecipes = new ArrayList<Recipe>();
 		this.myRestaurants = new ArrayList<Restaurant>();
+		this.myEvents = new ArrayList<Event>();
 		this.favRecipes = new ArrayList<Recipe>();
 		this.favRestaurants = new ArrayList<Restaurant>();
-		//this.favEvents = new ArrayList<Event>();
+		this.favEvents = new ArrayList<Event>();
 	}
 
 	public long getId() {
@@ -181,16 +187,40 @@ public class User {
 	public void setFavRestaurants(List<Restaurant> favRestaurants) {
 		this.favRestaurants = favRestaurants;
 	}
+		
+	public List<Event> getMyEvents() {
+		return myEvents;
+	}
+
+	public void setMyEvents(List<Event> myEvents) {
+		this.myEvents = myEvents;
+	}
+		
+	public void setEvent(Event event) {
+		this.myEvents.add(event);
+	}
+
+	public List<Event> getFavEvents() {
+		return favEvents;
+	}
+	
+	public void setFavEvents(List<Event> favEvents) {
+		this.favEvents = favEvents;
+	}
+
+	public void setFavEvent(Event event) {
+		this.favEvents.add(event);
+	}
 	
 	public boolean isAdmin() {
 		return this.roles.contains("ROLE_ADMIN");
 	}
 
-//	@Override
-//	public String toString() {
-//		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", description=" + description
-//				+ ", image=" + image + ", nick=" + nick + ", email=" + email + ", passwordHash=" + passwordHash
-//				+ ", roles=" + roles + ", myRecipes=" + myRecipes + ", favRecipes=" + favRecipes + ", favRestaurants="
-//				+ favRestaurants + "]";
-//	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", description=" + description
+				+ ", image=" + image + ", nick=" + nick + ", email=" + email + ", passwordHash=" + passwordHash
+				+ ", roles=" + roles + ", myRecipes=" + myRecipes + ", favRecipes=" + favRecipes + ", favRestaurants="
+				+ favRestaurants + "]";
+	}
 }
