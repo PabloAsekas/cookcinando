@@ -2,32 +2,49 @@
 <html lang="es">
 
 	<head>
-	    <meta charset="UTF-8">
+		<meta charset="UTF-8">
 	    <title>Cookcinando</title>
 	    <link rel="stylesheet" href="../../js/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="../../js/css/bootstrap-theme.min.css">
 	    <link rel="stylesheet" href="../../style.css">
-		<script src="../../js/jquery.min.js"></script>
-	    <script src="../../js/js/bootstrap.min.js"></script>
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/js/bootstrap.min.js"></script>
+	    <script src="../../js/editor.js"></script>
+	    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
+	    <link href="../../js/editor.css" type="text/css" rel="stylesheet"/>
+	    <script>
+	        $(document).ready(function() {
+	            $("#txtEditor").Editor();
+	            $( "#form-receta" ).submit(function( event ) {
+	        	 	var contenido = $('#txtEditor').Editor("getText");
+	        	 	$('#txtEditor').val(contenido);
+	        	});
+	        });
+	        $(document).ready(function(){
+	            $('[data-toggle="popover"]').popover();   
+	        });
+	    </script>
 	</head>
 	
 	<body>
 	    <div class="container-fluid">
 	        <div class="row">
 	            <div class="col-md-7 titulo">
-	                <h1>Cookcinando</h1>
+	                <a href="index.html"><h1>Cookcinando</h1></a>
 	            </div>
 	            <div class="col-md-5 menu">
 	                <ul class="nav nav-pills cerrar-sesion">
-	                    <li class="active"><a href="index.html">Cerrar sesión</a></li>
+	                    <form action="/logout" method="post">
+	                    <li class="active"><input class="btn" type="submit" value="Cerrar sesión"></li>
+	                    </form>
 	                </ul>
 	            </div>
 	        </div>
 	    </div>
 	    <div class="container-fluid">
 	        <div class="row">
-	           <div class="col-md-2">
+	            <div class="col-md-2">
 	                <ul class="nav nav-pills nav-stacked">
 	                    <li>
 	                        <a href="/privado/mi-cuenta">Mi Cuenta</a>
@@ -49,14 +66,14 @@
 	                    </li>
 	                    
 	                    {{#enterprise}}
-	                    <li class="active">
+	                    <li>
 	                        <a data-toggle="collapse" href="#restaurantes-privado">Restaurantes <span class="caret"></span></a>
 	                        <div id="restaurantes-privado" class="collapse">
 	                            <ul class="list-group">         	
 	                              <li class="list-group-item"><a href="/privado/mis-restaurantes">Mis Restaurantes</a></li>
 	                              <li class="list-group-item"><a href="/privado/restaurantes/crear">Añadir Restaurante</a></li> 
 	                              {{#admin}}
-	                              <li class="list-group-item"><a>Todos los restaurantes</a></li>
+	                              <li class="list-group-item"><a href="/privado/todos-restaurantes">Todos los restaurantes</a></li>
 	                              {{/admin}}
 	                            </ul>
 	                        </div> 
@@ -64,12 +81,12 @@
 	                	{{/enterprise}}   
 	                    
 	                    {{#enterprise}} 
-	                    <li>
+	                    <li class="active">
 	                        <a data-toggle="collapse" href="#eventos-privado">Eventos <span class="caret"></span></a>
 	                        <div id="eventos-privado" class="collapse">
 	                            <ul class="list-group">
 	                              <li class="list-group-item"><a href="/privado/mis-eventos">Mis Eventos</a></li>
-	                              <li class="list-group-item"><a href="/privado/eventos/crear">Añadir Evento</a></li> 
+	                              <li class="list-group-item"><a>Añadir Evento</a></li> 
 	                              {{#admin}}
 	                              <li class="list-group-item"><a href="/privado/todas-eventos">Todos los eventos</a></li> 
 	                              {{/admin}}  
@@ -83,74 +100,32 @@
 	                    </li>
 	                    {{/admin}}
 	                    <li>
-	                        <a href="/privado/ajustes">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
+	                        <a href="/privado/eventos/crear">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
 	                    </li>
 	                </ul>
 	            </div>
 	            <div class="col-md-8">
 	                <div class="cabecera-subrayada">
-	                    <h1>Todos los restaurantes</h1>
+	                    <h1>Añadir nuevo evento</h1>
 	                </div>
-	    			<div class="container-fluid">
-	                    <div class="col-md-4">
-	                        <a href="publico-restaurante-uregistrado.html"><div class="thumbnail">
-	                            <img src="img/TGBGrande.jpg" alt="Pabellon Criollo">
-	                            <div class="caption">
-	                                <h3>The good burger</h3>
-	                                <p>Especialistas de la hamburguesa</p>
-	                            </div>
-	                            </div></a>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <a href="publico-restaurante-uregistrado.html"><div class="thumbnail">
-	                            <img src="img/FosterGrande.jpg" alt="Pabellon Criollo">
-	                            <div class="caption">
-	                                <h3>Foster Hollywood</h3>
-	                                <p>Sabor americano de alta calidad</p>
-	                            </div>
-	                            </div></a>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <a href="publico-restaurante-uregistrado.html"><div class="thumbnail">
-	                            <img src="img/RibsGrande.jpg" alt="Pabellon Criollo">
-	                            <div class="caption">
-	                                <h3>RIBS</h3>
-	                                <p>De las mejores parrillas actualmente</p>
-	                            </div>
-	                            </div></a>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <a href="publico-restaurante-uregistrado.html"><div class="thumbnail">
-	                            <img src="img/TagliatellaGrande.jpg" alt="Pabellon Criollo">
-	                            <div class="caption">
-	                                <h3>Tagliatella</h3>
-	                                <p>El toque italiano más fresco</p>
-	                            </div>
-	                            </div></a>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <a href="publico-restaurante-uregistrado.html"><div class="thumbnail">
-	                            <img src="img/telepizza.png" alt="Pabellon Criollo">
-	                            <div class="caption">
-	                                <h3>Telepizza</h3>
-	                                <p>Uno de los referentes en pizzas</p>
-	                            </div>
-	                            </div></a>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <div class="thumbnail">
-	                            <img src="img/kfc.png" alt="Pabellon Criollo">
-	                            <div class="caption">
-	                                <h3>KFC</h3>
-	                                <p>Expertos del pollo frito</p>
-	                            </div>
-	                        </div>
-	                    </div>
+	                <div class="inputs-receta">
+	                	<form action="/privado/recetas/form-crear" method="POST" id="form-receta">
+		                	<h3>Título</h3>
+		                	<input type="text" name="titulo" class="form-control" placeholder="Título">
+		                	<h3>Descripción</h3>
+		                	<input type="text" name="descripcion" class="form-control" placeholder="Descripción">
+		                    <h2>Cuerpo del evento</h2>
+		                    <div class="col-md-12 nopadding editorHTML">
+		                        <input name="cuerpo" id="txtEditor"> 
+		                    </div>
+		                    <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>
+		                    <input class="form-control" name="comidas"  type="text" placeholder="Tipo de comida 1, Tipo de comida 2, ...">
+		                    <button type="submit" class="btn btn-default publicar">Publicar</button>
+	                    </form>
 	                </div>
 	            </div>
 	        </div>
 	    </div>
-	
 	    <div class="container-fluid footer">
 	        <div class="row">
 	            <div class="col-md-3 logo"> 
