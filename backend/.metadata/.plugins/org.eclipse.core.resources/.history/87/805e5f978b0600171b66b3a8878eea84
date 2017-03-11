@@ -19,7 +19,7 @@
 				var convert = function(convert){
 					return $("<span />", { html: convert }).text();
 				};
-	            var contenido = '{{restaurante.body}}';
+	            var contenido = '{{receta.preparation}}';
 				$('#txtEditor').Editor("setText", [convert(contenido)]);
 				$( "#form-receta" ).submit(function( event ) {
 	        	 	var contenido = $('#txtEditor').Editor("getText");

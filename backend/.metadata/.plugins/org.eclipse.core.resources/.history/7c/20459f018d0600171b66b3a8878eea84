@@ -221,7 +221,7 @@ public class RecipeController {
 						filesFolder.mkdirs();
 					}
 					
-					String fileName = "cabReceta" + id + ".jpg";
+					String fileName = "cabRestaurante" + id + ".jpg";
 					String thumbnail = "../img/" + fileName;
 					
 					recipe.setTitle(titulo);
@@ -246,6 +246,8 @@ public class RecipeController {
 				recipeRepository.save(recipe);
 			}
 		}
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return ("redirect:/recetas/"+id);
 	}
 	

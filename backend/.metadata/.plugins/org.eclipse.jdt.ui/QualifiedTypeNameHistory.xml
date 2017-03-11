@@ -4,4 +4,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="daw.cookcinando.repository.RestaurantRepository"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Restaurant"/>
 </qualifiedTypeNameHistroy>

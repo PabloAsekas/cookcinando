@@ -142,7 +142,7 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping("/privado/restaurantes/form-editar/{id}")
-	public String editarrestaurante(Model model, HttpServletRequest request, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam MultipartFile imagenCabecera, @RequestParam String cuerpo, @RequestParam String comidas) {
+	public String editarrestaurante(Model model, @PathVariable Long id, @RequestParam String titulo, @RequestParam String descripcion, @RequestParam MultipartFile imagenCabecera, @RequestParam String cuerpo, @RequestParam String comidas) {
 		List<String> comidasRestaurantes = new ArrayList<>();
 		String comidasSeparadas[] = comidas.split(",");
 		for(int i=0; i<comidasSeparadas.length; i++){
@@ -150,37 +150,35 @@ public class RestaurantController {
 		}
 		Restaurant restaurant = restaurantRepository.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
-		if (userLogged.getId() == restaurant.getAuthor().getId() || userLogged.isAdmin()) {
-			if (!imagenCabecera.isEmpty()) {
-				try {
-	
-					File filesFolder = new File(FILES_FOLDER);
-					if (!filesFolder.exists()) {
-						filesFolder.mkdirs();
-					}
-					
-					String fileName = "cabRestaurante" + id + ".jpg";
-					String thumbnail = "../img/" + fileName;
-					
-					restaurant.setTitle(titulo);
-					restaurant.setDescription(descripcion);
-					restaurant.setBody(cuerpo);
-					restaurant.setTypesFood(comidasRestaurantes);
-					restaurant.setThumbnail(thumbnail);
-					restaurantRepository.save(restaurant);
-					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
-					imagenCabecera.transferTo(uploadedFile);
-					return ("redirect:/restaurantes/"+restaurant.getId());
-				} catch (Exception e) {
-					model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
+		if (!imagenCabecera.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
 				}
-			} else {
+				
+				String fileName = "cabReceta" + id + ".jpg";
+				String thumbnail = "../img/" + fileName;
+				
 				restaurant.setTitle(titulo);
 				restaurant.setDescription(descripcion);
 				restaurant.setBody(cuerpo);
 				restaurant.setTypesFood(comidasRestaurantes);
+				restaurant.setThumbnail(thumbnail);
 				restaurantRepository.save(restaurant);
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagenCabecera.transferTo(uploadedFile);
+				return ("redirect:/restaurantes/"+restaurant.getId());
+			} catch (Exception e) {
+				model.addAttribute("error",e.getClass().getName() + ":" + e.getMessage());
 			}
+		} else {
+			restaurant.setTitle(titulo);
+			restaurant.setDescription(descripcion);
+			restaurant.setBody(cuerpo);
+			restaurant.setTypesFood(comidasRestaurantes);
+			restaurantRepository.save(restaurant);
 		}
 		return ("redirect:/restaurantes/"+id);
 	}

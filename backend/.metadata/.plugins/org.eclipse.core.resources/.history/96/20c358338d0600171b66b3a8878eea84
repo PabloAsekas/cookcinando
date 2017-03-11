@@ -182,6 +182,8 @@ public class RestaurantController {
 				restaurantRepository.save(restaurant);
 			}
 		}
+		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return ("redirect:/restaurantes/"+id);
 	}
 	
