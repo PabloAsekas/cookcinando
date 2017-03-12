@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,15 +32,6 @@ import daw.cookcinando.service.RecipeService;
 
 @Controller
 public class RecipeController<def> {
-	
-	//Paginacion
-	RecipeService recipeService;
-	
-	@Autowired
-	def RecipeController(RecipeService recipeService){
-		this.recipeService = recipeService;
-		return null;
-	}
 	
 	
 	private static final String FILES_FOLDER = "target/classes/static/img";
@@ -118,6 +110,11 @@ public class RecipeController<def> {
 		} else {
 			model.addAttribute("usernotlogged", true);
 		}
+		
+		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(0, 10));
+		
+		model.addAttribute("recetas", recipes);
+		
 		return "recetas";
 	}
 	
@@ -343,12 +340,6 @@ public class RecipeController<def> {
 	}
 		
 	
-	//Paginacion continuacion
-	@RequestMapping (value="/recetas", method = RequestMethod.GET)
-		Page<Recipe> list(Pageable pageable){
-			Page<Recipe> recipes = recipeService.listAllByPage(pageable);
-			return recipes;
-		}
 			
 	
 }
