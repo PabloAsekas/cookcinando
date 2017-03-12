@@ -111,7 +111,7 @@ public class RecipeController<def> {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(0, 2));
+		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(0, 10));
 		
 		model.addAttribute("recetas", recipes);
 		
@@ -348,7 +348,7 @@ public class RecipeController<def> {
 	@RequestMapping(value = "/moreRecipes")
 	public String moreRecipes(Model model, @RequestParam int page) {
 
-		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(page, 2));
+		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(page, 10));
 		model.addAttribute("items", recipes);
 
 		return "listItemsPage";
