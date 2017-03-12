@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserBasic;
 import daw.cookcinando.model.UserEnterprise;
@@ -153,5 +154,16 @@ public class UserController {
 		model.addAttribute("users_enterprise", users_enterprise);
 		
 		return "usuarios";
+	}
+	
+	@RequestMapping("/usuario/{id}")
+	public String userProfile(Model model, @PathVariable Long id){
+		User user = userRepository.findOne(id);
+		model.addAttribute("recipes", user.getMyRecipes());
+		model.addAttribute("fav-recipes", user.getFavRecipes());
+		model.addAttribute("fav-restaurants", user.getFavRestaurants());
+		model.addAttribute("fav-events", user.getFavEvents());
+		model.addAttribute("user", user);
+		return "perfilPublicoUsuario";
 	}
 }

@@ -45,9 +45,10 @@ public class DataLoader implements CommandLineRunner{
 		typesFood.add("Comida3");
 		typesFood.add("Comida4");
 		
-		UserBasic user_basic = new UserBasic("A", "A", "A", "http://cdn.kiwilimon.com/recetaimagen/13823/6183.jpg", "A","basic","pass","ROLE_BASIC");
-		UserBasic user_basic2 = new UserBasic("B", "B", "B", "B", "B","bbasic","pass","ROLE_BASIC");
-		UserBasic user_admin = new UserBasic("C", "C", "C", "C", "C","cbasic","pass","ROLE_BASIC", "ROLE_ENTERPRISE", "ROLE_ADMIN");
+		UserBasic user_basic = new UserBasic("Manuela", "Carmena", "Descripción muy larga de lo que quiera poner el usuario para describirse así mismo porque seguro que puede hacerlo", 
+				"../../img/avatar.jpg", "noTeLoPerdoreNUNCA","basic","pass","ROLE_BASIC");
+		UserBasic user_basic2 = new UserBasic("Pablo", "Motos", "Mu gracioso, mejor persona", "http://www.hola.com/imagenes/noticias-de-actualidad/2016/04/15/hormiguero.jpg", "elHormiguero","bbasic","pass","ROLE_BASIC");
+		UserBasic user_admin = new UserBasic("Francisco", "Marhuenda", "Er mejor periodista visto", "https://pbs.twimg.com/profile_images/622733889858052096/tm7zeQ06.jpg", "rio","cbasic","pass","ROLE_BASIC", "ROLE_ENTERPRISE", "ROLE_ADMIN");
 		userRepository.save(user_basic);
 		userRepository.save(user_basic2);
 		userRepository.save(user_admin);
@@ -85,14 +86,14 @@ public class DataLoader implements CommandLineRunner{
 		userRepository.save(enterprise);
 		userRepository.save(admin);
 		
-		Restaurant restaurant1 = new Restaurant("Ribs1", "Prueba", "", "Algo", typesFood, admin);
-		Restaurant restaurant2 = new Restaurant("Ribs2", "Prueba", "", "Algo", typesFood, admin);
-		Restaurant restaurant3 = new Restaurant("Ribs3", "Prueba", "", "Algo", typesFood, admin);
-		Restaurant restaurant4 = new Restaurant("Ribs4", "Prueba", "", "Algo", typesFood, admin);
-		Restaurant restaurant5 = new Restaurant("Ribs5", "Prueba", "", "Algo", typesFood, admin);
-		Restaurant restaurant6 = new Restaurant("Ribs6", "Prueba", "", "Algo", typesFood, admin);
-		Restaurant restaurant7 = new Restaurant("Ribs7", "Prueba", "", "Algo", typesFood, admin);
-		Restaurant restaurant8 = new Restaurant("Ribs8", "Prueba", "", "Algo", typesFood, admin);
+		Restaurant restaurant1 = new Restaurant("Telepizza", "Pizza super buena", "../../img/telepizza.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, admin);
+		Restaurant restaurant2 = new Restaurant("KFC", "Pollo genial", "../../img/kfc.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, admin);
+		Restaurant restaurant3 = new Restaurant("Telepizza", "Pizza super buena", "../../img/telepizza.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, admin);
+		Restaurant restaurant4 = new Restaurant("KFC", "Pollo genial", "../../img/kfc.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, admin);
+		Restaurant restaurant5 = new Restaurant("Telepizza", "Pizza super buena", "../../img/telepizza.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, user_basic2);
+		Restaurant restaurant6 = new Restaurant("KFC", "Pollo genial", "../../img/kfc.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, admin);
+		Restaurant restaurant7 = new Restaurant("Telepizza", "Pizza super buena", "../../img/telepizza.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, admin);
+		Restaurant restaurant8 = new Restaurant("KFC", "Pollo genial", "../../img/kfc.png", "<h1>DESCRIPCION DEL RESTAURANTE</h1>", typesFood, admin);
 		
 		restaurantRepository.saveAndFlush(restaurant1);
 		restaurantRepository.save(restaurant2);

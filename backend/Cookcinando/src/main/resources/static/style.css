@@ -792,8 +792,11 @@ hr{
     left: 50%;
     margin-left: -100px;
 }
-.perfil-publico h3, .perfil-publico p {
+.perfil-publico h3, h5, .perfil-publico p {
     text-align: center;
+}
+.perfil-publico h5{
+	color: blue;
 }
 .perfil-publico h3 {
     font-size: 30px;
