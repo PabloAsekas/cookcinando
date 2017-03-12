@@ -40,7 +40,7 @@
 	            </div>
 	            <div class="col-md-5 menu">
 	                <ul class="nav nav-pills cerrar-sesion">
-	                    <li class="active"><a href="/logout">Cerrar sesión</a></li>
+	                    <li class="active"><a href="index.html">Cerrar sesión</a></li>
 	                </ul>
 	            </div>
 	        </div>
@@ -141,7 +141,7 @@
 	    <div class="container-fluid footer">
 		        <div class="row">
 		            <div class="col-md-3 logo"> 
-		               <a href="/"><h1>Cookcinando</h1></a>
+		               <a href="index.html"><h1>Cookcinando</h1></a>
 		            </div>
 		            <div class="col-md-5 enlaces"> 
 		                <h1>ENLACES</h1>

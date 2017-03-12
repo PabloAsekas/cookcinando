@@ -7,14 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import daw.cookcinando.model.Event;
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserAdmin;
 import daw.cookcinando.model.UserBasic;
 import daw.cookcinando.model.UserEnterprise;
-import daw.cookcinando.repository.EventRepository;
 import daw.cookcinando.repository.RecipeRepository;
 import daw.cookcinando.repository.RestaurantRepository;
 import daw.cookcinando.repository.UserRepository;
@@ -30,9 +28,6 @@ public class DataLoader implements CommandLineRunner{
 	
 	@Autowired
 	RestaurantRepository restaurantRepository;
-	
-	@Autowired
-	EventRepository eventRepository;
 	
 	@Override
 	public void run(String... arg0) throws Exception {
@@ -108,28 +103,6 @@ public class DataLoader implements CommandLineRunner{
 		restaurantRepository.save(restaurant6);
 		restaurantRepository.save(restaurant7);
 		restaurantRepository.save(restaurant8);
-		
-		Event event1 = new Event ("Cata de jamon 1", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event2 = new Event ("Cata de jamon 2", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event3 = new Event ("Cata de jamon 3", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event4 = new Event ("Cata de jamon 4", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event5 = new Event ("Cata de jamon 5", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event6 = new Event ("Cata de jamon 6", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event7 = new Event ("Cata de jamon 7", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event8 = new Event ("Cata de jamon 8", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event9 = new Event ("Cata de jamon 9", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		Event event10 = new Event ("Cata de jamon 10", "Descripcion", "", "Cuerpesito rico", typesFood, enterprise);
-		
-		eventRepository.saveAndFlush(event1);
-		eventRepository.save(event2);
-		eventRepository.save(event3);
-		eventRepository.save(event4);
-		eventRepository.save(event5);
-		eventRepository.save(event6);
-		eventRepository.save(event7);
-		eventRepository.save(event8);
-		eventRepository.save(event9);
-		eventRepository.save(event10);
 		
 	}
 	
