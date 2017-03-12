@@ -345,6 +345,13 @@ public class RecipeController<def> {
 	}
 		
 	
-			
+	@RequestMapping(value = "/moreRecipes")
+	public String moreRecipes(Model model, @RequestParam int page) {
+
+		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(page, 2));
+		model.addAttribute("items", recipes);
+
+		return "listItemsPage";
+	}
 	
 }
