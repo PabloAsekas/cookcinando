@@ -123,8 +123,13 @@ public class RecipeController<def> {
 		Recipe recipe = recipeRepository.findOne(id);
 		model.addAttribute("receta", recipe);		
 		List<Recipe> recomendadas = new ArrayList<Recipe>();
-		for (long i = 1; i < 4; i++) {
-			recomendadas.add(recipeRepository.getOne(i));
+		int j=0;
+		for (Recipe rec : recipeRepository.findAll()) {
+			j++;
+			recomendadas.add(rec);
+			if(j==3){
+				break;
+			}
 		}
 		model.addAttribute("recomendadas", recomendadas);
 		User userLogged = userComponent.getLoggedUser();
