@@ -126,6 +126,8 @@ public class UserController {
 		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("recipes", user.getFavRecipes());
+		model.addAttribute("restaurants", user.getFavRestaurants());
+		model.addAttribute("events", user.getFavEvents());
 		
 		return("misFavoritos");
 	}
