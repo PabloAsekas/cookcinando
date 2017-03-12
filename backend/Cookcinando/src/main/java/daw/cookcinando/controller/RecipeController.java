@@ -28,7 +28,6 @@ import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RecipeRepository;
 import daw.cookcinando.repository.UserRepository;
-import daw.cookcinando.service.RecipeService;
 
 @Controller
 public class RecipeController<def> {
