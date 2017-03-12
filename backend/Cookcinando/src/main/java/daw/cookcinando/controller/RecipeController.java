@@ -117,6 +117,8 @@ public class RecipeController {
 		}
 		model.addAttribute("recomendadas", recomendadas);
 		User userLogged = userComponent.getLoggedUser();
+		User author = recipe.getAuthor();
+		model.addAttribute("author", author);
 		if (userLogged != null) {
 			model.addAttribute("userlogged", true);
 			if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {

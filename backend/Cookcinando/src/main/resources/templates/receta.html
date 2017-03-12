@@ -36,9 +36,11 @@
 	    <div class="container-fluid">
 	        <div class="row">
 	            <div class="col-md-3 info-usuario">
-	            	<img class="avatar" src="../img/avatar.jpg" width="200px" height="200px"/>
-                    <a href="publico-perfil-ubasico.html"><h3>Manuela Carmena</h3></a>
-					<p>Descripción de los usuarios</p>
+	           		{{#author}}
+		            	<img class="avatar" src="{{image}}" width="200px" height="200px"/>
+	                    <a href="publico-perfil-ubasico.html"><h3>{{name}}{{surname}}</h3><h4>@{{nick}}</h4></a>
+						<p>{{description}}</p>
+					{{/author}}
 					<div>
 						{{#creator}}
 							<form action="/privado/recetas/eliminar/{{receta.id}}">
