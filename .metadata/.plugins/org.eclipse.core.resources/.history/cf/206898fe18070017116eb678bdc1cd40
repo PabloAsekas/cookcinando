@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cookcinando</title>
+    <link rel="stylesheet" href="js/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!--<div class="container-fluid">
+        <div class="row">
+            <div class="navbar navbar-default navbar-inverse">    
+                <form id="login" class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Entrar</button>
+                </form>
+            </div>    
+        </div>    
+    </div>-->
+    
+    <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-4 titulo">
+                <a href="index.html"><h1>Cookcinando</h1></a>
+            </div>
+            
+            <div class="col-md-5" id="buscador">
+			    <div class="input-group">
+			      <input type="text" class="form-control">
+			      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i>
+			        <button class="btn btn-default" type="button">Buscar</button>
+			      </span>
+			    </div>
+	  		</div>
+			
+		    
+            <div class="col-md-3 menu">
+                {{#usernotlogged}}
+                    <ul class="nav nav-pills cerrar-sesion">
+		                <li><a href="/login">Inicia sesión</a></li>
+	                    <li class="active"><a href="/login">Regístrate</a></li>
+	                </ul>
+	             {{/usernotlogged}}
+	             {{#userlogged}}
+		             <ul class="nav nav-pills cerrar-sesion">
+	                    <form action="/logout" method="post">
+	                    	<li class="active"><input class="btn" type="submit" value="Cerrar sesión"></li>
+	                    </form>
+	                </ul>
+	             {{/userlogged}}
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <div>
+            <a href="publico-restaurantes.html">
+                <div class="col-md-3" id="cab1"><p class="tituloGrande">Restaurantes</p></div>
+            </a>
+            <div class="col-md-4">
+                <a href="/recetas">
+                    <div class="row" id="cab2"><p class="tituloGrande">Recetas</p></div>
+                </a>    
+                <a href="publico-recetas.html">
+                    <div class="row" id="cab3"><p class="tituloGrande">Platos de Restaurantes</p></div>
+                </a>    
+            </div>
+            <a href="publico-recetas.html">
+                <div class="col-md-3" id="cab4"><p class="tituloGrande">Favoritos</p></div>
+            </a>
+            <div class="col-md-2">
+                <a href="publico-restaurante-unoregistrado.html">
+                    <div class="row" id="cab5"><p class="tituloGrande">Restaurante del mes</p></div>
+                </a>
+                <a href="publico-receta-unoregistrado.html">
+                    <div class="row" id="cab6"><p class="tituloGrande">Plato del mes</p></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container-fluid">
+        <div class="col-md-12 descripcion">
+            <div class="tituloSeccion"><h1>¿QUIÉNES SOMOS?</h1></div>
+            <div id="texto">
+                <p>Somos una página especializada en recetas de cadenas de restaurantes, pero también hacemos un hueco a las recetas caseras y tradicionales.</p>
+                <p>Nos gusta que nuestros usuarios interactuen entre ellos, comenten cada receta, añadan las suyas propias y nos ayuden a elegir los mejores restaurantes, ya sea por sus experiencias, precios, calidad de la comida, etc. Y obviamente también entre los mejores platos, ya sea de restaurantes como caseros.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid platosFav">
+		<div class="tituloSeccion"><h1>PLATOS FAVORITOS</h1></div>
+        <div class="row">
+            <div class="col-md-12 menu_imgs">
+                <a href="publico-receta-unoregistrado.html">
+                    <div class="col-md-8 imagenGrande" id="imgFavGrande" ><p class="tituloGrande">CREMA DE GUISANTES</p></div>
+                </a>    
+                <div class="col-md-4">
+                    <a href="publico-receta-unoregistrado.html">
+                        <div class="row imagenPequenia" id="imgFav1">
+                            <p class="tituloPequenio">Hamburguesa Queso de Cabra y Nueces</p>
+                        </div>
+                    </a> 
+                    <a href="publico-receta-unoregistrado.html">
+                        <div class="row imagenPequenia" id="imgFav2">
+                            <p class="tituloPequenio">Raviolis con Salsa de Queso</p>
+                        </div>
+                    </a>
+                    <a href="publico-receta-unoregistrado.html">
+                        <div class="row imagenPequenia" id="imgFav3">
+                            <p class="tituloPequenio">Pulpo a la Gallega</p>
+                        </div>
+                    </a>
+                    <a href="publico-receta-unoregistrado.html">
+                        <div class="row imagenPequenia" id="imgFav4">
+                            <p class="tituloPequenio">Tortilla de Patatas</p>
+                        </div>
+                    </a>    
+                </div>
+            </div>
+        </div>
+        <div class="row mas">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <a type="button" href="publico-recetas.html" class="btn btn-default btn-lg btnMas">Más Platos</a>
+                <!--<button type="button" class="btn btn-default btn-lg btnMas">Más Platos</button>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid seccInter ">
+        <div class="row">
+            <div class="col-md-4 videos">
+                <h3>VIDEOS NUEVOS</h3>
+                <ul>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/EWIzqwqoFuw" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        Foster Hollywood - Bacon Cheese Fries
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+
+                    </li>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/_EC4hDZ9www" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        VIPS - Batido de Oreo
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+                    </li>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/WXvcK5058XM" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        Telepizza - Pizza Carbonara
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 resources">
+                <h3>FAVORITOS</h3>
+                <ul>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/EmJm3U49XA8" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        McDonalds - Patatas Deluxe
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+
+                    </li>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/eCpKkTfI5hg" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        KFC - Pollo Crujiente
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+                    </li>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/OgRtjZ9ZSSo" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        Burguer King - Whopper
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 popular">
+                <h3>RECETAS CASERAS</h3>
+                <ul>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/0kCcaoFz3q8" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        Lentejas Caseras con Chorizo
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+
+                    </li>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/w_3YM-DZVOE" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        Tortilla de Patatas Española
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+                    </li>
+                    <li>
+                        <div id="cont-youtube">
+                            <iframe src="https://www.youtube.com/embed/rFJYG_Opauc" height="100px" frameborder="1" allowfullscreen>
+                            </iframe>
+                        </div>
+                        Croquetas Caseras de Pollo
+                        <hr align="left" noshade="noshade" size="2" width="80%" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid restMes">
+        <div class="tituloSeccion"><h1>RESTAURANTES DEL MES</h1></div>
+        <div class="row">
+            <div class="col-md-12 menu_imgs">
+                <a href="publico-restaurante-unoregistrado.html">
+                    <div class="col-md-8 imagenGrande" id="imgRestGrande">
+                        <p class="tituloGrande">THE GOOD BURGUER</p>
+                    </div>
+                </a>
+                <div class="col-md-4 imagenPequenya">
+                    <a href="publico-restaurante-unoregistrado.html">
+                        <div class="row imagenPequenia" id="imgRest1">
+                            <p class="tituloPequenio">Foster Hollywood</p>
+                        </div>
+                    </a>    
+                    <a href="publico-restaurante-unoregistrado.html">
+                        <div class="row imagenPequenia" id="imgRest2">
+                            <p class="tituloPequenio">Ribs</p>
+                        </div>
+                    </a>
+                    <a href="publico-restaurante-unoregistrado.html">
+                        <div class="row imagenPequenia" id="imgRest3">
+                            <p class="tituloPequenio">The Good Burguer</p>
+                        </div>
+                    </a>    
+                    <a href="publico-restaurante-unoregistrado.html">    
+                        <div class="row imagenPequenia" id="imgRest4">
+                            <p class="tituloPequenio">Ribs</p>
+                        </div>
+                    </a>    
+                </div>
+            </div>
+        </div>
+        <div class="row mas">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <!--<button type="button" class="btn btn-default btn-lg btnMas">Más Restaurantes</button>-->
+                <a type="button" href="publico-restaurantes.html" class="btn btn-default btn-lg btnMas">Más Restaurantes</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="eventos" class="container-fluid">
+        <div class="col-md-12 descripcion">
+            <div class="tituloSeccion"><h1>EVENTOS</h1></div>
+            <div id="texto">
+                <p>En Coockcinando te ofrecemos una amplia gama de eventos relacionados con la cocina. No dejes pasar la oportunidad de aprender una de las artes más maravillosas del mundo.</p>
+                <p> Aprende a cocinar de la manera divertida de mano de grandes profesionales o simplemente disfruta de las mejores ofertas en eventos de catas para que puedas mejorar tu paladar. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <h3 class="tipoEvento">TALLERES</h3>
+                    <div class="thumbnail">
+                        <a href="publico-evento-unoregistrado.html"><img src="img/taller-cocteleria.jpg" alt="Taller cocteleria"></a>
+                        <div class="caption">
+                            <h3>Taller de coctelería</h3>
+                            <p>Perfecto para ser el rey o la reina de la fiesta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="tipoEvento">CURSOS</h3>
+                    <div class="thumbnail">
+                        <a href="publico-evento-unoregistrado.html"><img src="img/curso-de-cortar-jamon.jpg" alt="Curso de cortar jamon"></a>
+                        <div class="caption">
+                            <h3>Aprende a cortar jamón</h3>
+                            <p>Incluye un jamón ibérico de 7/8 kg.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="tipoEvento">CATAS</h3>
+                    <div class="thumbnail">
+                        <a href="publico-evento-unoregistrado.html"><img src="img/cata-de-quesos.jpg" alt="Cata de quesos"></a>
+                        <div class="caption">
+                            <h3>Cata de quesos y maridaje</h3>
+                            <p>Recorrido por diferentes quesos del mundo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mas">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <!--<button type="button" class="btn btn-default btn-lg btnMas">Más Eventos</button>-->
+                <a type="button" href="publico-eventos.html" class="btn btn-default btn-lg btnMas">Más Eventos</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid footer">
+        <div class="row">
+            <div class="col-md-3 logo">
+                <a href="index.html"><h1>Cookcinando</h1></a>
+            </div>
+            <div class="col-md-5 enlaces">
+                <h1>ENLACES</h1>
+                <div class="col-md-4">
+                    <ul>
+                        <li>Acerca de</li>
+                        <li>Ayuda</li>
+                        <a href="publico-registro.html"><li>Registrate</li></a>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <a href="publico-recetas.html"><li>Recetas</li></a>
+                        <a href="publico-restaurantes.html"><li>Restaurantes</li></a>
+                        <a href="publico-eventos.html"><li>Eventos</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 imagenes"> 
+                <h1>REDES SOCIALES</h1>
+                <div class=" col-md-4"><a href="https://www.facebook.com/"><img src="img/facebook.png" width="100px" height="auto" class="img-responsive"/></a></div>
+                <div class=" col-md-4"><a href="https://twitter.com"><img src="img/twitter.png" width="100px" height="auto" class="img-responsive" /></a></div>
+                <div class=" col-md-4"><a href="https://accounts.google.com/"><img src="img/googleplus.png" width="100px" height="auto" class="img-responsive" /></a></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>
+    
+</body>
+
+</html>

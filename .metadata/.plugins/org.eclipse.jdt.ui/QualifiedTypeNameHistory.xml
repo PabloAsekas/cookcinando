@@ -28,4 +28,6 @@
 <fullyQualifiedTypeName name="daw.cookcinando.model.User"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 <fullyQualifiedTypeName name="daw.cookcinando.repository.UserRepository"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.core.sym.Name"/>
 </qualifiedTypeNameHistroy>

@@ -196,6 +196,25 @@ hr{
     overflow:hidden;
 }
 
+#buscador {
+	position:relative;
+	top: 20px;
+}
+
+#btn-search {
+	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+}
+
+.input-group-lg >.input-group-addon {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
 /***********************************************************************************/
 
 

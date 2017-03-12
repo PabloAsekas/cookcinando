@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.sym.Name;
+
 import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
@@ -95,7 +97,7 @@ public class RecipeController {
 		recipeRepository.save(new Recipe("Hamburguesa de pollo", "Una hamburguesa de pollo que no resbala", "http://cdn.kiwilimon.com/recetaimagen/13823/6183.jpg", "Proceso de preparacion:", ingredients, typesFood));	
 	}*/
 	
-	@RequestMapping("/recetas") //Enlace para las recetas
+	@RequestMapping("/recetas/") //Enlace para las recetas
 	public String recetas (Model model) {
 		model.addAttribute("recetas", recipeRepository.findAll());
 		User userLogged = userComponent.getLoggedUser();
@@ -370,6 +372,21 @@ public class RecipeController {
 		//return tablon;
 		//}
 		
+	@RequestMapping("/recetas")
+	public String recetasPorTitulo(Model model, @RequestParam String title) throws Exception {
+		
+		User userLogged = userComponent.getLoggedUser();
+		if (userLogged != null) {
+			model.addAttribute("userlogged", true);
+		} else {
+			model.addAttribute("usernotlogged", true);
+		}
+		
+		List<Recipe> recetas = recipeRepository.findByTitle(title.toLowerCase());
+		model.addAttribute("recetas", recetas);
+		
+		return "recetas";
+	}
 		
 		
 }
