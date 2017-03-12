@@ -163,7 +163,13 @@ public class UserController {
 		model.addAttribute("fav-recipes", user.getFavRecipes());
 		model.addAttribute("fav-restaurants", user.getFavRestaurants());
 		model.addAttribute("fav-events", user.getFavEvents());
+		//model.addAttribute("restaurants",user.getFavRestaurants());
 		model.addAttribute("user", user);
+		if(user.isEnterprise()){
+			model.addAttribute("restaurants", user.getMyRestaurants());
+			model.addAttribute("events", user.getMyEvents());
+			return "perfilPublicoEnterprise";
+		}
 		return "perfilPublicoUsuario";
 	}
 }

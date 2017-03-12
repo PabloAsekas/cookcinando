@@ -215,6 +215,10 @@ public class User {
 	public boolean isAdmin() {
 		return this.roles.contains("ROLE_ADMIN");
 	}
+	
+	public boolean isEnterprise() {
+		return this.roles.contains("ROLE_ENTERPRISE");
+	}
 
 	@Override
 	public String toString() {

@@ -47,8 +47,20 @@
                             <li><a data-toggle="tab" href="#recetas-favoritas">Recetas favoritas <span style="background-color: #f0ad4e" class="badge">6</span></a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="tab" href="#restaurantes-favoritos">Restaurantes favoritos <span style="background-color: #f0ad4e" class="badge">3</span></a></li>
-                    <li><a data-toggle="tab" href="#eventos-favoritos">Eventos favoritos <span style="background-color: #f0ad4e" class="badge">3</span></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Restaurantes <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="tab" href="#restaurantes-propios">Restaurantes propios <span style="background-color: #f0ad4e" class="badge">3</span></a></li>
+                            <li><a data-toggle="tab" href="#restaurantes-favoritos">Restaurantes favoritos <span style="background-color: #f0ad4e" class="badge">3</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Eventos <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="tab" href="#eventos-propios">Eventos propios <span style="background-color: #f0ad4e" class="badge">3</span></a></li>
+                            <li><a data-toggle="tab" href="#eventos-favoritos">Eventos favoritos <span style="background-color: #f0ad4e" class="badge">3</span></a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div id="recetas-propias" class="tab-pane fade in active">
@@ -82,33 +94,61 @@
 	                   		</div>
 	               		{{/fav-recipes}}
                     </div>
-                    <div id="restaurantes-favoritos" class="tab-pane fade">
-                        <div class="page-header"><h1 style="text-align:center">Restaurantes favoritos de {{name}}</h1></div>
-                        {{#fav-restaurants}}  
+                    <div id="restaurantes-propios" class="tab-pane fade">
+                        <div class="page-header"><h1 style="text-align:center">Restaurantes de {{name}}</h1></div>
+                        {{#restaurants}} 
 	                        <div class="col-md-4">
 	                            <a href="../restaurantes/{{id}}"><div class="thumbnail">
-	                                <img src="{{thumbnail}}" alt="{{title}}">
+	                                <img src="{{thumbnail}}" alt="{{name}}">
 	                                <div class="caption">
-	                                    <h3>{{title}}</h3>
+	                                    <h3>{{name}}</h3>
+	                                    <p>{{description}}</p>
+	                                </div>
+	                                </div></a>
+	                        </div>
+                        {{/restaurants}} 
+                    </div>
+                    <div id="restaurantes-favoritos" class="tab-pane fade">
+                        <div class="page-header"><h1 style="text-align:center">Restaurantes favoritos de {{name}}</h1></div>
+                        {{#fav-restaurants}}
+	                        <div class="col-md-4">
+	                            <a href="../restaurantes/{{id}}"><div class="thumbnail">
+	                                <img src="{{thumbnail}}" alt="{{name}}">
+	                                <div class="caption">
+	                                    <h3>{{name}}</h3>
 	                                    <p>{{description}}</p>
 	                                </div>
 	                                </div></a>
 	                        </div>
                         {{/fav-restaurants}}
                     </div>
-                    <div id="eventos-favoritos" class="tab-pane fade">
-                        <div class="page-header"><h1 style="text-align:center">Eventos favoritos de {{name}}</h1></div>
-                       	{{#fav-restaurants}}  
+                    <div id="eventos-propios" class="tab-pane fade">
+                        <div class="page-header"><h1 style="text-align:center">Eventos de {{name}}</h1></div>
+                        {{#events}}
 	                        <div class="col-md-4">
 	                            <a href="../eventos/{{id}}"><div class="thumbnail">
-	                                <img src="{{thumbnail}}" alt="{{title}}">
+	                                <img src="{{thumbnail}}" alt="{{name}}">
 	                                <div class="caption">
-	                                    <h3>{{title}}</h3>
+	                                    <h3>{{name}}</h3>
 	                                    <p>{{description}}</p>
 	                                </div>
 	                                </div></a>
 	                        </div>
-                        {{/fav-restaurants}}
+                        {{/events}}
+                    </div>
+                    <div id="eventos-favoritos" class="tab-pane fade">
+                        <div class="page-header"><h1 style="text-align:center">Eventos favoritos de {{name}}</h1></div>
+                        {{#fav-events}}
+	                        <div class="col-md-4">
+	                            <a href="../eventos/{{id}}"><div class="thumbnail">
+	                                <img src="{{thumbnail}}" alt="{{name}}">
+	                                <div class="caption">
+	                                    <h3>{{name}}</h3>
+	                                    <p>{{description}}</p>
+	                                </div>
+	                                </div></a>
+	                        </div>
+                        {{/fav-events}}
                     </div>
                 </div>
             </div>    
