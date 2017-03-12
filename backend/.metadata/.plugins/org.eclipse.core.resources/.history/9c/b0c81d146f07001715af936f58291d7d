@@ -40,7 +40,7 @@ public class DataLoader implements CommandLineRunner{
 		UserBasic user_basic = new UserBasic("Manuela", "Carmena", "Descripción muy larga de lo que quiera poner el usuario para describirse así mismo porque seguro que puede hacerlo", "../../img/avatar.jpg", "noTeLoPerdoreNUNCA","basic","pass","ROLE_BASIC");
 		UserBasic user_basic2 = new UserBasic("Pablo", "Motos", "Mu gracioso, mejor persona", "http://www.hola.com/imagenes/noticias-de-actualidad/2016/04/15/hormiguero.jpg", "elHormiguero","bbasic","pass","ROLE_BASIC");
 		UserBasic user_enterprise = new UserBasic("Francisco", "Marhuenda", "Er mejor periodista visto", "https://pbs.twimg.com/profile_images/622733889858052096/tm7zeQ06.jpg", "rio","enterprise","pass","ROLE_BASIC", "ROLE_ENTERPRISE");
-		UserAdmin admin = new UserAdmin("Admin", "Admin", "Admin", "http://img4.wikia.nocookie.net/__cb20110512131110/pixar/images/a/a9/Ratatouille-remy3.jpg", "Admin","admin","adminpass","ROLE_BASIC","ROLE_ENTERPRISE", "ROLE_ADMIN");
+		UserAdmin admin = new UserAdmin("Admin", "Admin", "http://img4.wikia.nocookie.net/__cb20110512131110/pixar/images/a/a9/Ratatouille-remy3.jpg", "Admin", "Admin","admin","adminpass","ROLE_BASIC","ROLE_ENTERPRISE", "ROLE_ADMIN");
 		userRepository.save(user_basic);
 		userRepository.save(user_basic2);
 		userRepository.save(user_enterprise);
