@@ -1,5 +1,6 @@
 package daw.cookcinando.controller;
 
+import java.awt.print.Pageable;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,9 +27,20 @@ import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RecipeRepository;
 import daw.cookcinando.repository.UserRepository;
+import daw.cookcinando.service.RecipeService;
 
 @Controller
-public class RecipeController {
+public class RecipeController<def> {
+	
+	//Paginacion
+	RecipeService recipeService;
+	
+	@Autowired
+	def RecipeController(RecipeService recipeService){
+		this.recipeService = recipeService;
+		return null;
+	}
+	
 	
 	private static final String FILES_FOLDER = "target/classes/static/img";
 	
@@ -313,64 +325,6 @@ public class RecipeController {
 		
 		return "todasRecetas";
 	}
-	
-	
-	
-	
-	
-	//Codigo Paginacion	
-		//@RequestMapping(value = "/pages/{pageNumber}", method = RequestMethod.GET)
-		//public String getTitle(@PathVariable String pageNumber, Model model) {
-		    //Page<Recipe> page = receta.getTitle(pageNumber); //En lugar receta, se deberia crear un servicio 
-
-		    //int current = page.getNumber() + 1;
-		    //int begin = Math.max(1, current - 5);
-		    //int end = Math.min(begin + 10, page.getTotalPages());
-
-		    //model.addAttribute("Recipe", page);
-		    //model.addAttribute("beginIndex", begin);
-		    //model.addAttribute("endIndex", end);
-		    //model.addAttribute("currentIndex", current);
-
-		    //return "recetas";
-		//}
-		
-		
-		//Codigo Paginacion 2
-		//@PostConstruct
-		//public void init(){
-		//for(int i=0; i<10; i++){
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//recipeRepotory.save(new Recipe());
-		//recipeRepository.save(new Recipe());
-		//}
-		//}
-		
-		//@RequestMapping
-		//public String recetario (Model model, Pageable pageable){
-		//model.addAtribute("receta"; recipeRepository.findAll(page));
-		//return recetario;
-		//}
-		
-		//@RequestMapping
-		//public String tablon (Model model, Pageable page){
-		//Page<Recipe> recipes = recipeRepository.findAll(page);
-		//model.addAtribute("recetas",recetas);
-		//model.addAtribute("showNext",!recetas.isLast());
-		//model.addAtribute("showPrev",!recetas.isFirst());
-		//model.addAtribute("numPage",recetas.getTitle());
-		//model.addAtribute("nextPage",recetas.getTitle()+1);
-		//model.addAtribute("prevPage",recetas.getTitle()-1);
-		//return tablon;
-		//}
 		
 	@RequestMapping("/recetas")
 	public String recetasPorTitulo(Model model, @RequestParam String title) throws Exception {
@@ -388,5 +342,13 @@ public class RecipeController {
 		return "recetas";
 	}
 		
-		
+	
+	//Paginacion continuacion
+	@RequestMapping (value="/recetas", method = RequestMethod.GET)
+		Page<Recipe> list(Pageable pageable){
+			Page<Recipe> recipes = recipeService.listAllByPage(pageable);
+			return recipes;
+		}
+			
+	
 }
