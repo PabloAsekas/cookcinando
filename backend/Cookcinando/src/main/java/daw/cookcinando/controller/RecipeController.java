@@ -111,7 +111,7 @@ public class RecipeController<def> {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(0, 10));
+		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(0, 2));
 		
 		model.addAttribute("recetas", recipes);
 		
