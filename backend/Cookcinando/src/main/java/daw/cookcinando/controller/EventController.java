@@ -59,8 +59,13 @@ public class EventController {
 		Event event = eventRepository.findOne(id);
 		model.addAttribute("evento", event);		
 		List<Event> recomendadas = new ArrayList<Event>();
-		for (long i = 1; i < 4; i++) {
-			recomendadas.add(eventRepository.getOne(i));
+		int j=0;
+		for (Event rec : eventRepository.findAll()) {
+			j++;
+			recomendadas.add(rec);
+			if(j==3){
+				break;
+			}
 		}
 		model.addAttribute("recomendadas", recomendadas);
 		User userLogged = userComponent.getLoggedUser();

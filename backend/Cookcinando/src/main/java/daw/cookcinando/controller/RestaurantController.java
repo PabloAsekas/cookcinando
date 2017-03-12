@@ -58,8 +58,13 @@ public class RestaurantController {
 		Restaurant restaurante = restaurantRepository.findOne(id);
 		model.addAttribute("restaurante", restaurante);		
 		List<Restaurant> recomendadas = new ArrayList<Restaurant>();
-		for (long i = 1; i < 4; i++) {
-			recomendadas.add(restaurantRepository.getOne(i));
+		int j=0;
+		for (Restaurant rec : restaurantRepository.findAll()) {
+			j++;
+			recomendadas.add(rec);
+			if(j==3){
+				break;
+			}
 		}
 		model.addAttribute("recomendadas", recomendadas);
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
