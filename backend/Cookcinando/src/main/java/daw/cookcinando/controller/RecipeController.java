@@ -328,7 +328,10 @@ public class RecipeController<def> {
 	}
 		
 	@RequestMapping("/recetas")
-	public String recetasPorTitulo(Model model, @RequestParam String title) throws Exception {
+	public String buscador(Model model, @RequestParam String search,@RequestParam (required=false) String ingrediente, 
+								   @RequestParam (required=false) String tipoComida) throws Exception {
+		
+		List<Recipe> recetas = new ArrayList<Recipe>();
 		
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged != null) {
@@ -337,7 +340,83 @@ public class RecipeController<def> {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		List<Recipe> recetas = recipeRepository.findByTitle(title.toLowerCase());
+		if(ingrediente != null && tipoComida == null) {
+			recetas = recipeRepository.findByIngredient(search);
+			if(recetas.isEmpty()){
+				return "recetas-not-found";
+			}
+			else {
+				model.addAttribute("recetas", recetas);
+				return "recetas";
+			}
+		}
+		
+		else if(ingrediente == null && tipoComida != null){
+			recetas = recipeRepository.findByTypeFood(search);
+			if(recetas.isEmpty()){
+				return "recetas-not-found";
+			}
+			else {
+				model.addAttribute("recetas", recetas);
+				return "recetas";
+			}
+		}
+		
+		else if(ingrediente != null && tipoComida != null){
+			recetas = recipeRepository.findByIngredient(search);
+			for(Recipe recipe: recipeRepository.findByTypeFood(search)){
+				recetas.add(recipe);
+			}
+			if(recetas.isEmpty()){
+				return "recetas-not-found";
+			}
+			else {
+				model.addAttribute("recetas", recetas);
+				return "recetas";
+			}
+		}
+		
+		else if(search != "" && ingrediente == null && tipoComida == null) {
+			recetas = recipeRepository.findByTitle(search);
+			if(recetas.isEmpty()){
+				return "recetas-not-found";
+			}
+			else {
+				model.addAttribute("recetas", recetas);
+				return "recetas";
+			}
+		}
+		
+		return "recetas-not-found";
+	}
+	
+	@RequestMapping("/recetas/ingrediente")
+	public String recetasPorIngrediente(Model model, @RequestParam String ingredient) throws Exception {
+		
+		User userLogged = userComponent.getLoggedUser();
+		if (userLogged != null) {
+			model.addAttribute("userlogged", true);
+		} else {
+			model.addAttribute("usernotlogged", true);
+		}
+		
+		List<Recipe> recetas = recipeRepository.findByIngredient(ingredient);
+		model.addAttribute("recetas", recetas);
+		
+		return "recetas";
+	}
+		
+	@RequestMapping("/recetas/tipo-comida")
+	public String recetasPorTipoComida(Model model, @RequestParam String typeFood) throws Exception {
+		
+		User userLogged = userComponent.getLoggedUser();
+		if (userLogged != null) {
+			model.addAttribute("userlogged", true);
+		} else {
+			model.addAttribute("usernotlogged", true);
+		}
+		
+		List<Recipe> recetas = recipeRepository.findByTypeFood(typeFood);
 		model.addAttribute("recetas", recetas);
 		
 		return "recetas";

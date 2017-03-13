@@ -1,31 +1,31 @@
 @import url ('https://fonts.googleapis.com/css?family=Open+Sans');
 
 a {
-	color: #4ab6ff;
+    color: #4ab6ff;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
-	color: #151414;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: #151414;
 }
 
 h2 {
-	font-size: 38px;
+    font-size: 38px;
 }
 
 h3 {
-	font-size: 32px;
+    font-size: 32px;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-	background: #4ab6ff;
+    background: #4ab6ff;
 }
 
 .centrado {
-	position: absolute;
-	max-width: 400px;
-	max-height: 300px;
+    position: absolute;
+    max-width: 400px;
+    max-height: 300px;
     top: 0;
     bottom: 0;
     left: 0;
@@ -67,9 +67,9 @@ h3 {
  #cookcinando {
     padding-left: 4%;
     width: 350px;
- 	height: 68px;
- 	text-indent: -9999px;
- 	background-size: 100%;
+    height: 68px;
+    text-indent: -9999px;
+    background-size: 100%;
  }
 
 #login {
@@ -197,12 +197,12 @@ hr{
 }
 
 #buscador {
-	position:relative;
-	top: 20px;
+    position:relative;
+    top: 20px;
 }
 
 #btn-search {
-	appearance: none;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     outline: none;
@@ -211,9 +211,16 @@ hr{
 }
 
 .input-group-lg >.input-group-addon {
-	padding-bottom: 0;
-	padding-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
 }
+
+.tag {
+    //padding: 0;
+    border: 0;
+    background-color: inherit;
+}
+
 
 /***********************************************************************************/
 
@@ -226,11 +233,11 @@ hr{
     padding-left: 4% !important;
 }
 .titulo h1 {
-	width: 350px;
-	height: 68px;
-	background: url(img/cookcinando.png) no-repeat;
-	text-indent: -9999px;
-	background-size: 100%;
+    width: 350px;
+    height: 68px;
+    background: url(img/cookcinando.png) no-repeat;
+    text-indent: -9999px;
+    background-size: 100%;
     margin-top: 20px !important;
 }
 .logo h1 {
@@ -244,20 +251,20 @@ hr{
     
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size:24px;
-	margin-top: 0px; margin-bottom: 0px;
-	text-align: center;
+    margin-top: 0px; margin-bottom: 0px;
+    text-align: center;
     font-weight: normal;
     color: #222;
 }
 #texto{
     font-family: "Lucida Grande", Tahoma;
-	font-size: 15px;
-	font-weight: lighter;
-	font-variant: normal;
-	
-	color: #666666;    
-	text-align: center!important;
-	letter-spacing: 0.3em;
+    font-size: 15px;
+    font-weight: lighter;
+    font-variant: normal;
+    
+    color: #666666;    
+    text-align: center!important;
+    letter-spacing: 0.3em;
 }
 #img1{
     background-color: black;
@@ -308,7 +315,7 @@ hr{
     background-size: 100%;
 }
 #cab5 .tituloGrande {
-	font-size: 18px;
+    font-size: 18px;
 }
 
 #cab6{
@@ -355,7 +362,7 @@ hr{
     font-size: 22px;
 }
 .imagenPequenya {
-	height: 600px;
+    height: 600px;
 }
 
 .imagenPequenia{
@@ -560,7 +567,7 @@ hr{
 
 .footer{
     background-color: #282828;
-	color: white;
+    color: white;
     margin: 0 !important;
 }
 
@@ -601,28 +608,28 @@ hr{
     padding-left: 4%;
 }
 .info-usuario a h3 {
-	color: inherit;
-	font-size: 24px;
+    color: inherit;
+    font-size: 24px;
 }
 .ingredientes, .tipo-comida {
-	height: 30px;
+    height: 30px;
 }
 .ingredientes a, .tipo-comida a, .tipo-comida-restaurante a {
-	color: white;
+    color: white;
 }
 .ingredientes li:hover, .tipo-comida li:hover, .tipo-comida-restaurante li:hover {
-	background: #23527c;
+    background: #23527c;
 }
 .ingredientes a:hover, .tipo-comida a:hover, .tipo-comida-restaurante a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 .ingredientes li:first-child:hover, .tipo-comida li:first-child:hover, .tipo-comida-restaurante li:first-child:hover {
-	background: #777;
+    background: #777;
 }
 .ingredientes ul, .tipo-comida ul {
-	float: left;
-	padding-left: 0;
-	display: inline;
+    float: left;
+    padding-left: 0;
+    display: inline;
 }
 
 .contenido {
@@ -634,7 +641,7 @@ hr{
     margin-bottom: 20px;
 }
 .contenido p {
-	color: #151414;
+    color: #151414;
 }
 .recetas1, .recetas2, .recetas3 {
     width: 33.33%;
@@ -674,15 +681,15 @@ hr{
 }
 
 .thumbnail .caption h3 {
-	color: #4ab6ff;
+    color: #4ab6ff;
 }
 
 .thumbnail>a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .thumbnail>a:hover .caption h3 {
-	color: #23527c;
+    color: #23527c;
 }
 
 
@@ -697,28 +704,28 @@ hr{
 }
 
 .restaurente-botones {
-	position: relative;
-	left: 50%;
-	margin-bottom: 10px;
+    position: relative;
+    left: 50%;
+    margin-bottom: 10px;
 }
 
 #ucreador {
-	width: 153px;
-	margin-left: -76.5px;
+    width: 153px;
+    margin-left: -76.5px;
 }
 
 #unoregistrado {
-	width: 235px;
-	margin-left: -117.5px
+    width: 235px;
+    margin-left: -117.5px
 }
 
 #uregistrado {
-	width: 140px;
-	margin-left: -70px;
+    width: 140px;
+    margin-left: -70px;
 }
 
 .tipo-comida-restaurante {
-	float: right;
+    float: right;
     position: relative;
     left: -50%;
 }
@@ -730,7 +737,7 @@ hr{
     height: 25px;
 }
 .contenido-restaurante {
-	margin-top: 50px;
+    margin-top: 50px;
 }
 /* Fin de perfil privado */
 .cabecera-subrayada {
@@ -815,7 +822,7 @@ hr{
     text-align: center;
 }
 .perfil-publico h5{
-	color: blue;
+    color: blue;
 }
 .perfil-publico h3 {
     font-size: 30px;
@@ -830,13 +837,13 @@ hr{
 }
 
 .Editor-editor {
-	outline: none;
+    outline: none;
 }
 
 .redes-sociales-botones {
-	position: relative;
-	left: 50%;
-	margin-bottom: 10px;
+    position: relative;
+    left: 50%;
+    margin-bottom: 10px;
     width:74px;
     margin-left:-37px;
 }

@@ -67,17 +67,21 @@
 	                <div class="ingredientes">
 		                <ul>
 			                <li class="label label-default">Ingredientes</li>
+			                <form action="/recetas/ingrediente">
 			                {{#receta.ingredients}}
-				                <li class="label label-info"><a href="#">{{.}}</a></li>
+				                <li class="label label-info"><input class="tag" name="ingredient" type="submit" value="{{.}}"></li>
 				            {{/receta.ingredients}}
+				            </form>
 		                </ul>
 	                </div>
 	                <div class="tipo-comida">
 		                <ul>
 			                <li class="label label-default">Tipo de comida</li>
+			                <form action="/recetas/tipo-comida">
 			                {{#receta.typesFood}}
-				                <li class="label label-info"><a href="#">{{.}}</a></li>
+				                <li class="label label-info"><input class="tag" name="typeFood" type="submit" value="{{.}}"></li>
 				            {{/receta.typesFood}}
+			               </form>
 		                </ul>
 	                </div>
                     <div> 
