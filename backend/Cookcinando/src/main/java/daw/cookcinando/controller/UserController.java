@@ -172,6 +172,12 @@ public class UserController {
 			model.addAttribute("events", user.getMyEvents());
 			return "perfilPublicoEnterprise";
 		}
+		User userLogged = userComponent.getLoggedUser();
+		if (userLogged != null) {
+			model.addAttribute("userlogged", true);
+		} else {
+			model.addAttribute("usernotlogged", true);
+		}
 		return "perfilPublicoUsuario";
 	}
 }

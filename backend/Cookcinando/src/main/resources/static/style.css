@@ -1,5 +1,13 @@
 @import url ('https://fonts.googleapis.com/css?family=Open+Sans');
 
+.ajustes {
+	display: block;
+}
+
+form {
+	display: inline-block;
+}
+
 a {
     color: #4ab6ff;
 }

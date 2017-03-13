@@ -13,10 +13,22 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-7 titulo">
-                    <a href="index.html"><h1>Cookcinando</h1></a>
-                </div>
-                <div class="col-md-5 menu">
+                <div class="col-md-4 titulo">
+                    <a href="/"><h1>Cookcinando</h1></a>
+	            </div>
+	             <div class="col-md-5" id="buscador">
+	                <form action="/recetas" method="get" name="buscar">
+	                <div id="div-search" class="input-group input-group-lg">
+	                  <input type="text" name='search' class="form-control" placeholder="Buscar...">
+	                  <span id="span-search" class="input-group-addon">
+	                    <button id="btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+	                  </span>
+	                </div>
+	                <label class="checkbox-inline"><input type="checkbox" name="ingrediente">Ingrediente</label>
+	                <label class="checkbox-inline"><input type="checkbox" name="tipoComida">Tipo de comida</label>
+	                </form>
+	            </div>
+		        <div class="col-md-3 menu">
                 	{{#usernotlogged}}
 	                    <ul class="nav nav-pills cerrar-sesion">
 			                <li><a href="/login">Inicia sesión</a></li>
@@ -49,7 +61,7 @@
         <div class="container-fluid footer">
 	        <div class="row">
 	            <div class="col-md-3 logo"> 
-	               <a href="index.html"><h1>Cookcinando</h1></a>
+	               <a href="/"><h1>Cookcinando</h1></a>
 	            </div>
 	            <div class="col-md-5 enlaces"> 
 	                <h1>ENLACES</h1>
@@ -57,15 +69,13 @@
 	                    <ul>
 	                        <li>Acerca de</li>
 	                        <li>Ayuda</li>
-                            <a href="publico-registro.html"><li>Inicia sesión</li></a>
-	                        <a href="publico-registro.html"><li>Registrate</li></a>
 	                    </ul>
 	                </div>
 	                <div class="col-md-4">
 	                    <ul>
-                            <a href="publico-recetas.html"><li>Recetas</li></a>
-	                        <a href="publico-restaurantes.html"><li>Restaurantes</li></a>
-	                        <a href="publico-eventos.html"><li>Eventos</li></a>
+                            <a href="/recetas/"><li>Recetas</li></a>
+	                        <a href="/restaurantes/"><li>Restaurantes</li></a>
+	                        <a href="/eventos"><li>Eventos</li></a>
 	                    </ul>
 	                </div>
 	            </div>
