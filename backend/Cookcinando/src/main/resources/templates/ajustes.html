@@ -14,13 +14,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-7 titulo">
-                <a href="index.html"><h1>Cookcinando</h1></a>
+                <a href="/"><h1>Cookcinando</h1></a>
             </div>
             <div class="col-md-5 menu">
                 <ul class="nav nav-pills cerrar-sesion">
-                    <li class="active"><a href="index.html">Cerrar sesión</a></li>
-                </ul>
+	                    <form action="/logout" method="post">
+	                    	<li class="active"><input class="btn" type="submit" value="Cerrar sesión"></li>
+	                    </form>
+	                </ul>
             </div>
+            
         </div>
     </div>
     <div class="container-fluid">
@@ -81,7 +84,7 @@
                     </li>
                     {{/admin}}
                     <li class="active">
-                        <a>Ajustes <span class="glyphicon glyphicon-cog"></span></a>
+                        <a href="/privado/ajustes">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
                     </li>
                 </ul>
             </div>
@@ -110,7 +113,7 @@
     <div class="container-fluid footer">
         <div class="row">
             <div class="col-md-3 logo">
-                <a href="index.html"><h1>Cookcinando</h1></a>
+                <a href="/"><h1>Cookcinando</h1></a>
             </div>
             <div class="col-md-5 enlaces">
                 <h1>ENLACES</h1>
@@ -122,15 +125,15 @@
                 </div>
                 <div class="col-md-4">
                     <ul>
-                        <a href="publico-recetas.html"><li>Recetas</li></a>
-                        <a href="publico-restaurantes.html"><li>Restaurantes</li></a>
-                        <a href="publico-eventos.html"><li>Eventos</li></a>
+                        <a href="/recetas/"><li>Recetas</li></a>
+                        <a href="/restaurantes"><li>Restaurantes</li></a>
+                        <a href="/eventos/"><li>Eventos</li></a>
                     </ul>
                 </div>
             </div>
             <div class="col-md-4 imagenes"> 
                 <h1>REDES SOCIALES</h1>
-                <div class=" col-md-4"><a href="https://www.facebook.com/"><img src="../../img/facebook.png" width="100px" height="auto" class="img-responsive"/></a></div>
+                <div class=" col-md-4"><a href="https://www.facebook.com/"><img src="../../../img/facebook.png" width="100px" height="auto" class="img-responsive"/></a></div>
                 <div class=" col-md-4"><a href="https://twitter.com/"><img src="../../img/twitter.png" width="100px" height="auto" class="img-responsive" /></a></div>
                 <div class=" col-md-4"><a href="https://accounts.google.com/"><img src="../../img/googleplus.png" width="100px" height="auto" class="img-responsive" /></a></div>
             </div>
