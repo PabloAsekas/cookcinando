@@ -344,7 +344,7 @@ public class RecipeController<def> {
 	}
 		
 	
-	@RequestMapping(value = "/moreRecipes")
+	@RequestMapping(method = RequestMethod.GET, value= "/moreRecipes")
 	public String moreRecipes(Model model, @RequestParam int page) {
 
 		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(page, 10));

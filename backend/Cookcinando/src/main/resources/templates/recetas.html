@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../style.css">
         <script src="../js/jquery.min.js"></script>
         <script src="../js/js/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -34,13 +35,12 @@
             </div>
         </div>
         
-		{{#recetas}}
+        <div id="recipes">
 			<div class="listItems">
-				{{> listItems}}
+			{{#recetas}} {{> listItems}} {{/recetas}}
 			</div>
-		{{/recetas}}
-		
-            <button id="moreRecipes" type="button" class="btn btn-lg btn-block btn-view-more">Ver más recetas</button>
+        <button id="moreRecipes" type="button" class="btn btn-lg btn-block btn-view-more">Ver más recetas</button>
+		</div>
         </div>
         
         <div class="container-fluid footer">
