@@ -9,10 +9,13 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,6 +54,11 @@ public class EventController {
 		} else {
 			model.addAttribute("usernotlogged", true);
 		}
+		
+		Page<Event> events = eventRepository.findAll(new PageRequest(0, 10));
+		
+		model.addAttribute("eventos", events);
+		
 		return "eventos";
 	}
 	
@@ -254,4 +262,17 @@ public class EventController {
 		
 		return "todosEventos";
 	}
+	
+	
+	@RequestMapping(method = RequestMethod.GET, value= "/moreEvents")
+	public String moreEvents(Model model, @RequestParam int page) {
+
+		Page<Event> events = eventRepository.findAll(new PageRequest(page, 10));
+		model.addAttribute("items", events);
+
+		return "listItemsPage";
+	}
+	
+	
+	
 }

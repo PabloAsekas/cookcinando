@@ -34,21 +34,12 @@
             </div>
         </div>
         
-        <div class="container-fluid">
-            <h1 class="text-center recetas-h1">Eventos</h1>
-            {{#eventos}}
-	           <div class="col-md-4">
-	               <div class="thumbnail">
-	                <a href="/eventos/{{id}}">
-	                    <img src="{{thumbnail}}" alt="{{title}}">
-	                    <div class="caption">
-	                        <h3>{{title}}</h3>
-	                        <p>{{description}}</p>
-	                    </div>
-	                </a>
-	               </div>
-	           </div>
-	       {{/eventos}}
+          <div id="events">
+			<div class="listItems">
+			{{#eventos}} {{> listItems}} {{/eventos}}
+			</div>
+        	<button id="moreEvents" type="button" class="btn btn-lg btn-block btn-view-more">Ver más eventos</button>
+		</div>
         </div>
         
        <div class="container-fluid footer">

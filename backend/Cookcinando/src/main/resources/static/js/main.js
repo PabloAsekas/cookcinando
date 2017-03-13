@@ -31,7 +31,7 @@ $(document).ready(function(){
       });
   });
   
-  /*$("#moreEvents").on("click", function() {
+  $("#moreEvents").on("click", function() {
     contEvents++;
     $.get("/moreEvents", {
         page: contEvents
@@ -43,5 +43,5 @@ $(document).ready(function(){
           $("#events .listItems").append(data);
         }
       });
-  }); */
+  }); 
 });
