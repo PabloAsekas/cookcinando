@@ -38,7 +38,7 @@ Public
 ## Main Pages
 
 INDEX: Main page of the web, where you can see a sample of the content.
-![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/INDEX.png)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/Nueva%20home.jpg)
 
 REGISTRO/LOGIN - Page through which the private part of the users can be accessed.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/REGISTRO-LOGIN.png)
@@ -63,3 +63,7 @@ CREACIÓN DE CONTENIDO - Page for users to create content for the page.
 
 VISTA DE CONTENIDO - Page where the content is displayed.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/VISTA-DE-CONTENIDO.png)
+
+## Diagram
+
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagrama.png)
