@@ -16,29 +16,31 @@ $(document).ready(function(){
         }
       });
   });
- /* $("#moreRestaurants").on("click", function() {
+  
+  $("#moreRestaurants").on("click", function() {
     contRestaurants++;
-    $.get("/restaurantes", {
+    $.get("/moreRestaurants", {
         page: contRestaurants
       })
       .done(function(data) {
         if (!$.trim(data)) {
           $("#moreRestaurants").attr("disabled", "disabled");
         } else {
-          $("#magazines .listItems").append(data);
+          $("#restaurants .listItems").append(data);
         }
       });
   });
-  $("#moreEvents").on("click", function() {
+  
+  /*$("#moreEvents").on("click", function() {
     contEvents++;
-    $.get("/eventos", {
+    $.get("/moreEvents", {
         page: contEvents
       })
       .done(function(data) {
         if (!$.trim(data)) {
           $("#moreEvents").attr("disabled", "disabled");
         } else {
-          $("#evets .listItems").append(data);
+          $("#events .listItems").append(data);
         }
       });
   }); */

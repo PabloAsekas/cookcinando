@@ -9,10 +9,13 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,6 +53,11 @@ public class RestaurantController {
 		} else {
 			model.addAttribute("usernotlogged", true);
 		}
+		
+		Page<Restaurant> restaurants = restaurantRepository.findAll(new PageRequest(0, 10));
+		
+		model.addAttribute("restaurantes", restaurants);
+		
 		return "restaurantes";
 	}
 	
@@ -246,5 +254,33 @@ public class RestaurantController {
 		model.addAttribute("allRestaurants", allRestaurants);
 		
 		return "todosRestaurantes";
+			
 	}
+	
+	
+	//@RequestMapping("/restaurantes")
+	//public String restaurantesPorTitulo(Model model, @RequestParam String title) throws Exception {
+		
+		//User userLogged = userComponent.getLoggedUser();
+		//if (userLogged != null) {
+			//model.addAttribute("userlogged", true);
+		//} else {
+			//model.addAttribute("usernotlogged", true);
+		//}
+		
+		//List<Restaurant> restaurantes = restaurantRepository.findByTitle(title.toLowerCase());
+		//model.addAttribute("restaurantes", restaurantes);
+		
+		//return "restaurantes";
+	//}
+	
+	@RequestMapping(method = RequestMethod.GET, value= "/moreRestaurants")
+	public String moreRestaurants(Model model, @RequestParam int page) {
+
+		Page<Restaurant> restaurants = restaurantRepository.findAll(new PageRequest(page, 10));
+		model.addAttribute("items", restaurants);
+
+		return "listItemsPage";
+	}
+			
 }

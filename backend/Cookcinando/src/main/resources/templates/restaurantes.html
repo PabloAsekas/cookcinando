@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../style.css">
         <script src="../js/jquery.min.js"></script>
         <script src="../js/js/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -34,22 +35,13 @@
             </div>
         </div>
         
-        <div class="container-fluid">
-            <h1 class="text-center recetas-h1">Restaurantes</h1>
-            {{#restaurantes}}
-            	<div class="col-md-4">
-	                <div class="thumbnail">
-		                <a href="/restaurantes/{{id}}">
-		                    <img src="{{thumbnail}}" alt="{{title}}">
-		                    <div class="caption">
-		                        <h3>{{title}}</h3>
-		                        <p>{{description}}</p>
-		                    </div>
-		                </a>
-	                </div>
-	            </div>
-            {{/restaurantes}}
-            </div> 
+         <div id="restaurants">
+			<div class="listItems">
+			{{#restaurantes}} {{> listItems}} {{/restaurantes}}
+			</div>
+        <button id="moreRestaurants" type="button" class="btn btn-lg btn-block btn-view-more">Ver más restaurantes</button>
+		</div>
+        </div>
         <div class="container-fluid footer">
 	        <div class="row">
 	            <div class="col-md-3 logo"> 
