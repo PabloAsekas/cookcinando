@@ -274,6 +274,22 @@ public class RestaurantController {
 		//return "restaurantes";
 	//}
 	
+	@RequestMapping("/restaurantes/tipo-comida")
+	public String restaurantesPorTipoComida(Model model, @RequestParam String typeFood) throws Exception {
+		
+		User userLogged = userComponent.getLoggedUser();
+		if (userLogged != null) {
+			model.addAttribute("userlogged", true);
+		} else {
+			model.addAttribute("usernotlogged", true);
+		}
+		
+		List<Restaurant> restaurant = restaurantRepository.findByTypeFood(typeFood);
+		model.addAttribute("restaurantes", restaurant);
+		
+		return "restaurantes";
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, value= "/moreRestaurants")
 	public String moreRestaurants(Model model, @RequestParam int page) {
 

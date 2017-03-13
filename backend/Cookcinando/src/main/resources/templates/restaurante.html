@@ -78,9 +78,10 @@
 					{{/notcreator}}
 	                <div class="tipo-comida-restaurante">
 		                <ul>
-			                <li class="label label-default">Tipo de comida</li>
+		                	<li class="label label-default">Tipo de comida</li>
+			                <form action="/restaurantes/tipo-comida">
 			                {{#restaurante.typesFood}}
-				                <li class="label label-info"><a href="#">{{.}}</a></li>
+				                <li class="label label-info"><input class="tag" name="typeFood" type="submit" value="{{.}}"></li>
 				            {{/restaurante.typesFood}}
 		                </ul>
 	                </div>

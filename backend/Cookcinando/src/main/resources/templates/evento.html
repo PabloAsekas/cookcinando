@@ -81,8 +81,9 @@
 	            	<div class="tipo-comida-restaurante">
 		                <ul>
 			                <li class="label label-default">Tipo de comida</li>
+			                <form action="/eventos/tipo-comida">
 			                {{#evento.typesFood}}
-				                <li class="label label-info"><a href="#">{{.}}</a></li>
+				                <li class="label label-info"><input class="tag" name="typeFood" type="submit" value="{{.}}"></li>
 				            {{/evento.typesFood}}
 		                </ul>
 	                </div>

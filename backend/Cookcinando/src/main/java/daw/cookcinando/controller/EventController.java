@@ -263,6 +263,22 @@ public class EventController {
 		return "todosEventos";
 	}
 	
+	@RequestMapping("/eventos/tipo-comida")
+	public String eventosPorTipoComida(Model model, @RequestParam String typeFood) throws Exception {
+		
+		User userLogged = userComponent.getLoggedUser();
+		if (userLogged != null) {
+			model.addAttribute("userlogged", true);
+		} else {
+			model.addAttribute("usernotlogged", true);
+		}
+		
+		List<Event> event = eventRepository.findByTypeFood(typeFood);
+		model.addAttribute("eventos", event);
+		
+		return "eventos";
+	}
+	
 	
 	@RequestMapping(method = RequestMethod.GET, value= "/moreEvents")
 	public String moreEvents(Model model, @RequestParam int page) {
