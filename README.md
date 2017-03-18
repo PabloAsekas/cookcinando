@@ -64,10 +64,12 @@ CREACIÓN DE CONTENIDO - Page for users to create content for the page.
 VISTA DE CONTENIDO - Page where the content is displayed.
 ![](https://github.com/PabloAsekas/cookcinando/raw/master/Screenshoots/VISTA-DE-CONTENIDO.png)
 
-## Diagram
+## Entity Diagram 
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagrama.png)
 
-## Class Diagram
+## Class Diagram and Templates
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagramaClases.jpeg)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagram1.png)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagram2.png)
