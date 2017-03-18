@@ -71,5 +71,5 @@ VISTA DE CONTENIDO - Page where the content is displayed.
 ## Class Diagram and Templates
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagramaClases.jpeg)
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagram1.png)
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagram2.png)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagram1.PNG)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagram2.PNG)
