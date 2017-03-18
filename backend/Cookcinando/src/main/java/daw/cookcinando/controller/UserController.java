@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
+import daw.cookcinando.model.UserAdmin;
 import daw.cookcinando.model.UserBasic;
 import daw.cookcinando.model.UserEnterprise;
 import daw.cookcinando.repository.UserRepository;
@@ -167,17 +168,28 @@ public class UserController {
 		model.addAttribute("fav-events", user.getFavEvents());
 		//model.addAttribute("restaurants",user.getFavRestaurants());
 		model.addAttribute("user", user);
-		if(user.isEnterprise()){
-			model.addAttribute("restaurants", user.getMyRestaurants());
-			model.addAttribute("events", user.getMyEvents());
-			return "perfilPublicoEnterprise";
-		}
+		
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged != null) {
 			model.addAttribute("userlogged", true);
 		} else {
 			model.addAttribute("usernotlogged", true);
 		}
+		
+		if(user instanceof UserEnterprise){
+			UserEnterprise user_enterprise = (UserEnterprise) user;
+			model.addAttribute("restaurants", user_enterprise.getMyRestaurants());
+			model.addAttribute("events", user_enterprise.getMyEvents());
+			return "perfilPublicoEnterprise";
+		}
+		
+		else if(user instanceof UserAdmin){
+			UserAdmin user_admin = (UserAdmin) user;
+			model.addAttribute("restaurants", user_admin.getMyRestaurants());
+			model.addAttribute("events", user_admin.getMyEvents());
+			return "perfilPublicoEnterprise";
+		}
+		
 		return "perfilPublicoUsuario";
 	}
 }
