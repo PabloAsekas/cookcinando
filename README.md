@@ -67,3 +67,7 @@ VISTA DE CONTENIDO - Page where the content is displayed.
 ## Diagram
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagrama.png)
+
+## Class Diagram
+
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagramaClases.png)
