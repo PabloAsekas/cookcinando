@@ -30,4 +30,6 @@
 <fullyQualifiedTypeName name="daw.cookcinando.repository.UserRepository"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.core.sym.Name"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.UserEnterprise"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.UserAdmin"/>
 </qualifiedTypeNameHistroy>

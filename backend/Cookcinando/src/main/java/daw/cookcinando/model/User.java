@@ -38,15 +38,6 @@ public class User {
 	@OneToMany(mappedBy="author")
 	private List<Recipe> myRecipes;
 	
-	@Column
-	@OneToMany(mappedBy="author")
-	private List<Restaurant> myRestaurants;
-	
-	@Column
-	@OneToMany(mappedBy="author")
-	private List<Event> myEvents;
-	
-	
 	@OneToMany
 	private List<Recipe> favRecipes;
 	@OneToMany
@@ -68,8 +59,6 @@ public class User {
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.myRecipes = new ArrayList<Recipe>();
-		this.myRestaurants = new ArrayList<Restaurant>();
-		this.myEvents = new ArrayList<Event>();
 		this.favRecipes = new ArrayList<Recipe>();
 		this.favRestaurants = new ArrayList<Restaurant>();
 		this.favEvents = new ArrayList<Event>();
@@ -154,31 +143,14 @@ public class User {
 	public void setMyRecipes(List<Recipe> myRecipes) {
 		this.myRecipes = myRecipes;
 	}
-		
-	public void setRecipe(Recipe recipe) {
-		this.myRecipes.add(recipe);
-	}
-
+	
 	public List<Recipe> getFavRecipes() {
 		return favRecipes;
 	}
 	
 	public void setFavRecipes(List<Recipe> favRecipes) {
 		this.favRecipes = favRecipes;
-	}
-
-	public void setFavRecipe(Recipe recipe) {
-		this.favRecipes.add(recipe);
-	}
-
-	public List<Restaurant> getMyRestaurants() {
-		return myRestaurants;
-	}
-
-	public void setMyRestaurants(List<Restaurant> myRestaurants) {
-		this.myRestaurants = myRestaurants;
-	}
-	
+	}	
 
 	public List<Restaurant> getFavRestaurants() {
 		return favRestaurants;
@@ -187,18 +159,6 @@ public class User {
 	public void setFavRestaurants(Restaurant restaurant) {
 		this.favRestaurants.add(restaurant);
 	}
-		
-	public List<Event> getMyEvents() {
-		return myEvents;
-	}
-
-	public void setMyEvents(List<Event> myEvents) {
-		this.myEvents = myEvents;
-	}
-		
-	public void setEvent(Event event) {
-		this.myEvents.add(event);
-	}
 
 	public List<Event> getFavEvents() {
 		return favEvents;
@@ -206,10 +166,6 @@ public class User {
 	
 	public void setFavEvents(List<Event> favEvents) {
 		this.favEvents = favEvents;
-	}
-
-	public void setFavEvent(Event event) {
-		this.favEvents.add(event);
 	}
 	
 	public boolean isAdmin() {
@@ -225,6 +181,6 @@ public class User {
 		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", description=" + description
 				+ ", image=" + image + ", nick=" + nick + ", email=" + email + ", passwordHash=" + passwordHash
 				+ ", roles=" + roles + ", myRecipes=" + myRecipes + ", favRecipes=" + favRecipes + ", favRestaurants="
-				+ favRestaurants + "]";
+				+ favRestaurants + ", favEvents=" + favEvents + "]";
 	}
 }

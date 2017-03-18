@@ -23,8 +23,9 @@ public class UserEnterprise extends User {
 	@OneToMany(mappedBy="author")
 	private List<Restaurant> myRestaurants;
 	
-//	@OneToMany
-//	private List<Event> myEvents;
+	@Column
+	@OneToMany(mappedBy="author")
+	private List<Event> myEvents;
 	
 	protected UserEnterprise(){}
 	
@@ -33,7 +34,7 @@ public class UserEnterprise extends User {
 		
 		super(name,surname,description,image,nick,email,password,roles);
 		this.myRestaurants = new ArrayList<Restaurant>();
-//		this.myEvents = new ArrayList<Event>();
+		this.myEvents = new ArrayList<Event>();
 	}
 
 	public long getId() {
@@ -52,16 +53,16 @@ public class UserEnterprise extends User {
 		this.myRestaurants = myRestaurants;
 	}
 
-//	public List<Event> getMyEvents() {
-//		return myEvents;
-//	}
-//
-//	public void setMyEvents(List<Event> myEvents) {
-//		this.myEvents = myEvents;
-//	}
+	public List<Event> getMyEvents() {
+		return myEvents;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "UserEnterprise [id=" + id + ", myRecipes=" + myRecipes + "]";
-//	}
+	public void setMyEvents(List<Event> myEvents) {
+		this.myEvents = myEvents;
+	}
+
+	@Override
+	public String toString() {
+		return "UserEnterprise [id=" + id + ", myRestaurants=" + myRestaurants + ", myEvents=" + myEvents + "]";
+	}
 }

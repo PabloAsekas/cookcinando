@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<list key="installedFeatures">
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
+		<item value="com.objectaid.uml.addon:1.1.14"/>
+		<item value="com.objectaid.uml.cls:1.1.14"/>
+		<item value="com.objectaid.uml.seq:1.1.14"/>
 		<item value="org.aspectj:1.8.10.201612122115"/>
 		<item value="org.eclipse.aether.maven.feature:3.1.0.20140706-2237"/>
 		<item value="org.eclipse.ajdt:2.2.4.201612122115"/>

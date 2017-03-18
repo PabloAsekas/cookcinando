@@ -19,8 +19,6 @@ public class UserBasic extends User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	
-	
 	protected UserBasic(){}
 	
 	public UserBasic(String name, String surname, String description, String image, String nick,

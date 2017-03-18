@@ -24,6 +24,8 @@ import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
+import daw.cookcinando.model.UserAdmin;
+import daw.cookcinando.model.UserEnterprise;
 import daw.cookcinando.repository.RestaurantRepository;
 import daw.cookcinando.repository.UserRepository;
 
@@ -236,9 +238,17 @@ public class RestaurantController {
 		
 		User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		
-		List<Restaurant> myRestaurants = user.getMyRestaurants();
+		if(user instanceof UserEnterprise){
+			UserEnterprise user_enterprise = (UserEnterprise) user;
+			List<Restaurant> myRestaurants = user_enterprise.getMyRestaurants();
+			model.addAttribute("myRestaurants", myRestaurants);
+		}
 		
-		model.addAttribute("myRestaurants", myRestaurants);
+		else if(user instanceof UserAdmin){
+			UserAdmin user_admin = (UserAdmin) user;
+			List<Restaurant> myRestaurants = user_admin.getMyRestaurants();
+			model.addAttribute("myRestaurants", myRestaurants);
+		}
 		
 		return "misRestaurantes";
 	}
