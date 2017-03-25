@@ -1,0 +1,5 @@
+package daw.cookcinando.service;
+
+public class UserService {
+
+}

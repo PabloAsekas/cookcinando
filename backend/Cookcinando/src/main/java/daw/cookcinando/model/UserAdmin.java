@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class UserAdmin extends User {
 	
@@ -19,14 +21,17 @@ public class UserAdmin extends User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
 	private List<Restaurant> myRestaurants;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
 	private List<Event> myEvents;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany
 	private List<User> users;

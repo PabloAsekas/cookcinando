@@ -1,0 +1,25 @@
+package daw.cookcinando.api;
+
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import daw.cookcinando.model.User;
+import daw.cookcinando.service.UserService;
+
+@RestController
+@RequestMapping("/api/usuarios")
+public class UserRestController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public Collection<User> getUsers() {
+		return userService.findAll();
+	}
+}

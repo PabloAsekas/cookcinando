@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 
@@ -34,14 +36,20 @@ public class User {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
 	private List<Recipe> myRecipes;
 	
+	@JsonIgnore
 	@OneToMany
 	private List<Recipe> favRecipes;
+	
+	@JsonIgnore
 	@OneToMany
 	private List<Restaurant> favRestaurants;
+	
+	@JsonIgnore
 	@OneToMany
 	private List<Event> favEvents;
 	
