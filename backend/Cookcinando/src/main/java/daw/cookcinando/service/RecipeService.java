@@ -41,4 +41,31 @@ public class RecipeService {
 		}
 		return recipe;
 	}
+	
+	
+	public Recipe findByIngredients(List<String> ingredients) {
+		Recipe recipe = null;
+		
+		for(Recipe r : recipeRepository.findAll()){
+			if(r.getIngredients() == ingredients){
+				recipe = r;
+				break;
+			}
+		}
+		return recipe;
+	}
+	
+	public Recipe findByTypesFood(List<String> typesFood) {
+		Recipe recipe = null;
+		
+		for(Recipe r : recipeRepository.findAll()){
+			if(r.getTypesFood() == typesFood){
+				recipe = r;
+				break;
+			}
+		}
+		return recipe;
+	}
+	
+	
 }
