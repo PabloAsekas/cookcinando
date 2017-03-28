@@ -16,7 +16,6 @@
 <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-<fullyQualifiedTypeName name="daw.cookcinando.model.Recipe"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
 <fullyQualifiedTypeName name="daw.cookcinando.repository.RecipeRepository"/>
@@ -37,7 +36,6 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.data.solr.core.RequestMethod"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="daw.cookcinando.model.User"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="daw.cookcinando.service.UserService"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -49,4 +47,11 @@
 <fullyQualifiedTypeName name="daw.cookcinando.model.UserBasic"/>
 <fullyQualifiedTypeName name="daw.cookcinando.model.UserEnterprise"/>
 <fullyQualifiedTypeName name="daw.cookcinando.model.UserAdmin"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonView"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Recipe"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Recipe.Users"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.User.Basico"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.User"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.User.Recipes"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Recipe.Basico"/>
 </qualifiedTypeNameHistroy>

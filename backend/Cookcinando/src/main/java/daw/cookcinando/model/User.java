@@ -17,32 +17,46 @@ import javax.persistence.OneToMany;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class User {
 
+	public interface Basic { }
+	
+	public interface Recipes { }
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@JsonView(Basic.class)
 	private long id;
 	
+	@JsonView(Basic.class)
 	private String name;
+	@JsonView(Basic.class)
 	private String surname;
+	@JsonView(Basic.class)
 	private String description;
+	@JsonView(Basic.class)
 	private String image;
+	@JsonView(Basic.class)
 	private String nick;
+	@JsonView(Basic.class)
 	private String email;
+	@JsonView(Basic.class)
 	private String passwordHash;
 	
+	@JsonView(Basic.class)
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
-	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
+	@JsonView(Recipes.class)
 	private List<Recipe> myRecipes;
 	
-	@JsonIgnore
 	@OneToMany
+	@JsonView(Recipes.class)
 	private List<Recipe> favRecipes;
 	
 	@JsonIgnore

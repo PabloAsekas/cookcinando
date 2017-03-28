@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import daw.cookcinando.model.Recipe;
+import daw.cookcinando.model.User;
 import daw.cookcinando.service.RecipeService;
 
 
@@ -24,11 +27,15 @@ public class RecipeRestController {
 	@Autowired
 	private RecipeService recipeservice;
 
+	@JsonView(Recipe.Basico.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<Recipe> getRecipes() {
 		return recipeservice.findAll();
 	}
 
+	interface RecipeDetail extends Recipe.Basico, Recipe.Users, User.Basic { }
+	
+	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Recipe> getRecipe(@PathVariable long id) {
 
@@ -40,6 +47,7 @@ public class RecipeRestController {
 		}
 	}
 
+	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Recipe createRecipe(@RequestBody Recipe recipe) {
@@ -49,6 +57,7 @@ public class RecipeRestController {
 		return recipe;
 	}
 
+	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Recipe> updateRecipe(@PathVariable long id, @RequestBody Recipe updatedRecipe) {
 

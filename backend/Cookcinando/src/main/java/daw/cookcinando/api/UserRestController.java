@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserAdmin;
 import daw.cookcinando.model.UserBasic;
@@ -20,17 +23,21 @@ import daw.cookcinando.model.UserEnterprise;
 import daw.cookcinando.service.UserService;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/api/users")
 public class UserRestController {
 	
 	@Autowired
 	private UserService userService;
 	
+	@JsonView(User.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<User> getUsers() {
 		return userService.findAll();
 	}
 	
+	interface UserDetalle extends User.Basic, User.Recipes, Recipe.Basico { }
+	
+	@JsonView(UserDetalle.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable long id) {
 		
@@ -43,6 +50,7 @@ public class UserRestController {
 		}
 	}
 	
+	@JsonView(UserDetalle.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public User createUser(@RequestBody User user) {
@@ -77,6 +85,7 @@ public class UserRestController {
 		else return null;
 	}
 	
+	@JsonView(UserDetalle.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updatedUser) {
 		

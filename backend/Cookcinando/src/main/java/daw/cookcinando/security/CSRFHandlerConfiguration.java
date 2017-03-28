@@ -1,4 +1,4 @@
-package daw.cookcinando.security;
+/*package daw.cookcinando.security;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,4 +31,4 @@ class CSRFHandlerInterceptor extends HandlerInterceptorAdapter {
 			modelAndView.addObject("token", token.getToken());
 		}
 	}
-}
+}*/

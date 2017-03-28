@@ -18,29 +18,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Recipe {
 	
+	public interface Basico { }
+	
+	public interface Users { }
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(Basico.class)
 	private long id;
 	
+	@JsonView(Basico.class)
 	private String title;
+	@JsonView(Basico.class)
 	private String description;
+	@JsonView(Basico.class)
 	private String thumbnail; //Image
 	
 	@Column(length=1000000000)
+	@JsonView(Basico.class)
 	private String preparation; //Cuerpo
 	
 	@Column
 	@ElementCollection(targetClass=String.class)
+	@JsonView(Basico.class)
 	private List<String> ingredients = new ArrayList<String>();
 	
 	@Column
 	@ElementCollection(targetClass=String.class)
+	@JsonView(Basico.class)
 	private List<String> typesFood = new ArrayList<String>();
 	
 	@ManyToOne
+	@JsonView(Users.class)
 	private User author;
 	
 	protected Recipe(){}
