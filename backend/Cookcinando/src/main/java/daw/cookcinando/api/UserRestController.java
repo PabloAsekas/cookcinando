@@ -35,7 +35,7 @@ public class UserRestController {
 		return userService.findAll();
 	}
 	
-	interface UserDetalle extends User.Basic, User.Recipes, Recipe.Basico { }
+	interface UserDetalle extends User.Basic, User.Recipes, Recipe.Basic { }
 	
 	@JsonView(UserDetalle.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -92,9 +92,17 @@ public class UserRestController {
 		User user = userService.findOne(id);
 		
 		if(user != null) {
-			updatedUser.setId(id);
-			userService.save(updatedUser);
-			return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+			//updatedUser.setId(id);
+			user.setName(updatedUser.getName());
+			user.setSurname(updatedUser.getSurname());
+			user.setDescription(updatedUser.getDescription());
+			user.setImage(updatedUser.getImage());
+			user.setNick(updatedUser.getNick());
+			user.setEmail(updatedUser.getEmail());
+			user.setPasswordHash(updatedUser.getPasswordHash());
+			user.setRoles(updatedUser.getRoles());
+			userService.saveAndFlush(user);
+			return new ResponseEntity<>(user, HttpStatus.OK);
 		}
 		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}

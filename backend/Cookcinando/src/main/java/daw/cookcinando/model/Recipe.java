@@ -23,34 +23,34 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 public class Recipe {
 	
-	public interface Basico { }
+	public interface Basic { }
 	
 	public interface Users { }
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JsonView(Basico.class)
+	@JsonView(Basic.class)
 	private long id;
 	
-	@JsonView(Basico.class)
+	@JsonView(Basic.class)
 	private String title;
-	@JsonView(Basico.class)
+	@JsonView(Basic.class)
 	private String description;
-	@JsonView(Basico.class)
+	@JsonView(Basic.class)
 	private String thumbnail; //Image
 	
 	@Column(length=1000000000)
-	@JsonView(Basico.class)
+	@JsonView(Basic.class)
 	private String preparation; //Cuerpo
 	
 	@Column
 	@ElementCollection(targetClass=String.class)
-	@JsonView(Basico.class)
+	@JsonView(Basic.class)
 	private List<String> ingredients = new ArrayList<String>();
 	
 	@Column
 	@ElementCollection(targetClass=String.class)
-	@JsonView(Basico.class)
+	@JsonView(Basic.class)
 	private List<String> typesFood = new ArrayList<String>();
 	
 	@ManyToOne

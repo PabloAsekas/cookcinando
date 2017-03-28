@@ -27,13 +27,13 @@ public class RecipeRestController {
 	@Autowired
 	private RecipeService recipeservice;
 
-	@JsonView(Recipe.Basico.class)
+	@JsonView(Recipe.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<Recipe> getRecipes() {
 		return recipeservice.findAll();
 	}
 
-	interface RecipeDetail extends Recipe.Basico, Recipe.Users, User.Basic { }
+	interface RecipeDetail extends Recipe.Basic, Recipe.Users, User.Basic { }
 	
 	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
