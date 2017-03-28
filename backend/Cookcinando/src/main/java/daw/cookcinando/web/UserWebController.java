@@ -155,7 +155,6 @@ public class UserWebController {
 		List<UserEnterprise> users_enterprise = new ArrayList<UserEnterprise>();
 		
 		for(User user: users){
-			
 			if(user instanceof UserBasic){
 				users_basic.add((UserBasic) user);
 			}

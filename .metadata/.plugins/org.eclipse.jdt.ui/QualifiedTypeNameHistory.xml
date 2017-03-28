@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="daw.cookcinando.model.UserBasic"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
@@ -24,8 +23,6 @@
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.core.sym.Name"/>
-<fullyQualifiedTypeName name="daw.cookcinando.model.UserEnterprise"/>
-<fullyQualifiedTypeName name="daw.cookcinando.model.UserAdmin"/>
 <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpMethod"/>
 <fullyQualifiedTypeName name="org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder"/>
@@ -34,8 +31,6 @@
 <fullyQualifiedTypeName name="org.slf4j.Logger"/>
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
 <fullyQualifiedTypeName name="daw.cookcinando.UserComponent"/>
-<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
-<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
@@ -45,4 +40,13 @@
 <fullyQualifiedTypeName name="daw.cookcinando.model.User"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="daw.cookcinando.service.UserService"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.HttpStatus"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.UserBasic"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.UserEnterprise"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.UserAdmin"/>
 </qualifiedTypeNameHistroy>
