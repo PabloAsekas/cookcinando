@@ -3,6 +3,8 @@ package daw.cookcinando.api;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,8 +31,8 @@ public class RecipeRestController {
 
 	@JsonView(Recipe.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Recipe> getRecipes() {
-		return recipeservice.findAll();
+	public Page<Recipe> getRecipes(Pageable pageable) {
+		return recipeservice.findAll(pageable);
 	}
 
 	interface RecipeDetail extends Recipe.Basic, Recipe.Users, User.Basic { }

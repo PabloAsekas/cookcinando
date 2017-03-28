@@ -53,6 +53,8 @@ public class Recipe {
 	@JsonView(Basic.class)
 	private List<String> typesFood = new ArrayList<String>();
 	
+	
+	
 	@ManyToOne
 	@JsonView(Users.class)
 	private User author;

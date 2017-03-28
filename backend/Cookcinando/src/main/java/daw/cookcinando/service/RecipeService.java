@@ -3,6 +3,8 @@ package daw.cookcinando.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import daw.cookcinando.model.Recipe;
@@ -18,8 +20,8 @@ public class RecipeService {
 		return recipeRepository.findOne(id);
 	}
 	
-	public List<Recipe> findAll() {
-		return recipeRepository.findAll();
+	public Page<Recipe> findAll(Pageable pageable) {
+		return recipeRepository.findAll(pageable);
 	}
 	
 	public void save(Recipe recipe) {
