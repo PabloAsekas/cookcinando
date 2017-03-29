@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -100,8 +99,7 @@ public class UserRestController {
 			user.setImage(updatedUser.getImage());
 			user.setNick(updatedUser.getNick());
 			user.setEmail(updatedUser.getEmail());
-			String password = new BCryptPasswordEncoder().encode(updatedUser.getPasswordHash());
-			user.setPasswordHash(password);
+			user.setPasswordHash(updatedUser.getPasswordHash());
 			user.setRoles(updatedUser.getRoles());
 			userService.saveAndFlush(user);
 			return new ResponseEntity<>(user, HttpStatus.OK);
