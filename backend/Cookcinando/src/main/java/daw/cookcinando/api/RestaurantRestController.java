@@ -3,6 +3,8 @@ package daw.cookcinando.api;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +27,8 @@ public class RestaurantRestController {
 	private RestaurantService restaurantservice;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Restaurant> getRestaurants() {
-		return restaurantservice.findAll();
+	public Page<Restaurant> getRestaurants(Pageable pageable) {
+		return restaurantservice.findAll(pageable);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
