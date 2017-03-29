@@ -3,6 +3,8 @@ package daw.cookcinando.api;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import daw.cookcinando.model.Event;
+import daw.cookcinando.model.Event.Users;
+import daw.cookcinando.model.Recipe;
+import daw.cookcinando.model.User;
 import daw.cookcinando.service.EventService;
 
 
@@ -25,9 +30,11 @@ public class EventRestController {
 	private EventService eventservice;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Event> getEvent() {
-		return eventservice.findAll();
+	public Page<Event> getEvents(Pageable pageable) {
+		return eventservice.findAll(pageable);
 	}
+	
+	interface EventDetail extends Event.Basic, Event.Users, User.Basic { }
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Event> getEvent(@PathVariable long id) {

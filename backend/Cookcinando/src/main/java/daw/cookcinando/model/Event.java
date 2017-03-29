@@ -15,6 +15,10 @@ import javax.persistence.OneToOne;
 @Entity
 public class Event {
 	
+	public interface Users { }
+
+	public interface Basic { }
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;

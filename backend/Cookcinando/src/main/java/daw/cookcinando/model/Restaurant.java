@@ -14,6 +14,10 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Restaurant {
 	
+	public interface Basic { }
+	
+	public interface Users { }
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;

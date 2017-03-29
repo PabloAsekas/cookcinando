@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
+import daw.cookcinando.model.User;
 import daw.cookcinando.service.RestaurantService;
 
 
@@ -30,6 +32,8 @@ public class RestaurantRestController {
 	public Page<Restaurant> getRestaurants(Pageable pageable) {
 		return restaurantservice.findAll(pageable);
 	}
+	
+	interface RestaurantDetail extends Restaurant.Basic, Restaurant.Users, User.Basic { }
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Restaurant> getRestaurant(@PathVariable long id) {
