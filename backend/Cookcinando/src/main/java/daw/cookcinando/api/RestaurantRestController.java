@@ -1,13 +1,11 @@
 package daw.cookcinando.api;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import daw.cookcinando.api.RecipeRestController.RecipeDetail;
-import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.service.RestaurantService;
@@ -91,8 +87,15 @@ public class RestaurantRestController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Restaurant> deleteRestaurant(@PathVariable long id) {
 
-		restaurantservice.delete(id);
-		return new ResponseEntity<>(null, HttpStatus.OK);
+		Restaurant restaurant = restaurantservice.findOne(id);
+		if (restaurant != null) {
+			restaurantservice.delete(id);
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		
 	}
 	
 	@JsonView(Restaurant.Basic.class)
