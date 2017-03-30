@@ -12,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import daw.cookcinando.model.Recipe.Basic;
+
 @Entity
 public class Event {
 	
@@ -21,26 +25,27 @@ public class Event {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(Basic.class)
 	private long id;
 	
+	@JsonView(Basic.class)
 	private String title;
+	@JsonView(Basic.class)
 	private String description;
+	@JsonView(Basic.class)
 	private String thumbnail; //Image
 	
 	@Column(length=1000000000)
+	@JsonView(Basic.class)
 	private String body; //Cuerpo
 
 	@Column
 	@ElementCollection(targetClass=String.class)
+	@JsonView(Basic.class)
 	private List<String> typesFood = new ArrayList<String>();
-
-	
-	//@Column
-	@ElementCollection(targetClass=String.class)
-	private List<String> courses = new ArrayList<String>();
-	
 	
 	@ManyToOne
+	@JsonView(Users.class)
 	private User author;
 	
 	protected Event(){}
@@ -112,14 +117,6 @@ public class Event {
 
 	public void setTypesFood(List<String> typesFood) {
 		this.typesFood = typesFood;
-	}
-
-	public List<String> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<String> setCourses) {
-		this.courses = courses;
 	}
 
 	public User getAuthor() {

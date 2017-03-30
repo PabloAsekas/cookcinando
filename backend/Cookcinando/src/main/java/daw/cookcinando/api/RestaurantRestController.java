@@ -1,6 +1,8 @@
 package daw.cookcinando.api;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import daw.cookcinando.api.RecipeRestController.RecipeDetail;
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
@@ -28,6 +33,7 @@ public class RestaurantRestController {
 	@Autowired
 	private RestaurantService restaurantservice;
 
+	@JsonView(Restaurant.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Page<Restaurant> getRestaurants(Pageable pageable) {
 		return restaurantservice.findAll(pageable);
@@ -35,6 +41,7 @@ public class RestaurantRestController {
 	
 	interface RestaurantDetail extends Restaurant.Basic, Restaurant.Users, User.Basic { }
 
+	@JsonView(RestaurantDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Restaurant> getRestaurant(@PathVariable long id) {
 
@@ -46,6 +53,7 @@ public class RestaurantRestController {
 		}
 	}
 
+	@JsonView(RestaurantDetail.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Restaurant createRestaurant(@RequestBody Restaurant restaurant) {
@@ -55,6 +63,7 @@ public class RestaurantRestController {
 		return restaurant;
 	}
 
+	@JsonView(RestaurantDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Restaurant> updateRestaurant(@PathVariable long id, @RequestBody Restaurant updatedRestaurant) {
 
@@ -75,6 +84,22 @@ public class RestaurantRestController {
 
 		restaurantservice.delete(id);
 		return new ResponseEntity<>(null, HttpStatus.OK);
+	}
+	
+	@JsonView(Restaurant.Basic.class)
+	@RequestMapping(value = "/recommended", method = RequestMethod.GET)
+	public List<Restaurant> getRecommended() {
+		List<Restaurant> recomendadas = new ArrayList<Restaurant>();
+		int j=0;
+		for (Restaurant res : restaurantservice.findAll()) {
+			j++;
+			recomendadas.add(res);
+			if(j==3){
+				break;
+			}
+		}
+		
+		return recomendadas;
 	}
 
 }

@@ -1,5 +1,6 @@
 package daw.cookcinando.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class RecipeService {
 	
 	public Page<Recipe> findAll(Pageable pageable) {
 		return recipeRepository.findAll(pageable);
+	}
+	
+	public List<Recipe> findAll() {
+		return recipeRepository.findAll();
 	}
 	
 	public void save(Recipe recipe) {

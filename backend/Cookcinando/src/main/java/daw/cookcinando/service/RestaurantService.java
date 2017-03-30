@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.repository.RestaurantRepository;
 
@@ -22,6 +23,10 @@ public class RestaurantService {
 	
 	public Page<Restaurant> findAll(Pageable pageable) {
 		return restaurantRepository.findAll(pageable);
+	}
+	
+	public List<Restaurant> findAll() {
+		return restaurantRepository.findAll();
 	}
 	
 	public void save(Restaurant restaurant) {

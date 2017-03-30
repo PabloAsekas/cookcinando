@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import daw.cookcinando.model.Event;
+import daw.cookcinando.model.Recipe;
 import daw.cookcinando.repository.EventRepository;
 
 @Service
@@ -22,6 +23,10 @@ public class EventService {
 	
 	public Page<Event> findAll(Pageable pageable) {
 		return eventRepository.findAll(pageable);
+	}
+	
+	public List<Event> findAll() {
+		return eventRepository.findAll();
 	}
 	
 	public void save(Event event) {

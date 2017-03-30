@@ -1,6 +1,8 @@
 package daw.cookcinando.api;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -81,6 +84,22 @@ public class RecipeRestController {
 		recipeservice.delete(id);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
-
+	
+	@JsonView(Recipe.Basic.class)
+	@RequestMapping(value = "/recommended", method = RequestMethod.GET)
+	public List<Recipe> getRecommended() {
+		List<Recipe> recomendadas = new ArrayList<Recipe>();
+		int j=0;
+		for (Recipe rec : recipeservice.findAll()) {
+			j++;
+			recomendadas.add(rec);
+			if(j==3){
+				break;
+			}
+		}
+		
+		return recomendadas;
+	}
+	
 }
 

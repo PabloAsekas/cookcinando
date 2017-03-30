@@ -11,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import daw.cookcinando.model.Recipe.Basic;
+
 @Entity
 public class Restaurant {
 	
@@ -20,20 +24,27 @@ public class Restaurant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(Basic.class)
 	private long id;
 	
+	@JsonView(Basic.class)
 	private String title;
+	@JsonView(Basic.class)
 	private String description;
+	@JsonView(Basic.class)
 	private String thumbnail; //Image
 	
 	@Column(length=1000000000)
+	@JsonView(Basic.class)
 	private String body; //Cuerpo
 	
 	@Column
 	@ElementCollection(targetClass=String.class)
+	@JsonView(Basic.class)
 	private List<String> typesFood = new ArrayList<String>();
 	
 	@ManyToOne
+	@JsonView(Users.class)
 	private User author;
 	
 	protected Restaurant(){}
