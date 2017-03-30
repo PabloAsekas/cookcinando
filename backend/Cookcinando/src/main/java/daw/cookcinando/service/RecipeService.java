@@ -1,5 +1,6 @@
 package daw.cookcinando.service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -37,41 +38,42 @@ public class RecipeService {
 		recipeRepository.delete(id);
 	}
 	
-	public Recipe findByTitle(String title) {
-		Recipe recipe = null;
+	//CAMBIADO PARA BUSCADOR
+	public List<Recipe> findByTitle(String title) {
+		List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
-			if(r.getTitle() == title){
-				recipe = r;
+			if(r.getTitle().contains(title)){
+				recipes.add(r);
 				break;
 			}
 		}
-		return recipe;
+		return recipes;
 	}
 	
 	
-	public Recipe findByIngredients(List<String> ingredients) {
-		Recipe recipe = null;
+	public List<Recipe> findByIngredients(List<String> ingredients) {
+		List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
-			if(r.getIngredients() == ingredients){
-				recipe = r;
+			if(r.getIngredients().contains(ingredients)){
+				recipes.add(r);
 				break;
 			}
 		}
-		return recipe;
+		return recipes;
 	}
 	
-	public Recipe findByTypesFood(List<String> typesFood) {
-		Recipe recipe = null;
+	public List<Recipe> findByTypesFood(List<String> typesFood) {
+		List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
-			if(r.getTypesFood() == typesFood){
-				recipe = r;
+			if(r.getTypesFood().contains(typesFood)){
+				recipes.add(r);
 				break;
 			}
 		}
-		return recipe;
+		return recipes;
 	}
 	
 }
