@@ -99,13 +99,22 @@ public class RecipeRestController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Recipe> deleteRecipe(@PathVariable long id) {
-		User loggedUser = userComponent.getLoggedUser();
-		if (loggedUser.getId() == recipeservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
-			recipeservice.delete(id);
-			return new ResponseEntity<>(null, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		Recipe receta = recipeservice.findOne(id);
+		if (receta != null) {
+		
+			User loggedUser = userComponent.getLoggedUser();
+			if (loggedUser.getId() == recipeservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
+				recipeservice.delete(id);
+				return new ResponseEntity<>(null, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
+			
+		} else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+		
+		
 	}
 	
 	@JsonView(Recipe.Basic.class)
