@@ -68,30 +68,24 @@ public class RecipeRestController {
 	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
-		if (userComponent.isLoggedUser()) {
-			recipe.setAuthor(userComponent.getLoggedUser());
-			recipeservice.save(recipe);
-			return new ResponseEntity<>(recipe, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+	public Recipe createRecipe(@RequestBody Recipe recipe) {
+		recipe.setAuthor(userComponent.getLoggedUser());
+		recipeservice.save(recipe);
+
+		return recipe;
 	}
 
 	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Recipe> updateRecipe(@PathVariable long id, @RequestBody Recipe updatedRecipe) {
-		User loggedUser = userComponent.getLoggedUser();
+
 		Recipe receta = recipeservice.findOne(id);
 		if (receta != null) {
-			if (loggedUser.getId() == receta.getAuthor().getId() || loggedUser.isAdmin()) {
-				updatedRecipe.setId(id);
-				updatedRecipe.setAuthor(receta.getAuthor());
-				recipeservice.save(updatedRecipe);
-				return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
-			} else {
-				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-			}
+
+			updatedRecipe.setId(id);
+			recipeservice.save(updatedRecipe);
+
+			return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -99,13 +93,9 @@ public class RecipeRestController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Recipe> deleteRecipe(@PathVariable long id) {
-		User loggedUser = userComponent.getLoggedUser();
-		if (loggedUser.getId() == recipeservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
-			recipeservice.delete(id);
-			return new ResponseEntity<>(null, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+
+		recipeservice.delete(id);
+		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
 	@JsonView(Recipe.Basic.class)

@@ -68,14 +68,11 @@ public class RecipeRestController {
 	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
-		if (userComponent.isLoggedUser()) {
-			recipe.setAuthor(userComponent.getLoggedUser());
-			recipeservice.save(recipe);
-			return new ResponseEntity<>(recipe, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+	public Recipe createRecipe(@RequestBody Recipe recipe) {
+		recipe.setAuthor(userComponent.getLoggedUser());
+		recipeservice.save(recipe);
+
+		return recipe;
 	}
 
 	@JsonView(RecipeDetail.class)

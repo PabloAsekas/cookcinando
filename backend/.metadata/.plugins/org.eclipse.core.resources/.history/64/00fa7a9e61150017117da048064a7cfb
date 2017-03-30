@@ -76,6 +76,7 @@ public class RecipeRestController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
+
 	}
 
 	@JsonView(RecipeDetail.class)
