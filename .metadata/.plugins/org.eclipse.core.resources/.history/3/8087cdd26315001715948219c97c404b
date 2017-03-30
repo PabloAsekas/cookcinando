@@ -146,13 +146,7 @@ public class UserRestController {
 			user.setPasswordHash(password);
 			
 			user.setRoles(updatedUser.getRoles());
-			
-			user.setFavRecipes(updatedUser.getFavRecipes());
-			user.setFavRestaurants(updatedUser.getFavRestaurants());
-			user.setFavEvents(updatedUser.getFavEvents());
-			
 			userService.saveAndFlush(user);
-			
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		}
 		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
