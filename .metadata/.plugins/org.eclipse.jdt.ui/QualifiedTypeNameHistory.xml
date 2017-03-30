@@ -54,4 +54,9 @@
 <fullyQualifiedTypeName name="daw.cookcinando.model.User"/>
 <fullyQualifiedTypeName name="daw.cookcinando.model.User.Recipes"/>
 <fullyQualifiedTypeName name="daw.cookcinando.model.Recipe.Basico"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Recipe.Basic"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Restaurant"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.Event"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
 </qualifiedTypeNameHistroy>

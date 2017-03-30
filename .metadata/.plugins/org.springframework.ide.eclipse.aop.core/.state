@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="practica_fase4"/>
+<aop-project name="rest_ejem7"/>
 <aop-project name="cookcinando"/>
 </aop-reference-model>
