@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import daw.cookcinando.model.Event;
 import daw.cookcinando.model.Recipe;
+import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserAdmin;
 import daw.cookcinando.model.UserBasic;
@@ -36,9 +38,9 @@ public class UserRestController {
 		return userService.findAll();
 	}
 	
-	interface UserDetalle extends User.Basic, User.Recipes, Recipe.Basic { }
+	interface UserDetail extends User.Basic, User.Recipes, Recipe.Basic { }
 	
-	@JsonView(UserDetalle.class)
+	@JsonView(UserDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable long id) {
 		
@@ -51,8 +53,47 @@ public class UserRestController {
 		}
 	}
 	
-	@JsonView(UserDetalle.class)
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@JsonView(Recipe.Basic.class)
+	@RequestMapping(value = "/{id}/favorite-recipes", method = RequestMethod.GET)
+	public ResponseEntity<List<Recipe>> getFavoriteRecipes(@PathVariable long id) {
+		
+		User user = userService.findOne(id);
+		if(user != null) {
+			return new ResponseEntity<>(user.getFavRecipes(), HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(Restaurant.Basic.class)
+	@RequestMapping(value = "/{id}/favorite-restaurants", method = RequestMethod.GET)
+	public ResponseEntity<List<Restaurant>> getFavoriteRestaurants(@PathVariable long id) {
+		
+		User user = userService.findOne(id);
+		if(user != null) {
+			return new ResponseEntity<>(user.getFavRestaurants(), HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(Event.Basic.class)
+	@RequestMapping(value = "/{id}/favorite-events", method = RequestMethod.GET)
+	public ResponseEntity<List<Event>> getFavoriteEvents(@PathVariable long id) {
+		
+		User user = userService.findOne(id);
+		if(user != null) {
+			return new ResponseEntity<>(user.getFavEvents(), HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(UserDetail.class)
+	@RequestMapping(value = "/registry", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public User createUser(@RequestBody User user) {
 		
@@ -86,7 +127,7 @@ public class UserRestController {
 		else return null;
 	}
 	
-	@JsonView(UserDetalle.class)
+	@JsonView(UserDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updatedUser) {
 		
@@ -100,8 +141,10 @@ public class UserRestController {
 			user.setImage(updatedUser.getImage());
 			user.setNick(updatedUser.getNick());
 			user.setEmail(updatedUser.getEmail());
+			
 			String password = new BCryptPasswordEncoder().encode(updatedUser.getPasswordHash());
 			user.setPasswordHash(password);
+			
 			user.setRoles(updatedUser.getRoles());
 			userService.saveAndFlush(user);
 			return new ResponseEntity<>(user, HttpStatus.OK);

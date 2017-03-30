@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	$('#registry-error').addClass('hidden');
+	
 	var rad = document.registro.type;
 	$('#type').val("individual");
 	for(var i = 0; i< rad.length; i++) {
@@ -9,7 +11,6 @@ $(document).ready(function() {
   		};
   	}
 	
-	$('#registry-error').addClass('hidden');
 	//$('#registry-success').addClass('hidden');
 });
 
