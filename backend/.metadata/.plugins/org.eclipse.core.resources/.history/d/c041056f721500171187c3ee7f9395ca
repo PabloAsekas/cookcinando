@@ -82,15 +82,11 @@ public class RestaurantRestController {
 		User loggedUser = userComponent.getLoggedUser();
 		Restaurant restaurante = restaurantservice.findOne(id);
 		if (restaurante != null) {
-			if (loggedUser != null) {
-				if (loggedUser.getId() == restaurante.getAuthor().getId() || loggedUser.isAdmin()) {
-					updatedRestaurant.setId(id);
-					updatedRestaurant.setAuthor(restaurante.getAuthor());
-					restaurantservice.save(updatedRestaurant);
-					return new ResponseEntity<>(updatedRestaurant, HttpStatus.OK);
-				} else {
-					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-				}
+			if (loggedUser.getId() == restaurante.getAuthor().getId() || loggedUser.isAdmin()) {
+				updatedRestaurant.setId(id);
+				updatedRestaurant.setAuthor(restaurante.getAuthor());
+				restaurantservice.save(updatedRestaurant);
+				return new ResponseEntity<>(updatedRestaurant, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			}
@@ -104,13 +100,9 @@ public class RestaurantRestController {
 		Restaurant restaurant = restaurantservice.findOne(id);
 		if (restaurant != null) {
 			User loggedUser = userComponent.getLoggedUser();
-			if (loggedUser != null) {
-				if (loggedUser.getId() == restaurantservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
-					restaurantservice.delete(id);
-					return new ResponseEntity<>(null, HttpStatus.OK);
-				} else {
-					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-				}
+			if (loggedUser.getId() == restaurantservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
+				restaurantservice.delete(id);
+				return new ResponseEntity<>(null, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			}

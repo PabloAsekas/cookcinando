@@ -456,3 +456,16 @@ Caused by: java.io.IOException: Could not find daw.cookcinando.api$EventRestCont
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:204)
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:173)
 	... 14 more
+!SESSION 2017-03-30 19:22:53.271 -----------------------------------------------
+eclipse.buildId=3.8.3.201612191351-RELEASE-e46
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=es_ES
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/PabloAsekas/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/PabloAsekas/.eclipse_keyring
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-30 19:27:25.211
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-30 19:27:25.217
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

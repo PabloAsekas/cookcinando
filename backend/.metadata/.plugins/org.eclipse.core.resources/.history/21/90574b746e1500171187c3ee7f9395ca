@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import daw.cookcinando.UserComponent;
-import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.service.RestaurantService;
@@ -32,9 +30,6 @@ public class RestaurantRestController {
 
 	@Autowired
 	private RestaurantService restaurantservice;
-	
-	@Autowired
-	private UserComponent userComponent;
 
 	@JsonView(Restaurant.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -66,34 +61,24 @@ public class RestaurantRestController {
 	@JsonView(RestaurantDetail.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) {
-		if (userComponent.isLoggedUser()) {
-			restaurant.setAuthor(userComponent.getLoggedUser());
-			restaurantservice.save(restaurant);
-			return new ResponseEntity<>(restaurant, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+	public Restaurant createRestaurant(@RequestBody Restaurant restaurant) {
+
+		restaurantservice.save(restaurant);
+
+		return restaurant;
 	}
 
 	@JsonView(RestaurantDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Restaurant> updateRestaurant(@PathVariable long id, @RequestBody Restaurant updatedRestaurant) {
-		User loggedUser = userComponent.getLoggedUser();
+
 		Restaurant restaurante = restaurantservice.findOne(id);
 		if (restaurante != null) {
-			if (loggedUser != null) {
-				if (loggedUser.getId() == restaurante.getAuthor().getId() || loggedUser.isAdmin()) {
-					updatedRestaurant.setId(id);
-					updatedRestaurant.setAuthor(restaurante.getAuthor());
-					restaurantservice.save(updatedRestaurant);
-					return new ResponseEntity<>(updatedRestaurant, HttpStatus.OK);
-				} else {
-					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-				}
-			} else {
-				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-			}
+
+			updatedRestaurant.setId(id);
+			restaurantservice.save(updatedRestaurant);
+
+			return new ResponseEntity<>(updatedRestaurant, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -101,22 +86,16 @@ public class RestaurantRestController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Restaurant> deleteRestaurant(@PathVariable long id) {
+
 		Restaurant restaurant = restaurantservice.findOne(id);
 		if (restaurant != null) {
-			User loggedUser = userComponent.getLoggedUser();
-			if (loggedUser != null) {
-				if (loggedUser.getId() == restaurantservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
-					restaurantservice.delete(id);
-					return new ResponseEntity<>(null, HttpStatus.OK);
-				} else {
-					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-				}
-			} else {
-				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-			}
+			restaurantservice.delete(id);
+			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+		
+		
 	}
 	
 	@JsonView(Restaurant.Basic.class)
