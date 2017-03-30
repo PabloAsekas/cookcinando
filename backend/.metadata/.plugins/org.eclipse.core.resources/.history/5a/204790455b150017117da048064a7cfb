@@ -43,7 +43,7 @@ public class User {
 	private String nick;
 	@JsonView(Basic.class)
 	private String email;
-	//@JsonView(Basic.class)
+	@JsonView(Basic.class)
 	private String passwordHash;
 	
 	@JsonView(Basic.class)

@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
 import daw.cookcinando.service.RecipeService;
@@ -34,9 +33,6 @@ public class RecipeRestController {
 
 	@Autowired
 	private RecipeService recipeservice;
-	
-	@Autowired
-	private UserComponent userComponent;
 
 	@JsonView(Recipe.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
