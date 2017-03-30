@@ -39,7 +39,6 @@ public class RestaurantRestController {
 	@JsonView(Restaurant.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Page<Restaurant> getRestaurants(@RequestParam (required=false) String page) {
-		
 		if(page == null){
 			return restaurantservice.findAll(new PageRequest(0, 10));
 		}
@@ -54,7 +53,6 @@ public class RestaurantRestController {
 	@JsonView(RestaurantDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Restaurant> getRestaurant(@PathVariable long id) {
-
 		Restaurant restaurant = restaurantservice.findOne(id);
 		if (restaurant != null) {
 			return new ResponseEntity<>(restaurant, HttpStatus.OK);
@@ -79,9 +77,9 @@ public class RestaurantRestController {
 	@JsonView(RestaurantDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Restaurant> updateRestaurant(@PathVariable long id, @RequestBody Restaurant updatedRestaurant) {
-		User loggedUser = userComponent.getLoggedUser();
 		Restaurant restaurante = restaurantservice.findOne(id);
 		if (restaurante != null) {
+			User loggedUser = userComponent.getLoggedUser();
 			if (loggedUser != null) {
 				if (loggedUser.getId() == restaurante.getAuthor().getId() || loggedUser.isAdmin()) {
 					updatedRestaurant.setId(id);
@@ -131,9 +129,7 @@ public class RestaurantRestController {
 				break;
 			}
 		}
-		
 		return recomendadas;
 	}
-
 }
 

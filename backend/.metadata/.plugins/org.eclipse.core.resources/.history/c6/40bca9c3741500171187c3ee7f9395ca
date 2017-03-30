@@ -41,6 +41,7 @@ public class RecipeRestController {
 	@JsonView(Recipe.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Page<Recipe> getRecipes(@RequestParam (required=false) String page) {
+		
 		if(page == null){
 			return recipeservice.findAll(new PageRequest(0, 10));
 		}
@@ -55,6 +56,7 @@ public class RecipeRestController {
 	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Recipe> getRecipe(@PathVariable long id) {
+
 		Recipe recipe = recipeservice.findOne(id);
 		if (recipe != null) {
 			return new ResponseEntity<>(recipe, HttpStatus.OK);
@@ -79,18 +81,14 @@ public class RecipeRestController {
 	@JsonView(RecipeDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Recipe> updateRecipe(@PathVariable long id, @RequestBody Recipe updatedRecipe) {
+		User loggedUser = userComponent.getLoggedUser();
 		Recipe receta = recipeservice.findOne(id);
 		if (receta != null) {
-			User loggedUser = userComponent.getLoggedUser();
-			if (loggedUser != null) {
-				if (loggedUser.getId() == receta.getAuthor().getId() || loggedUser.isAdmin()) {
-					updatedRecipe.setId(id);
-					updatedRecipe.setAuthor(receta.getAuthor());
-					recipeservice.save(updatedRecipe);
-					return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
-				} else {
-					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-				}
+			if (loggedUser.getId() == receta.getAuthor().getId() || loggedUser.isAdmin()) {
+				updatedRecipe.setId(id);
+				updatedRecipe.setAuthor(receta.getAuthor());
+				recipeservice.save(updatedRecipe);
+				return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			}
@@ -103,20 +101,20 @@ public class RecipeRestController {
 	public ResponseEntity<Recipe> deleteRecipe(@PathVariable long id) {
 		Recipe receta = recipeservice.findOne(id);
 		if (receta != null) {
+		
 			User loggedUser = userComponent.getLoggedUser();
-			if (loggedUser != null) {
-				if (loggedUser.getId() == recipeservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
-					recipeservice.delete(id);
-					return new ResponseEntity<>(null, HttpStatus.OK);
-				} else {
-					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-				}
+			if (loggedUser.getId() == recipeservice.findOne(id).getAuthor().getId() || loggedUser.isAdmin()) {
+				recipeservice.delete(id);
+				return new ResponseEntity<>(null, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			}
+			
 		} else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+		
+		
 	}
 	
 	@JsonView(Recipe.Basic.class)
@@ -131,13 +129,16 @@ public class RecipeRestController {
 				break;
 			}
 		}
+		
 		return recomendadas;
 	}
 	
 	@JsonView(Recipe.Basic.class)
 	@RequestMapping(value = "/by-title/", method = RequestMethod.GET)
 	public ResponseEntity<List<Recipe>> recipesByTitle(@RequestParam String title){
+		
 		List<Recipe> recipesByTitle = recipeservice.findByTitle(title);
+		
 		if(recipesByTitle.size() > 0) {
 			return new ResponseEntity(recipesByTitle, HttpStatus.OK);
 		}
@@ -147,7 +148,9 @@ public class RecipeRestController {
 	@JsonView(Recipe.Basic.class)
 	@RequestMapping(value = "/by-ingredient/", method = RequestMethod.GET)
 	public ResponseEntity<List<Recipe>> recipesByIngredient(@RequestParam String ingredient){
+		
 		List<Recipe> recipesByIngredient = recipeservice.findByIngredient(ingredient);
+		
 		if(recipesByIngredient.size() > 0) {
 			return new ResponseEntity(recipesByIngredient, HttpStatus.OK);
 		}
@@ -157,7 +160,9 @@ public class RecipeRestController {
 	@JsonView(Recipe.Basic.class)
 	@RequestMapping(value = "/by-typeFood/", method = RequestMethod.GET)
 	public ResponseEntity<List<Recipe>> recipesByTypeFood(@RequestParam String typeFood){
+		
 		List<Recipe> recipesByTypeFood = recipeservice.findByTypeFood(typeFood);
+		
 		if(recipesByTypeFood.size() > 0) {
 			return new ResponseEntity(recipesByTypeFood, HttpStatus.OK);
 		}
