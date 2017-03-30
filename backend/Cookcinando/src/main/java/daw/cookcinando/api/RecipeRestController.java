@@ -133,5 +133,40 @@ public class RecipeRestController {
 		return recomendadas;
 	}
 	
+	@JsonView(Recipe.Basic.class)
+	@RequestMapping(value = "/by-title/", method = RequestMethod.GET)
+	public ResponseEntity<List<Recipe>> recipesByTitle(@RequestParam String title){
+		
+		List<Recipe> recipesByTitle = recipeservice.findByTitle(title);
+		
+		if(recipesByTitle.size() > 0) {
+			return new ResponseEntity(recipesByTitle, HttpStatus.OK);
+		}
+		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
+	}
+	
+	@JsonView(Recipe.Basic.class)
+	@RequestMapping(value = "/by-ingredient/", method = RequestMethod.GET)
+	public ResponseEntity<List<Recipe>> recipesByIngredient(@RequestParam String ingredient){
+		
+		List<Recipe> recipesByIngredient = recipeservice.findByIngredient(ingredient);
+		
+		if(recipesByIngredient.size() > 0) {
+			return new ResponseEntity(recipesByIngredient, HttpStatus.OK);
+		}
+		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
+	}
+	
+	@JsonView(Recipe.Basic.class)
+	@RequestMapping(value = "/by-typeFood/", method = RequestMethod.GET)
+	public ResponseEntity<List<Recipe>> recipesByTypeFood(@RequestParam String typeFood){
+		
+		List<Recipe> recipesByTypeFood = recipeservice.findByTypeFood(typeFood);
+		
+		if(recipesByTypeFood.size() > 0) {
+			return new ResponseEntity(recipesByTypeFood, HttpStatus.OK);
+		}
+		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
+	}	
 }
 

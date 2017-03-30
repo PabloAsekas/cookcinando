@@ -40,37 +40,45 @@ public class RecipeService {
 	
 	//CAMBIADO PARA BUSCADOR
 	public List<Recipe> findByTitle(String title) {
+		
 		List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
-			if(r.getTitle().contains(title)){
+			if(r.getTitle().toLowerCase().contains(title.toLowerCase())){
 				recipes.add(r);
-				break;
 			}
 		}
 		return recipes;
 	}
 	
 	
-	public List<Recipe> findByIngredients(List<String> ingredients) {
+	public List<Recipe> findByIngredient(String ingredient) {
+		
 		List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
-			if(r.getIngredients().contains(ingredients)){
-				recipes.add(r);
-				break;
+			
+			for(int i=0; i<r.getIngredients().size(); i++){
+				if(r.getIngredients().get(i).toLowerCase().equals(ingredient.toLowerCase())){
+					recipes.add(r);
+					break;
+				}
 			}
 		}
 		return recipes;
 	}
 	
-	public List<Recipe> findByTypesFood(List<String> typesFood) {
+	public List<Recipe> findByTypeFood(String typeFood) {
+		
 		List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
-			if(r.getTypesFood().contains(typesFood)){
-				recipes.add(r);
-				break;
+			
+			for(int i=0; i<r.getTypesFood().size(); i++){
+				if(r.getTypesFood().get(i).toLowerCase().equals(typeFood.toLowerCase())){
+					recipes.add(r);
+					break;
+				}
 			}
 		}
 		return recipes;
