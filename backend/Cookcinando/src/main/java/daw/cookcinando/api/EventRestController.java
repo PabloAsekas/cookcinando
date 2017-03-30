@@ -90,9 +90,16 @@ public class EventRestController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Event> deleteEvent(@PathVariable long id) {
-
-		eventservice.delete(id);
-		return new ResponseEntity<>(null, HttpStatus.OK);
+		
+		Event evento = eventservice.findOne(id);
+		if (evento != null) {
+			eventservice.delete(id);
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		
 	}
 	
 	@JsonView(Event.Basic.class)
