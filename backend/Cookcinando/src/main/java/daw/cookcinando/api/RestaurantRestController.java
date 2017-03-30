@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,8 +37,15 @@ public class RestaurantRestController {
 
 	@JsonView(Restaurant.Basic.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Page<Restaurant> getRestaurants(Pageable pageable) {
-		return restaurantservice.findAll(pageable);
+	public Page<Restaurant> getRestaurants(@RequestParam (required=false) String page) {
+		
+		if(page == null){
+			return restaurantservice.findAll(new PageRequest(0, 10));
+		}
+		else {
+			int numPage =  Integer.parseInt(page); 
+			return restaurantservice.findAll(new PageRequest(numPage, 10));
+		}
 	}
 	
 	interface RestaurantDetail extends Restaurant.Basic, Restaurant.Users, User.Basic { }
