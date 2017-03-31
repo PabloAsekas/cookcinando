@@ -306,7 +306,7 @@ public class RestaurantWebController {
 		Page<Restaurant> restaurants = restaurantRepository.findAll(new PageRequest(page, 10));
 		model.addAttribute("items", restaurants);
 
-		return "listItemsPageRestaurants";
+		return "listItemsPage";
 	}
 			
 }

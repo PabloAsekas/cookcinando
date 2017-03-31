@@ -296,7 +296,7 @@ public class EventWebController {
 		Page<Event> events = eventRepository.findAll(new PageRequest(page, 10));
 		model.addAttribute("items", events);
 
-		return "listItemsPageEvents";
+		return "listItemsPage";
 	}
 	
 	
