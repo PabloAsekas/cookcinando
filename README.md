@@ -78,5 +78,5 @@ VISTA DE CONTENIDO - Page where the content is displayed.
 
 ## API REST Diagram
 
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagramaAPIREST.jpg)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagramaAPIREST.JPG)
 
