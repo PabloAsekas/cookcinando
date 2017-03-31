@@ -82,9 +82,9 @@ Estados que utilizamos:
 ## Eventos
 
 - Obtener todos los eventos
- : URL: /api/events/ 
- : Método: GET
- : Salida: Todos los eventos
+    - URL: /api/events/ 
+    - Método: GET
+    - Salida: Todos los eventos
 
 - Obtener un evento
     - URL: /api/events/{id}
