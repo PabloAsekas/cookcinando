@@ -26,8 +26,8 @@ import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserAdmin;
 import daw.cookcinando.model.UserEnterprise;
-import daw.cookcinando.repository.EventRepository;
 import daw.cookcinando.repository.UserRepository;
+import daw.cookcinando.service.EventService;
 
 @Controller
 public class EventWebController {
@@ -35,7 +35,7 @@ public class EventWebController {
 	private static final String FILES_FOLDER = "target/classes/static/img";
 	
 	@Autowired
-	private EventRepository eventRepository;
+	private EventService eventService;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -49,7 +49,7 @@ public class EventWebController {
 	
 	@RequestMapping("/eventos") //Enlace para las eventos
 	public String eventos (Model model) {
-		model.addAttribute("eventos", eventRepository.findAll());
+		model.addAttribute("eventos", eventService.findAll());
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged != null) {
 			model.addAttribute("userlogged", true);
@@ -57,7 +57,7 @@ public class EventWebController {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		Page<Event> events = eventRepository.findAll(new PageRequest(0, 10));
+		Page<Event> events = eventService.findAll(new PageRequest(0, 10));
 		
 		model.addAttribute("eventos", events);
 		
@@ -66,11 +66,11 @@ public class EventWebController {
 	
 	@RequestMapping("/eventos/{id}")
 	public String verEvento(Model model, @PathVariable long id, HttpServletRequest request) {
-		Event event = eventRepository.findOne(id);
+		Event event = eventService.findOne(id);
 		model.addAttribute("evento", event);		
 		List<Event> recomendadas = new ArrayList<Event>();
 		int j=0;
-		for (Event rec : eventRepository.findAll()) {
+		for (Event rec : eventService.findAll()) {
 			j++;
 			recomendadas.add(rec);
 			if(j==3){
@@ -124,12 +124,12 @@ public class EventWebController {
 					filesFolder.mkdirs();
 				}
 				Event event = new Event(titulo, descripcion, "", cuerpo, comidasEventos, userLogged);
-				eventRepository.save(event);
+				eventService.save(event);
 				long id = event.getId();
 				String fileName = "cabEvento" + id + ".jpg";
 				String thumbnail = "../img/" + fileName;
 				event.setThumbnail(thumbnail);
-				eventRepository.save(event);
+				eventService.save(event);
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
 				imagenCabecera.transferTo(uploadedFile);
 				return ("redirect:/eventos/"+event.getId());
@@ -138,7 +138,7 @@ public class EventWebController {
 			}
 		} else {
 			Event event = new Event(titulo, descripcion, "", cuerpo, comidasEventos, userLogged);
-			eventRepository.save(event);
+			eventService.save(event);
 			return ("redirect:/eventos/"+event.getId());
 		}
 		return ("redirect:/eventos");
@@ -146,7 +146,7 @@ public class EventWebController {
 	
 	@RequestMapping("/privado/eventos/editar/{id}")
 	public String modificarEvento(Model model, HttpServletRequest request, @PathVariable Long id){
-		Event evento = eventRepository.findOne(id);
+		Event evento = eventService.findOne(id);
 		model.addAttribute("evento", evento);
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged.getId() == evento.getAuthor().getId() || userLogged.isAdmin()) {
@@ -171,7 +171,7 @@ public class EventWebController {
 //		for(int i=0; i<cursosSeparados.length; i++){
 //			cursosEventos.add(cursosSeparados[i]);
 //		}
-		Event event = eventRepository.findOne(id);
+		Event event = eventService.findOne(id);
 		if (!imagenCabecera.isEmpty()) {
 			try {
 
@@ -189,7 +189,7 @@ public class EventWebController {
 				//event.setCourses(cursosEventos);
 				event.setThumbnail(thumbnail);
 				event.setBody(cuerpo);
-				eventRepository.save(event);
+				eventService.save(event);
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
 				imagenCabecera.transferTo(uploadedFile);
 				return ("redirect:/eventos/"+event.getId());
@@ -202,7 +202,7 @@ public class EventWebController {
 			event.setTypesFood(comidasEventos);
 			event.setBody(cuerpo);
 			//event.setCourses(cursosEventos);
-			eventRepository.save(event);
+			eventService.save(event);
 		}
 		return ("redirect:/eventos/"+id);
 	}
@@ -210,17 +210,17 @@ public class EventWebController {
 	
 	@RequestMapping("/privado/eventos/eliminar/{id}")
 	public String eliminarEvento(Model model, @PathVariable Long id){
-		Event event = eventRepository.findOne(id);
+		Event event = eventService.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged.getId() == event.getAuthor().getId() || userLogged.isAdmin()) {
-			eventRepository.delete(event);
+			eventService.delete(event.getId());
 		}
 		return ("redirect:/eventos/");
 	}
 	
 	@RequestMapping("/privado/eventos/add-fav/{id}")
 	public String aniadirEventoFavorito(Model model, @PathVariable Long id){
-		Event event = eventRepository.findOne(id);
+		Event event = eventService.findOne(id);
 		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId());
 		userLogged.getFavEvents().add(event);
 		userRepository.saveAndFlush(userLogged);
@@ -229,7 +229,7 @@ public class EventWebController {
 	
 	@RequestMapping("/privado/eventos/remove-fav/{id}")
 	public String quitarEventoFavorito(Model model, @PathVariable long id){
-		Event event = eventRepository.findOne(id);
+		Event event = eventService.findOne(id);
 		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		userLogged.getFavEvents().remove(event);
 		userRepository.saveAndFlush(userLogged);
@@ -266,7 +266,7 @@ public class EventWebController {
 		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		
-		List<Event> allEvents = eventRepository.findAll();
+		List<Event> allEvents = eventService.findAll();
 		
 		model.addAttribute("allEvents", allEvents);
 		
@@ -283,7 +283,7 @@ public class EventWebController {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		List<Event> event = eventRepository.findByTypeFood(typeFood);
+		List<Event> event = eventService.findByTypeFood(typeFood);
 		model.addAttribute("eventos", event);
 		
 		return "eventos";
@@ -293,7 +293,7 @@ public class EventWebController {
 	@RequestMapping(method = RequestMethod.GET, value= "/moreEvents")
 	public String moreEvents(Model model, @RequestParam int page) {
 
-		Page<Event> events = eventRepository.findAll(new PageRequest(page, 10));
+		Page<Event> events = eventService.findAll(new PageRequest(page, 10));
 		model.addAttribute("items", events);
 
 		return "listItemsPageEvents";

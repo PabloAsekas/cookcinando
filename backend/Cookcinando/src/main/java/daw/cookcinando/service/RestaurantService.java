@@ -1,5 +1,6 @@
 package daw.cookcinando.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,16 +51,19 @@ public class RestaurantService {
 	}
 	
 	
-	public Restaurant findByTypesFood(List<String> typesFood) {
-		Restaurant restaurant = null;
+public List<Restaurant> findByTypeFood(String typeFood) {
+		
+		List<Restaurant> restaurants = new ArrayList<Restaurant>();
 		
 		for(Restaurant re : restaurantRepository.findAll()){
-			if(re.getTypesFood() == typesFood){
-				restaurant = re;
-				break;
+			
+			for(int i=0; i<re.getTypesFood().size(); i++){
+				if(re.getTypesFood().get(i).toLowerCase().equals(typeFood.toLowerCase())){
+					restaurants.add(re);
+					break;
+				}
 			}
 		}
-		return restaurant;
+		return restaurants;
 	}
-	
 }

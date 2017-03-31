@@ -1,5 +1,6 @@
 package daw.cookcinando.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,16 +50,22 @@ public class EventService {
 		return event;
 	}
 	
-	public Event findByTypesFood(List<String> typesFood) {
-		Event event = null;
+
+	
+	public List<Event> findByTypeFood(String typeFood) {
+		
+		List<Event> events = new ArrayList<Event>();
 		
 		for(Event e : eventRepository.findAll()){
-			if(e.getTypesFood() == typesFood){
-				event = e;
-				break;
+			
+			for(int i=0; i<e.getTypesFood().size(); i++){
+				if(e.getTypesFood().get(i).toLowerCase().equals(typeFood.toLowerCase())){
+					events.add(e);
+					break;
+				}
 			}
 		}
-		return event;
+		return events;
 	}
 	
 }

@@ -28,6 +28,8 @@ import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.User;
 import daw.cookcinando.repository.RecipeRepository;
 import daw.cookcinando.repository.UserRepository;
+import daw.cookcinando.service.EventService;
+import daw.cookcinando.service.RecipeService;
 
 @Controller
 public class RecipeWebController<def> {
@@ -36,7 +38,7 @@ public class RecipeWebController<def> {
 	private static final String FILES_FOLDER = "target/classes/static/img";
 	
 	@Autowired
-	private RecipeRepository recipeRepository;
+	private RecipeService recipeService;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -49,7 +51,7 @@ public class RecipeWebController<def> {
 	
 	@RequestMapping("/recetas/") //Enlace para las recetas
 	public String recetas (Model model) {
-		model.addAttribute("recetas", recipeRepository.findAll());
+		model.addAttribute("recetas", recipeService.findAll());
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged != null) {
 			model.addAttribute("userlogged", true);
@@ -57,7 +59,7 @@ public class RecipeWebController<def> {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(0, 10));
+		Page<Recipe> recipes = recipeService.findAll(new PageRequest(0, 10));
 		
 		model.addAttribute("recetas", recipes);
 		
@@ -66,11 +68,11 @@ public class RecipeWebController<def> {
 	
 	@RequestMapping("/recetas/{id}")
 	public String verReceta(Model model, @PathVariable long id, HttpServletRequest request) {
-		Recipe recipe = recipeRepository.findOne(id);
+		Recipe recipe = recipeService.findOne(id);
 		model.addAttribute("receta", recipe);		
 		List<Recipe> recomendadas = new ArrayList<Recipe>();
 		int j=0;
-		for (Recipe rec : recipeRepository.findAll()) {
+		for (Recipe rec : recipeService.findAll()) {
 			j++;
 			recomendadas.add(rec);
 			if(j==3){
@@ -127,12 +129,12 @@ public class RecipeWebController<def> {
 					filesFolder.mkdirs();
 				}
 				Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
-				recipeRepository.save(recipe);
+				recipeService.save(recipe);
 				long id = recipe.getId();
 				String fileName = "cabReceta" + id + ".jpg";
 				String thumbnail = "../img/" + fileName;
 				recipe.setThumbnail(thumbnail);
-				recipeRepository.save(recipe);
+				recipeService.save(recipe);
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
 				imagenCabecera.transferTo(uploadedFile);
 				return ("redirect:/recetas/"+recipe.getId());
@@ -141,7 +143,7 @@ public class RecipeWebController<def> {
 			}
 		} else {
 			Recipe recipe = new Recipe(titulo, descripcion, "", cuerpo, ingredientesRecetas, comidasRecetas, userLogged);
-			recipeRepository.save(recipe);
+			recipeService.save(recipe);
 			return ("redirect:/recetas/"+recipe.getId());
 		}
 		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
@@ -151,7 +153,7 @@ public class RecipeWebController<def> {
 	
 	@RequestMapping("/privado/recetas/editar/{id}")
 	public String modificarReceta(Model model, HttpServletRequest request, @PathVariable Long id){
-		Recipe recipe = recipeRepository.findOne(id);
+		Recipe recipe = recipeService.findOne(id);
 		model.addAttribute("receta", recipe);
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
@@ -176,7 +178,7 @@ public class RecipeWebController<def> {
 		for(int i=0; i<comidasSeparadas.length; i++){
 			comidasRecetas.add(comidasSeparadas[i]);
 		}
-		Recipe recipe = recipeRepository.findOne(id);
+		Recipe recipe = recipeService.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
 			if (!imagenCabecera.isEmpty()) {
@@ -196,7 +198,7 @@ public class RecipeWebController<def> {
 					recipe.setIngredients(ingredientesRecetas);
 					recipe.setTypesFood(comidasRecetas);
 					recipe.setThumbnail(thumbnail);
-					recipeRepository.save(recipe);
+					recipeService.save(recipe);
 					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
 					imagenCabecera.transferTo(uploadedFile);
 					return ("redirect:/recetas/"+recipe.getId());
@@ -209,7 +211,7 @@ public class RecipeWebController<def> {
 				recipe.setPreparation(cuerpo);
 				recipe.setIngredients(ingredientesRecetas);
 				recipe.setTypesFood(comidasRecetas);
-				recipeRepository.save(recipe);
+				recipeService.save(recipe);
 			}
 		}
 		return ("redirect:/recetas/"+id);
@@ -218,17 +220,17 @@ public class RecipeWebController<def> {
 	
 	@RequestMapping("/privado/recetas/eliminar/{id}")
 	public String eliminarReceta(Model model, @PathVariable Long id){
-		Recipe recipe = recipeRepository.findOne(id);
+		Recipe recipe = recipeService.findOne(id);
 		User userLogged = userComponent.getLoggedUser();
 		if (userLogged.getId() == recipe.getAuthor().getId() || userLogged.isAdmin()) {
-			recipeRepository.delete(recipe);
+			recipeService.delete(recipe.getId());
 		}
 		return ("redirect:/recetas/");
 	}
 	
 	@RequestMapping("/privado/recetas/add-fav/{id}")
 	public String aniadirRecetaFavorito(Model model, @PathVariable long id){
-		Recipe recipe = recipeRepository.findOne(id);
+		Recipe recipe = recipeService.findOne(id);
 		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		userLogged.getFavRecipes().add(recipe);
 		userRepository.saveAndFlush(userLogged);
@@ -238,7 +240,7 @@ public class RecipeWebController<def> {
 	
 	@RequestMapping("/privado/recetas/remove-fav/{id}")
 	public String quitarRecetaFavorito(Model model, @PathVariable long id){
-		Recipe recipe = recipeRepository.findOne(id);
+		Recipe recipe = recipeService.findOne(id);
 		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		userLogged.getFavRecipes().remove(recipe);
 		userRepository.saveAndFlush(userLogged);
@@ -267,7 +269,7 @@ public class RecipeWebController<def> {
 		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		
-		List<Recipe> allRecipes = recipeRepository.findAll();
+		List<Recipe> allRecipes = recipeService.findAll();
 		
 		model.addAttribute("allRecipes", allRecipes);
 		
@@ -288,7 +290,7 @@ public class RecipeWebController<def> {
 		}
 		
 		if(ingrediente != null && tipoComida == null) {
-			recetas = recipeRepository.findByIngredient(search);
+			recetas = recipeService.findByIngredient(search);
 			if(recetas.isEmpty()){
 				return "recetas-not-found";
 			}
@@ -299,7 +301,7 @@ public class RecipeWebController<def> {
 		}
 		
 		else if(ingrediente == null && tipoComida != null){
-			recetas = recipeRepository.findByTypeFood(search);
+			recetas = recipeService.findByTypeFood(search);
 			if(recetas.isEmpty()){
 				return "recetas-not-found";
 			}
@@ -310,8 +312,8 @@ public class RecipeWebController<def> {
 		}
 		
 		else if(ingrediente != null && tipoComida != null){
-			recetas = recipeRepository.findByIngredient(search);
-			for(Recipe recipe: recipeRepository.findByTypeFood(search)){
+			recetas = recipeService.findByIngredient(search);
+			for(Recipe recipe: recipeService.findByTypeFood(search)){
 				recetas.add(recipe);
 			}
 			if(recetas.isEmpty()){
@@ -324,7 +326,7 @@ public class RecipeWebController<def> {
 		}
 		
 		else if(search != "" && ingrediente == null && tipoComida == null) {
-			recetas = recipeRepository.findByTitle(search);
+			recetas = recipeService.findByTitle(search);
 			if(recetas.isEmpty()){
 				return "recetas-not-found";
 			}
@@ -347,7 +349,7 @@ public class RecipeWebController<def> {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		List<Recipe> recetas = recipeRepository.findByIngredient(ingredient);
+		List<Recipe> recetas = recipeService.findByIngredient(ingredient);
 		model.addAttribute("recetas", recetas);
 		
 		return "recetas";
@@ -363,7 +365,7 @@ public class RecipeWebController<def> {
 			model.addAttribute("usernotlogged", true);
 		}
 		
-		List<Recipe> recetas = recipeRepository.findByTypeFood(typeFood);
+		List<Recipe> recetas = recipeService.findByTypeFood(typeFood);
 		model.addAttribute("recetas", recetas);
 		
 		return "recetas";
@@ -373,7 +375,7 @@ public class RecipeWebController<def> {
 	@RequestMapping(method = RequestMethod.GET, value= "/moreRecipes")
 	public String moreRecipes(Model model, @RequestParam int page) {
 
-		Page<Recipe> recipes = recipeRepository.findAll(new PageRequest(page, 10));
+		Page<Recipe> recipes = recipeService.findAll(new PageRequest(page, 10));
 		model.addAttribute("items", recipes);
 
 		return "listItemsPage";
