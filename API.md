@@ -13,9 +13,9 @@ Estados que utilizamos:
 ## Recetas
 
 Obtener todas las recetas
- : URL: /api/recipes/ 
- : Método: GET
- : Salida: Todas las recetas paginadas
+: URL: /api/recipes/ 
+: Método: GET
+: Salida: Todas las recetas paginadas
 
 Obtener una receta
  : URL: /api/recipes/{id}

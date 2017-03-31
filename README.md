@@ -30,6 +30,7 @@ The web's private part lets users to modify their profile and include more conte
 ## API
 
 ENLACE A LA API
+![](https://github.com/PabloAsekas/cookcinando/blob/master/API.md)
 
 ## Public and private diagrams
 
