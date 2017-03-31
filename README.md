@@ -27,6 +27,10 @@ The web's private part lets users to modify their profile and include more conte
 | Ignacio López Lòpez     | i.lopezlope@alumnos.urjc.es     | ilopezlopez |
 | Blanca Romero Rico      | b.romerori@alumnos.urjc.es      | bromerori   |
 
+## API
+
+ENLACE A LA API
+
 ## Public and private diagrams
 
 Private
