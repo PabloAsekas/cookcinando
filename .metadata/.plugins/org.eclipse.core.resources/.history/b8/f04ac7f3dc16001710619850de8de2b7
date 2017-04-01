@@ -29,7 +29,6 @@ import daw.cookcinando.model.UserEnterprise;
 import daw.cookcinando.repository.RestaurantRepository;
 import daw.cookcinando.repository.UserRepository;
 import daw.cookcinando.service.RestaurantService;
-import daw.cookcinando.service.UserService;
 
 @Controller
 public class RestaurantWebController {
@@ -43,7 +42,7 @@ public class RestaurantWebController {
 	private UserComponent userComponent;
 	
 	@Autowired
-	private UserService userService;
+	private UserRepository userRepository;
 	
 	private List<String> typesFood = new ArrayList<>();
 	
@@ -86,7 +85,7 @@ public class RestaurantWebController {
 			if (userLogged.getId() == restaurante.getAuthor().getId() || userLogged.isAdmin()) {
 				model.addAttribute("creator", true);
 			} else {
-				User user = userService.findOne(userComponent.getLoggedUser().getId()); 
+				User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 				if(user.getFavRestaurants().contains(restaurante)){
 					model.addAttribute("notcreatorFAV", true);
 				}else{
@@ -216,18 +215,18 @@ public class RestaurantWebController {
 	@RequestMapping("/privado/restaurantes/add-fav/{id}")
 	public String aniadirRestauranteFavorito(Model model, @PathVariable Long id){
 		Restaurant restaurant = restaurantService.findOne(id);
-		User userLogged = userService.findOne(userComponent.getLoggedUser().getId()); 
+		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		userLogged.getFavRestaurants().add(restaurant);
-		userService.saveAndFlush(userLogged);
+		userRepository.saveAndFlush(userLogged);
 		return ("redirect:/restaurantes/");
 	}
 	
 	@RequestMapping("/privado/restaurantes/remove-fav/{id}")
 	public String quitarRestauranteFavorito(Model model, @PathVariable long id){
 		Restaurant restaurant = restaurantService.findOne(id);
-		User userLogged = userService.findOne(userComponent.getLoggedUser().getId()); 
+		User userLogged = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		userLogged.getFavRestaurants().remove(restaurant);
-		userService.saveAndFlush(userLogged);
+		userRepository.saveAndFlush(userLogged);
 		//System.out.println(userLogged.getFavRecipes().get(0));
 		return ("redirect:/restaurantes/");
 	}
@@ -238,7 +237,7 @@ public class RestaurantWebController {
 		model.addAttribute("enterprise",request.isUserInRole("ENTERPRISE"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		
-		User user = userService.findOne(userComponent.getLoggedUser().getId()); 
+		User user = userRepository.findOne(userComponent.getLoggedUser().getId()); 
 		
 		if(user instanceof UserEnterprise){
 			UserEnterprise user_enterprise = (UserEnterprise) user;

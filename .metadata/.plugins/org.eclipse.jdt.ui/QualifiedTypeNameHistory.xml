@@ -37,7 +37,6 @@
 <fullyQualifiedTypeName name="org.springframework.data.solr.core.RequestMethod"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="daw.cookcinando.service.UserService"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
@@ -59,4 +58,5 @@
 <fullyQualifiedTypeName name="daw.cookcinando.model.Event"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
+<fullyQualifiedTypeName name="daw.cookcinando.service.UserService"/>
 </qualifiedTypeNameHistroy>
