@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;CSRFHandlerConfiguration.java&apos; to &apos;cookcinando/src/main/java/daw.cookcinando.security&apos;&#x0D;&#x0A;- Original project: &apos;security_ejem4&apos;&#x0D;&#x0A;- Destination element: &apos;cookcinando/src/main/java/daw.cookcinando.security&apos;&#x0D;&#x0A;- Original element: &apos;es.urjc.code.security.CSRFHandlerConfiguration.java&apos;" description="Copy compilation unit" destination="=cookcinando/src\/main\/java&lt;daw.cookcinando.security" element1="/src\/main\/java&lt;es.urjc.code.security{CSRFHandlerConfiguration.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1488717415064" units="1" version="1.0"/>
-</session>
