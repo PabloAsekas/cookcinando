@@ -35,7 +35,9 @@ public class UserService {
 	}
 	
 	public User findByEmail(String email) {
-		User user = null;
+		
+		return userRepository.findByEmail(email);
+		/*User user = null;
 		
 		for(User u : userRepository.findAll()){
 			if(u.getEmail() == email){
@@ -43,6 +45,6 @@ public class UserService {
 				break;
 			}
 		}
-		return user;
+		return user;*/
 	}
 }

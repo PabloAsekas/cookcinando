@@ -41,20 +41,23 @@ public class RecipeService {
 	//CAMBIADO PARA BUSCADOR
 	public List<Recipe> findByTitle(String title) {
 		
-		List<Recipe> recipes = new ArrayList<Recipe>();
+		return recipeRepository.findByTitle(title);
+		
+		/*List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
 			if(r.getTitle().toLowerCase().contains(title.toLowerCase())){
 				recipes.add(r);
 			}
 		}
-		return recipes;
+		return recipes;*/
 	}
 	
 	
 	public List<Recipe> findByIngredient(String ingredient) {
 		
-		List<Recipe> recipes = new ArrayList<Recipe>();
+		return recipeRepository.findByIngredient(ingredient);
+		/*List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
 			
@@ -65,12 +68,14 @@ public class RecipeService {
 				}
 			}
 		}
-		return recipes;
+		return recipes;*/
 	}
 	
 	public List<Recipe> findByTypeFood(String typeFood) {
 		
-		List<Recipe> recipes = new ArrayList<Recipe>();
+		return recipeRepository.findByTypeFood(typeFood);
+		
+		/*List<Recipe> recipes = new ArrayList<Recipe>();
 		
 		for(Recipe r : recipeRepository.findAll()){
 			
@@ -81,7 +86,7 @@ public class RecipeService {
 				}
 			}
 		}
-		return recipes;
+		return recipes;*/
 	}
 	
 }

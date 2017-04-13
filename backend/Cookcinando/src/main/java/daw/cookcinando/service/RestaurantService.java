@@ -38,7 +38,7 @@ public class RestaurantService {
 		restaurantRepository.delete(id);
 	}
 	
-	public Restaurant findByTitle(String title) {
+	/*public Restaurant findByTitle(String title) {
 		Restaurant restaurant = null;
 		
 		for(Restaurant re : restaurantRepository.findAll()){
@@ -48,12 +48,14 @@ public class RestaurantService {
 			}
 		}
 		return restaurant;
-	}
+	}*/
 	
 	
-public List<Restaurant> findByTypeFood(String typeFood) {
+	public List<Restaurant> findByTypeFood(String typeFood) {
 		
-		List<Restaurant> restaurants = new ArrayList<Restaurant>();
+		 return restaurantRepository.findByTypeFood(typeFood);
+		
+		/*List<Restaurant> restaurants = new ArrayList<Restaurant>();
 		
 		for(Restaurant re : restaurantRepository.findAll()){
 			
@@ -64,6 +66,6 @@ public List<Restaurant> findByTypeFood(String typeFood) {
 				}
 			}
 		}
-		return restaurants;
+		return restaurants;*/
 	}
 }

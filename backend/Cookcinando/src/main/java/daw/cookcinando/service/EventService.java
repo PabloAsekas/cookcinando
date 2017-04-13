@@ -38,7 +38,7 @@ public class EventService {
 		eventRepository.delete(id);
 	}
 	
-	public Event findByTitle(String title) {
+	/*public Event findByTitle(String title) {
 		Event event = null;
 		
 		for(Event e : eventRepository.findAll()){
@@ -48,13 +48,15 @@ public class EventService {
 			}
 		}
 		return event;
-	}
+	}*/
 	
 
 	
 	public List<Event> findByTypeFood(String typeFood) {
 		
-		List<Event> events = new ArrayList<Event>();
+		return eventRepository.findByTypeFood(typeFood);
+		
+		/*List<Event> events = new ArrayList<Event>();
 		
 		for(Event e : eventRepository.findAll()){
 			
@@ -65,7 +67,7 @@ public class EventService {
 				}
 			}
 		}
-		return events;
+		return events;*/
 	}
 	
 }
