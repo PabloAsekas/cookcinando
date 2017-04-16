@@ -219,6 +219,10 @@ hr{
     background: transparent;
 }
 
+#input-search {
+    height: 48px;
+}
+
 .input-group-lg >.input-group-addon {
     padding-bottom: 0;
     padding-top: 0;
