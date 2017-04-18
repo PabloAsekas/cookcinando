@@ -3,16 +3,15 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-import { User, UserBasic, UserEnterprise, UserAdmin } from './user.model';
+import { Recipe } from './recipe.model';
 
-const BASE_URL = 'https://localhost:8443/api/users/'; /*MIRAR GITHUB DE OTROS COMPAÑEROS*/
+const BASE_URL = 'https://localhost:8443/api/recipes/';
 
 @Injectable()
-export class UsersService {
-
+export class RecipesService {
     constructor(private http: Http) { }
 
-    getUsers() {
+    getRecipes() {
         return this.http.get(BASE_URL)
             .map(response => response.json())
             .catch(error => this.handleError(error));
@@ -24,20 +23,20 @@ export class UsersService {
             .catch(error => this.handleError(error));
     }
 
-    newUser(user: User) {
-        return this.http.post(BASE_URL, user)
+    newRecipe(recipe: Recipe) {
+        return this.http.post(BASE_URL, recipe)
             .map(response => response.json())
             .catch(error => Observable.throw('Server error'));
     }
 
-    updateUser(user: User) {
-        return this.http.put(BASE_URL + user.id, user)
+    updateRecipe(recipe: Recipe) {
+        return this.http.put(BASE_URL + recipe.id, recipe)
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }
 
-    deleteUser(user: User) {
-        return this.http.delete(BASE_URL + user.id)
+    deleteRecipe(recipe: Recipe) {
+        return this.http.delete(BASE_URL + recipe.id)
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }

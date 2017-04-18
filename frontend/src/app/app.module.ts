@@ -7,13 +7,23 @@ import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index.component';
+
+// Hijos de IndexComponent
+import { HeaderComponent } from './header.component';
+import { FooterComponent } from './footer.component';
+// Fin Hijos de IndexComponent
+
 import { UsersService } from './users.service';
+
+import { RecipesService } from './recipes.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +32,7 @@ import { UsersService } from './users.service';
     JsonpModule,
     routing
   ],
-  providers: [UsersService],
+  providers: [UsersService, RecipesService],
   bootstrap: [AppComponent]
 })
 
