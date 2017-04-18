@@ -7,6 +7,7 @@ import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index.component';
+import { LoginComponent } from './login.component';
 
 // Hijos de IndexComponent
 import { HeaderComponent } from './header.component';
@@ -26,6 +27,7 @@ import { RecipeComponent } from './recipe.component';
     IndexComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
     RecipeComponent
   ],
   imports: [
