@@ -2041,3 +2041,9 @@ org.eclipse.jface.text.BadLocationException: null
 2017-04-18 11:41:02,718 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
 2017-04-18 11:41:02,727 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-04-18 11:41:02,727 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-04-18 15:14:27,976 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: daw.cookcinando:cookcinando:0.0.1-SNAPSHOT @ /Users/PabloAsekas/cookcinando/backend/Cookcinando/pom.xml.
+2017-04-18 15:14:32,221 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-18 15:14:32,237 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-18 15:14:32,268 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
+2017-04-18 15:14:32,282 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-18 15:14:32,283 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources

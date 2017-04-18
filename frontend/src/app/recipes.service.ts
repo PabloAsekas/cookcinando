@@ -17,7 +17,7 @@ export class RecipesService {
             .catch(error => this.handleError(error));
     }
 
-    getUser(id: number | string) {
+    getRecipe(id: number | string) {
         return this.http.get(BASE_URL + id)
             .map(response => response.json())
             .catch(error => this.handleError(error));

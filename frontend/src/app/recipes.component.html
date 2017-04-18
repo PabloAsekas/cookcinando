@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div id="recipes">
+    <div class="listItems">
+        <div *ngFor="let recipe of recipes" class="col-md-4">
+            <div class="thumbnail">
+                <a href="/recetas/{{id}}">
+                    <img src="assets/{{recipe.thumbnail}}" alt="{{recipe.title}}" id="imagen">
+                    <div class="caption">
+                        <h3>{{recipe.title}}</h3>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <button id="moreRecipes" type="button" class="btn btn-lg btn-block btn-view-more">Ver más recetas</button>
+</div>
+<app-footer></app-footer>

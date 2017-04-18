@@ -13,17 +13,20 @@ import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 // Fin Hijos de IndexComponent
 
+// Users
 import { UsersService } from './users.service';
 
+// Recipes
 import { RecipesService } from './recipes.service';
-
+import { RecipeComponent } from './recipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,
