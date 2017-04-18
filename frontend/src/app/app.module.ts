@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -31,6 +33,7 @@ import { RecipeComponent } from './recipe.component';
     RecipeComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
