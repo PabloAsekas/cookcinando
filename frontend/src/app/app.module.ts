@@ -21,6 +21,7 @@ import { UsersService } from './users.service';
 import { RecipesService } from './recipes.service';
 import { RecipesComponent } from './recipes.component'; // TODAS LAS RECETAS
 import { RecipeComponent } from './recipe.component';   // UNA RECETA
+import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA RECETA
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RecipeComponent } from './recipe.component';   // UNA RECETA
     FooterComponent,
     LoginComponent,
     RecipesComponent,
-    RecipeComponent
+    RecipeComponent,
+    RecipeFormComponent
   ],
   imports: [
     BrowserModule,
