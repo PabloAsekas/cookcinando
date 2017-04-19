@@ -19,7 +19,9 @@ import { UsersService } from './users.service';
 
 // Recipes
 import { RecipesService } from './recipes.service';
-import { RecipeComponent } from './recipe.component';
+import { RecipesComponent } from './recipes.component'; // TODAS LAS RECETAS
+import { RecipeComponent } from './recipe.component';   // UNA RECETA
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { RecipeComponent } from './recipe.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
+    RecipesComponent,
     RecipeComponent
   ],
   imports: [
