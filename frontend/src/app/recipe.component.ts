@@ -1,24 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-
-// import { User } from './user.model';
-// import { UsersService } from './users.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
 
 @Component({
   // selector: 'app-root',
-  templateUrl: './recipes.component.html'
+  templateUrl: './recipe.component.html'
   // styleUrls: ['../styles/app.component.css']
 })
 
-export class RecipeComponent implements OnInit {
+export class RecipeComponent /*implements OnInit*/ {
+    recipe: Recipe;
+    
+    constructor (private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
+        let id = activatedRoute.snapshot.params['id'];
+      //  if (id) {
+            this.recipesService.getRecipe(id).subscribe(
+                recipe => this.recipe = recipe,
+                error => console.error(error)
+            );
+       //     this.newBook = false;
+      //  } else {
+      //      this.book = { title: '', description: '' };
+      //      this.newBook = true;
+      //  }
+    }
 
-    recipes: Recipe[] = [];
-
-    constructor (private recipesService: RecipesService) { }
-
-    ngOnInit() {
+/*  ngOnInit() {
         this.recipesService.getRecipes().subscribe(
             recipes => {
                 this.recipes = recipes.content;
@@ -26,5 +35,5 @@ export class RecipeComponent implements OnInit {
             },
             error => console.log(error)
         );
-    }
+    }*/
 }
