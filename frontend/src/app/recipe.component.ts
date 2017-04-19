@@ -12,19 +12,17 @@ import { RecipesService } from './recipes.service';
 
 export class RecipeComponent /*implements OnInit*/ {
     recipe: Recipe;
-    
+    recipes: Recipe[] = [];
     constructor (private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
         let id = activatedRoute.snapshot.params['id'];
-      //  if (id) {
-            this.recipesService.getRecipe(id).subscribe(
-                recipe => this.recipe = recipe,
-                error => console.error(error)
-            );
-       //     this.newBook = false;
-      //  } else {
-      //      this.book = { title: '', description: '' };
-      //      this.newBook = true;
-      //  }
+        this.recipesService.getRecipe(id).subscribe(
+            recipe => this.recipe = recipe,
+            error => console.error(error)
+        );
+        this.recipesService.getRecommended().subscribe(
+            recipes => this.recipes = recipes,
+            error => console.error(error)
+        );
     }
 
 /*  ngOnInit() {
