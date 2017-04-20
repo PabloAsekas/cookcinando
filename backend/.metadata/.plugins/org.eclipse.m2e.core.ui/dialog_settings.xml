@@ -14,8 +14,8 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\Blanca\Desktop\DAW\Practica\ejem_fase5\rest_ejem12"/>
 			<item value="C:\Users\Blanca\Documents\GitHub\cookcinando\backend"/>
+			<item value="C:\Users\Blanca\Desktop\DAW\Practica\ejem_fase5\rest_ejem12"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
