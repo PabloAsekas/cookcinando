@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.User;
+import daw.cookcinando.model.UserAdmin;
+import daw.cookcinando.model.UserBasic;
+import daw.cookcinando.model.UserEnterprise;
 
 @RestController
 public class LoginRestController {
@@ -21,6 +24,20 @@ public class LoginRestController {
 	@Autowired
 	private UserComponent userComponent;
 	
+//	@RequestMapping("/api/logIn")
+//	public ResponseEntity<User> logIn() {
+//		
+//		if(!userComponent.isLoggedUser()) {
+//			log.info("Not user logged");
+//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//		}
+//		else {
+//			User loggedUser = userComponent.getLoggedUser();
+//			log.info("Logged as " + loggedUser.getNick());
+//			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+//		}
+//	}
+	
 	@RequestMapping("/api/logIn")
 	public ResponseEntity<User> logIn() {
 		
@@ -29,9 +46,10 @@ public class LoginRestController {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 		else {
-			User loggedUser = userComponent.getLoggedUser();
-			log.info("Logged as " + loggedUser.getNick());
-			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+			//User loggedUser = userComponent.getLoggedUser();
+			log.info("Holi");
+			log.info("Logged as " + userComponent.getLoggedUser().getNick());
+			return new ResponseEntity<>(userComponent.getLoggedUser(), HttpStatus.OK);
 		}
 	}
 	

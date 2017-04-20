@@ -614,7 +614,7 @@ hr{
 .thumbnail-receta {
     width: 100%;
     height: 450px;
-    background: url(assets/img/pabellon-criollo.jpg) no-repeat 50% fixed;
+    background:  no-repeat 50% fixed;
     background-size: 100%;
 }
 .info-usuario {

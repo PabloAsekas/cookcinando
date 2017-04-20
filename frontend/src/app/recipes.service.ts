@@ -40,6 +40,12 @@ export class RecipesService {
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }
+    
+    getRecommended() {
+        return this.http.get(BASE_URL + 'recommended')
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
+    }
 
     private handleError(error: any) {
         console.error(error);

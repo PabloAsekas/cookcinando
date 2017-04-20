@@ -1,0 +1,58 @@
+<app-header></app-header>
+<script>
+    $(document).ready(function() {
+        $("#txtEditor").Editor();
+        var convert = function(convert){
+            return $("<span />", { html: convert }).text();
+        };
+        var contenido = '{{receta.preparation}}';
+        $('#txtEditor').Editor("setText", [convert(contenido)]);
+        $( "#form-receta" ).submit(function( event ) {
+            var contenido = $('#txtEditor').Editor("getText");
+            $('#txtEditor').val(contenido);
+        });
+    });
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();   
+    });
+</script>
+<div *ngIf="recipe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <!-- {{#creator}} -->
+                <div class="cabecera-subrayada">
+                    <h1>Editar receta</h1>
+                </div>
+                <div class="inputs-receta">
+                    <form action="/privado/recetas/form-editar/{{recipe.id}}" method="POST" id="form-receta" enctype="multipart/form-data">
+                        <h3>Título</h3>
+                        <input type="text" name="titulo" class="form-control" value="{{recipe.title}}">
+                        <h3>Descripción</h3>
+                        <input type="text" name="descripcion" class="form-control" value="{{recipe.description}}">
+                        <h3>Imagen de Cabecera</h3>
+                        <input type="file" name="imagenCabecera">
+                        <h2>Cuerpo de la receta</h2>
+                        <div class="col-md-12 nopadding editorHTML">
+                            <input name="cuerpo" id="txtEditor"> 
+                        </div>
+                        <button (click)="rellenar()">RELLENA</button>
+                        <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>
+                        <input class="form-control" name="ingredientes" type="text" [(ngModel)]="ingredientsString"><!-- value='{{#recipe.ingredients}}{{.}},{{/receta.ingredients}}' -->
+                        <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>
+                        <input class="form-control" name="comidas"  type="text" [(ngModel)]="typesFoodString"> <!-- value='{{#receta.typesFood}}{{.}},{{/receta.typesFood}}' -->
+                        <button type="submit" class="btn btn-default publicar">Publicar</button>
+                    </form>
+                </div>
+                <!-- {{/creator}}
+                {{#deny}}
+                <p>No tienes permisos para editar esta receta.</p>
+                {{/deny}} -->
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+
