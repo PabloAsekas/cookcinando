@@ -10,23 +10,29 @@ import { RecipesService } from './recipes.service';
   // styleUrls: ['../styles/app.component.css']
 })
 
-export class RecipeFormComponent /*implements OnInit*/ {
+export class RecipeFormComponent implements OnInit {
     recipe: Recipe;
+    typesFoodString: String = "";
+    ingredientsString: String = "";
     constructor (private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
         let id = activatedRoute.snapshot.params['id'];
         this.recipesService.getRecipe(id).subscribe(
             recipe => this.recipe = recipe,
             error => console.error(error)
         );
+        //this.rellenar();
+    }
+    
+    rellenar(){
+        for (let typeFood of this.recipe.typesFood) {
+            this.typesFoodString = this.typesFoodString + typeFood + ",";
+        }
+        for (let ingredient of this.recipe.ingredients) {
+            this.ingredientsString = this.ingredientsString + ingredient + ",";
+        }
     }
 
-/*  ngOnInit() {
-        this.recipesService.getRecipes().subscribe(
-            recipes => {
-                this.recipes = recipes.content;
-                console.log(this.recipes);
-            },
-            error => console.log(error)
-        );
-    }*/
+    ngOnInit() {
+        //this.rellenar();
+    }
 }
