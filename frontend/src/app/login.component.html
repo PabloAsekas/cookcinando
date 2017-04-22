@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 
 <div class="container-fluid">
@@ -71,15 +70,15 @@
                         <form action="/login" method="post">
                             <div class="input-group" id="email-login-input">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input type="text" class="form-control" name="email" id="email-login" placeholder="user@user.com">
+                                <input #user type="text" class="form-control" name="email" id="email-login" placeholder="user@user.com">
                             </div>
                             <br>
                             <div class="input-group" id="password-login-input">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input type="password" class="form-control" name="password" id="password-login" placeholder="Introduzca la contraseña">
+                                <input #pass type="password" class="form-control" name="password" id="password-login" placeholder="Introduzca la contraseña">
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-default center-block">Entrar</button>
+                            <button type="submit" (click)="logIn($event, user.value, pass.value)" class="btn btn-default center-block">Entrar</button>
                         </form>
                     </template>
                 </ngb-tab>
@@ -87,7 +86,4 @@
         </div>
     </div>
 </div>
-
 <app-footer></app-footer>
-
-

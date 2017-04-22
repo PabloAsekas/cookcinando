@@ -5,7 +5,7 @@
             <div class="col-md-3" id="cab1"><p class="tituloGrande">Restaurantes</p></div>
         </a>
         <div class="col-md-4">
-            <a href="/recetas/">
+            <a [routerLink]="['/recetas']">
                 <div class="row" id="cab2"><p class="tituloGrande">Recetas</p></div>
             </a>    
             <a href="/eventos/">
@@ -38,26 +38,26 @@
     <div class="tituloSeccion"><h1>PLATOS FAVORITOS</h1></div>
     <div class="row">
         <div class="col-md-12 menu_imgs">
-            <a href="/recetas/5">
+            <a [routerLink]="['/recetas', 5]">
                 <div class="col-md-8 imagenGrande" id="imgFavGrande" ><p class="tituloGrande">CREMA DE GUISANTES</p></div>
             </a>    
             <div class="col-md-4">
-                <a href="/recetas/1">
+                <a [routerLink]="['/recetas', 5]">
                     <div class="row imagenPequenia" id="imgFav1">
                         <p class="tituloPequenio">Hamburguesa Queso de Cabra y Nueces</p>
                     </div>
                 </a> 
-                <a href="/recetas/4">
+                <a [routerLink]="['/recetas', 4]">
                     <div class="row imagenPequenia" id="imgFav2">
                         <p class="tituloPequenio">Raviolis con Salsa de Queso</p>
                     </div>
                 </a>
-                <a href="/recetas/4">
+                <a [routerLink]="['/recetas', 4]">
                     <div class="row imagenPequenia" id="imgFav3">
                         <p class="tituloPequenio">Pulpo a la Gallega</p>
                     </div>
                 </a>
-                <a href="/recetas/4">
+                <a [routerLink]="['/recetas', 4]">
                     <div class="row imagenPequenia" id="imgFav4">
                         <p class="tituloPequenio">Tortilla de Patatas</p>
                     </div>
@@ -68,8 +68,7 @@
     <div class="row mas">
         <div class="col-md-4"></div>
         <div class="col-md-8">
-            <a type="button" href="/recetas/" class="btn btn-default btn-lg btnMas">Más Platos</a>
-            <!--<button type="button" class="btn btn-default btn-lg btnMas">Más Platos</button>-->
+            <a type="button" [routerLink]="['/recetas']" class="btn btn-default btn-lg btnMas">Más Platos</a>
         </div>
     </div>
 </div>

@@ -9,15 +9,19 @@ import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index.component';
-import { LoginComponent } from './login.component';
 
 // Hijos de IndexComponent
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 // Fin Hijos de IndexComponent
 
+// Login
+import { LoginService } from './login.service';
+import { LoginComponent } from './login.component';
+
 // Users
 import { UsersService } from './users.service';
+import { UserMyAccountComponent } from './user.myaccount.component';
 
 // Recipes
 import { RecipesService } from './recipes.service';
@@ -35,7 +39,8 @@ import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA 
     LoginComponent,
     RecipesComponent,
     RecipeComponent,
-    RecipeFormComponent
+    RecipeFormComponent,
+    UserMyAccountComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -45,7 +50,7 @@ import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA 
     JsonpModule,
     routing
   ],
-  providers: [UsersService, RecipesService],
+  providers: [UsersService, RecipesService, LoginService],
   bootstrap: [AppComponent]
 })
 

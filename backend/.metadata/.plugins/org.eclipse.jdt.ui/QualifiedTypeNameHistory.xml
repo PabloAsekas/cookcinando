@@ -17,4 +17,5 @@
 <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.LazyCollection"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.LazyCollectionOption"/>
+<fullyQualifiedTypeName name="daw.cookcinando.model.User.Idd"/>
 </qualifiedTypeNameHistroy>

@@ -14,12 +14,20 @@ import { RecipesService } from './recipes.service';
 
 export class AppComponent implements OnInit {
 
+    user: User;
     users: User[] = [];
     recipes: Recipe[] = [];
 
   constructor (private usersService: UsersService, private recipesService: RecipesService) { }
 
   ngOnInit() {
+    /*this.usersService.getUser(1).subscribe(
+      user => {
+        this.user = user;
+        console.log(this.user);
+      },
+      error => console.log(error)
+    );
     this.usersService.getUsers().subscribe(
       users => {
         this.users = users;
@@ -34,6 +42,6 @@ export class AppComponent implements OnInit {
         console.log(this.recipes);
       },
       error => console.log(error)
-    );
+    );*/
   }
 }
