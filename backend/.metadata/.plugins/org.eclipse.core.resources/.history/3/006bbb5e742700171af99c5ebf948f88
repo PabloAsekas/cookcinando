@@ -13,37 +13,39 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonView;
-
-import daw.cookcinando.model.User.AllTheInfo;
-import daw.cookcinando.model.User.Basic;
 
 @Entity
-public class UserEnterprise extends User {
+public class UserAdmin extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JsonView(Basic.class)
 	private long id;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
-	@JsonView(AllTheInfo.class)
 	private List<Restaurant> myRestaurants;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
-	@JsonView(AllTheInfo.class)
 	private List<Event> myEvents;
 	
-	protected UserEnterprise(){}
+	@JsonIgnore
+	@Column
+	@OneToMany
+	private List<User> users;
 	
-	public UserEnterprise(String name, String surname, String description, String image, String nick,
-		    		 	  String email, String password, String...roles){
+	protected UserAdmin(){}
+	
+	public UserAdmin(String name, String surname, String description, String image, String nick,
+		    		 	  String email, String password, String... roles){
 		
 		super(name,surname,description,image,nick,email,password,roles);
+		
 		this.myRestaurants = new ArrayList<Restaurant>();
 		this.myEvents = new ArrayList<Event>();
+		this.users = new ArrayList<User>();
 	}
 
 	public long getId() {
@@ -69,9 +71,18 @@ public class UserEnterprise extends User {
 	public void setMyEvents(List<Event> myEvents) {
 		this.myEvents = myEvents;
 	}
+	
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 
 	@Override
 	public String toString() {
-		return "UserEnterprise [id=" + id + ", myRestaurants=" + myRestaurants + ", myEvents=" + myEvents + "]";
+		return "UserAdmin [id=" + id + ", myRestaurants=" + myRestaurants + ", myEvents=" + myEvents + ", users="
+				+ users + "]";
 	}
 }

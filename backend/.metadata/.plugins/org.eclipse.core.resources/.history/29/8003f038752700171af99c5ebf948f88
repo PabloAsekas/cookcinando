@@ -42,7 +42,7 @@ public class UserRestController {
 		return userService.findAll();
 	}
 	
-	interface UserDetail extends User.Basic, User.AllTheInfo, Recipe.Basic, Restaurant.Basic, Event.Basic { }
+	interface UserDetail extends User.Basic, User.Recipes, Recipe.Basic { }
 	
 	@JsonView(UserDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

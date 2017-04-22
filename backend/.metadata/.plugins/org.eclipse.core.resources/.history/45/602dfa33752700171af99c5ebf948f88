@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
-import daw.cookcinando.model.User.AllTheInfo;
 import daw.cookcinando.model.User.Basic;
 
 @Entity
@@ -26,14 +25,14 @@ public class UserEnterprise extends User {
 	@JsonView(Basic.class)
 	private long id;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
-	@JsonView(AllTheInfo.class)
 	private List<Restaurant> myRestaurants;
 	
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
-	@JsonView(AllTheInfo.class)
 	private List<Event> myEvents;
 	
 	protected UserEnterprise(){}

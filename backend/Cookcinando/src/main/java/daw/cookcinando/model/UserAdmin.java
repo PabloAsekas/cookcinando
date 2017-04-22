@@ -13,27 +13,32 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import daw.cookcinando.model.User.AllTheInfo;
+import daw.cookcinando.model.User.Basic;
 
 @Entity
 public class UserAdmin extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(Basic.class)
 	private long id;
 	
-	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
+	@JsonView(AllTheInfo.class)
 	private List<Restaurant> myRestaurants;
 	
-	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy="author")
+	@JsonView(AllTheInfo.class)
 	private List<Event> myEvents;
 	
-	@JsonIgnore
 	@Column
 	@OneToMany
+	@JsonView(AllTheInfo.class)
 	private List<User> users;
 	
 	protected UserAdmin(){}

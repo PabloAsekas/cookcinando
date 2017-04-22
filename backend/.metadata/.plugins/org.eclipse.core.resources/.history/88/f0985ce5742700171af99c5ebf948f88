@@ -26,10 +26,11 @@ public class User {
 
 	public interface Basic { }
 	
-	public interface AllTheInfo { }
+	public interface Recipes { }
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonIgnore
 	@JsonView(Basic.class)
 	private long id;
 	
@@ -55,24 +56,22 @@ public class User {
 	@Column
 	//@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(mappedBy="author")
-	@JsonView(AllTheInfo.class)
+	@JsonView(Recipes.class)
 	private List<Recipe> myRecipes;
 	
 	//@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany
-	@JsonView(AllTheInfo.class)
+	@JsonView(Recipes.class)
 	private List<Recipe> favRecipes;
 	
 	@JsonIgnore
 	//@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany
-	@JsonView(AllTheInfo.class)
 	private List<Restaurant> favRestaurants;
 	
 	@JsonIgnore
 	//@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany
-	@JsonView(AllTheInfo.class)
 	private List<Event> favEvents;
 	
 	protected User(){}
