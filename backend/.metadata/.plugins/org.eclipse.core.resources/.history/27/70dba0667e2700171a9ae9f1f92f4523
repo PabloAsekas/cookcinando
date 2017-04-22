@@ -130,9 +130,8 @@ public class UserRestController {
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updatedUser) {
 		
 		User user = userService.findOne(id);
-		
+		log.info("Hola");
 		if(user != null) {
-			
 			User loggedUser = userComponent.getLoggedUser();
 			if (loggedUser != null) {
 				if (loggedUser.getId() == user.getId() || loggedUser.isAdmin()) {

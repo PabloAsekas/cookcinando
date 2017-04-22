@@ -129,6 +129,8 @@ public class UserRestController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updatedUser) {
 		
+		System.out.prinln("Hola");
+		
 		User user = userService.findOne(id);
 		
 		if(user != null) {

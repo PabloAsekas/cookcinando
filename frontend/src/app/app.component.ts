@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from './login.service';
+
 import { User } from './user.model';
 import { UsersService } from './users.service';
 
@@ -18,7 +20,7 @@ export class AppComponent implements OnInit {
     users: User[] = [];
     recipes: Recipe[] = [];
 
-  constructor (private usersService: UsersService, private recipesService: RecipesService) { }
+  constructor (private usersService: UsersService, private recipesService: RecipesService, private loginService: LoginService) { }
 
   ngOnInit() {
     /*this.usersService.getUser(1).subscribe(

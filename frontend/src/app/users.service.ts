@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -31,7 +31,13 @@ export class UsersService {
     }
 
     updateUser(user: User) {
-        return this.http.put(BASE_URL + user.id, user)
+        const body = JSON.stringify(user);
+        const headers = new Headers({
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });
+        return this.http.put(BASE_URL + user.id, body, options)
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }

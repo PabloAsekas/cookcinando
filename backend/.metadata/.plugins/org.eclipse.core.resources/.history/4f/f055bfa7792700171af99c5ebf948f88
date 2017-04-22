@@ -63,10 +63,14 @@ public class User {
 	@JsonView(AllTheInfo.class)
 	private List<Recipe> favRecipes;
 	
+	@JsonIgnore
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany
 	@JsonView(AllTheInfo.class)
 	private List<Restaurant> favRestaurants;
 	
+	@JsonIgnore
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany
 	@JsonView(AllTheInfo.class)
 	private List<Event> favEvents;

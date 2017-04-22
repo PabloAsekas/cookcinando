@@ -132,7 +132,6 @@ public class UserRestController {
 		User user = userService.findOne(id);
 		
 		if(user != null) {
-			
 			User loggedUser = userComponent.getLoggedUser();
 			if (loggedUser != null) {
 				if (loggedUser.getId() == user.getId() || loggedUser.isAdmin()) {
