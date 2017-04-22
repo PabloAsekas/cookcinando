@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.User;
 import daw.cookcinando.model.UserAdmin;
@@ -24,20 +26,7 @@ public class LoginRestController {
 	@Autowired
 	private UserComponent userComponent;
 	
-//	@RequestMapping("/api/logIn")
-//	public ResponseEntity<User> logIn() {
-//		
-//		if(!userComponent.isLoggedUser()) {
-//			log.info("Not user logged");
-//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//		}
-//		else {
-//			User loggedUser = userComponent.getLoggedUser();
-//			log.info("Logged as " + loggedUser.getNick());
-//			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
-//		}
-//	}
-	
+	@JsonView(User.Basic.class)
 	@RequestMapping("/api/logIn")
 	public ResponseEntity<User> logIn() {
 		
@@ -46,10 +35,9 @@ public class LoginRestController {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 		else {
-			//User loggedUser = userComponent.getLoggedUser();
-			log.info("Holi");
-			log.info("Logged as " + userComponent.getLoggedUser().getNick());
-			return new ResponseEntity<>(userComponent.getLoggedUser(), HttpStatus.OK);
+			User loggedUser = userComponent.getLoggedUser();
+			log.info("Logged as " + loggedUser.getNick());
+			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
 		}
 	}
 	
