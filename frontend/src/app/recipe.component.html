@@ -1,11 +1,7 @@
 <app-header></app-header>
 
 <div *ngIf="recipe">
-<!--    <div class="thumbnail-receta" style=" background: url(assets/img/empanadas-burguer-con-queso.jpg) no-repeat 50% fixed; background-size: 100%;">
-    </div> -->
-    
-    <div class="thumbnail-receta" style=" background: url({{recipe.thumbnail}}) no-repeat 50% fixed; background-size: 100%;">
-    </div> 
+    <div [innerHtml]="thumbnailSafe"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 info-usuario">

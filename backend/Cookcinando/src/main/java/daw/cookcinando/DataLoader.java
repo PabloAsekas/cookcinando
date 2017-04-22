@@ -270,7 +270,7 @@ public class DataLoader implements CommandLineRunner{
 	public void run(String... arg0) throws Exception {
 		
 		UserBasic user_basic = new UserBasic("Manuela", "Carmena", "Descripción muy larga de lo que quiera poner el usuario para describirse así mismo porque seguro que puede hacerlo", "assets/img/avatar.jpg", "noTeLoPerdoreNUNCA","basic","pass","ROLE_BASIC");
-		UserBasic user_basic2 = new UserBasic("Pablo", "Motos", "Mu gracioso, mejor persona", "http://www.hola.com/imagenes/noticias-de-actualidad/20asseassets/hormiguero.jpg", "elHormiguero","bbasic","pass","ROLE_BASIC");
+		UserBasic user_basic2 = new UserBasic("Pablo", "Motos", "Mu gracioso, mejor persona", "http://teleprograma.diezminutos.es/var/plan_site/storage/images/tele_corazon/2012/julio/pablo_motos/pablo-motos-guitarra/5413768-1-esl-ES/pablo-motos-guitarra_gallery_a.jpg", "elHormiguero","bbasic","pass","ROLE_BASIC");
 		UserEnterprise user_enterprise = new UserEnterprise("Francisco", "Marhuenda", "Er mejor periodista visto", "https://pbs.twimg.com/profile_images/622733889858052096/tm7zeQ06.jpg", "rio","enterprise","pass","ROLE_BASIC", "ROLE_ENTERPRISE");
 		UserAdmin admin = new UserAdmin("Admin", "Admin", "Admin", "http://img4.wikia.nocookie.net/__cb20110512131110/pixar/imagesassets/Ratatouille-remy3.jpg", "Admin","admin","adminpass","ROLE_BASIC","ROLE_ENTERPRISE", "ROLE_ADMIN");
 		userRepository.save(user_basic);
