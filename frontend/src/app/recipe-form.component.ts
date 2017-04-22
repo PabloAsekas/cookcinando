@@ -17,7 +17,8 @@ export class RecipeFormComponent implements OnInit {
     constructor (private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
         let id = activatedRoute.snapshot.params['id'];
         this.recipesService.getRecipe(id).subscribe(
-            recipe => this.recipe = recipe,
+            recipe => {this.recipe = recipe
+                       this.rellenar()},
             error => console.error(error)
         );
         //this.rellenar();
