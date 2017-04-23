@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { routing } from './app.routing';
 
@@ -23,6 +24,10 @@ import { LoginComponent } from './login.component';
 import { UsersService } from './users.service';
 import { UserMyAccountComponent } from './user.myaccount.component';
 
+// Hijos de UsersService
+import { UserMenuComponent } from './user.menu.component';
+// Fin Hijos de UsersService
+
 // Recipes
 import { RecipesService } from './recipes.service';
 import { RecipesComponent } from './recipes.component'; // TODAS LAS RECETAS
@@ -40,7 +45,8 @@ import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA 
     RecipesComponent,
     RecipeComponent,
     RecipeFormComponent,
-    UserMyAccountComponent
+    UserMyAccountComponent,
+    UserMenuComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -48,7 +54,8 @@ import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA 
     FormsModule,
     HttpModule,
     JsonpModule,
-    routing
+    routing,
+    NgbCollapseModule.forRoot()
   ],
   providers: [UsersService, RecipesService, LoginService],
   bootstrap: [AppComponent]

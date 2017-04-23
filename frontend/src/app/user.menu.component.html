@@ -1,0 +1,46 @@
+<div class="">
+    <ul class="nav nav-pills flex-column">
+        <li [class.active]="myAccount">
+            <a>Mi Cuenta</a>
+        </li>
+        <li [class.active]="favourites">
+            <a href="/privado/mis-favoritos">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
+        </li>
+        <li [class.active]="recipes">
+            <a (click)="isCollapsedRecipes = !isCollapsedRecipes">Recetas <span class="caret"></span></a>
+            <div [class.collapse]="isCollapsedRecipes">
+                <ul class="list-group">
+                  <li class="list-group-item"><a href="/privado/mis-recetas">Mis Recetas</a></li>
+                  <li class="list-group-item"><a href="/privado/recetas/crear">Añadir Receta</a></li>
+                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a href="/privado/todas-recetas">Todas las recetas</a></li>
+                </ul>
+            </div>
+        </li>
+        <li *ngIf="loginService.isEnterprise" [class.active]="restaurants">
+            <a (click)="isCollapsedRestaurants = !isCollapsedRestaurants">Restaurantes <span class="caret"></span></a>
+            <div [class.collapse]="isCollapsedRestaurants">
+                <ul class="list-group">         	
+                  <li class="list-group-item"><a href="/privado/mis-restaurantes">Mis Restaurantes</a></li>
+                  <li class="list-group-item"><a href="/privado/restaurantes/crear">Añadir Restaurante</a></li> 
+                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a href="/privado/todos-restaurantes">Todos los restaurantes</a></li>
+                </ul>
+            </div> 
+        </li>
+        <li *ngIf="loginService.isEnterprise" [class.active]="events">
+            <a (click)="isCollapsedEvents = !isCollapsedEvents">Eventos <span class="caret"></span></a>
+            <div [class.collapse]="isCollapsedEvents">
+                <ul class="list-group">
+                  <li class="list-group-item"><a href="/privado/mis-eventos">Mis Eventos</a></li>
+                  <li class="list-group-item"><a href="/privado/eventos/crear">Añadir Evento</a></li> 
+                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a href="/privado/todas-eventos">Todos los eventos</a></li> 
+                </ul>
+            </div>
+        </li>
+        <li *ngIf="loginService.isAdmin" [class.active]="users">
+            <a href="/privado/todos-usuarios">Usuarios</a>
+        </li>
+        <li [class.active]="preferences">
+            <a href="/privado/ajustes">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
+        </li>
+    </ul>
+</div>

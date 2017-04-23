@@ -2,66 +2,7 @@
 
 <div class="container-fluid">
     <div *ngIf="loginService.isLogged" class="row">
-        <div class="col-md-2">
-            <ul class="nav nav-pills flex-column">
-                <li class="active">
-                    <a>Mi Cuenta</a>
-                </li>
-                <li>
-                    <a href="/privado/mis-favoritos">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
-                </li>
-                <li>
-                    <a data-toggle="collapse" href="#recetas-privado">Recetas <span class="caret"></span></a>
-                    <div id="recetas-privado" class=" collapse">
-                        <ul class="list-group">
-                          <li class="list-group-item"><a href="/privado/mis-recetas"> Mis Recetas</a></li>
-                          <li class="list-group-item"><a href="/privado/recetas/crear">Añadir Receta</a></li>
-                          <!--{{#admin}}
-                          <li class="list-group-item"><a href="/privado/todas-recetas">Todas las recetas</a></li>
-                          {{/admin}}-->
-                        </ul>
-                    </div>
-                </li>
-
-                <!--{{#enterprise}}
-                <li>
-                    <a data-toggle="collapse" href="#restaurantes-privado">Restaurantes <span class="caret"></span></a>
-                    <div id="restaurantes-privado" class="collapse">
-                        <ul class="list-group">         	
-                          <li class="list-group-item"><a href="/privado/mis-restaurantes">Mis Restaurantes</a></li>
-                          <li class="list-group-item"><a href="/privado/restaurantes/crear">Añadir Restaurante</a></li> 
-                          {{#admin}}
-                          <li class="list-group-item"><a href="/privado/todos-restaurantes">Todos los restaurantes</a></li>
-                          {{/admin}}
-                        </ul>
-                    </div> 
-                </li>
-                {{/enterprise}} 
-
-                {{#enterprise}} 
-                <li>
-                    <a data-toggle="collapse" href="#eventos-privado">Eventos <span class="caret"></span></a>
-                    <div id="eventos-privado" class="collapse">
-                        <ul class="list-group">
-                          <li class="list-group-item"><a href="/privado/mis-eventos">Mis Eventos</a></li>
-                          <li class="list-group-item"><a href="/privado/eventos/crear">Añadir Evento</a></li> 
-                          {{#admin}}
-                          <li class="list-group-item"><a href="/privado/todas-eventos">Todos los eventos</a></li> 
-                          {{/admin}}  
-                        </ul>
-                    </div>
-                </li>
-                {{/enterprise}} 
-                    {{#admin}}
-                <li>
-                    <a href="/privado/todos-usuarios">Usuarios</a>
-                </li>
-                {{/admin}}-->
-                <li>
-                    <a href="/privado/ajustes">Ajustes <span class="glyphicon glyphicon-cog"></span></a>
-                </li>
-            </ul>
-        </div>
+        <app-user-menu [myAccount]='myAccount' class="col-md-2"></app-user-menu>
         <div class="col-md-8">
             <div class="cabecera-subrayada">
                 <h1>Mi Cuenta</h1>

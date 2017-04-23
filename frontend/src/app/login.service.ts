@@ -10,6 +10,7 @@ const URL = 'https://localhost:8443/api';
 export class LoginService {
 
     isLogged = false;
+    isEnterprise = false;
     isAdmin = false;
     user: User;
 
@@ -39,6 +40,7 @@ export class LoginService {
     private processLogInResponse(response) {
         this.isLogged = true;
         this.user = response.json();
+        this.isEnterprise = this.user.roles.indexOf('ROLE_ENTERPRISE') !== -1;
         this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
     }
 

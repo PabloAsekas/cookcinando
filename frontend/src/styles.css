@@ -9,7 +9,7 @@ form {
 	display: inline-block;
 }
 
-a {
+a, a:not([href]):not([tabindex]) {
     color: #4ab6ff;
 }
 
