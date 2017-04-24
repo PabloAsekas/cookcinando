@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 
 import { Recipe } from './recipe.model';
 
-const BASE_URL = 'https://localhost:8443/api/recipes/';
+const BASE_URL = 'http://localhost:4200/api/recipes/';
 
 @Injectable()
 export class RecipesService {
@@ -40,7 +40,7 @@ export class RecipesService {
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }
-    
+
     getRecommended() {
         return this.http.get(BASE_URL + 'recommended')
             .map(response => response.json())
