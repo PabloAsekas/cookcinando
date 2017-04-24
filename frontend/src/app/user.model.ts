@@ -1,3 +1,5 @@
+import { Recipe } from './recipe.model';
+
 export interface User {
     id?: number;
     name: string;
@@ -8,8 +10,8 @@ export interface User {
     email: string;
     passwordHash: string;
     roles: string[];
-    // myRecipes: Recipe[];
-    // favRecipes: Recipe[];
+    myRecipes: Recipe[];
+    favRecipes: Recipe[];
     // favRestaurants: Restaurant[];
     // favEvents: Evento[];
 }

@@ -24,6 +24,7 @@ import { LoginComponent } from './login.component';
 // Users
 import { UsersService } from './users.service';
 import { UserMyAccountComponent } from './user.myaccount.component';
+import { UserFavouritesComponent } from './user.favourites.component';
 
 // Hijos de UsersService
 import { UserMenuComponent } from './user.menu.component';
@@ -50,6 +51,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     RecipeComponent,
     RecipeFormComponent,
     UserMyAccountComponent,
+    UserFavouritesComponent,
     UserMenuComponent
   ],
   imports: [

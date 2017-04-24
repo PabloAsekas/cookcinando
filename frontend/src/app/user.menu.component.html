@@ -1,10 +1,10 @@
 <div class="">
     <ul class="nav nav-pills flex-column">
         <li [class.active]="myAccount">
-            <a>Mi Cuenta</a>
+            <a [routerLink]="['/privado/mi-cuenta']">Mi Cuenta</a>
         </li>
         <li [class.active]="favourites">
-            <a href="/privado/mis-favoritos">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
+            <a [routerLink]="['/privado/favoritos']">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
         </li>
         <li [class.active]="recipes">
             <a (click)="isCollapsedRecipes = !isCollapsedRecipes">Recetas <span class="caret"></span></a>

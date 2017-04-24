@@ -6,6 +6,7 @@ import { RecipesComponent } from './recipes.component';
 import { RecipeComponent } from './recipe.component';
 import { RecipeFormComponent } from './recipe-form.component';
 import { UserMyAccountComponent } from './user.myaccount.component';
+import { UserFavouritesComponent } from './user.favourites.component';
 
 
 const appRoutes = [
@@ -16,8 +17,8 @@ const appRoutes = [
     { path: 'recetas/:id', component: RecipeComponent },
     { path: 'privado/recetas/editar/:id', component: RecipeFormComponent },
     //Usuario
-    { path: 'privado/mi-cuenta', component: UserMyAccountComponent }
-    
+    { path: 'privado/mi-cuenta', component: UserMyAccountComponent },
+    { path: 'privado/favoritos', component: UserFavouritesComponent }
     //{ path: '', redirectTo: 'index', pathMatch: 'full' }
 ]
 

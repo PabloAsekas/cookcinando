@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div *ngIf="loginService.isLogged" class="row">
+        <app-user-menu [favourites]='favourites' class="col-md-2"></app-user-menu>
+        <div *ngIf="user" class="col-md-8">
+            <div *ngFor="let recipe of user.favRecipes">
+                <p>{{recipe.title}}</p>
+            </div>
+        </div>
+         <!--<div class="col-md-8">
+            <div class="cabecera-subrayada">
+                <h1>Favoritos</h1>
+            </div>
+            <div>
+                <div class="container col-md-12 contenedor-variado">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#favrecetas">Recetas <span class="badge">{{recipes.size}}</span></a></li>
+                        <li><a data-toggle="tab" href="#favrestaurantes">Restaurantes <span class="badge">{{restaurants.size}}</span></a></li>
+                        <li><a data-toggle="tab" href="#faveventos">Eventos <span class="badge">{{events.size}}</span></a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div id="favrecetas" class="tab-pane fade in active">
+                        <div class="container-fluid recetasFav">
+                            {{#recipes}}
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <a href="/recetas/{{id}}">
+                                            <img src="{{thumbnail}}" alt="{{title}}">
+                                            <div class="caption">
+                                                <h3>{{title}}</h3>
+                                                <p>{{description}}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {{/recipes}} 
+                        </div>
+                    </div>
+                    <div id="favrestaurantes" class="tab-pane fade">
+                        <div class="container-fluid restaurantesFav">
+                            {{#restaurants}}
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <a href="/recetas/{{id}}">
+                                            <img src="{{thumbnail}}" alt="{{title}}">
+                                            <div class="caption">
+                                                <h3>{{title}}</h3>
+                                                <p>{{description}}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {{/restaurants}} 
+
+                        </div>
+                    </div>
+                    <div id="faveventos" class="tab-pane fade">
+                        <div class="container-fluid restaurantesFav">
+                            {{#events}}
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <a href="/recetas/{{id}}">
+                                            <img src="{{thumbnail}}" alt="{{title}}">
+                                            <div class="caption">
+                                                <h3>{{title}}</h3>
+                                                <p>{{description}}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {{/events}} 
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <div *ngIf="!loginService.isLogged" class="row">
+        <h2>No tienes permisos para ver esta parte de la web</h2>
+    </div>
+</div>
+
+<app-footer></app-footer>
