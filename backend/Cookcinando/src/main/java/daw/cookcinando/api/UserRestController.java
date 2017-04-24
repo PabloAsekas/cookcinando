@@ -142,10 +142,10 @@ public class UserRestController {
 					user.setImage(updatedUser.getImage());
 					user.setNick(updatedUser.getNick());
 					user.setEmail(updatedUser.getEmail());
-					
-					String password = new BCryptPasswordEncoder().encode(updatedUser.getPasswordHash());
-					user.setPasswordHash(password);
-					
+					if (updatedUser.getPasswordHash() != null) {
+						String password = new BCryptPasswordEncoder().encode(updatedUser.getPasswordHash());
+						user.setPasswordHash(password);
+					}
 					user.setRoles(updatedUser.getRoles());
 					
 					user.setFavRecipes(updatedUser.getFavRecipes());

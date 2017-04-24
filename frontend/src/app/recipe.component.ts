@@ -18,8 +18,9 @@ export class RecipeComponent /*implements OnInit*/ {
     thumbnailA: String = '<div class="thumbnail-receta" style=" background: url(';
     thumbnailB: String = ') no-repeat 50% fixed;background-size: 100%;"></div>';
     constructor (private recipesService: RecipesService, activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer ) {
-        let id = activatedRoute.snapshot.params['id'];
-        this.recipesService.getRecipe(id).subscribe(
+        let id = activatedRoute.params.subscribe(params => {
+            
+        this.recipesService.getRecipe(params['id']).subscribe(
             recipe => {this.recipe = recipe
                       this.makeThumbnailSafe(this.recipe.thumbnail) },
             error => console.error(error)
@@ -27,7 +28,10 @@ export class RecipeComponent /*implements OnInit*/ {
         this.recipesService.getRecommended().subscribe(
             recipes => this.recipes = recipes,
             error => console.error(error)
-        );
+        );    
+            
+        });
+        
     }
         
     makeThumbnailSafe(url: string) {
