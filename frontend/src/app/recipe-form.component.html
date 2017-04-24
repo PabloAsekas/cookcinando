@@ -35,9 +35,7 @@
                         <h3>Imagen de Cabecera</h3>
                         <input type="file" name="imagenCabecera">
                         <h2>Cuerpo de la receta</h2>
-                        <div class="col-md-12 nopadding editorHTML">
-                            <input name="cuerpo" id="txtEditor"> 
-                        </div>
+                            <div [froalaEditor]>{{recipe.description}}</div>
                         <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>
                         <input class="form-control" name="ingredientes" type="text" [(ngModel)]="ingredientsString">
                         <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>

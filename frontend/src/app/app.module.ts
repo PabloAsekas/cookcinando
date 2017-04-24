@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -32,7 +33,10 @@ import { UserMenuComponent } from './user.menu.component';
 import { RecipesService } from './recipes.service';
 import { RecipesComponent } from './recipes.component'; // TODAS LAS RECETAS
 import { RecipeComponent } from './recipe.component';   // UNA RECETA
-import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA RECETA
+import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA 
+
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+//RECETA
 
 
 @NgModule({
@@ -55,7 +59,9 @@ import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA 
     HttpModule,
     JsonpModule,
     routing,
-    NgbCollapseModule.forRoot()
+    NgbCollapseModule.forRoot(),
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   providers: [UsersService, RecipesService, LoginService],
   bootstrap: [AppComponent]
