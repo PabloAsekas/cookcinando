@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 
 import { Recipe } from './recipe.model';
 
-const BASE_URL = 'http://localhost:4200/api/recipes/';
+const BASE_URL = 'https://localhost:8443/api/recipes/';
 
 @Injectable()
 export class RecipesService {
