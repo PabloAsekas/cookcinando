@@ -6,13 +6,13 @@ import { UsersService } from './users.service';
 import { LoginService } from './login.service';
 
 @Component({
-  templateUrl: './user.myaccount.component.html'
+  templateUrl: './user.preferences.component.html'
 })
 
-export class UserMyAccountComponent {
+export class UserPreferencesComponent {
     
     user: User;
-    myAccount = true;
+    preferences = true;
     
     constructor (private loginService: LoginService, private usersService: UsersService) {
         this.usersService.getUser(this.loginService.user.id).subscribe(
@@ -28,14 +28,5 @@ export class UserMyAccountComponent {
             user => {},
             error => console.error('Error actualizando el usuario: ' + error)
         );
-        
-        //this.usersService.updateUser(this.user);
-        
-        /*this.loginService.logIn(user, pass).subscribe(
-            u => console.log(u),
-            error => alert('Invalid user or password')
-        );*/
-        
-        
     }
 }

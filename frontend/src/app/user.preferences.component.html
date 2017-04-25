@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div *ngIf="loginService.isLogged" class="row">
+        <app-user-menu [preferences]='preferences' class="col-md-2"></app-user-menu>
+        <div *ngIf="user" class="col-md-8">
+            <div class="cabecera-subrayada">
+                <h1>Ajustes</h1>
+            </div>
+            <div class="inputs-ajustes">
+                <label for="nombreUsuario">Cambiar nombre de usuario</label>
+                <input type="text" class="form-control" placeholder="@..." name="nick" [(ngModel)]="user.nick">
+                <label for="direccionEmail">Cambiar dirección de email</label>
+                <input type="text" class="form-control" placeholder="Nuevo email" name="email" [(ngModel)]="user.email">
+                <label for="ContrasenaNueva">Cambiar contraseña</label>
+                <input type="password" class="form-control" placeholder="Contraseña nueva" name="pass1" [(ngModel)]="user.passwordHash">
+                <button (click)='update()' type="submit" class="btn btn-default">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!loginService.isLogged" class="row">
+        <h2>No tienes permisos para ver esta parte de la web</h2>
+    </div>
+</div>
+
+<app-footer></app-footer>

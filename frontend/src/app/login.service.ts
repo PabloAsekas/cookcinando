@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 
 import { User, UserBasic, UserEnterprise, UserAdmin } from './user.model';
 
+//const URL = 'http://127.0.0.1:4200/api';
 const URL = 'https://localhost:8443/api';
 
 @Injectable()

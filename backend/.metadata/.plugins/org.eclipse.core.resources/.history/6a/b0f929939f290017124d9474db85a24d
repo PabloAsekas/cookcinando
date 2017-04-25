@@ -148,28 +148,18 @@ public class UserRestController {
 					if (updatedUser.getImage() != null) {
 						user.setImage(updatedUser.getImage());
 					}
-					if (updatedUser.getNick() != null) {
-						user.setNick(updatedUser.getNick());
-					}
-					if (updatedUser.getEmail() != null) {
-						user.setEmail(updatedUser.getEmail());
-					}
+					user.setNick(updatedUser.getNick());
+					user.setEmail(updatedUser.getEmail());
 					if (updatedUser.getPasswordHash() != null) {
 						String password = new BCryptPasswordEncoder().encode(updatedUser.getPasswordHash());
 						user.setPasswordHash(password);
 					}
-					if (updatedUser.getRoles() != null) {
-						user.setRoles(updatedUser.getRoles());
-					}
-					if (updatedUser.getFavRecipes() != null) {
-						user.setFavRecipes(updatedUser.getFavRecipes());
-					}
-					if (updatedUser.getFavRestaurants() != null) {
-						user.setFavRestaurants(updatedUser.getFavRestaurants());
-					}
-					if (updatedUser.getFavEvents() != null) {
-						user.setFavEvents(updatedUser.getFavEvents());
-					}
+					user.setRoles(updatedUser.getRoles());
+					
+					user.setFavRecipes(updatedUser.getFavRecipes());
+					user.setFavRestaurants(updatedUser.getFavRestaurants());
+					user.setFavEvents(updatedUser.getFavEvents());
+				
 					userService.saveAndFlush(user);
 					
 					return new ResponseEntity<>(user, HttpStatus.OK);

@@ -3,12 +3,12 @@
 <div class="container-fluid">
     <div *ngIf="loginService.isLogged" class="row">
         <app-user-menu [myAccount]='myAccount' class="col-md-2"></app-user-menu>
-        <div class="col-md-8">
+        <div *ngIf="user" class="col-md-8">
             <div class="cabecera-subrayada">
                 <h1>Mi Cuenta</h1>
             </div>
             <div class="imagen-de-perfil col-md-3">
-                <img src="{{loginService.user.image}}" width="200px" height="200px" />
+                <img src="{{user.image}}" width="200px" height="200px" />
                 <div class="botones-foto">
                 <input type="file" name="imagen">
                 <!--  
@@ -18,10 +18,10 @@
                 </div>
             </div>
             <div class="inputs col-md-9">
-                <input #name type="text" class="form-control" placeholder="Nombre..." name="name" value="{{loginService.user.name}}">
-                <input #surname type="text" class="form-control" placeholder="Apellido..." name="surname" value="{{loginService.user.surname}}">
-                <textarea #description rows="9" class="form-control" placeholder="Añade una descripción:" name="description">{{loginService.user.description}}</textarea>
-                <button (click)="update(name.value, surname.value, description.value)" type="submit" class="btn btn-default btn-block">Guardar</button>
+                <input type="text" class="form-control" placeholder="Nombre..." name="name" [(ngModel)]="user.name">
+                <input type="text" class="form-control" placeholder="Apellido..." name="surname" [(ngModel)]="user.surname">
+                <textarea [(ngModel)]="user.description" rows="9" class="form-control" placeholder="Añade una descripción:" name="description"></textarea>
+                <button (click)='update()' type="submit" class="btn btn-default btn-block">Guardar</button>
             </div>
         </div>
     </div>
