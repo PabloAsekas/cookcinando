@@ -6,31 +6,14 @@
         <div class="row">
             <div class="col-md-3 info-usuario">
                 <img class="avatar" src="{{recipe.author.image}}" width="200px" height="200px"/>
-                <a href="../usuario/{{recipe.author.id}}"><h3>{{recipe.author.name}}{{recipe.author.surname}}</h3><h4>@{{recipe.author.nick}}</h4></a>
+                <a href="../usuario/{{recipe.author.id}}"><h3>{{recipe.author.name}} {{recipe.author.surname}}</h3><h4>@{{recipe.author.nick}}</h4></a>
                 <p>{{recipe.author.description}}</p>
-                <p>{{recipe.title}}</p>
-                <p>{{recipe.description}}</p>
-                <!--
                 <div>
-                    {{#creator}}
-                        <form action="/privado/recetas/eliminar/{{receta.id}}">
-                            <button type="submit" class="btn btn-default publicar">Eliminar</button>
-                        </form>
-                        <form action="/privado/recetas/editar/{{receta.id}}">
-                            <button style="margin-left: 10px" type="submit" class="btn btn-default publicar">Editar</button>
-                        </form>
-                    {{/creator}}
-                    {{#notcreatorFAV}}
-                        <form action="/privado/recetas/remove-fav/{{receta.id}}">
-                            <button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Quitar de Favoritos</button>
-                        </form>
-                    {{/notcreatorFAV}}
-                    {{#notcreator}}
-                        <form action="/privado/recetas/add-fav/{{receta.id}}">
-                            <button style="margin-top: 10px" type="submit" class="btn btn-default publicar">Añadir a Favoritos</button>
-                        </form>
-                    {{/notcreator}}
-                </div>-->
+                    <button (click)='delete()' *ngIf="loginService.user.id == recipe.author.id || loginService.isAdmin" type="submit" class="btn btn-default publicar">Eliminar</button>
+                    <button (click)='edit()' *ngIf="loginService.user.id == recipe.author.id || loginService.isAdmin" style="margin-left: 10px" type="submit" class="btn btn-default publicar">Editar</button>
+                    <button *ngIf="buttonFav" (click)='deleteFavourite()' style="margin-top: 10px" type="submit" class="btn btn-default publicar">Quitar de Favoritos</button>
+                    <button (click)='addFavourite()' *ngIf="(loginService.user.id != recipe.author.id && !buttonFav) || (loginService.isAdmin && !buttonFav)" style="margin-top: 10px" type="submit" class="btn btn-default publicar">Añadir a Favoritos</button>
+                </div>
             </div>
             <div class="col-md-9">
                 <h2>{{recipe.title}}</h2>

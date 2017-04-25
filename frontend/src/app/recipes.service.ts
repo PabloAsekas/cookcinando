@@ -37,7 +37,7 @@ export class RecipesService {
 
     deleteRecipe(recipe: Recipe) {
         return this.http.delete(BASE_URL + recipe.id)
-            .map(response => response.json())
+            .map(response => undefined)
             .catch(error => this.handleError(error));
     }
 
