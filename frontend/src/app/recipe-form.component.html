@@ -1,21 +1,5 @@
 <app-header></app-header>
-<script>
-    $(document).ready(function() {
-        $("#txtEditor").Editor();
-        var convert = function(convert){
-            return $("<span />", { html: convert }).text();
-        };
-        var contenido = '{{receta.preparation}}';
-        $('#txtEditor').Editor("setText", [convert(contenido)]);
-        $( "#form-receta" ).submit(function( event ) {
-            var contenido = $('#txtEditor').Editor("getText");
-            $('#txtEditor').val(contenido);
-        });
-    });
-    $(document).ready(function(){
-        $('[data-toggle="popover"]').popover();   
-    });
-</script>
+
 <div *ngIf="recipe">
     <div class="container-fluid">
         <div class="row">

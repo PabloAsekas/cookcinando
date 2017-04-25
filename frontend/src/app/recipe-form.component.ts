@@ -32,6 +32,10 @@ export class RecipeFormComponent implements OnInit {
             this.ingredientsString = this.ingredientsString + ingredient + ",";
         }
     }
+    
+    guardarReceta(){
+        this.recipesService.updateRecipe(this.recipe);
+    }
 
     ngOnInit() {
         //this.rellenar();
