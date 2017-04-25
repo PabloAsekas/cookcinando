@@ -1,38 +1,31 @@
 <app-header></app-header>
-<app-user-menu [myAccount]='myAccount' class="col-md-2"></app-user-menu>
-<div *ngIf="recipe">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
+<div class="container-fluid">
+    <div *ngIf="loginService.isLogged" class="row">
+        <app-user-menu [recipes]='Mrecipes' class="col-md-2"></app-user-menu>
+        <div *ngIf="recipe" class="col-md-8">
+            <div class="cabecera-subrayada">
+                <h1>Editar receta</h1>
             </div>
-            <div class="col-md-8">
-                <!-- {{#creator}} -->
-                <div class="cabecera-subrayada">
-                    <h1>Editar receta</h1>
-                </div>
-                <div class="inputs-receta">
-                    <form action="/privado/recetas/form-editar/{{recipe.id}}" method="POST" id="form-receta" enctype="multipart/form-data">
-                        <h3>Título</h3>
-                        <input type="text" name="titulo" class="form-control" [(ngModel)]="recipe.title">
-                        <h3>Descripción</h3>
-                        <input type="text" name="descripcion" class="form-control" [(ngModel)]="recipe.description">
-                        <h3>Imagen de Cabecera</h3>
-                        <input type="file" name="imagenCabecera">
-                        <h2>Cuerpo de la receta</h2>
-                        <div [froalaEditor] [(froalaModel)]="recipe.preparation"></div><!-- SE CAMBIA SOLO EL VALOR DE RECIPE.PREPARATION CUANDO MODIFICACMOS EL EDITOR DE TEXTO-->
-                        <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>
-                        <input class="form-control" name="ingredientes" type="text" [(ngModel)]="ingredientsString">
-                        <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>
-                        <input class="form-control" name="comidas"  type="text" [(ngModel)]="typesFoodString">
-                        <button (click)='guardarReceta()' class="btn btn-default publicar">Publicar</button>
-                    </form>
-                </div>
-                <!-- {{/creator}}
-                {{#deny}}
-                <p>No tienes permisos para editar esta receta.</p>
-                {{/deny}} -->
+            <div class="inputs-receta">
+                <h3>Título</h3>
+                <input type="text" name="titulo" class="form-control" [(ngModel)]="recipe.title">
+                <h3>Descripción</h3>
+                <input type="text" name="descripcion" class="form-control" [(ngModel)]="recipe.description">
+                <h3>Imagen de Cabecera</h3>
+                <input type="file" name="imagenCabecera">
+                <h2>Cuerpo de la receta</h2>
+                <div [froalaEditor] [(froalaModel)]="recipe.preparation"></div><!-- SE CAMBIA SOLO EL VALOR DE RECIPE.PREPARATION CUANDO MODIFICACMOS EL EDITOR DE TEXTO-->
+                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>
+                <input class="form-control" name="ingredientes" type="text" [(ngModel)]="ingredientsString">
+                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>
+                <input class="form-control" name="comidas"  type="text" [(ngModel)]="typesFoodString">
+                <button *ngIf="editar" (click)='editarReceta()' class="btn btn-default publicar">Guardar</button>
+                <button *ngIf="guardar" (click)='nuevaReceta()' class="btn btn-default publicar">Publicar</button>
             </div>
         </div>
+    </div>
+    <div *ngIf="!loginService.isLogged" class="row">
+        <h2>No tienes permisos para ver esta parte de la web</h2>
     </div>
 </div>
 <app-footer></app-footer>

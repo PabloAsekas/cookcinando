@@ -17,6 +17,7 @@ const appRoutes = [
     // Recetas
     { path: 'recetas', component: RecipesComponent },
     { path: 'recetas/:id', component: RecipeComponent },
+    { path: 'privado/recetas/nuevo', component: RecipeFormComponent },
     { path: 'privado/recetas/editar/:id', component: RecipeFormComponent },
     //Usuario
     { path: 'privado/mi-cuenta', component: UserMyAccountComponent },
