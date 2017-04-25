@@ -34,9 +34,21 @@ export class RecipeFormComponent implements OnInit {
     }
     
     guardarReceta(){
-        this.recipesService.updateRecipe(this.recipe);
+        this.recipe.title="putaaaaaa";
+        this.recipesService.updateRecipe(this.recipe).subscribe(
+            recipe =>{},
+            error => console.error('Error creating new book: ' + error)
+        );
     }
-
+   /* 
+    save() {
+    this.service.saveBook(this.book).subscribe(
+      book => { },
+      error => console.error('Error creating new book: ' + error)
+    );
+    window.history.back();
+  }
+*/
     ngOnInit() {
         //this.rellenar();
     }
