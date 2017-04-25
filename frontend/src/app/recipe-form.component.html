@@ -13,9 +13,9 @@
                 <div class="inputs-receta">
                     <form action="/privado/recetas/form-editar/{{recipe.id}}" method="POST" id="form-receta" enctype="multipart/form-data">
                         <h3>Título</h3>
-                        <input type="text" name="titulo" class="form-control" value="{{recipe.title}}">
+                        <input type="text" name="titulo" class="form-control" [(ngModel)]="recipe.title">
                         <h3>Descripción</h3>
-                        <input type="text" name="descripcion" class="form-control" value="{{recipe.description}}">
+                        <input type="text" name="descripcion" class="form-control" [(ngModel)]="recipe.description">
                         <h3>Imagen de Cabecera</h3>
                         <input type="file" name="imagenCabecera">
                         <h2>Cuerpo de la receta</h2>

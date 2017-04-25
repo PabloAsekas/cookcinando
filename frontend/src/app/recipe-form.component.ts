@@ -33,8 +33,23 @@ export class RecipeFormComponent implements OnInit {
         }
     }
     
+    leer(){
+        this.recipe.ingredients=[];
+        for (let ingredient of this.ingredientsString.split(",")) {
+            if(ingredient!=""){
+                this.recipe.ingredients.push(ingredient);
+            }
+        }
+        this.recipe.typesFood=[];
+        for (let typeFood of this.typesFoodString.split(",")) {
+            if(typeFood!=""){
+                this.recipe.typesFood.push(typeFood);
+            }
+        }
+    }
+    
     guardarReceta(){
-        this.recipe.title="putaaaaaa";
+        this.leer();
         this.recipesService.updateRecipe(this.recipe).subscribe(
             recipe =>{},
             error => console.error('Error creating new book: ' + error)
