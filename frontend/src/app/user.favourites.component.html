@@ -3,79 +3,67 @@
 <div class="container-fluid">
     <div *ngIf="loginService.isLogged" class="row">
         <app-user-menu [favourites]='favourites' class="col-md-2"></app-user-menu>
-        <div *ngIf="user" class="col-md-8">
-            <div *ngFor="let recipe of user.favRecipes">
-                <p>{{recipe.title}}</p>
-            </div>
-        </div>
-         <!--<div class="col-md-8">
+         <div *ngIf="user" class="col-md-8">
             <div class="cabecera-subrayada">
                 <h1>Favoritos</h1>
             </div>
-            <div>
-                <div class="container col-md-12 contenedor-variado">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#favrecetas">Recetas <span class="badge">{{recipes.size}}</span></a></li>
-                        <li><a data-toggle="tab" href="#favrestaurantes">Restaurantes <span class="badge">{{restaurants.size}}</span></a></li>
-                        <li><a data-toggle="tab" href="#faveventos">Eventos <span class="badge">{{events.size}}</span></a></li>
-                    </ul>
-                </div>
-                <div class="tab-content">
-                    <div id="favrecetas" class="tab-pane fade in active">
+            <ngb-tabset>
+                <ngb-tab title="Recetas">
+                    <template ngbTabContent>
+                        <h3>Recetas</h3>
                         <div class="container-fluid recetasFav">
-                            {{#recipes}}
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <a href="/recetas/{{id}}">
-                                            <img src="{{thumbnail}}" alt="{{title}}">
-                                            <div class="caption">
-                                                <h3>{{title}}</h3>
-                                                <p>{{description}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
+                            <div *ngFor="let recipe of user.favRecipes" class="col-md-4">
+                                <div class="thumbnail">
+                                    <a [routerLink]="['/recetas',recipe.id]">
+                                        <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
+                                        <div class="caption">
+                                            <h3>{{recipe.title}}</h3>
+                                            <p>{{recipe.description}}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            {{/recipes}} 
+                            </div>
                         </div>
-                    </div>
-                    <div id="favrestaurantes" class="tab-pane fade">
-                        <div class="container-fluid restaurantesFav">
-                            {{#restaurants}}
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <a href="/recetas/{{id}}">
-                                            <img src="{{thumbnail}}" alt="{{title}}">
-                                            <div class="caption">
-                                                <h3>{{title}}</h3>
-                                                <p>{{description}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
+                    </template>
+                </ngb-tab>
+                <ngb-tab title="Restaurantes">
+                    <template ngbTabContent>
+                        <h3>Restaurantes</h3>
+                        <!--<div class="container-fluid recetasFav">
+                            <div *ngFor="let restaurant of user.favRestaurants" class="col-md-4">
+                                <div class="thumbnail">
+                                    <a [routerLink]="['/restaurantes',restaurant.id]">
+                                        <img src="{{restaurant.thumbnail}}" alt="title">
+                                        <div class="caption">
+                                            <h3>{{restaurant.title}}</h3>
+                                            <p>{{restaurant.description}}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            {{/restaurants}} 
-
-                        </div>
-                    </div>
-                    <div id="faveventos" class="tab-pane fade">
-                        <div class="container-fluid restaurantesFav">
-                            {{#events}}
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <a href="/recetas/{{id}}">
-                                            <img src="{{thumbnail}}" alt="{{title}}">
-                                            <div class="caption">
-                                                <h3>{{title}}</h3>
-                                                <p>{{description}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
+                            </div>
+                        </div>-->
+                    </template>
+                </ngb-tab>
+                <ngb-tab title="Eventos">
+                    <template ngbTabContent>
+                        <h3>Eventos</h3>
+                        <!--<div class="container-fluid recetasFav">
+                            <div *ngFor="let evento of user.favEvents" class="col-md-4">
+                                <div class="thumbnail">
+                                    <a [routerLink]="['/eventos',evento.id]">
+                                        <img src="{{evento.thumbnail}}" alt="title">
+                                        <div class="caption">
+                                            <h3>{{evento.title}}</h3>
+                                            <p>{{evento.description}}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            {{/events}} 
-                        </div>
-                   </div>
-                </div>
-            </div>
-        </div>-->
+                            </div>
+                        </div>-->
+                    </template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
     </div>
     <div *ngIf="!loginService.isLogged" class="row">
         <h2>No tienes permisos para ver esta parte de la web</h2>

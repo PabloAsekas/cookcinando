@@ -10,8 +10,8 @@
             <a (click)="isCollapsedRecipes = !isCollapsedRecipes">Recetas <span class="caret"></span></a>
             <div [class.collapse]="isCollapsedRecipes">
                 <ul class="list-group">
-                  <li class="list-group-item"><a href="/privado/mis-recetas">Mis Recetas</a></li>
-                  <li class="list-group-item"><a href="/privado/recetas/crear">Añadir Receta</a></li>
+                  <li class="list-group-item"><a [routerLink]="['/privado/mis-recetas']">Mis Recetas</a></li>
+                  <li class="list-group-item"><a [routerLink]="['/privado/recetas/editar']">Añadir Receta</a></li>
                   <li *ngIf="loginService.isAdmin" class="list-group-item"><a href="/privado/todas-recetas">Todas las recetas</a></li>
                 </ul>
             </div>

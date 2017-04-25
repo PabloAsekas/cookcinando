@@ -2606,3 +2606,14 @@ org.eclipse.jface.text.BadLocationException: null
 2017-04-24 12:47:51,087 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
 2017-04-24 12:47:51,107 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-04-24 12:47:51,107 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-04-25 09:15:57,622 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-25 09:15:57,632 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-25 09:15:57,652 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
+2017-04-25 09:15:58,073 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-25 09:15:58,074 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-04-25 09:16:00,545 [Worker-5] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: es.urjc.code:practica_fase4:0.1.0 @ /Users/PabloAsekas/Downloads/practica_fase4_ng/pom.xml.
+2017-04-25 09:16:01,317 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-25 09:16:01,318 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-25 09:16:01,321 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 14 resources
+2017-04-25 09:16:01,333 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-25 09:16:01,333 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/Downloads/practica_fase4_ng/src/test/resources
