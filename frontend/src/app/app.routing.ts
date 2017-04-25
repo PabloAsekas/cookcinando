@@ -9,6 +9,7 @@ import { UserMyAccountComponent } from './user.myaccount.component';
 import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
 import { UserPreferencesComponent } from './user.preferences.component';
+import { UserAllRecipesComponent } from './user.allrecipes.component';
 
 
 const appRoutes = [
@@ -23,7 +24,8 @@ const appRoutes = [
     { path: 'privado/mi-cuenta', component: UserMyAccountComponent },
     { path: 'privado/favoritos', component: UserFavouritesComponent },
     { path: 'privado/mis-recetas', component: UserMyRecipesComponent },
-     { path: 'privado/ajustes', component: UserPreferencesComponent }
+    { path: 'privado/ajustes', component: UserPreferencesComponent },
+    { path: 'privado/todas-recetas', component: UserAllRecipesComponent }
     //{ path: '', redirectTo: 'index', pathMatch: 'full' }
 ]
 

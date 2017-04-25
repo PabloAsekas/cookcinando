@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div *ngIf="loginService.isLogged" class="row">
+        <app-user-menu [recipes]='recipesmenu' class="col-md-2"></app-user-menu>
+        <div *ngIf="loginService.isAdmin" class="col-md-8">
+            <div class="cabecera-subrayada">
+                <h1>Todas las Recetas</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div *ngFor="let recipe of recipes" class="col-md-4 todas-recetas">
+                        <a [routerLink]="['/recetas',recipe.id]">
+                            <div class="thumbnail">
+                                <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
+                                <div class="caption">
+                                    <h3>{{recipe.title}}</h3>
+                                    <p>{{recipe.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!loginService.isLogged" class="row">
+        <h2>No tienes permisos para ver esta parte de la web</h2>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -12,7 +12,7 @@
                 <ul class="list-group">
                   <li class="list-group-item"><a [routerLink]="['/privado/mis-recetas']">Mis Recetas</a></li>
                   <li class="list-group-item"><a [routerLink]="['/privado/recetas/nuevo']">Añadir Receta</a></li>
-                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a href="/privado/todas-recetas">Todas las recetas</a></li>
+                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a [routerLink]="['/privado/todas-recetas']">Todas las recetas</a></li>
                 </ul>
             </div>
         </li>

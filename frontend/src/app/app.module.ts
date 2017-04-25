@@ -26,6 +26,7 @@ import { UsersService } from './users.service';
 import { UserMyAccountComponent } from './user.myaccount.component';
 import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
+import { UserAllRecipesComponent } from './user.allrecipes.component';
 import { UserPreferencesComponent } from './user.preferences.component';
 
 // Hijos de UsersService
@@ -56,7 +57,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     UserFavouritesComponent,
     UserMenuComponent,
     UserMyRecipesComponent,
-    UserPreferencesComponent
+    UserPreferencesComponent,
+    UserAllRecipesComponent
   ],
   imports: [
     NgbModule.forRoot(),
