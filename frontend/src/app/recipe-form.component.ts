@@ -23,7 +23,7 @@ export class RecipeFormComponent implements OnInit {
     typesFoodString: String = "";
     ingredientsString: String = "";
     Mrecipes = true;
-    constructor (private loginService: LoginService, private usersService: UsersService, private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
+    constructor (private router: Router, private loginService: LoginService, private usersService: UsersService, private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
         let id = activatedRoute.snapshot.params['id'];
         if (id){
             this.editar=true;
@@ -71,15 +71,19 @@ export class RecipeFormComponent implements OnInit {
     nuevaReceta(){
         this.leer();
         this.recipesService.newRecipe(this.recipe).subscribe(
-            recipe =>{},
-            error => console.error('Error creating new book: ' + error)
+            recipe =>{
+                this.router.navigate(['/recetas/', recipe.id]);
+            },
+            error => console.error('Error creando una nueva receta: ' + error)
         );
     }
     editarReceta(){
         this.leer();
         this.recipesService.updateRecipe(this.recipe).subscribe(
-            recipe =>{},
-            error => console.error('Error creating new book: ' + error)
+            recipe =>{
+                this.router.navigate(['/recetas/', recipe.id]);
+            },
+            error => console.error('Error editando una receta: ' + error)
         );
        
     }

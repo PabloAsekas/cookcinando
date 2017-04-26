@@ -11,14 +11,16 @@ import { User, UserBasic, UserEnterprise, UserAdmin } from './user.model';
 
 export class LoginComponent {
 
-    constructor(private loginService: LoginService) { }
+    constructor(private loginService: LoginService, private router: Router) { }
 
     logIn(event: any, user: string, pass: string) {
 
         event.preventDefault();
 
         this.loginService.logIn(user, pass).subscribe(
-            u => console.log(u),
+            u => {console.log(u);
+                  this.router.navigate(['/privado/mi-cuenta']);
+                 },
             error => alert('Invalid user or password')
         );
     }

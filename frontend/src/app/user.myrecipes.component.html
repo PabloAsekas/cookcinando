@@ -10,15 +10,15 @@
             <div class="container-fluid">
                 <div class="row">
                     <div *ngFor="let recipe of user.myRecipes" class="col-md-4 todas-recetas">
-                        <a [routerLink]="['/recetas',recipe.id]">
-                            <div class="thumbnail">
+                        <div class="thumbnail">
+                            <a [routerLink]="['/recetas',recipe.id]">
                                 <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
                                 <div class="caption">
                                     <h3>{{recipe.title}}</h3>
                                     <p>{{recipe.description}}</p>
-                                </div>
-                            </div>
-                        </a>
+                                </div> 
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

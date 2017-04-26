@@ -6,8 +6,10 @@
         <li [class.active]="favourites">
             <a [routerLink]="['/privado/favoritos']">Favoritos <span class="glyphicon glyphicon-star-empty"></span></a>
         </li>
-        <li [class.active]="recipes">
-            <a (click)="isCollapsedRecipes = !isCollapsedRecipes">Recetas <span class="caret"></span></a>
+        
+        
+        <li [class.active]="recipes" style="cursor: pointer">
+            <a (click)="isCollapsedRecipes = !isCollapsedRecipes" data-toggle="collapse">Recetas <span class="caret"></span></a>
             <div [class.collapse]="isCollapsedRecipes">
                 <ul class="list-group">
                   <li class="list-group-item"><a [routerLink]="['/privado/mis-recetas']">Mis Recetas</a></li>
@@ -16,7 +18,7 @@
                 </ul>
             </div>
         </li>
-        <li *ngIf="loginService.isEnterprise" [class.active]="restaurants">
+        <li *ngIf="loginService.isEnterprise" [class.active]="restaurants" style="cursor: pointer">
             <a (click)="isCollapsedRestaurants = !isCollapsedRestaurants">Restaurantes <span class="caret"></span></a>
             <div [class.collapse]="isCollapsedRestaurants">
                 <ul class="list-group">         	
@@ -26,7 +28,7 @@
                 </ul>
             </div> 
         </li>
-        <li *ngIf="loginService.isEnterprise" [class.active]="events">
+        <li *ngIf="loginService.isEnterprise" [class.active]="events" style="cursor: pointer">
             <a (click)="isCollapsedEvents = !isCollapsedEvents">Eventos <span class="caret"></span></a>
             <div [class.collapse]="isCollapsedEvents">
                 <ul class="list-group">

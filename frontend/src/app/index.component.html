@@ -1,25 +1,25 @@
 <app-header></app-header>
 <div>
     <div>
-        <a href="/restaurantes/">
+         <a [routerLink]="['/restaurantes']">
             <div class="col-md-3" id="cab1"><p class="tituloGrande">Restaurantes</p></div>
         </a>
         <div class="col-md-4">
             <a [routerLink]="['/recetas']">
                 <div class="row" id="cab2"><p class="tituloGrande">Recetas</p></div>
             </a>    
-            <a href="/eventos/">
+             <a [routerLink]="['/eventos']">
                 <div class="row" id="cab3"><p class="tituloGrande">Eventos</p></div>
             </a>    
         </div>
-        <a href="/recetas/">
+        <a [routerLink]="['/recetas']">
             <div class="col-md-3" id="cab4"><p class="tituloGrande">Favoritos</p></div>
         </a>
         <div class="col-md-2">
-            <a href="/restaurantes/1">
+             <a [routerLink]="['/restaurantes/1']">
                 <div class="row" id="cab5"><p class="tituloGrande">Restaurante del mes</p></div>
             </a>
-            <a href="/recetas/1">
+            <a [routerLink]="['/recetas/1']">
                 <div class="row" id="cab6"><p class="tituloGrande">Plato del mes</p></div>
             </a>
         </div>
@@ -42,9 +42,9 @@
                 <div class="col-md-8 imagenGrande" id="imgFavGrande" ><p class="tituloGrande">CREMA DE GUISANTES</p></div>
             </a>    
             <div class="col-md-4">
-                <a [routerLink]="['/recetas', 5]">
+                <a [routerLink]="['/recetas', 3]">
                     <div class="row imagenPequenia" id="imgFav1">
-                        <p class="tituloPequenio">Hamburguesa Queso de Cabra y Nueces</p>
+                        <p class="tituloPequenio">Roscón de hojaldre</p>
                     </div>
                 </a> 
                 <a [routerLink]="['/recetas', 4]">
@@ -170,28 +170,28 @@
     <div class="tituloSeccion"><h1>RESTAURANTES DEL MES</h1></div>
     <div class="row">
         <div class="col-md-12 menu_imgs">
-            <a href="/restaurantes/3">
+             <a [routerLink]="['/restaurantes/3']">
                 <div class="col-md-8 imagenGrande" id="imgRestGrande">
                     <p class="tituloGrande">THE GOOD BURGUER</p>
                 </div>
             </a>
             <div class="col-md-4 imagenPequenya">
-                <a href="/restaurantes/2">
+                 <a [routerLink]="['/restaurantes/2']">
                     <div class="row imagenPequenia" id="imgRest1">
                         <p class="tituloPequenio">Foster Hollywood</p>
                     </div>
                 </a>    
-                <a href="/restaurantes/4">
+                 <a [routerLink]="['/restaurantes/1']">
                     <div class="row imagenPequenia" id="imgRest2">
                         <p class="tituloPequenio">Ribs</p>
                     </div>
                 </a>
-                <a href="/restaurantes/5">
+                 <a [routerLink]="['/restaurantes/5']">
                     <div class="row imagenPequenia" id="imgRest3">
                         <p class="tituloPequenio">La Tagliatella</p>
                     </div>
                 </a>    
-                <a href="/restaurantes/6">    
+                 <a [routerLink]="['/restaurantes/6']">   
                     <div class="row imagenPequenia" id="imgRest4">
                         <p class="tituloPequenio">Telepizza</p>
                     </div>
@@ -203,7 +203,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-8">
             <!--<button type="button" class="btn btn-default btn-lg btnMas">Más Restaurantes</button>-->
-            <a type="button" href="/restaurantes/" class="btn btn-default btn-lg btnMas">Más Restaurantes</a>
+            <a type="button" [routerLink]="['/restaurantes']" class="btn btn-default btn-lg btnMas">Más Restaurantes</a>
         </div>
     </div>
 </div>
@@ -221,7 +221,7 @@
         <div class="col-md-4">
             <h3 class="tipoEvento">TALLERES</h3>
             <div class="thumbnail">
-                <a href="/eventos/2"><img src="../assets/img/taller-cocteleria.jpg" alt="Taller cocteleria"></a>
+                <a [routerLink]="['/eventos/2']"><img src="../assets/img/taller-cocteleria.jpg" alt="Taller cocteleria"></a>
                 <div class="caption">
                     <h3>Taller de coctelería</h3>
                     <p>Perfecto para ser el rey o la reina de la fiesta.</p>
@@ -231,7 +231,7 @@
         <div class="col-md-4">
             <h3 class="tipoEvento">CURSOS</h3>
             <div class="thumbnail">
-                <a href="/eventos/3"><img src="../assets/img/curso-de-cortar-jamon.jpg" alt="Curso de cortar jamon"></a>
+                <a [routerLink]="['/eventos/3']"><img src="../assets/img/curso-de-cortar-jamon.jpg" alt="Curso de cortar jamon"></a>
                 <div class="caption">
                     <h3>Aprende a cortar jamón</h3>
                     <p>Incluye un jamón ibérico de 7/8 kg.</p>
@@ -241,7 +241,7 @@
         <div class="col-md-4">
             <h3 class="tipoEvento">CATAS</h3>
             <div class="thumbnail">
-                <a href="/eventos/4"><img src="../assets/img/cata-de-quesos.jpg" alt="Cata de quesos"></a>
+                <a [routerLink]="['/eventos/4']"><img src="../assets/img/cata-de-quesos.jpg" alt="Cata de quesos"></a>
                 <div class="caption">
                     <h3>Cata de quesos y maridaje</h3>
                     <p>Recorrido por diferentes quesos del mundo.</p>
@@ -253,7 +253,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-8">
             <!--<button type="button" class="btn btn-default btn-lg btnMas">Más Eventos</button>-->
-            <a type="button" href="/eventos/" class="btn btn-default btn-lg btnMas">Más Eventos</a>
+            <a type="button" [routerLink]="['/eventos']" class="btn btn-default btn-lg btnMas">Más Eventos</a>
         </div>
     </div>
 </div>
