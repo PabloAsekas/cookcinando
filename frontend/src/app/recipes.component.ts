@@ -43,27 +43,48 @@ export class RecipesComponent implements OnInit {
         );
     }
     
-    
     loadMoreRecipes(){
        this.actualPage += 1;
        this.recipesService.getRecipesPag('?page='+ this.actualPage +'&size=10').subscribe(
          recipes => {
-           if(this.recipes.length < this.nRecipes){
-             let moreRecipes = recipes;
-             this.sortInColumns(moreRecipes);
-             for(let recipe of moreRecipes){
-                 this.recipes.push(recipe);
-             }
+             let newRecipes = Recipes[];
+             if(this.recipes.length < this.nRecipes){
+                 let moreRecipes = recipes;
+                 this.sortInColumns(moreRecipes);
+                 for(let recipe of moreRecipes){
+                     this.recipes.push(recipe);
+                 }
 
-             if(this.recipes.length == this.nRecipes){
-               this.loadMore = false;
+                 if(this.recipes.length == this.nRecipes){
+                     this.loadMore = false;
+                 }
              }
-           }
          },
          error => console.log(error)
        );
 
-     }
+     }    
+
+//    loadMoreRecipes(){
+//       this.actualPage += 1;
+//       this.recipesService.getRecipesPag('?page='+ this.actualPage +'&size=10').subscribe(
+//         recipes => {
+//           if(this.recipes.length < this.nRecipes){
+//             let moreRecipes = recipes;
+//             this.sortInColumns(moreRecipes);
+//             for(let recipe of moreRecipes){
+//                 this.recipes.push(recipe);
+//             }
+//
+//             if(this.recipes.length == this.nRecipes){
+//               this.loadMore = false;
+//             }
+//           }
+//         },
+//         error => console.log(error)
+//       );
+//
+//     }
 
      sortInColumns(moreRecipes: Recipe[]){
 
