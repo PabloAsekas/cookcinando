@@ -30,7 +30,6 @@ export class RecipeComponent /*implements OnInit*/ {
             this.recipesService.getRecipe(params['id']).subscribe(
                 recipe => {this.recipe = recipe;
                            this.makeThumbnailSafe(this.recipe.thumbnail);
-                          //this.buttonFav = this.isFavourite();
                            },
                 error => console.error(error)
             );

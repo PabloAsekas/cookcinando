@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -28,9 +27,7 @@ import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
 import { UserAllRecipesComponent } from './user.allrecipes.component';
 import { UserPreferencesComponent } from './user.preferences.component';
-
-// Public Profile
-import { ProfileBasicPublicComponent } from './profile.basic.public.component';
+import { UserPublicProfileComponent } from './user.publicprofile.component';
 
 // Hijos de UsersService
 import { UserMenuComponent } from './user.menu.component';
@@ -62,7 +59,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     UserMyRecipesComponent,
     UserPreferencesComponent,
     UserAllRecipesComponent,
-    ProfileBasicPublicComponent
+    UserPublicProfileComponent
   ],
   imports: [
     NgbModule.forRoot(),

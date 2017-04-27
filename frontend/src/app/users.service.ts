@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 
 import { User, UserBasic, UserEnterprise, UserAdmin } from './user.model';
 
-const BASE_URL = 'http://127.0.0.1:4200/api/users/'; /*MIRAR GITHUB DE OTROS COMPAÑEROS*/
+const BASE_URL = 'http://127.0.0.1:4200/api/users/';
 
 @Injectable()
 export class UsersService {
@@ -37,7 +37,8 @@ export class UsersService {
           'X-Requested-With': 'XMLHttpRequest'
         });
         const options = new RequestOptions({ withCredentials: true, headers });*/
-        return this.http.put(BASE_URL + user.id, user)/*, body, options)*/
+        return this.http.put(BASE_URL + user.id, user)
+        //return this.http.put(BASE_URL + user.id, body, options)
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }

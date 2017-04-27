@@ -10,7 +10,7 @@ import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
 import { UserPreferencesComponent } from './user.preferences.component';
 import { UserAllRecipesComponent } from './user.allrecipes.component';
-import { ProfileBasicPublicComponent } from './profile.basic.public.component';
+import { UserPublicProfileComponent } from './user.publicprofile.component';
 
 
 const appRoutes = [
@@ -27,7 +27,7 @@ const appRoutes = [
     { path: 'privado/mis-recetas', component: UserMyRecipesComponent },
     { path: 'privado/ajustes', component: UserPreferencesComponent },
     { path: 'privado/todas-recetas', component: UserAllRecipesComponent },
-    { path: 'usuarios/:id', component: ProfileBasicPublicComponent }
+    { path: 'usuarios/:id', component: UserPublicProfileComponent }
     //{ path: '', redirectTo: 'index', pathMatch: 'full' }
 ]
 

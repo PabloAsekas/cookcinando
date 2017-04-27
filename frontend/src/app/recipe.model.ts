@@ -9,5 +9,4 @@ export interface Recipe {
     ingredients: string[];
     typesFood: string[];
     author: User;
-    
 }

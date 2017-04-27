@@ -11,7 +11,6 @@ import { RecipesService } from './recipes.service';
 @Component({
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`
-  // styleUrls: ['../styles/app.component.css']
 })
 
 export class AppComponent implements OnInit {
