@@ -66,6 +66,12 @@ export class RecipesService {
             .catch(error => this.handleError(error));
     }
 
+    getByTypeFood(food: string) {
+        return this.http.get(BASE_URL + 'by-typeFood/?typeFood=' + food)
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
+    }
+    
     private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text());

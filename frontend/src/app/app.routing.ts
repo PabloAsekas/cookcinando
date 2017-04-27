@@ -6,6 +6,7 @@ import { RecipesComponent } from './recipes.component';
 import { RecipeComponent } from './recipe.component';
 import { RecipeFormComponent } from './recipe-form.component';
 import { RecipesIngredientsComponent } from './recipes.ingredients.component';
+import { RecipesTypesFoodComponent } from './recipes.typesfood.component';
 import { UserMyAccountComponent } from './user.myaccount.component';
 import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
@@ -21,6 +22,7 @@ const appRoutes = [
     { path: 'recetas', component: RecipesComponent },
     { path: 'recetas/:id', component: RecipeComponent },
     { path: 'recetas/ingredientes/:food', component: RecipesIngredientsComponent},
+    { path: 'recetas/tipo-comida/:food', component: RecipesTypesFoodComponent},
     { path: 'privado/recetas/nuevo', component: RecipeFormComponent },
     { path: 'privado/recetas/editar/:id', component: RecipeFormComponent },
     //Usuario

@@ -26,9 +26,7 @@
                 <div class="tipo-comida">
                     <ul>
                         <li class="label label-default">Tipo de comida</li>
-                        <form action="/recetas/tipo-comida">
-                            <li *ngFor="let typeFood of recipe.typesFood" class="label label-info"><input class="tag" name="typeFood" type="submit" value="{{typeFood}}"></li>
-                       </form>
+                        <li *ngFor="let typeFood of recipe.typesFood" class="label label-info"><a class="tag" [routerLink]="['/recetas/tipo-comida', typeFood]">{{typeFood}}</a></li>
                     </ul>
                 </div>
                 <div> 
