@@ -39,15 +39,16 @@ export class RecipeComponent /*implements OnInit*/ {
                 error => console.error(error)
             );
             
-            this.usersService.getUser(this.loginService.user.id).subscribe(
-                user => {
-                    this.user = user;
-                    this.buttonFav = this.isFavourite();
-                    console.log(this.buttonFav);
-                },
-                error => console.error(error)
-            );
-            
+            if(this.loginService.isLogged) {
+                this.usersService.getUser(this.loginService.user.id).subscribe(
+                    user => {
+                        this.user = user;
+                        this.buttonFav = this.isFavourite();
+                        console.log(this.buttonFav);
+                    },
+                    error => console.error(error)
+                );
+            }
         });
     }
         
@@ -60,7 +61,6 @@ export class RecipeComponent /*implements OnInit*/ {
         for (let fav of this.user.favRecipes) {
             if(fav.id == this.recipe.id){
                 return true;
-                //console.log('true')
             }
         }
         return false;
@@ -110,13 +110,5 @@ export class RecipeComponent /*implements OnInit*/ {
     }
     
 /*  ngOnInit() {
-        this.recipesService.getRecipes().subscribe(
-            recipes => {
-                this.recipes = recipes.content;
-                console.log(this.recipes);
-            },
-            error => console.log(error)
-        );
     }*/
 }
-//<div class="thumbnail-receta" style=" background: url(assets/img/empanadas-burguer-con-queso.jpg) no-repeat 50% fixed;background-size: 100%;"></div>

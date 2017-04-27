@@ -2642,3 +2642,18 @@ org.eclipse.jface.text.BadLocationException: null
 2017-04-25 17:21:46,425 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 14 resources
 2017-04-25 17:21:46,447 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-04-25 17:21:46,448 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/Downloads/practica_fase4_ng/src/test/resources
+2017-04-26 10:28:30,264 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-26 10:28:30,280 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-26 10:28:30,305 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
+2017-04-26 10:28:30,324 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-26 10:28:30,324 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-04-26 10:28:32,576 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-26 10:28:32,577 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-26 10:28:32,580 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 14 resources
+2017-04-26 10:28:32,599 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-26 10:28:32,600 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/Downloads/practica_fase4_ng/src/test/resources
+2017-04-26 19:39:44,914 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-26 19:39:44,935 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-26 19:39:44,966 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
+2017-04-26 19:39:44,975 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-26 19:39:44,975 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources

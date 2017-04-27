@@ -68,7 +68,9 @@ export class LoginService {
 
         return this.http.get(URL + '/logOut', { withCredentials: true }).map(
             response => {
+                this.user = null;
                 this.isLogged = false;
+                this.isEnterprise = false;
                 this.isAdmin = false;
                 return response;
             }
