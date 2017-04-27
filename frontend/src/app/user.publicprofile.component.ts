@@ -24,28 +24,6 @@ export class UserPublicProfileComponent {
                 },
                 error => console.error(error)
             );
-            
-            /*this.recipesService.getRecipe(params['id']).subscribe(
-                recipe => {this.recipe = recipe;
-                           this.makeThumbnailSafe(this.recipe.thumbnail);
-                           },
-                error => console.error(error)
-            );
-            this.recipesService.getRecommended().subscribe(
-                recipes => this.recipes = recipes,
-                error => console.error(error)
-            );
-            
-            if(this.loginService.isLogged) {
-                this.usersService.getUser(this.loginService.user.id).subscribe(
-                    user => {
-                        this.user = user;
-                        this.buttonFav = this.isFavourite();
-                        console.log(this.buttonFav);
-                    },
-                    error => console.error(error)
-                );
-            }*/
         });
     }
 }

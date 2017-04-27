@@ -59,6 +59,12 @@ export class RecipesService {
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }
+    
+    getByIngredient(food: string) {
+        return this.http.get(BASE_URL + 'by-ingredient/?ingredient=' + food)
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
+    }
 
     private handleError(error: any) {
         console.error(error);

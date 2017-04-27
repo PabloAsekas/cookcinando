@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 <app-header></app-header>
 
 <div *ngIf="recipe">
@@ -28,9 +20,7 @@
                 <div class="ingredientes">
                     <ul>
                         <li class="label label-default">Ingredientes</li>
-                        <form action="/recetas/ingrediente">
-                            <li *ngFor="let ingredient of recipe.ingredients" class="label label-info"><input class="tag" name="ingredient" type="submit" value="{{ingredient}}"></li>
-                        </form>
+                        <li *ngFor="let ingredient of recipe.ingredients" class="label label-info"><a class="tag" [routerLink]="['/recetas/ingredientes', ingredient]">{{ingredient}}</a></li>
                     </ul>
                 </div>
                 <div class="tipo-comida">

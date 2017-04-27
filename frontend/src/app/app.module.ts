@@ -35,9 +35,10 @@ import { UserMenuComponent } from './user.menu.component';
 
 // Recipes
 import { RecipesService } from './recipes.service';
-import { RecipesComponent } from './recipes.component'; // TODAS LAS RECETAS
-import { RecipeComponent } from './recipe.component';   // UNA RECETA
-import { RecipeFormComponent } from './recipe-form.component';   // FORM DE UNA 
+import { RecipesComponent } from './recipes.component';
+import { RecipeComponent } from './recipe.component';
+import { RecipeFormComponent } from './recipe-form.component';
+import { RecipesIngredientsComponent } from './recipes.ingredients.component';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 //RECETA
@@ -59,7 +60,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     UserMyRecipesComponent,
     UserPreferencesComponent,
     UserAllRecipesComponent,
-    UserPublicProfileComponent
+    UserPublicProfileComponent,
+    RecipesIngredientsComponent
   ],
   imports: [
     NgbModule.forRoot(),

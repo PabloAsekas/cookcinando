@@ -5,6 +5,7 @@ import { LoginComponent } from './login.component';
 import { RecipesComponent } from './recipes.component';
 import { RecipeComponent } from './recipe.component';
 import { RecipeFormComponent } from './recipe-form.component';
+import { RecipesIngredientsComponent } from './recipes.ingredients.component';
 import { UserMyAccountComponent } from './user.myaccount.component';
 import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
@@ -19,6 +20,7 @@ const appRoutes = [
     // Recetas
     { path: 'recetas', component: RecipesComponent },
     { path: 'recetas/:id', component: RecipeComponent },
+    { path: 'recetas/ingredientes/:food', component: RecipesIngredientsComponent},
     { path: 'privado/recetas/nuevo', component: RecipeFormComponent },
     { path: 'privado/recetas/editar/:id', component: RecipeFormComponent },
     //Usuario
