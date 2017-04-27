@@ -16,6 +16,19 @@ export class RecipesService {
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }
+    
+    
+    getRecipesPag(page?: String) {
+        return this.http.get(BASE_URL + page).map(
+            response => response.json().content
+        ).catch(error => this.handleError(error));
+    }
+    
+    getAmountRecipes(){
+        return this.http.get(BASE_URL + '').map(
+            response => response.json().totalElements
+        ).catch(error => Observable.throw('Error: resource not found'));
+    }
 
     getRecipe(id: number | string) {
         return this.http.get(BASE_URL + id)

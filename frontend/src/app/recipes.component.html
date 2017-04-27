@@ -1,3 +1,76 @@
+<!--Comics Grid-->
+    <div class="row comic-grid">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <div *ngFor="let recipe of recEvenEven" class="card">
+              <div class="thumbnail">
+                <a [routerLink]="['/recetas',recipe.id]">
+                    <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}" id="imagen">
+                    <div class="caption">
+                        <h3>{{recipe.title}}</h3>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div *ngFor="let recipe of recEvenOdd" class="card">
+              <div class="thumbnail">
+                <a [routerLink]="['/recetas',recipe.id]">
+                    <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}" id="imagen">
+                    <div class="caption">
+                        <h3>{{recipe.title}}</h3>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div *ngFor="let recipe of recOddEven" class="card">
+              <div class="thumbnail">
+                <a [routerLink]="['/recetas',recipe.id]">
+                    <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}" id="imagen">
+                    <div class="caption">
+                        <h3>{{recipe.title}}</h3>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div *ngFor="let recipe of recOddOdd" class="card">
+              <div class="thumbnail">
+                <a [routerLink]="['/recetas',recipe.id]">
+                    <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}" id="imagen">
+                    <div class="caption">
+                        <h3>{{recipe.title}}</h3>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+    <!-- Comic load -->
+    <div class="row" *ngIf="loadMore">
+    	<div class="col-md-4"></div>
+    	<div class="col-md-4">
+    		<button id="moreRecipes" (click)="loadMoreRecipes()">Más comics</button>
+    	</div>
+    	<div class="col-md-4"></div>
+    </div>
+<!--/Comics Grid-->
+
+
+
 <app-header></app-header>
 <div id="recipes">
     <div class="listItems">
