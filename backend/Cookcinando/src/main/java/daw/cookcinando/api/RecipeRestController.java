@@ -42,11 +42,11 @@ public class RecipeRestController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Page<Recipe> getRecipes(@RequestParam (required=false) String page) {
 		if(page == null){
-			return recipeservice.findAll(new PageRequest(0, 10));
+			return recipeservice.findAll(new PageRequest(0, 9));
 		}
 		else {
 			int numPage =  Integer.parseInt(page); 
-			return recipeservice.findAll(new PageRequest(numPage, 10));
+			return recipeservice.findAll(new PageRequest(numPage, 9));
 		}
 	}
 

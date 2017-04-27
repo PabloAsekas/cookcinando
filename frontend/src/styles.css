@@ -871,3 +871,11 @@ hr{
 .label-info {
     margin-right: 5px;
 }
+
+.btn-disabled {
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+}
