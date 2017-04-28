@@ -38,6 +38,7 @@ import { RecipesService } from './recipes.service';
 import { RecipesComponent } from './recipes.component';
 import { RecipeComponent } from './recipe.component';
 import { RecipeFormComponent } from './recipe-form.component';
+import { RecipesSearchComponent } from './recipes.search.component';
 import { RecipesIngredientsComponent } from './recipes.ingredients.component';
 import { RecipesTypesFoodComponent } from './recipes.typesfood.component';
 
@@ -62,6 +63,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     UserPreferencesComponent,
     UserAllRecipesComponent,
     UserPublicProfileComponent,
+    RecipesSearchComponent,
     RecipesIngredientsComponent,
     RecipesTypesFoodComponent
   ],

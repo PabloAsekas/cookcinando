@@ -7,20 +7,20 @@ import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
 
 @Component({
-  templateUrl: './recipes.ingredients.component.html'
+  templateUrl: './recipes.search.component.html'
 })
 
-export class RecipesIngredientsComponent {
+export class RecipesSearchComponent {
 
     recipes: Recipe[];
-    food: string;
+    search: string;
     
     constructor (private router: Router, activatedRoute: ActivatedRoute, private recipesService: RecipesService) {
-        let ingredients = activatedRoute.params.subscribe(
+        let search = activatedRoute.params.subscribe(
             params => {
-                this.recipesService.getByIngredient(params['food']).subscribe(
+                this.recipesService.getByTitle(params['search']).subscribe(
                     recipes => {
-                        this.food = params['food'];
+                        this.search = params['search'];
                         this.recipes = recipes;
                     },
                     error => console.error(error)

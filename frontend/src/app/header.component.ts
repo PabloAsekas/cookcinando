@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from './login.service';
+import { RecipesService } from './recipes.service';
 
 @Component({
     selector: 'app-header',
@@ -9,7 +10,11 @@ import { LoginService } from './login.service';
 
 export class HeaderComponent { 
 
-    constructor(private loginService: LoginService, private router: Router) { }
+    searchBox: String;
+    ingredients: false;
+    typefood: false;
+    
+    constructor(private loginService: LoginService, private router: Router, private recipesService: RecipesService) { }
 
     logOut() {
         this.loginService.logOut().subscribe(
@@ -18,5 +23,15 @@ export class HeaderComponent {
             },
             error => console.log('Error when trying to log out: ' + error)
         );
+    }
+    
+    search() {
+        if (this.ingredients) {
+            this.router.navigate(['/recetas/ingredientes', this.searchBox]);
+        } else if (this.typefood) {
+            this.router.navigate(['/recetas/tipo-comida', this.searchBox]);
+        } else {
+            this.router.navigate(['/recetas/buscador', this.searchBox]);
+        }
     }
 }

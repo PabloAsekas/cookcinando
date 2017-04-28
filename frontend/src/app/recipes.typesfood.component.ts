@@ -16,13 +16,16 @@ export class RecipesTypesFoodComponent {
     food: string;
     
     constructor (private router: Router, activatedRoute: ActivatedRoute, private recipesService: RecipesService) {
-        this.food = activatedRoute.snapshot.params['food'];
-        this.recipesService.getByTypeFood(this.food).subscribe(
-            recipes => {
-                this.recipes = recipes;
-                console.log(this.recipes);
-            },
-            error => console.error(error)
+        let typeFood = activatedRoute.params.subscribe(
+            params => {
+                this.recipesService.getByTypeFood(params['food']).subscribe(
+                    recipes => {
+                        this.food = params['food'];
+                        this.recipes = recipes;
+                    },
+                    error => console.error(error)
+                );
+            }
         );
     }
 }
