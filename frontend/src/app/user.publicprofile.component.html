@@ -1,150 +1,136 @@
 <app-header></app-header>
-    <div *ngIf="user" class="container-fluid">
-        <div class="row">
-            <div class="col-md-5 perfil-publico">
-                <img class="avatar" src="{{user.image}}" width="200px" height="200px"/>
-                <h3>{{user.name}} {{user.surname}}</h3>
-                <h5>@{{user.nick}}</h5>
-                <p>{{user.description}}</p>
-            </div>
-        </div>
-        <div class="redes-sociales-botones">
-            <a href="https://www.facebook.com/sharer.php?u="><img src="assets/img/facebook.png" width="30px" height="auto" /></a>
-             <a href="http://twitter.com/share"><img src="assets/img/twitter.png" width="30px" height="auto" style="margin-left:10px"/></a>
-        </div>
-        <div class="container">
-            <div *ngIf="user.myRecipes">
-                <div class="row">
-                    <div>
-                        <div class="page-header">
-                            <h1 style="text-align:center">Recetas de {{user.name}}</h1>
-                        </div>
-                        <div style="margin-top: 30px">
-                            <div *ngFor="let recipe of user.myRecipes" class="col-md-4">
-                                <a [routerLink]="['/recetas',recipe.id]">
-                                    <div class="thumbnail">
-                                        <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
-                                        <div class="caption">
-                                            <h3>{{recipe.title}}</h3>
-                                            <p>{{recipe.description}}</p>
-                                        </div>
-                                     </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="user.favRecipes">
-                <div class="row">
-                    <div>
-                        <div class="page-header">
-                            <h1 style="text-align:center">Recetas favoritas de {{user.name}}</h1>
-                        </div>
-                        <div style="margin-top: 30px">
-                            <div *ngFor="let recipe of user.favRecipes" class="col-md-4">
-                                <a [routerLink]="['/recetas', recipe.id]">
-                                    <div class="thumbnail">
-                                        <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
-                                        <div class="caption">
-                                            <h3>{{recipe.title}}</h3>
-                                            <p>{{recipe.description}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="user.myRestaurants">
-                <div class="row">
-                    <div>
-                        <div class="page-header">
-                            <h1 style="text-align:center">Restaurantes de {{user.name}}</h1>
-                        </div>
-                        <div style="margin-top: 30px">
-                            <div *ngFor="let restaurant of user.myRestaurants" class="col-md-4">
-                                <a [routerLink]="['/restaurantes', restaurant.id]">
-                                    <div class="thumbnail">
-                                        <img src="{{restaurants.thumbnail}}" alt="{{restaurants.title}}">
-                                        <div class="caption">
-                                            <h3>{{restaurants.title}}</h3>
-                                            <p>{{restaurants.description}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="user.favRestaurants">
-                <div class="row">
-                    <div>
-                        <div class="page-header">
-                            <h1 style="text-align:center">Restaurantes favoritos de {{user.name}}</h1>
-                        </div>
-                        <div style="margin-top: 30px">
-                            <div *ngFor="let restaurant of user.favRestaurants" class="col-md-4">
-                                <a [routerLink]="['/restaurantes', restaurant.id]">
-                                    <div class="thumbnail">
-                                        <img src="{{restaurants.thumbnail}}" alt="{{restaurants.title}}">
-                                        <div class="caption">
-                                            <h3>{{restaurants.title}}</h3>
-                                            <p>{{restaurants.description}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="user.myEvents">
-                <div class="row">
-                    <div>
-                        <div class="page-header">
-                            <h1 style="text-align:center">Eventos de {{user.name}}</h1>
-                        </div>
-                        <div style="margin-top: 30px">
-                            <div *ngFor="let e of user.myEvents" class="col-md-4">
-                                <a [routerLink]="['/eventos', e.id]">
-                                    <div class="thumbnail">
-                                        <img src="{{e.thumbnail}}" alt="{{e.title}}">
-                                        <div class="caption">
-                                            <h3>{{e.title}}</h3>
-                                            <p>{{e.description}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="user.favEvents">
-                <div class="row">
-                    <div>
-                        <div class="page-header">
-                            <h1 style="text-align:center">Eventos favoritos de {{user.name}}</h1>
-                        </div>
-                        <div style="margin-top: 30px">
-                            <div *ngFor="let e of user.favEvents" class="col-md-4">
-                                <a [routerLink]="['/eventos', e.id]">
-                                    <div class="thumbnail">
-                                        <img src="{{e.thumbnail}}" alt="{{e.title}}">
-                                        <div class="caption">
-                                            <h3>{{e.title}}</h3>
-                                            <p>{{e.description}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div *ngIf="user" class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 perfil-publico">
+            <img class="avatar" src="{{user.image}}" width="200px" height="200px"/>
+            <h3>{{user.name}} {{user.surname}}</h3>
+            <h5>@{{user.nick}}</h5>
+            <p>{{user.description}}</p>
         </div>
     </div>
+    <div class="redes-sociales-botones">
+        <a href="https://www.facebook.com/sharer.php?u="><img src="assets/img/facebook.png" width="30px" height="auto" /></a>
+            <a href="http://twitter.com/share"><img src="assets/img/twitter.png" width="30px" height="auto" style="margin-left:10px"/></a>
+    </div>
+    <div class="row">
+        <div class="container">
+            <ngb-tabset>
+                <ngb-tab title="Recetas propias">
+                    <template ngbTabContent>
+                        <h1>Recetas de @{{user.nick}}</h1>
+                        <div *ngIf="user.myRecipes.length === 0">
+                            <p>Este usuario aun no ha añadidio niguna receta</p>
+                        </div>
+                        <div *ngFor="let recipe of user.myRecipes" class="col-md-4 todas-recetas">
+                            <div class="thumbnail">
+                                <a [routerLink]="['/recetas',recipe.id]">
+                                    <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
+                                    <div class="caption">
+                                        <h3>{{recipe.title}}</h3>
+                                        <p>{{recipe.description}}</p>
+                                    </div> 
+                                </a>
+                            </div>
+                        </div>    
+                    </template>
+                </ngb-tab>
+                <ngb-tab title="Recetas favoritas">
+                    <template ngbTabContent>
+                        <h1>Recetas favoritas de @{{user.nick}}</h1>
+                        <div *ngIf="user.favRecipes.length === 0">
+                            <p>Este usuario aun no ha añadidio niguna receta a favoritos</p>
+                        </div>
+                        <div *ngFor="let recipe of user.favRecipes" class="col-md-4 todas-recetas">
+                            <div class="thumbnail">
+                                <a [routerLink]="['/recetas',recipe.id]">
+                                    <img src="{{recipe.thumbnail}}" alt="{{recipe.title}}">
+                                    <div class="caption">
+                                        <h3>{{recipe.title}}</h3>
+                                        <p>{{recipe.description}}</p>
+                                    </div> 
+                                </a>
+                            </div>
+                        </div> 
+                    </template>
+                </ngb-tab>
+                <ngb-tab *ngIf="user.roles.length >= 2" title="Restaurantes propios">
+                    <template ngbTabContent>
+                        <h1>Restaurantes propios de @{{user.nick}}</h1>
+                        <div *ngIf="user.myRestaurants.length === 0">
+                            <p>Este usuario aun no ha añadidio nigun restaurante</p>
+                        </div>
+                        <div *ngFor="let restaurant of user.myRestaurants" class="col-md-4 todas-recetas">
+                            <div class="thumbnail">
+                                <a [routerLink]="['/restaurantes',restaurant.id]">
+                                    <img src="{{restaurant.thumbnail}}" alt="{{restaurant.title}}">
+                                    <div class="caption">
+                                        <h3>{{restaurant.title}}</h3>
+                                        <p>{{restaurant.description}}</p>
+                                    </div> 
+                                </a>
+                            </div>
+                        </div> 
+                    </template>
+                </ngb-tab>
+                <ngb-tab title="Restaurantes favoritos">
+                    <template ngbTabContent>
+                        <h1>Restaurantes favoritos de @{{user.nick}}</h1>
+                        <div *ngIf="user.favRestaurants.length === 0">
+                            <p>Este usuario aun no ha añadidio nigun restaurante a favoritos</p>
+                        </div>
+                        <div *ngFor="let restaurant of user.favRestaurants" class="col-md-4 todas-recetas">
+                            <div class="thumbnail">
+                                <a [routerLink]="['/restaurantes',restaurant.id]">
+                                    <img src="{{restaurant.thumbnail}}" alt="{{restaurant.title}}">
+                                    <div class="caption">
+                                        <h3>{{restaurant.title}}</h3>
+                                        <p>{{restaurant.description}}</p>
+                                    </div> 
+                                </a>
+                            </div>
+                        </div> 
+                    </template>
+                </ngb-tab>
+                <ngb-tab *ngIf="user.roles.length >= 2" title="Eventos propios">
+                    <template ngbTabContent>
+                        <h1>Eventos propios de @{{user.nick}}</h1>
+                        <div *ngIf="user.myEvents.length === 0">
+                            <p>Este usuario aun no ha añadidio nigun evento</p>
+                        </div>
+                        <div *ngFor="let evento of user.myEvents" class="col-md-4 todas-recetas">
+                            <div class="thumbnail">
+                                <a [routerLink]="['/eventos',evento.id]">
+                                    <img src="{{evento.thumbnail}}" alt="{{evento.title}}">
+                                    <div class="caption">
+                                        <h3>{{evento.title}}</h3>
+                                        <p>{{evento.description}}</p>
+                                    </div> 
+                                </a>
+                            </div>
+                        </div> 
+                    </template>
+                </ngb-tab>
+                <ngb-tab title="Eventos favoritos">
+                    <template ngbTabContent>
+                        <h1>Eventos favoritos de @{{user.nick}}</h1>
+                        <div *ngIf="user.favEvents.length === 0">
+                            <p>Este usuario aun no ha añadidio nigun evento a favoritos</p>
+                        </div>
+                        <div *ngFor="let evento of user.favEvents" class="col-md-4 todas-recetas">
+                            <div class="thumbnail">
+                                <a [routerLink]="['/eventos',evento.id]">
+                                    <img src="{{evento.thumbnail}}" alt="{{evento.title}}">
+                                    <div class="caption">
+                                        <h3>{{evento.title}}</h3>
+                                        <p>{{evento.description}}</p>
+                                    </div> 
+                                </a>
+                            </div>
+                        </div> 
+                    </template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+</div>
 <app-footer></app-footer>
