@@ -26,6 +26,8 @@ import { UserMyAccountComponent } from './user.myaccount.component';
 import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
 import { UserAllRecipesComponent } from './user.allrecipes.component';
+import { UserMyRestaurantsComponent } from './user.myRestaurants.component';
+import { UserAllRestaurantsComponent } from './user.allRestaurants.component';
 import { UserPreferencesComponent } from './user.preferences.component';
 import { UserPublicProfileComponent } from './user.publicprofile.component';
 
@@ -42,9 +44,14 @@ import { RecipesSearchComponent } from './recipes.search.component';
 import { RecipesIngredientsComponent } from './recipes.ingredients.component';
 import { RecipesTypesFoodComponent } from './recipes.typesfood.component';
 
+// Restaurants
+import { RestaurantsService } from './restaurants.service';
+import { RestaurantsComponent } from './restaurants.component';
+import { RestaurantComponent } from './restaurant.component';
+import { RestaurantFormComponent } from './restaurant-form.component';
+
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 //RECETA
-
 
 @NgModule({
   declarations: [
@@ -53,19 +60,27 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RecipesComponent,
-    RecipeComponent,
-    RecipeFormComponent,
+    // User
     UserMyAccountComponent,
     UserFavouritesComponent,
     UserMenuComponent,
     UserMyRecipesComponent,
+    UserMyRestaurantsComponent,
     UserPreferencesComponent,
     UserAllRecipesComponent,
+    UserAllRestaurantsComponent,
     UserPublicProfileComponent,
+    // Recipes
+    RecipesComponent,
+    RecipeComponent,
+    RecipeFormComponent,
     RecipesSearchComponent,
     RecipesIngredientsComponent,
-    RecipesTypesFoodComponent
+    RecipesTypesFoodComponent,
+    // Restaurants
+    RestaurantsComponent,
+    RestaurantComponent,
+    RestaurantFormComponent,
   ],
   imports: [
     NgbModule.forRoot(),
@@ -78,7 +93,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot()
   ],
-  providers: [UsersService, RecipesService, LoginService],
+  providers: [UsersService, LoginService, RecipesService, RestaurantsService],
   bootstrap: [AppComponent]
 })
 

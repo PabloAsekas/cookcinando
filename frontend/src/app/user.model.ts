@@ -1,4 +1,5 @@
 import { Recipe } from './recipe.model';
+import { Restaurant } from './restaurant.model';
 
 export interface User {
     id?: number;
@@ -12,7 +13,7 @@ export interface User {
     roles: string[];
     myRecipes: Recipe[];
     favRecipes: Recipe[];
-    // favRestaurants: Restaurant[];
+    favRestaurants: Restaurant[];
     // favEvents: Evento[];
 }
 
@@ -22,13 +23,13 @@ export interface UserBasic extends User {
 
 export interface UserEnterprise extends User {
     id?: number;
-    // myRestaurants: Restaurant[];
+    myRestaurants: Restaurant[];
     // myEvents: Evento[];
 }
 
 export interface UserAdmin extends User {
     id?: number;
-    // myRestaurants: Restaurant[];
+    myRestaurants: Restaurant[];
     // myEvents: Evento[];
     users: User[];
 }

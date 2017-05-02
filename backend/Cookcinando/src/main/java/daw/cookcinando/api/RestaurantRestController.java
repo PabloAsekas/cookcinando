@@ -40,11 +40,11 @@ public class RestaurantRestController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Page<Restaurant> getRestaurants(@RequestParam (required=false) String page) {
 		if(page == null){
-			return restaurantservice.findAll(new PageRequest(0, 10));
+			return restaurantservice.findAll(new PageRequest(0, 9));
 		}
 		else {
 			int numPage =  Integer.parseInt(page); 
-			return restaurantservice.findAll(new PageRequest(numPage, 10));
+			return restaurantservice.findAll(new PageRequest(numPage, 9));
 		}
 	}
 	
