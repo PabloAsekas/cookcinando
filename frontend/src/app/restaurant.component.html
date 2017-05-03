@@ -2,7 +2,7 @@
 
 <div *ngIf="restaurant">
     <div [innerHtml]="thumbnailSafe"></div>
-    <div class="container-fluid seccInter">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 info-usuario">
                 <img class="avatar" src="{{restaurant.author.image}}" width="200px" height="200px"/>
@@ -13,8 +13,8 @@
                 <p>{{restaurant.author.description}}</p>
                 <div *ngIf="loginService.isLogged">
                     <button *ngIf="loginService.user.id === restaurant.author.id || loginService.isAdmin" type="submit" class="btn btn-default publicar"(click)="delete()">Eliminar</button>
-                    <button *ngIf="loginService.user.id === restaurant.author.id || loginService.isAdmin" type="submit" class="btn btn-default publicar" (click)="edit()">Editar</button>
-                    <button *ngIf="isRestaurantFav" type="submit" class="btn btn-default publicar">Quitar de favoritos</button>
+                    <button *ngIf="loginService.user.id === restaurant.author.id || loginService.isAdmin" style="margin-left: 10px" type="submit" class="btn btn-default publicar" (click)="edit()">Editar</button>
+                    <button *ngIf="isRestaurantFav" style="margin-top: 10px" type="submit" class="btn btn-default publicar" (click)="deleteRestaurantFavourite()">Quitar de favoritos</button>
                     <button *ngIf="loginService.user.id !== restaurant.author.id && !isRestaurantFav" style="margin-top: 10px" type="submit" class="btn btn-default publicar" (click)='addRestaurantFavourite()'>Añadir a favoritos</button>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     <a href="https://www.facebook.com/sharer.php?u="><img src="assets/img/facebook.png" width="30px" height="auto" /></a>
                     <a href="http://twitter.com/share"><img src="assets/img/twitter.png" width="30px" height="auto" style="margin-left:10px"/></a>
                 </div>
-                <div class="contenido-restaurante" [innerHtml]="restaurant.body"></div>
+                <div class="contenido" [innerHtml]="restaurant.body"></div>
             </div>
         </div>
     </div> 

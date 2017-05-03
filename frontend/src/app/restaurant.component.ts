@@ -88,13 +88,30 @@ export class RestaurantComponent {
     }
 
     deleteRestaurantFavourite() {
-
+        /*
         const position = this.user.favRestaurants.indexOf(this.restaurant);
         this.user.favRestaurants.splice(position, 1);
 
         this.usersService.updateUser(this.user).subscribe(
             user => this.user = user,
             error => console.log('Error al eliminar el restaurante de favoritos: ' + error)
+        );*/
+        
+        var position = -1;
+        for (let fav of this.user.favRestaurants) {
+            if(fav.id == this.restaurant.id){
+                position = this.user.favRestaurants.indexOf(fav);
+            }
+        }
+        console.log(this.user.favRestaurants[position]);
+        if (position > -1) {
+           this.user.favRestaurants.splice(position, 1);
+        }
+        this.usersService.updateUser(this.user).subscribe (
+            user => {
+                this.isRestaurantFav = false;
+            },
+            error => console.error('Error al actualizar al eliminar una receta de favoritos: ' + error)
         );
      }
 

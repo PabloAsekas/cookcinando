@@ -86,7 +86,7 @@ export class RestaurantsService {
     // DELETE para borrar un restaurante
     deleteRestaurant(restaurant: Restaurant) {
 
-        return this.http.delete(BASE_URL + restaurant.id, { withCredentials: true })
+        return this.http.delete(BASE_URL + restaurant.id)
             .map(response => undefined)
             .catch(error => this.handleError(error));
     }
