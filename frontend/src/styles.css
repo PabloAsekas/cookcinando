@@ -558,25 +558,24 @@ hr{
     font-size: 240%
 }*/
 
-.seccInter{
+/*.seccInter{
     padding-left: 15%;
     padding-right: 10%;
+}*/
 
-}
-
-.seccInter h3{
+/*.seccInter h3{
     text-align: center;
     padding-bottom: 2%;
     
-}
+}*/
 .seccInter ul{
     list-style: none;
 }
 
-.seccInter .resources{
+/*.seccInter .resources{
     padding-left: 2%;
     padding-right: 2%;
-}
+}*/
 
 .footer{
     background-color: #282828;

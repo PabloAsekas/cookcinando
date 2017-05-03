@@ -10,6 +10,7 @@ import { UserMyRestaurantsComponent } from './user.myRestaurants.component';
 import { UserPreferencesComponent } from './user.preferences.component';
 import { UserAllRecipesComponent } from './user.allrecipes.component';
 import { UserAllRestaurantsComponent } from './user.allRestaurants.component';
+import { UserAllUsersComponent } from './user.allUsers.component';
 import { UserPublicProfileComponent } from './user.publicprofile.component';
 // Recipes
 import { RecipesComponent } from './recipes.component';
@@ -34,6 +35,7 @@ const appRoutes = [
     { path: 'privado/ajustes', component: UserPreferencesComponent },
     { path: 'privado/todas-recetas', component: UserAllRecipesComponent },
     { path: 'privado/todos-restaurantes', component: UserAllRestaurantsComponent },
+    { path: 'privado/todos-usuarios', component: UserAllUsersComponent },
     { path: 'usuarios/:id', component: UserPublicProfileComponent },
     // Recetas
     { path: 'recetas', component: RecipesComponent },

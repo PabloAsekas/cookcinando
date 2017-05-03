@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div *ngIf="loginService.isLogged" class="row">
+        <app-user-menu [users]='true' class="col-md-2"></app-user-menu>
+        <div *ngIf="loginService.isAdmin" class="col-md-8">
+            <div class="cabecera-subrayada">
+                <h1>Usuarios</h1>
+            </div>
+
+            <ngb-tabset>
+                <ngb-tab title="Usuarios basicos ({{usersBasic.length}})">
+                    <template ngbTabContent>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let user of usersBasic">
+                                <tr>
+                                    <td>{{user.name}} {{user.surname}}</td>
+                                    <td><a [routerLink]="['/usuarios',user.id]">{{user.nick}}</a></td>
+                                    <td>{{user.email}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </template>
+                </ngb-tab>
+                <ngb-tab title="Usuarios empresa ({{usersEnterprise.length}})">
+                    <template ngbTabContent>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let user of usersEnterprise">
+                                <tr>
+                                    <td>{{user.name}} {{user.surname}}</td>
+                                    <td><a [routerLink]="['/usuarios',user.id]">{{user.nick}}</a></td>
+                                    <td>{{user.email}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </template>
+                </ngb-tab>
+            </ngb-tabset>
+
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

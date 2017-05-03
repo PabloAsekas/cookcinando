@@ -28,6 +28,7 @@ import { UserMyRecipesComponent } from './user.myrecipes.component';
 import { UserAllRecipesComponent } from './user.allrecipes.component';
 import { UserMyRestaurantsComponent } from './user.myRestaurants.component';
 import { UserAllRestaurantsComponent } from './user.allRestaurants.component';
+import { UserAllUsersComponent } from './user.allUsers.component';
 import { UserPreferencesComponent } from './user.preferences.component';
 import { UserPublicProfileComponent } from './user.publicprofile.component';
 
@@ -69,6 +70,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     UserPreferencesComponent,
     UserAllRecipesComponent,
     UserAllRestaurantsComponent,
+    UserAllUsersComponent,
     UserPublicProfileComponent,
     // Recipes
     RecipesComponent,

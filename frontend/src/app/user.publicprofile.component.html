@@ -15,7 +15,7 @@
     <div class="row">
         <div class="container">
             <ngb-tabset>
-                <ngb-tab title="Recetas propias">
+                <ngb-tab title="Recetas propias ({{user.myRecipes.length}})">
                     <template ngbTabContent>
                         <h1>Recetas de @{{user.nick}}</h1>
                         <div *ngIf="user.myRecipes.length === 0">
@@ -34,7 +34,7 @@
                         </div>    
                     </template>
                 </ngb-tab>
-                <ngb-tab title="Recetas favoritas">
+                <ngb-tab title="Recetas favoritas ({{user.favRecipes.length}})">
                     <template ngbTabContent>
                         <h1>Recetas favoritas de @{{user.nick}}</h1>
                         <div *ngIf="user.favRecipes.length === 0">
@@ -53,7 +53,7 @@
                         </div> 
                     </template>
                 </ngb-tab>
-                <ngb-tab *ngIf="user.roles.length >= 2" title="Restaurantes propios">
+                <ngb-tab *ngIf="user.roles.length >= 2" title="Restaurantes propios ({{user.myRestaurants.length}})">
                     <template ngbTabContent>
                         <h1>Restaurantes propios de @{{user.nick}}</h1>
                         <div *ngIf="user.myRestaurants.length === 0">
@@ -72,7 +72,7 @@
                         </div> 
                     </template>
                 </ngb-tab>
-                <ngb-tab title="Restaurantes favoritos">
+                <ngb-tab title="Restaurantes favoritos ({{user.favRestaurants.length}})">
                     <template ngbTabContent>
                         <h1>Restaurantes favoritos de @{{user.nick}}</h1>
                         <div *ngIf="user.favRestaurants.length === 0">
@@ -91,7 +91,7 @@
                         </div> 
                     </template>
                 </ngb-tab>
-                <ngb-tab *ngIf="user.roles.length >= 2" title="Eventos propios">
+                <ngb-tab *ngIf="user.roles.length >= 2" title="Eventos propios ({{user.myEvents.length}})">
                     <template ngbTabContent>
                         <h1>Eventos propios de @{{user.nick}}</h1>
                         <div *ngIf="user.myEvents.length === 0">
@@ -110,7 +110,7 @@
                         </div> 
                     </template>
                 </ngb-tab>
-                <ngb-tab title="Eventos favoritos">
+                <ngb-tab title="Eventos favoritos ({{user.favEvents.length}})">
                     <template ngbTabContent>
                         <h1>Eventos favoritos de @{{user.nick}}</h1>
                         <div *ngIf="user.favEvents.length === 0">

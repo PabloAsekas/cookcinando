@@ -22,9 +22,9 @@
             <a (click)="isCollapsedRestaurants = !isCollapsedRestaurants">Restaurantes <span class="caret"></span></a>
             <div [class.collapse]="isCollapsedRestaurants">
                 <ul class="list-group">         	
-                  <li class="list-group-item"><a href="/privado/mis-restaurantes">Mis Restaurantes</a></li>
-                  <li class="list-group-item"><a href="/privado/restaurantes/nuevo">Añadir Restaurante</a></li> 
-                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a href="/privado/todos-restaurantes">Todos los restaurantes</a></li>
+                  <li class="list-group-item"><a [routerLink]="['/privado/mis-restaurantes']">Mis Restaurantes</a></li>
+                  <li class="list-group-item"><a [routerLink]="['/privado/restaurantes/nuevo']">Añadir Restaurante</a></li> 
+                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a [routerLink]="['/privado/todos-restaurantes']">Todos los restaurantes</a></li>
                 </ul>
             </div> 
         </li>
@@ -39,7 +39,7 @@
             </div>
         </li>
         <li *ngIf="loginService.isAdmin" [class.active]="users">
-            <a href="/privado/todos-usuarios">Usuarios</a>
+            <a [routerLink]="['/privado/todos-usuarios']">Usuarios</a>
         </li>
         <li [class.active]="preferences">
             <a [routerLink]="['/privado/ajustes']">Ajustes <span class="glyphicon glyphicon-cog"></span></a>

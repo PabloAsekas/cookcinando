@@ -13,7 +13,7 @@ export class UsersService {
     constructor(private http: Http) { }
 
     getUsers() {
-        return this.http.get(BASE_URL)
+        return this.http.get(BASE_URL, { withCredentials: true })
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }

@@ -78,13 +78,25 @@ export class RestaurantsService {
     // PUT para editar un restaurante
     updateRestaurant(restaurant: Restaurant) {
         
-        return this.http.put(BASE_URL + restaurant.id, restaurant, { withCredentials: true })
+        /*const body = JSON.stringify(restaurant);
+        const headers = new Headers({
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });*/
+
+        return this.http.put(BASE_URL + restaurant.id, restaurant)
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }
 
     // DELETE para borrar un restaurante
     deleteRestaurant(restaurant: Restaurant) {
+
+        /*const headers = new Headers({
+          'X-Requested-With': 'XMLHttpRequest'
+        });
+        const options = new RequestOptions({ withCredentials: true, headers });*/
 
         return this.http.delete(BASE_URL + restaurant.id)
             .map(response => undefined)
