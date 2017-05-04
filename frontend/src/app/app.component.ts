@@ -8,7 +8,11 @@ import { UsersService } from './users.service';
 import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
 
+import { Restaurant } from './restaurant.model';
 import { RestaurantsService } from './restaurants.service';
+
+import { Evento } from './evento.model';
+import { EventosService } from './eventos.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +26,7 @@ export class AppComponent implements OnInit {
     recipes: Recipe[] = [];
 
   constructor (private usersService: UsersService, private loginService: LoginService, private recipesService: RecipesService,
-               private restaurantsService: RestaurantsService) { }
+               private restaurantsService: RestaurantsService, private eventosService: EventosService) { }
 
   ngOnInit() {
     /*this.usersService.getUser(1).subscribe(

@@ -28,6 +28,8 @@ import { UserMyRecipesComponent } from './user.myrecipes.component';
 import { UserAllRecipesComponent } from './user.allrecipes.component';
 import { UserMyRestaurantsComponent } from './user.myRestaurants.component';
 import { UserAllRestaurantsComponent } from './user.allRestaurants.component';
+import { UserMyEventossComponent } from './user.myEventos.component';
+import { UserAllEventosComponent } from './user.allEventos.component';
 import { UserAllUsersComponent } from './user.allUsers.component';
 import { UserPreferencesComponent } from './user.preferences.component';
 import { UserPublicProfileComponent } from './user.publicprofile.component';
@@ -51,6 +53,12 @@ import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant.component';
 import { RestaurantFormComponent } from './restaurant-form.component';
 
+//Eventos
+import { EventosService } from './eventos.service';
+import { EventosComponent } from './eventos.component';
+import { EventoComponent } from './evento.component';
+import { EventoFormComponent } from './evento-form.component';
+
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 //RECETA
 
@@ -67,9 +75,11 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     UserMenuComponent,
     UserMyRecipesComponent,
     UserMyRestaurantsComponent,
+    UserMyEventosComponent,
     UserPreferencesComponent,
     UserAllRecipesComponent,
     UserAllRestaurantsComponent,
+    UserAllEventosComponent,
     UserAllUsersComponent,
     UserPublicProfileComponent,
     // Recipes
@@ -83,6 +93,10 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantFormComponent,
+    // Eventos
+    EventosComponent,
+    EventoComponent,
+    EventoFormComponent,
   ],
   imports: [
     NgbModule.forRoot(),
@@ -92,7 +106,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     JsonpModule,
     routing,
     NgbCollapseModule.forRoot(),
-    FroalaEditorModule.forRoot(), 
+    FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],
   providers: [UsersService, LoginService, RecipesService, RestaurantsService],

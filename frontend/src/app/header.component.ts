@@ -8,12 +8,12 @@ import { RecipesService } from './recipes.service';
     templateUrl: './header.component.html'
 })
 
-export class HeaderComponent { 
+export class HeaderComponent {
 
     searchBox: String;
     ingredients: false;
     typefood: false;
-    
+
     constructor(private loginService: LoginService, private router: Router, private recipesService: RecipesService) { }
 
     logOut() {
@@ -24,7 +24,7 @@ export class HeaderComponent {
             error => console.log('Error when trying to log out: ' + error)
         );
     }
-    
+
     search() {
         if (this.ingredients) {
             this.router.navigate(['/recetas/ingredientes', this.searchBox]);

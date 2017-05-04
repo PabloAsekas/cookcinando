@@ -6,12 +6,13 @@ import { UsersService } from './users.service';
 import { LoginService } from './login.service';
 
 @Component({
-  templateUrl: './user.myRestaurants.component.html'
+  templateUrl: './user.myEventos.component.html'
 })
 
-export class UserMyRestaurantsComponent {
+export class UserMyEventosComponent {
 
     user: User;
+    //recipes = true;
 
     constructor (private loginService: LoginService, private usersService: UsersService) {
 

@@ -7,9 +7,11 @@ import { UserMyAccountComponent } from './user.myaccount.component';
 import { UserFavouritesComponent } from './user.favourites.component';
 import { UserMyRecipesComponent } from './user.myrecipes.component';
 import { UserMyRestaurantsComponent } from './user.myRestaurants.component';
+import { UserMyEventosComponent } from './user.myEventos.component';
 import { UserPreferencesComponent } from './user.preferences.component';
 import { UserAllRecipesComponent } from './user.allrecipes.component';
 import { UserAllRestaurantsComponent } from './user.allRestaurants.component';
+import { UserAllEventosComponent } from './user.allEventos.component';
 import { UserAllUsersComponent } from './user.allUsers.component';
 import { UserPublicProfileComponent } from './user.publicprofile.component';
 // Recipes
@@ -23,6 +25,10 @@ import { RecipesTypesFoodComponent } from './recipes.typesfood.component';
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant.component';
 import { RestaurantFormComponent } from './restaurant-form.component';
+// Eventos
+import { EventosComponent } from './eventos.component';
+import { EventoComponent } from './evento.component';
+import { EventoFormComponent } from './evento-form.component';
 
 const appRoutes = [
     { path: '', component: IndexComponent },
@@ -32,9 +38,11 @@ const appRoutes = [
     { path: 'privado/favoritos', component: UserFavouritesComponent },
     { path: 'privado/mis-recetas', component: UserMyRecipesComponent },
     { path: 'privado/mis-restaurantes', component: UserMyRestaurantsComponent },
+    { path: 'privado/mis-eventos', component: UserMyEventosComponent },
     { path: 'privado/ajustes', component: UserPreferencesComponent },
     { path: 'privado/todas-recetas', component: UserAllRecipesComponent },
     { path: 'privado/todos-restaurantes', component: UserAllRestaurantsComponent },
+    { path: 'privado/todos-eventos', component: UserAllEventosComponent },
     { path: 'privado/todos-usuarios', component: UserAllUsersComponent },
     { path: 'usuarios/:id', component: UserPublicProfileComponent },
     // Recetas
@@ -51,6 +59,11 @@ const appRoutes = [
     { path: 'privado/restaurantes/nuevo', component: RestaurantFormComponent },
     { path: 'privado/restaurantes/editar/:id', component: RestaurantFormComponent },
     //{ path: '', redirectTo: 'index', pathMatch: 'full' }
+    // Eventos
+    { path: 'eventos', component: EventosComponent },
+    { path: 'eventos/:id', component: EventoComponent },
+    { path: 'privado/eventos/nuevo', component: EventoFormComponent },
+    { path: 'privado/eventos/editar/:id', component: EventoFormComponent }
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
