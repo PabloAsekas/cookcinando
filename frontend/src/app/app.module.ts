@@ -52,6 +52,7 @@ import { RestaurantsService } from './restaurants.service';
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant.component';
 import { RestaurantFormComponent } from './restaurant-form.component';
+import { RestaurantsTypeFoodComponent } from './restaurants-typeFood.component';
 
 //Eventos
 import { EventosService } from './eventos.service';
@@ -93,6 +94,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantFormComponent,
+    RestaurantsTypeFoodComponent,
     // Eventos
     EventosComponent,
     EventoComponent,

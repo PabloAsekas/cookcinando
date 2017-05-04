@@ -25,6 +25,7 @@ import { RecipesTypesFoodComponent } from './recipes.typesfood.component';
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant.component';
 import { RestaurantFormComponent } from './restaurant-form.component';
+import { RestaurantsTypeFoodComponent } from './restaurants-typeFood.component';
 // Eventos
 import { EventosComponent } from './eventos.component';
 import { EventoComponent } from './evento.component';
@@ -56,6 +57,7 @@ const appRoutes = [
     // Restaurantes
     { path: 'restaurantes', component: RestaurantsComponent },
     { path: 'restaurantes/:id', component: RestaurantComponent },
+    { path: 'restaurantes/tipo-comida/:tipoComida', component: RestaurantsTypeFoodComponent },
     { path: 'privado/restaurantes/nuevo', component: RestaurantFormComponent },
     { path: 'privado/restaurantes/editar/:id', component: RestaurantFormComponent },
     //{ path: '', redirectTo: 'index', pathMatch: 'full' }
