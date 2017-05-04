@@ -749,7 +749,12 @@ hr{
     height: 25px;
 }
 .contenido-restaurante {
-    margin-top: 50px;
+    width: 90%;
+    margin: 50px auto 0 auto;
+}
+.contenido-restaurante h1, .contenido-restaurante h2, .contenido-restaurante h3, .contenido-restaurante h4 {
+    width: 100%;
+    text-align: center;
 }
 /* Fin de perfil privado */
 .cabecera-subrayada {
@@ -877,4 +882,17 @@ hr{
     -webkit-box-shadow: none;
     box-shadow: none;
     opacity: .65;
+}
+
+.row ul {
+    list-style: none;
+}
+
+.row ul li p {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.row ul li img {
+    width: 300px !important;
 }

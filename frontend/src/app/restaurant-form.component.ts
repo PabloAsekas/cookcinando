@@ -59,12 +59,9 @@ export class RestaurantFormComponent {
                 this.restaurant.typesFood.push(typeFood);
             }
         }
-
         this.restaurantsService.newRestaurant(this.restaurant).subscribe(
             restaurant => {
-                console.log(this.restaurant);
-                this.router.navigate(['/restaurantes/', this.restaurant.id]);
-                //this.restaurant = restaurant,
+                this.router.navigate(['/restaurantes/', restaurant.id]);
             },
             error => console.error('Error creando un nuevo restaurante: ' + error)
         );   
@@ -79,12 +76,10 @@ export class RestaurantFormComponent {
                 this.restaurant.typesFood.push(typeFood);
             }
         }
-
         this.restaurantsService.updateRestaurant(this.restaurant).subscribe(
             restaurant => {
                 console.log(this.restaurant);
-                this.router.navigate(['/restaurantes/', this.restaurant.id]);
-                //this.restaurant = restaurant,
+                this.router.navigate(['/restaurantes/', restaurant.id]);
             },
             error => console.error('Error editando el restaurante: ' + error)
         ); 

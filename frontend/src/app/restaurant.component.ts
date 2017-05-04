@@ -17,86 +17,67 @@ import { UsersService } from './users.service';
 export class RestaurantComponent {
 
     restaurant: Restaurant;
-    restaurantsRecommended: Restaurant[] = [];
-    isRestaurantFav: boolean;
+    restaurants: Restaurant[] = [];
+    buttonFav: boolean;
     thumbnailSafe: SafeUrl;
     thumbnailA: String = '<div class="thumbnail-restaurante" style=" background: url(';
     thumbnailB: String = ') no-repeat 50% fixed;background-size: 100%;"></div>';
 
     user: User;
-
-    constructor(private restaurantsService: RestaurantsService, private router: Router, private activatedRoute: ActivatedRoute,
-                private sanitizer: DomSanitizer, private loginService: LoginService, private usersService: UsersService) {
-
-        const id = activatedRoute.snapshot.params['id'];
-
-        this.restaurantsService.getRestaurant(id).subscribe(
-            restaurant => {
-                this.restaurant = restaurant;
-                this.makeThumbnailSafe(this.restaurant.thumbnail);
-                console.log(this.restaurant);
-            }, 
-            error => console.error(error)
-        );
-
-        this.restaurantsService.getRecommended().subscribe(
-            restaurantsRecommended => {
-                this.restaurantsRecommended = restaurantsRecommended;
-                console.log(this.restaurantsRecommended);
-            }, 
-            error => console.error(error)
-        );
-
-        console.log(this.loginService.user);
-
-        // NO ES NECESARIO PUESTO QUE EL USUARIO LOGEADO ESTA EN: this.loginService.user
-        if(this.loginService.isLogged) {
-            this.usersService.getUser(this.loginService.user.id).subscribe(
-                user => { 
-                    this.user = user;
-                    this.isRestaurantFav = this.isFavourite();
-                    console.log(this.user);
-                },
+    
+    constructor (private router: Router, private restaurantsService: RestaurantsService, activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer, private loginService: LoginService, private usersService: UsersService ) {
+        let id = activatedRoute.params.subscribe(params => {
+            
+            this.restaurantsService.getRestaurant(params['id']).subscribe(
+                restaurant => {this.restaurant = restaurant;
+                           this.makeThumbnailSafe(this.restaurant.thumbnail);
+                           },
                 error => console.error(error)
             );
-        }
+            this.restaurantsService.getRecommended().subscribe(
+                restaurants => this.restaurants = restaurants,
+                error => console.error(error)
+            );
+            
+            if(this.loginService.isLogged) {
+                this.usersService.getUser(this.loginService.user.id).subscribe(
+                    user => {
+                        this.user = user;
+                        this.buttonFav = this.isFavourite();
+                    },
+                    error => console.error(error)
+                );
+            }
+        });
     }
 
     makeThumbnailSafe(url: string) {
         this.thumbnailSafe = (this.sanitizer.bypassSecurityTrustHtml(this.thumbnailA + url + this.thumbnailB));
     }
 
-    isFavourite() {
-
-        for(let restaurantFav of this.user.favRestaurants) {
-            if(restaurantFav.id === this.restaurant.id) {                 
-               return this.isRestaurantFav = true; // El restaurante esta en la lista de favoritos
-            }
-        }
-        return this.isRestaurantFav = false; // El restaurante NO esta en la lista de favoritos
-    }
+    isFavourite(){
+        
+        for (let fav of this.user.favRestaurants) {
+            if(fav.id == this.restaurant.id){
+                return true;
+            }
+        }
+        return false;
+    }
 
     addRestaurantFavourite() {
-        
         this.user.favRestaurants.push(this.restaurant);
-        this.isRestaurantFav = true;
-       
-        this.usersService.updateUser(this.user).subscribe(
-            user => this.user = user,
-            error => console.error('Error al añadir el restaurante a favoritos: ' + error)
+        console.log(this.user);
+        console.log(this.user.favRestaurants);
+        this.usersService.updateUser(this.user).subscribe (
+            user => {
+                this.buttonFav = true;
+            },
+            error => console.error('Error al actualizar al añadir una receta a favoritos: ' + error)
         );
     }
 
     deleteRestaurantFavourite() {
-        /*
-        const position = this.user.favRestaurants.indexOf(this.restaurant);
-        this.user.favRestaurants.splice(position, 1);
-
-        this.usersService.updateUser(this.user).subscribe(
-            user => this.user = user,
-            error => console.log('Error al eliminar el restaurante de favoritos: ' + error)
-        );*/
-        
         var position = -1;
         for (let fav of this.user.favRestaurants) {
             if(fav.id == this.restaurant.id){
@@ -109,7 +90,7 @@ export class RestaurantComponent {
         }
         this.usersService.updateUser(this.user).subscribe (
             user => {
-                this.isRestaurantFav = false;
+                this.buttonFav = false;
             },
             error => console.error('Error al actualizar al eliminar una receta de favoritos: ' + error)
         );

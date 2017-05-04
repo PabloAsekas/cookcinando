@@ -43,7 +43,6 @@ export class RecipeComponent /*implements OnInit*/ {
                     user => {
                         this.user = user;
                         this.buttonFav = this.isFavourite();
-                        console.log(this.buttonFav);
                     },
                     error => console.error(error)
                 );

@@ -16,7 +16,6 @@ export class UserAllRestaurantsComponent {
     
     user: User;
     restaurants: Restaurant[];
-    //recipess = true;
 
     constructor (private loginService: LoginService, private usersService: UsersService, 
                  private restaurantsService: RestaurantsService) {

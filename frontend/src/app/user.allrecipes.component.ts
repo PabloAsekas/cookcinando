@@ -16,7 +16,6 @@ export class UserAllRecipesComponent {
     
     user: User;
     recipes: Recipe[];
-    recipess = true;
 
     constructor (private loginService: LoginService, private usersService: UsersService, private recipesService: RecipesService) {
         this.usersService.getUser(this.loginService.user.id).subscribe(

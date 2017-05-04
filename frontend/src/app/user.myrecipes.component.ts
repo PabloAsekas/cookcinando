@@ -12,7 +12,6 @@ import { LoginService } from './login.service';
 export class UserMyRecipesComponent {
     
     user: User;
-    recipes = true;
 
     constructor (private loginService: LoginService, private usersService: UsersService) {
         this.usersService.getUser(this.loginService.user.id).subscribe(

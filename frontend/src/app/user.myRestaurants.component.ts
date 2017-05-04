@@ -12,7 +12,6 @@ import { LoginService } from './login.service';
 export class UserMyRestaurantsComponent {
     
     user: User;
-    //recipes = true;
 
     constructor (private loginService: LoginService, private usersService: UsersService) {
         

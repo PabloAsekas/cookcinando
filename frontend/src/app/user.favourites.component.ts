@@ -17,8 +17,6 @@ import { Recipe } from './recipe.model';
 export class UserFavouritesComponent {
     
     user: User;
-    favourites = true;
-    //recipe: Recipe;
 
     constructor (private loginService: LoginService, private usersService: UsersService) {
         this.usersService.getUser(this.loginService.user.id).subscribe(

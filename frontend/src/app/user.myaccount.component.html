@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     <div *ngIf="loginService.isLogged" class="row">
-        <app-user-menu [myAccount]='myAccount' class="col-md-2"></app-user-menu>
+        <app-user-menu [myAccount]='true' class="col-md-2"></app-user-menu>
         <div *ngIf="user" class="col-md-8">
             <div class="cabecera-subrayada">
                 <h1>Mi Cuenta</h1>

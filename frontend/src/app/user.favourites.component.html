@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     <div *ngIf="loginService.isLogged" class="row">
-        <app-user-menu [favourites]='favourites' class="col-md-2"></app-user-menu>
+        <app-user-menu [favourites]='true' class="col-md-2"></app-user-menu>
          <div *ngIf="user" class="col-md-8">
             <div class="cabecera-subrayada">
                 <h1>Favoritos</h1>
