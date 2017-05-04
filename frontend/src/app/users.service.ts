@@ -25,7 +25,7 @@ export class UsersService {
     }
 
     newUser(user: User) {
-        return this.http.post(BASE_URL, user)
+        return this.http.post(BASE_URL + "/registry", user)
             .map(response => response.json())
             .catch(error => Observable.throw('Server error'));
     }
@@ -53,4 +53,5 @@ export class UsersService {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text());
     }
+    
 }
