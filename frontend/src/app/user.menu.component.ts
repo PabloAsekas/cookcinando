@@ -17,7 +17,7 @@ export class UserMenuComponent {
     @Input()
      private restaurants = false;
     @Input()
-     private events = false;
+     private eventos = false;
     @Input()
      private users = false;
     @Input()

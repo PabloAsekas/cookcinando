@@ -11,7 +11,7 @@ export class EventosComponent implements OnInit {
 
     eventos: Evento[] = [];
     private actualPage = 0;
-    private nRecipes = 0;
+    private nEventos = 0;
     private loadMore = false;
 
 

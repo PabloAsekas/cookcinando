@@ -19,7 +19,7 @@ export class EventoComponent /*implements OnInit*/ {
     eventos: Evento[] = [];
     buttonFav: boolean;
     thumbnailSafe: SafeUrl;
-    thumbnailA: String = '<div class="thumbnail-evento" style=" background: url(';
+    thumbnailA: String = '<div class="thumbnail-receta" style=" background: url(';
     thumbnailB: String = ') no-repeat 50% fixed;background-size: 100%;"></div>';
 
     user: User;
@@ -27,13 +27,13 @@ export class EventoComponent /*implements OnInit*/ {
     constructor (private router: Router, private eventosService: EventosService, activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer, private loginService: LoginService, private usersService: UsersService ) {
         let id = activatedRoute.params.subscribe(params => {
 
-            this.eventosService.getREvento(params['id']).subscribe(
+            this.eventosService.getEvento(params['id']).subscribe(
                 evento => {this.evento = evento;
                            this.makeThumbnailSafe(this.evento.thumbnail);
                            },
                 error => console.error(error)
             );
-            this.EventosService.getRecommended().subscribe(
+            this.eventosService.getRecommended().subscribe(
                 eventos => this.eventos = eventos,
                 error => console.error(error)
             );
@@ -43,7 +43,6 @@ export class EventoComponent /*implements OnInit*/ {
                     user => {
                         this.user = user;
                         this.buttonFav = this.isFavourite();
-                        console.log(this.buttonFav);
                     },
                     error => console.error(error)
                 );
@@ -56,8 +55,7 @@ export class EventoComponent /*implements OnInit*/ {
     }
 
     isFavourite(){
-        
-        for (let fav of this.user.favEventos) {
+        for (let fav of this.user.favEvents) {
             if(fav.id == this.evento.id){
                 return true;
             }
@@ -66,7 +64,7 @@ export class EventoComponent /*implements OnInit*/ {
     }
 
     addFavourite() {
-        this.user.favEventos.push(this.evento);
+        this.user.favEvents.push(this.evento);
         this.usersService.updateUser(this.user).subscribe (
             user => {
                 this.buttonFav = true;
@@ -77,14 +75,14 @@ export class EventoComponent /*implements OnInit*/ {
 
     deleteFavourite() {
         var position = -1;
-        for (let fav of this.user.favEventos) {
+        for (let fav of this.user.favEvents) {
             if(fav.id == this.evento.id){
-                position = this.user.favEventos.indexOf(fav);
+                position = this.user.favEvents.indexOf(fav);
             }
         }
-        console.log(this.user.favEventos[position]);
+        console.log(this.user.favEvents[position]);
         if (position > -1) {
-           this.user.favEventos.splice(position, 1);
+           this.user.favEvents.splice(position, 1);
         }
         this.usersService.updateUser(this.user).subscribe (
             user => {

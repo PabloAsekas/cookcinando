@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 
 import { Evento } from './evento.model';
 
-const BASE_URL = 'http://127.0.0.1:4200/api/eventos/';
+const BASE_URL = 'http://127.0.0.1:4200/api/events/';
 
 @Injectable()
 export class EventosService {

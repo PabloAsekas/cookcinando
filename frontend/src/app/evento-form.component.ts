@@ -57,7 +57,7 @@ export class EventoFormComponent implements OnInit {
                 this.evento.typesFood.push(typeFood);
             }
         }
-
+    }
     nuevoEvento(){
         this.leer();
         this.eventosService.newEvento(this.evento).subscribe(

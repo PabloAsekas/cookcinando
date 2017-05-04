@@ -1,5 +1,6 @@
 import { Recipe } from './recipe.model';
 import { Restaurant } from './restaurant.model';
+import { Evento } from './evento.model';
 
 export interface User {
     id?: number;
@@ -14,7 +15,7 @@ export interface User {
     myRecipes: Recipe[];
     favRecipes: Recipe[];
     favRestaurants: Restaurant[];
-    // favEvents: Evento[];
+    favEvents: Evento[];
 }
 
 export interface UserBasic extends User {
@@ -24,12 +25,12 @@ export interface UserBasic extends User {
 export interface UserEnterprise extends User {
     id?: number;
     myRestaurants: Restaurant[];
-    // myEvents: Evento[];
+    myEvents: Evento[];
 }
 
 export interface UserAdmin extends User {
     id?: number;
     myRestaurants: Restaurant[];
-    // myEvents: Evento[];
+    myEvents: Evento[];
     users: User[];
 }
