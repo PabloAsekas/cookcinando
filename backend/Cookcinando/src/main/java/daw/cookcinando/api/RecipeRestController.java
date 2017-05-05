@@ -177,7 +177,7 @@ private static final String USER_IMAGE_FOLDER = "../../frontend/src/assets/img";
 			Recipe receta = recipeservice.findOne(idRecipe);
 
 			//User u=userService.findOne(idLogged);
-			String fileName =idRecipe  + "thumbnail.jpg";
+			String fileName =idRecipe  + "thumbnailrecipe.jpg";
 			if (!file.isEmpty()) {
 				try {
 					File filesFolder = new File(USER_IMAGE_FOLDER);

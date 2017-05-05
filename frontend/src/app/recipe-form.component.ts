@@ -22,7 +22,6 @@ export class RecipeFormComponent implements OnInit {
     recipe: Recipe;
     typesFoodString: String = "";
     ingredientsString: String = "";
-    Mrecipes = true;
     evento: any;
     constructor (private router: Router, private loginService: LoginService, private usersService: UsersService, private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
         let id = activatedRoute.snapshot.params['id'];

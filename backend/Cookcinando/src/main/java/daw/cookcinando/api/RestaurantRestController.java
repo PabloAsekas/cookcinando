@@ -1,5 +1,6 @@
 package daw.cookcinando.api;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 import daw.cookcinando.UserComponent;
+import daw.cookcinando.api.RecipeRestController.RecipeDetail;
 import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
@@ -140,6 +143,42 @@ public class RestaurantRestController {
 			return new ResponseEntity(restaurantsByTypeFood, HttpStatus.OK);
 		}
 		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
-	}	
+	}
+	
+	private static final String USER_IMAGE_FOLDER = "../../frontend/src/assets/img";
+	
+	@JsonView(RecipeDetail.class)
+	@RequestMapping(value = "/uploadImage/{idRestaurant}", method = RequestMethod.POST)
+	public ResponseEntity<Restaurant> handleFileUpload(@RequestBody MultipartFile file, @PathVariable long idRestaurant) {
+
+			Restaurant restaurant = restaurantservice.findOne(idRestaurant);
+
+			String fileName = idRestaurant  + "thumbnailrestaurant.jpg";
+			if (!file.isEmpty()) {
+				try {
+					File filesFolder = new File(USER_IMAGE_FOLDER);
+					if (!filesFolder.exists()) {
+						filesFolder.mkdirs();
+					}
+					
+					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+					file.transferTo(uploadedFile);
+					
+					restaurant.setThumbnail("assets/img/" + fileName);
+					restaurantservice.save(restaurant);
+
+					return new ResponseEntity<>(restaurant, HttpStatus.OK);
+
+
+				} catch (Exception e) {
+					return new ResponseEntity<>(restaurant, HttpStatus.NOT_FOUND);
+				}
+			} else {
+				return new ResponseEntity<>(restaurant, HttpStatus.NOT_FOUND);
+
+			}
+		
+			
+	}
 }
 

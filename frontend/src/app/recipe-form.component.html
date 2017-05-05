@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div *ngIf="loginService.isLogged" class="row">
-        <app-user-menu [recipes]='Mrecipes' class="col-md-2"></app-user-menu>
+        <app-user-menu [recipes]='true' class="col-md-2"></app-user-menu>
         <div *ngIf="recipe" class="col-md-8">
             <div class="cabecera-subrayada">
                 <h1>Editar receta</h1>

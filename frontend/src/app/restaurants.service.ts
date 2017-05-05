@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -107,6 +107,21 @@ export class RestaurantsService {
         return this.http.get(BASE_URL + 'by-typeFood/?typeFood='+ food)
             .map(response => response.json())
             .catch(error => this.handleError(error));
+    }
+    
+    changeImage(id_restaurant:number,files){
+        let formData = new FormData();
+        for (let file of files) {
+            formData.append('file', file);
+        }
+        let headers = new Headers({});
+        const options = new RequestOptions({ withCredentials: true,headers});
+        headers.delete("Content-Type");
+        
+        
+        return this.http.post(BASE_URL + 'uploadImage/' + id_restaurant,formData,options)
+            .map(response => response.json())
+            .catch(error =>this.handleError(error))
     }
 
     private handleError(error: any) {
