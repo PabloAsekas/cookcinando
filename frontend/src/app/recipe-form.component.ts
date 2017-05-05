@@ -73,8 +73,12 @@ export class RecipeFormComponent implements OnInit {
         this.leer();
         this.recipesService.newRecipe(this.recipe).subscribe(
             recipe =>{
-                this.changeImage(this.evento, recipe.id);
-                //this.router.navigate(['/recetas/', recipe.id]);
+                if(this.evento!=null){
+                    this.changeImage(this.evento, recipe.id);
+                }
+                else{
+                    this.router.navigate(['/recetas/', recipe.id]);
+                }
             },
             error => console.error('Error creando una nueva receta: ' + error)
         );
@@ -83,7 +87,12 @@ export class RecipeFormComponent implements OnInit {
         this.leer();
         this.recipesService.updateRecipe(this.recipe).subscribe(
             recipe =>{
-                this.router.navigate(['/recetas/', recipe.id]);
+                if(this.evento!=null){
+                    this.changeImage(this.evento, recipe.id);
+                }
+                else{
+                    this.router.navigate(['/recetas/', recipe.id]);
+                }
             },
             error => console.error('Error editando una receta: ' + error)
         );

@@ -93,7 +93,7 @@ export class RecipesService {
         headers.delete("Content-Type");
         
         
-        return this.http.post(BASE_URL + '/uploadImage/' + id_recipe,formData,options)
+        return this.http.post(BASE_URL + 'uploadImage/' + id_recipe,formData,options)
             .map(response => response.json())
             .catch(error =>this.handleError(error))
     }
