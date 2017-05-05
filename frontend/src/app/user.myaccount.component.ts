@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from './user.model';
 import { UsersService } from './users.service';
@@ -12,8 +13,9 @@ import { LoginService } from './login.service';
 export class UserMyAccountComponent {
     
     user: User;
+    evento: any;
     
-    constructor (private loginService: LoginService, private usersService: UsersService) {
+    constructor (private loginService: LoginService, private usersService: UsersService, private router: Router, activatedRoute: ActivatedRoute) {
         this.usersService.getUser(this.loginService.user.id).subscribe(
             user => {
                 this.user = user;
@@ -24,17 +26,24 @@ export class UserMyAccountComponent {
     
     update() {
         this.usersService.updateUser(this.user).subscribe(
-            user => {},
+            user => {
+                this.changeImage(this.evento, user.id);
+            },
             error => console.error('Error actualizando el usuario: ' + error)
         );
-        
-        //this.usersService.updateUser(this.user);
-        
-        /*this.loginService.logIn(user, pass).subscribe(
-            u => console.log(u),
-            error => alert('Invalid user or password')
-        );*/
-        
-        
     }
+    saveEvent(event:any) {
+        this.evento = event;
+    }
+    
+    changeImage(event:any, userid: number){
+        let files = event.target.files;
+        this.usersService.changeImage(userid,files).subscribe(
+            user => {
+                this.router.navigate(['/']);
+            },
+            error =>  console.error('Error al subir la imagen')
+        );
+    }
+    
 }

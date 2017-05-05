@@ -10,7 +10,7 @@
             <div class="imagen-de-perfil col-md-3">
                 <img src="{{user.image}}" width="200px" height="200px" />
                 <div class="botones-foto">
-                <input type="file" name="imagen">
+                <input (change)="saveEvent($event)" type="file" name="imagen">
                 <!--  
                      <button type="submit" class="btn btn-default separado">Quitar foto</button>
                      <button type="submit" class="btn btn-default separado">Subir foto...</button>

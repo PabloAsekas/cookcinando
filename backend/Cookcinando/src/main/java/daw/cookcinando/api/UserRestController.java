@@ -1,5 +1,6 @@
 package daw.cookcinando.api;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -201,6 +203,42 @@ public class UserRestController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	private static final String USER_IMAGE_FOLDER = "../../frontend/src/assets/img";
+	
+	@JsonView(UserDetail.class)
+	@RequestMapping(value = "/uploadImage/{idUser}", method = RequestMethod.POST)
+	public ResponseEntity<User> handleFileUpload(@RequestBody MultipartFile file, @PathVariable long idUser) {
+
+			User user = userService.findOne(idUser);
+
+			String fileName = idUser  + "thumbnailuser.jpg";
+			if (!file.isEmpty()) {
+				try {
+					File filesFolder = new File(USER_IMAGE_FOLDER);
+					if (!filesFolder.exists()) {
+						filesFolder.mkdirs();
+					}
+					
+					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+					file.transferTo(uploadedFile);
+					
+					user.setImage("assets/img/" + fileName);
+					userService.save(user);
+
+					return new ResponseEntity<>(user, HttpStatus.OK);
+
+
+				} catch (Exception e) {
+					return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
+				}
+			} else {
+				return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
+
+			}
+		
+			
 	}
 	
 }
