@@ -10,7 +10,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div *ngFor="let evento of eventos" class="col-md-4 todas-recetas">
-                        <a [routerLink]="['/eventos',recipe.id]">
+                        <a [routerLink]="['/eventos',evento.id]">
                             <div class="thumbnail">
                                 <img src="{{evento.thumbnail}}" alt="{{evento.title}}">
                                 <div class="caption">

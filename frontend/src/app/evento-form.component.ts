@@ -16,6 +16,7 @@ import { LoginService } from './login.service';
 })
 
 export class EventoFormComponent implements OnInit {
+    eventoNewImage: any;
     editar: Boolean;
     guardar: Boolean;
     user: User;
@@ -62,7 +63,12 @@ export class EventoFormComponent implements OnInit {
         this.leer();
         this.eventosService.newEvento(this.evento).subscribe(
             evento =>{
-                this.router.navigate(['/eventos/', evento.id]);
+                if(this.eventoNewImage!=null){
+                    this.changeImage(this.eventoNewImage, evento.id);
+                }
+                else{
+                    this.router.navigate(['/eventos/', evento.id]);
+                }
             },
             error => console.error('Error creando un nuevo evento: ' + error)
         );
@@ -71,12 +77,33 @@ export class EventoFormComponent implements OnInit {
         this.leer();
         this.eventosService.updateEvento(this.evento).subscribe(
             evento =>{
-                this.router.navigate(['/eventos/', evento.id]);
+                if(this.eventoNewImage!=null){
+                    this.changeImage(this.eventoNewImage, evento.id);
+                }
+                else{
+                    this.router.navigate(['/eventos/', evento.id]);
+                }
             },
             error => console.error('Error editando un evento: ' + error)
         );
 
     }
+
+    saveEvent(event:any) {
+        this.eventoNewImage = event;
+    }
+
+    changeImage(event:any, eventoid: number){
+        let files = event.target.files;
+        console.log(files);
+        this.eventosService.changeImage(eventoid,files).subscribe(
+            evento => {
+                this.router.navigate(['/eventos/', evento.id]);
+            },
+            error =>  console.error('Error al subir la imagen')
+        );
+    }
+    
     ngOnInit() {
 
     }

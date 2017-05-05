@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -68,5 +68,20 @@ export class EventosService {
     private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text());
+    }
+    
+    changeImage(id_evento:number,files){
+        let formData = new FormData();
+        for (let file of files) {
+            formData.append('file', file);
+        }
+        let headers = new Headers({});
+        const options = new RequestOptions({ withCredentials: true,headers});
+        headers.delete("Content-Type");
+        
+        
+        return this.http.post(BASE_URL + '/uploadImage/' + id_evento,formData,options)
+            .map(response => response.json())
+            .catch(error =>this.handleError(error))
     }
 }

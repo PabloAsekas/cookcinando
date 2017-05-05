@@ -1,5 +1,6 @@
 package daw.cookcinando.api;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 import daw.cookcinando.UserComponent;
+import daw.cookcinando.api.RecipeRestController.RecipeDetail;
 import daw.cookcinando.model.Event;
 import daw.cookcinando.model.Event.Users;
 import daw.cookcinando.model.Recipe;
@@ -145,4 +148,40 @@ public class EventRestController {
 		}
 		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
 	}	
+	
+private static final String USER_IMAGE_FOLDER = "../../frontend/src/assets/img";
+	
+	@JsonView(EventDetail.class)
+	@RequestMapping(value = "/uploadImage/{idEvent}", method = RequestMethod.POST)
+	public ResponseEntity<Event> handleFileUpload(@RequestBody MultipartFile file, @PathVariable long idEvent) {
+
+			Event evento = eventservice.findOne(idEvent);
+			String fileName =idEvent  + "thumbnailevent.jpg";
+			if (!file.isEmpty()) {
+				try {
+					File filesFolder = new File(USER_IMAGE_FOLDER);
+					if (!filesFolder.exists()) {
+						filesFolder.mkdirs();
+					}
+					
+					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+					file.transferTo(uploadedFile);
+					
+					evento.setThumbnail("assets/img/" + fileName);
+					eventservice.save(evento);
+
+					return new ResponseEntity<>(evento, HttpStatus.OK);
+
+
+				} catch (Exception e) {
+					return new ResponseEntity<>(evento, HttpStatus.NOT_FOUND);
+				}
+			} else {
+				return new ResponseEntity<>(evento, HttpStatus.NOT_FOUND);
+
+			}
+		
+			
+	}
+
 }

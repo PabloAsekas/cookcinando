@@ -11,7 +11,7 @@
                 <div class="row">
                     <div *ngFor="let evento of user.myEvents" class="col-md-4 todas-recetas">
                         <div class="thumbnail">
-                            <a [routerLink]="['/eventos',recipe.id]">
+                            <a [routerLink]="['/eventos',evento.id]">
                                 <img src="{{evento.thumbnail}}" alt="{{evento.title}}">
                                 <div class="caption">
                                     <h3>{{evento.title}}</h3>

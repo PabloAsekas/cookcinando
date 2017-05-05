@@ -32,9 +32,9 @@
             <a (click)="isCollapsedEvents = !isCollapsedEvents">Eventos <span class="caret"></span></a>
             <div [class.collapse]="isCollapsedEvents">
                 <ul class="list-group">
-                  <li class="list-group-item"><a href="/privado/mis-eventos">Mis Eventos</a></li>
-                  <li class="list-group-item"><a href="/privado/eventos/crear">Añadir Evento</a></li> 
-                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a href="/privado/todas-eventos">Todos los eventos</a></li> 
+                  <li class="list-group-item"><a [routerLink]="['/privado/mis-eventos']">Mis Eventos</a></li>
+                  <li class="list-group-item"><a [routerLink]="['/privado/eventos/nuevo']">Añadir Evento</a></li> 
+                  <li *ngIf="loginService.isAdmin" class="list-group-item"><a [routerLink]="['/privado/todos-eventos']">Todos los eventos</a></li> 
                 </ul>
             </div>
         </li>
