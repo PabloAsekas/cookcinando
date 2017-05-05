@@ -23,6 +23,7 @@ export class RecipeFormComponent implements OnInit {
     typesFoodString: String = "";
     ingredientsString: String = "";
     Mrecipes = true;
+    evento: any;
     constructor (private router: Router, private loginService: LoginService, private usersService: UsersService, private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
         let id = activatedRoute.snapshot.params['id'];
         if (id){
@@ -72,7 +73,8 @@ export class RecipeFormComponent implements OnInit {
         this.leer();
         this.recipesService.newRecipe(this.recipe).subscribe(
             recipe =>{
-                this.router.navigate(['/recetas/', recipe.id]);
+                this.changeImage(this.evento, recipe.id);
+                //this.router.navigate(['/recetas/', recipe.id]);
             },
             error => console.error('Error creando una nueva receta: ' + error)
         );
@@ -87,6 +89,22 @@ export class RecipeFormComponent implements OnInit {
         );
        
     }
+    
+    saveEvent(event:any) {
+        this.evento = event;
+    }
+    
+    changeImage(event:any, recipeid: number){
+        let files = event.target.files;
+        console.log(files);
+        this.recipesService.changeImage(recipeid,files).subscribe(
+            recipe => {
+                this.router.navigate(['/recetas/', recipe.id]);
+            },
+            error =>  console.error('Error al subir la imagen')
+        );
+    }
+    
     ngOnInit() {
         
     }

@@ -12,7 +12,8 @@
                 <h3>Descripción</h3>
                 <input type="text" name="descripcion" class="form-control" [(ngModel)]="recipe.description">
                 <h3>Imagen de Cabecera</h3>
-                <input type="file" name="imagenCabecera">
+                <!--<input type="file" name="imagenCabecera">-->
+                <input #imagenCabecera type="file" (change)="saveEvent($event)" name="file" id="input-image" />
                 <h2>Cuerpo de la receta</h2>
                 <div [froalaEditor] [(froalaModel)]="recipe.preparation"></div><!-- SE CAMBIA SOLO EL VALOR DE RECIPE.PREPARATION CUANDO MODIFICACMOS EL EDITOR DE TEXTO-->
                 <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>

@@ -1,5 +1,6 @@
 package daw.cookcinando.api;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -163,5 +165,46 @@ public class RecipeRestController {
 		}
 		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
 	}	
+	
+private static final String USER_IMAGE_FOLDER = "../../frontend/src/assets/img";
+	
+	@JsonView(RecipeDetail.class)
+	@RequestMapping(value = "/uploadImage/{idRecipe}", method = RequestMethod.POST)
+	public ResponseEntity<Recipe> handleFileUpload(@RequestBody MultipartFile file, @PathVariable long idRecipe) {
+
+		//String fileName = file.getOriginalFilename() + ".jpg";
+		//long idLogged=userComponent.getIdLoggedUser();
+			Recipe receta = recipeservice.findOne(idRecipe);
+
+			//User u=userService.findOne(idLogged);
+			String fileName =idRecipe  + "thumbnail.jpg";
+			if (!file.isEmpty()) {
+				try {
+					File filesFolder = new File(USER_IMAGE_FOLDER);
+					if (!filesFolder.exists()) {
+						filesFolder.mkdirs();
+					}
+					
+					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+					file.transferTo(uploadedFile);
+					
+					receta.setThumbnail("assets/img/" + fileName);
+					recipeservice.save(receta);
+					//u.setProfileImage(fileName);
+					//userService.save(u);
+
+					return new ResponseEntity<>(receta, HttpStatus.OK);
+
+
+				} catch (Exception e) {
+					return new ResponseEntity<>(receta, HttpStatus.NOT_FOUND);
+				}
+			} else {
+				return new ResponseEntity<>(receta, HttpStatus.NOT_FOUND);
+
+			}
+		
+			
+	}
 }
 
