@@ -1,0 +1,30 @@
+version: "2.0"
+
+services: 
+  cookcinandohost:
+    image: pabloasekas/cookcinando-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=cookcinando
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+  webapp:
+    image: pabloasekas/cookcinando
+    depends_on:
+      - cookcinandohost
+    ports:
+      - 8443:8443
+    environment:
+      - DATABASE_HOST=cookcinandohost
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=cookcinando
+      - DATABASE_PORT=3306
+  cookcinandoAngular:
+    image: pabloasekas/cookcinando-angular
+    depends_on:
+      - webapp
+    ports:
+      - 4200:80
+    environment:
+      - API_URL=webapp

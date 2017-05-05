@@ -3096,3 +3096,24 @@ org.eclipse.jface.text.BadLocationException: null
 2017-05-05 10:34:22,458 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
 2017-05-05 10:34:22,465 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-05-05 10:34:22,465 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-05-05 17:18:45,171 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/PabloAsekas/cookcinando/backend/Cookcinando
+2017-05-05 17:18:45,179 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
+2017-05-05 17:31:26,679 [Worker-23] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: daw.cookcinando:cookcinando:0.0.1-SNAPSHOT @ /Users/PabloAsekas/cookcinando/backend/Cookcinando/pom.xml.
+2017-05-05 17:31:27,849 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-05-05 17:31:27,861 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-05-05 17:31:27,954 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 183 resources
+2017-05-05 17:31:28,030 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-05-05 17:31:28,030 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-05-05 17:31:58,867 [Worker-25] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: daw.cookcinando:cookcinando:0.0.1-SNAPSHOT @ /Users/PabloAsekas/cookcinando/backend/Cookcinando/pom.xml.
+2017-05-05 17:31:59,537 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-05-05 17:31:59,540 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-05 17:31:59,541 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-05 17:31:59,546 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-05-05 17:31:59,546 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-05-05 17:36:57,650 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-05-05 17:36:57,651 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-05-05 17:36:57,662 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-05 17:36:57,665 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-05-05 17:36:57,665 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/PabloAsekas/cookcinando/backend/Cookcinando/src/test/resources
+2017-05-05 17:39:09,151 [Worker-29] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/PabloAsekas/cookcinando/backend/Cookcinando
+2017-05-05 17:39:09,152 [Worker-29] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
