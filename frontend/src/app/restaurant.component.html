@@ -37,7 +37,7 @@
     <h3 class="text-center recetas-h1">Restaurantes relacionados</h3>
     <div id="restaurants">
         <div class="listItems">
-            <div *ngFor="let r of restaurantsRecommended" class="col-md-4">
+            <div *ngFor="let r of restaurants" class="col-md-4">
                 <div class="thumbnail">
                     <a [routerLink]="['/restaurantes/',r.id]">
                         <img src="{{r.thumbnail}}" alt="{{r.title}}" id="imagen">

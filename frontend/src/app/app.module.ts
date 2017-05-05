@@ -52,13 +52,14 @@ import { RestaurantsService } from './restaurants.service';
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant.component';
 import { RestaurantFormComponent } from './restaurant-form.component';
-import { RestaurantsTypeFoodComponent } from './restaurants-typeFood.component';
+import { RestaurantsTypesFoodComponent } from './restaurants.typesfood.component';
 
 //Eventos
 import { EventosService } from './eventos.service';
 import { EventosComponent } from './eventos.component';
 import { EventoComponent } from './evento.component';
 import { EventoFormComponent } from './evento-form.component';
+import { EventosTypesFoodComponent } from './eventos.typesfood.component';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 //RECETA
@@ -94,11 +95,12 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantFormComponent,
-    RestaurantsTypeFoodComponent,
+    RestaurantsTypesFoodComponent,
     // Eventos
     EventosComponent,
     EventoComponent,
     EventoFormComponent,
+    EventosTypesFoodComponent
   ],
   imports: [
     NgbModule.forRoot(),

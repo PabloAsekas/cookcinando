@@ -48,16 +48,6 @@ public class RestaurantRestController {
 		}
 	}
 	
-	@JsonView(Restaurant.Basic.class)
-	@RequestMapping(value = "/by-typeFood/", method = RequestMethod.GET)
-	public ResponseEntity<List<Restaurant>> restaurantsByTypeFood(@RequestParam String typeFood){
-		List<Restaurant> restaurantsByTypeFood = restaurantservice.findByTypeFood(typeFood);
-		if(restaurantsByTypeFood.size() > 0) {
-			return new ResponseEntity(restaurantsByTypeFood, HttpStatus.OK);
-		}
-		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
-	}	
-	
 	interface RestaurantDetail extends Restaurant.Basic, Restaurant.Users, User.Basic { }
 
 	@JsonView(RestaurantDetail.class)
@@ -141,5 +131,15 @@ public class RestaurantRestController {
 		}
 		return recomendadas;
 	}
+	
+	@JsonView(Restaurant.Basic.class)
+	@RequestMapping(value = "/by-typeFood/", method = RequestMethod.GET)
+	public ResponseEntity<List<Restaurant>> restaurantsByTypeFood(@RequestParam String typeFood){
+		List<Restaurant> restaurantsByTypeFood = restaurantservice.findByTypeFood(typeFood);
+		if(restaurantsByTypeFood.size() > 0) {
+			return new ResponseEntity(restaurantsByTypeFood, HttpStatus.OK);
+		}
+		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
+	}	
 }
 

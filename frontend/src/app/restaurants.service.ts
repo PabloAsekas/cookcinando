@@ -19,13 +19,6 @@ export class RestaurantsService {
             .catch(error => this.handleError(error));
     }
 
-    getRestaurantsByTypeFood(typeFood:string) {
-        return this.http.get(BASE_URL + 'by-typeFood/?typeFood='+ typeFood, { withCredentials: true })
-            .map(response => response.json())
-            .catch(error => this.handleError(error));
-    }
-
-
     // GET para obtener UN restaurante
     getRestaurant(id: Number | String) {
         return this.http.get(BASE_URL + id, { withCredentials: true })
@@ -107,6 +100,12 @@ export class RestaurantsService {
 
         return this.http.delete(BASE_URL + restaurant.id)
             .map(response => undefined)
+            .catch(error => this.handleError(error));
+    }
+    
+    getByTypeFood(food:string) {
+        return this.http.get(BASE_URL + 'by-typeFood/?typeFood='+ food)
+            .map(response => response.json())
             .catch(error => this.handleError(error));
     }
 

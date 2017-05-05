@@ -17,7 +17,6 @@ export class EventosService {
             .catch(error => this.handleError(error));
     }
 
-
     getEventosPag(page?: String) {
         return this.http.get(BASE_URL + page).map(
             response => response.json().content
@@ -59,13 +58,6 @@ export class EventosService {
             .map(response => response.json())
             .catch(error => this.handleError(error));
     }
-
-    getByTitle(food: string) {
-        return this.http.get(BASE_URL + 'by-title/?title=' + food)
-            .map(response => response.json())
-            .catch(error => this.handleError(error));
-    }
-
 
     getByTypeFood(food: string) {
         return this.http.get(BASE_URL + 'by-typeFood/?typeFood=' + food)

@@ -24,6 +24,7 @@ import daw.cookcinando.UserComponent;
 import daw.cookcinando.model.Event;
 import daw.cookcinando.model.Event.Users;
 import daw.cookcinando.model.Recipe;
+import daw.cookcinando.model.Restaurant;
 import daw.cookcinando.model.User;
 import daw.cookcinando.service.EventService;
 
@@ -134,4 +135,14 @@ public class EventRestController {
 		}
 		return recomendadas;
 	}
+	
+	@JsonView(Event.Basic.class)
+	@RequestMapping(value = "/by-typeFood/", method = RequestMethod.GET)
+	public ResponseEntity<List<Event>> eventsByTypeFood(@RequestParam String typeFood){
+		List<Event> eventsByTypeFood = eventservice.findByTypeFood(typeFood);
+		if(eventsByTypeFood.size() > 0) {
+			return new ResponseEntity(eventsByTypeFood, HttpStatus.OK);
+		}
+		else return new ResponseEntity(HttpStatus.NOT_FOUND);	
+	}	
 }

@@ -9,8 +9,6 @@ import daw.cookcinando.model.Recipe;
 import daw.cookcinando.model.Restaurant;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
-	//@Query(value = "SELECT * FROM Restaurant WHERE LOWER(title) like %?1%", nativeQuery = true)
-	//List<Restaurant> findByTitle(String title);
 	
 	@Query(value = "SELECT * FROM restaurant r, restaurant_types_food t where r.id = t.restaurant_id and t.types_food = ?1", nativeQuery = true)
 	List<Restaurant> findByTypeFood(String type);

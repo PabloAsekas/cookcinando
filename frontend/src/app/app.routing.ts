@@ -25,11 +25,12 @@ import { RecipesTypesFoodComponent } from './recipes.typesfood.component';
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant.component';
 import { RestaurantFormComponent } from './restaurant-form.component';
-import { RestaurantsTypeFoodComponent } from './restaurants-typeFood.component';
+import { RestaurantsTypesFoodComponent } from './restaurants.typesfood.component';
 // Eventos
 import { EventosComponent } from './eventos.component';
 import { EventoComponent } from './evento.component';
 import { EventoFormComponent } from './evento-form.component';
+import { EventosTypesFoodComponent } from './eventos.typesfood.component';
 
 const appRoutes = [
     { path: '', component: IndexComponent },
@@ -57,13 +58,14 @@ const appRoutes = [
     // Restaurantes
     { path: 'restaurantes', component: RestaurantsComponent },
     { path: 'restaurantes/:id', component: RestaurantComponent },
-    { path: 'restaurantes/tipo-comida/:tipoComida', component: RestaurantsTypeFoodComponent },
+    { path: 'restaurantes/tipo-comida/:food', component: RestaurantsTypesFoodComponent },
     { path: 'privado/restaurantes/nuevo', component: RestaurantFormComponent },
     { path: 'privado/restaurantes/editar/:id', component: RestaurantFormComponent },
     //{ path: '', redirectTo: 'index', pathMatch: 'full' }
     // Eventos
     { path: 'eventos', component: EventosComponent },
     { path: 'eventos/:id', component: EventoComponent },
+    { path: 'eventos/tipo-comida/:food', component: EventosTypesFoodComponent},
     { path: 'privado/eventos/nuevo', component: EventoFormComponent },
     { path: 'privado/eventos/editar/:id', component: EventoFormComponent }
 ]
