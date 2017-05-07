@@ -82,3 +82,16 @@ VISTA DE CONTENIDO - Page where the content is displayed.
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagramaAPIREST.JPG)
 
+## Frontend Diagrams
+
+APP
+App Component
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/1app.component.JPG)
+
+App Routing
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/3app.routing.JPG)
+
+EVENTOS
+
+
+
