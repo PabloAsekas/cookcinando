@@ -125,7 +125,7 @@ Recipe Model
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/15recipe.model.JPG)
 
-Recipe Form-Component
+Recipe Form Component
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/16recipe-form.component.JPG)
 
@@ -211,7 +211,7 @@ Events Types of food
 
 User all Recipes 
 
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/29user.allrecipes.component.JPG)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/29user.allRecipes.component.JPG)
 
 User all Restaurants
 
@@ -243,9 +243,9 @@ User My Account Component
 
 User My Recipes Component
 
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/37user.myrecipes.component.JPG)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/37user.myRecipes.component.JPG)
 
-User My Res
+User My Restaurants
 
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/38user.myRestaurants.component.JPG)
 
