@@ -263,7 +263,7 @@ User Public Profile Component
 
 Users Service
 
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/41%20users.service.JPG)
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/41users.service.JPG)
 
 
 - **FOOTER**
