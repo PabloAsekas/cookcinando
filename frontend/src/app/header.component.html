@@ -19,7 +19,7 @@
             <div *ngIf="!loginService.isLogged">
                 <ul class="nav nav-pills cerrar-sesion">
                     <li><a [routerLink]="['/login']">Inicia sesión</a></li>
-                    <li class="active"><a [routerLink]="['/']">Regístrate</a></li>
+                    <li class="active"><a [routerLink]="['/login']">Regístrate</a></li>
                 </ul>
             </div>
             <div *ngIf="loginService.isLogged">
