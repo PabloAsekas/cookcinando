@@ -84,6 +84,8 @@ VISTA DE CONTENIDO - Page where the content is displayed.
 
 ## Frontend Diagrams
 - **HEADER**
+
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/11header.component.JPG)
 
 
@@ -97,7 +99,9 @@ VISTA DE CONTENIDO - Page where the content is displayed.
 
 
 App Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/1app.component.JPG)
+
 
 App Routing
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/3app.routing.JPG)
