@@ -153,42 +153,120 @@ Recipes Types of food
 - **RESTAURANTES**
 
 
+Restaurant Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/22restaurant.component.JPG)
+
+Restaurant Model
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/23restaurant.model.JPG)
+
+Restaurant Form Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/24restaurant-form.component.JPG)
+
+Restaurants Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/25restaurants.component.JPG)
+
+Restaurants Service
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/26restaurants.service.JPG)
+
+Restaurants Types of food
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/27restaurants.typesfood.component.JPG)
 
 
 - **EVENTOS**
 
 
+Event Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/4evento.component.JPG)
+
+Event Model
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/5evento.model.JPG)
+
+Event Form Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/6evento-form.component.JPG)
+
+Events Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/7eventos.component.JPG)
+
+Events Service
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/8eventos.service.JPG)
+
+Events Types of food
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/9eventos.typesfood.component.JPG)
 
 
 - **USUARIOS**
 
 
+User all Recipes 
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/29user.allrecipes.component.JPG)
+
+User all Restaurants
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/30user.allRestaurants.component.JPG)
+
+User all Event
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/28user.allEventos.component.JPG)
+
+User component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/31user.allUsers.component.JPG)
+
+User favourites Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/32user.favourites.component.JPG)
+
+User Menu Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/33user.menu.component.JPG)
+
+User Model
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/34user.model.JPG)
+
+User My Account Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/35user.myaccount.component.JPG)
+
+User My Recipes Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/37user.myrecipes.component.JPG)
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/38user.myRestaurant.component.JPG)
+
+User My Res
+
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/38user.myRestaurants.component.JPG)
+
+User My Events
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/36user.myEventos,component.JPG)
+
+User Preferences Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/39user.preferences.component.JPG)
+
+User Public Profile Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/40user.publicprofile.component.JPG)
+
+Users Service
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/41users.service.JPG)
 
+
 - **FOOTER**
+
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/10footer.component.JPG)
