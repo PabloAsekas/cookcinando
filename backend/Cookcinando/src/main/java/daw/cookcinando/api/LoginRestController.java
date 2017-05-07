@@ -50,6 +50,7 @@ public class LoginRestController {
 		}
 		else {
 			session.invalidate();
+			//userComponent.setLogout();
 			log.info("Logged out");
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}

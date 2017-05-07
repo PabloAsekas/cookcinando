@@ -19,12 +19,15 @@
                 <h2>Cuerpo del restaurante</h2>
                 <div [froalaEditor] [(froalaModel)]="restaurant.body"></div><!-- SE CAMBIA SOLO EL VALOR DE RECIPE.PREPARATION CUANDO MODIFICACMOS EL EDITOR DE TEXTO-->
                 <br>
-                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida del restaurante separados por comas"><label>Tipos de comida...</label></a>
-                <input class="form-control" name="comidas"  type="text" [(ngModel)]="tiposComidas">
+
+                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida del restaurante"><label>Tipos de comida...</label></a><br>
+                <select2 [data]="data" [options]="options" [value]="typesFood" [width]="870" (valueChanged)="changed($event)"></select2>
+                <br><br>
+
                 <button *ngIf="editar" (click)='editarRestaurante()' class="btn btn-default publicar">Guardar</button>
                 <button *ngIf="guardar" (click)='nuevoRestaurante()' class="btn btn-default publicar">Publicar nuevo Restaurante</button>
             </div>
-        </div>
+        </div> 
     </div>
     <div *ngIf="!loginService.isLogged" class="row">
         <h2>No tienes permisos para ver esta parte de la web</h2>

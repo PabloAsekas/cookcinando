@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+//import { Select2Module } from 'ng2-select2';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
@@ -62,6 +63,7 @@ import { EventoFormComponent } from './evento-form.component';
 import { EventosTypesFoodComponent } from './eventos.typesfood.component';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+import { Select2Module } from "ng2-select2/ng2-select2";
 //RECETA
 
 @NgModule({
@@ -111,7 +113,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     routing,
     NgbCollapseModule.forRoot(),
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    Select2Module
   ],
   providers: [UsersService, LoginService, RecipesService, RestaurantsService, EventosService],
   bootstrap: [AppComponent]

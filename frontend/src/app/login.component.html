@@ -7,7 +7,59 @@
                 <ngb-tab title="Registrate">
                     <template ngbTabContent>
                         <h3>Regístrate</h3>
-                        <div class="input-group" id="nick-input">
+                        <br>
+
+                        <form #userForm="ngForm">
+
+                            <!-- Nick -->
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input #nick class="form-control" type="text" id="nick" name="nick" ngModel #nickRef="ngModel" placeholder="Nombre de usuario" required >
+                            </div>
+                            <div class="mensaje-error" *ngIf="nickRef.touched && nickRef.errors?.required">El campo nombre de usuario es obligatorio</div>
+                            <!--<div class="mensaje-error" *ngIf="nickRef.touched && nickRef.errors?.pattern">El campo nombre de usuario debe ser del tipo "@user"</div>-->
+                            <br>
+                            <!-- Email -->
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input #email class="form-control" type="text" id="email" name="email" ngModel #emailRef="ngModel" placeholder="user@user.com" required pattern='^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$'>
+                            </div>
+                            <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.required">El campo email es obligatorio</div>
+                            <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.pattern">El campo email debe ser del tipo "user@user.com"</div>
+                            <br>
+                            <!-- Password -->
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input #pass class="form-control" type="password" id="password" name="password" ngModel #passwordRef="ngModel" placeholder="Intoduzca la contraseña" required minlength="8">
+                            </div>
+                            <div class="mensaje-error" *ngIf="passwordRef.touched && passwordRef.errors?.required">El campo contraseña es obligatorio</div>
+                            <div class="mensaje-error" *ngIf="passwordRef.touched && passwordRef.errors?.minlength">La contraseña debe tener al menos 8 caracteres</div>
+                            <br>
+                            <!-- Repeat Password -->
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-repeat"></i></span>
+                                <input #repeatPass class="form-control" type="password" id="repeated-password" name="repeated-password" ngModel #repeatedpasswordRef="ngModel" placeholder="Repita la contraseña" required minlength="8">
+                            </div>
+                            <div class="mensaje-error" *ngIf="repeatedpasswordRef.touched && repeatedpasswordRef.errors?.required">El campo repetir contraseña es obligatorio</div>
+                            <div class="mensaje-error" *ngIf="repeatedpasswordRef.touched && repeatedpasswordRef.errors?.minlength">La contraseña debe tener al menos 8 caracteres</div>
+                            <br>
+                            <!-- Tipo de usuario -->
+                            <div class="col-md-4">
+                                <label>Elige el tipo de usuario :</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="radio-inline">
+                                <input [(ngModel)]="typeUser" type="radio" name="type" checked value="individual">Usuario Individual</label>
+                                <label class="radio-inline">
+                                <input [(ngModel)]="typeUser" type="radio" name="type" value="empresa">Usuario Empresa</label>
+                                <!-- <input type="hidden" id="type" name="tipoUsuario"> -->
+                            </div>
+                            <br>
+                            <br>
+                            <!-- Guardar usuario -->
+                            <button type="submit" class="btn btn-default center-block" [disabled]="userForm.invalid" (click)="registry(nick.value, email.value, pass.value, repeatPass.value)">Registrarse</button>
+                        </form>
+                        <!--<div class="input-group" id="nick-input">
                             <span class="input-group-addon">
                                 <a style="color:inherit" data-toggle="tooltip" data-placement="left" title="El nombre de usuario debe comenzar por @ y no contener carácteres especiales">
                                     <i class="glyphicon glyphicon-user"></i>
@@ -52,18 +104,13 @@
                         <br>
                         <br>
                         <button type="submit" class="btn btn-default center-block" (click)="registry(nick.value, email.value, password.value, password2.value)">Registrarse</button>
-                        <br>
-                        <!--<div id="registry-error" class="alert alert-danger alert-dismissable">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                            <strong>¡Error!</strong> Los campos están vacíos o son erróneos.
-                        </div>
                         <br>-->
-                        <!--  <div id="registry-success" class="alert alert-success alert-dismissable">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                            <strong>¡Enhorabuena!</strong> El registro se ha realizado de forma correcta. Ya puedes acceder a tu cuenta de usuario con tu email y contraseña.
-                        </div>-->
+                        
+
                     </template>
                 </ngb-tab>
+
+
                 <ngb-tab title="Inicia sesion">
                     <template ngbTabContent>
                         <h3>Inicia sesión</h3>

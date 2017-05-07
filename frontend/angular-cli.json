@@ -28,7 +28,9 @@
         ],
         "scripts": [
           "../node_modules/jquery/dist/jquery.min.js",
-          "../node_modules/froala-editor/js/froala_editor.pkgd.min.js"
+          "../node_modules/froala-editor/js/froala_editor.pkgd.min.js",
+          "../src/assets/select2-4.0.3/dist/js/select2.min.js"
+          
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {

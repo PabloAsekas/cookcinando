@@ -7,16 +7,25 @@ import { User, UserBasic, UserEnterprise, UserAdmin } from './user.model';
 
 @Component({
     selector: 'login',
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent {
 
     user: User;
-    tUser: string;
+    typeUser: string;
+    users: User[];
     
     constructor(private loginService: LoginService, private usersService: UsersService, private router: Router) {
-        this.user={nick:"",email:"",passwordHash:"",roles:[]};
+        this.usersService.getUsers().subscribe(
+            users => { 
+                this.users = users;
+                console.log(this.users);
+             },
+            error => console.error(error)
+        )
+        //this.user={nick:"",email:"",passwordHash:"",roles:[]};
     }
 
     logIn(event: any, user: string, pass: string) {
@@ -51,49 +60,40 @@ export class LoginComponent {
 //        else console.log('Las contraseñas no coinciden');
 //    }
     registry(nick: string, email: string, password: string, repeatPassword: string) {
-        console.log(nick);
-        console.log(email);
-        console.log(password);
-        console.log(repeatPassword);
-        console.log(this.tUser);
+            
         if(password === repeatPassword) {
-            if(this.tUser === 'individual') {
-                this.user.name = "";
-                this.user.surname = '';
-                this.user.description = '';
-                this.user.image = '';
-                this.user.nick = nick;
-                this.user.email = email;
-                this.user.passwordHash = password;
-                this.user.roles = ['ROLE_BASIC'];
-                this.usersService.newUser(this.user).subscribe(
-                    response => {
-                        console.log("Chavales todo perfecto");
-                        window.alert('USUARIO CREADO (Ahora solo te queda iniciar sesión CAMPEÓN)');
+                
+            let roles: string[] = [];
+            
+            if(this.typeUser === 'individual') {
+                roles = ['ROLE_BASIC'];
+                this.user = { name: '', surname: '', description: '', image: '',
+                                nick: nick, email: email, passwordHash: password, 
+                                roles: roles, myRecipes: [], favRecipes: [],
+                                favRestaurants: [], favEvents: [] }
+            }
+            else if(this.typeUser === 'empresa') {
+                roles = ['ROLE_BASIC', 'ROLE_ENTERPRISE'];
+                this.user = { name: '', surname: '', description: '', image: '',
+                                nick: nick, email: email, passwordHash: password, 
+                                roles: roles, myRecipes: [], favRecipes: [],
+                                favRestaurants: [], favEvents: [] }
+            }
 
-                    },
-                    error => console.log('Error al crear un usuario: ' + error)
-                );
+            else {
+                alert('Debe elegir el tipo de usuario');
+                return;
             }
-            else if(this.tUser === 'empresa') {
-                this.user.name = "";
-                this.user.surname = '';
-                this.user.description = '';
-                this.user.image = '';
-                this.user.nick = nick;
-                this.user.email = email;
-                this.user.passwordHash = password;
-                this.user.roles = ['ROLE_BASIC', 'ROLE_ENTERPRISE'];
-                this.usersService.newUser(this.user).subscribe(
-                    response => {
-                        console.log("Chavales todo perfecto");
-                        window.alert('USUARIO CREADO (Ahora solo te queda iniciar sesión CAMPEÓN)');
-                    },
-                    error => console.log('Error al crear un usuario: ' + error)
-                );
-            }
+
+            this.usersService.newUser(this.user).subscribe(
+                response => {
+                    alert('Enhorabuena ya puedes iniciar sesion con tu email y contraseña');
+                    
+                }, 
+                error => console.error('Error al registrar al usuario', error)
+            );
         }
-        else console.log('Las contraseñas no coinciden');
+        else alert('Las contraseñas NO coinciden');
     }
   /*
 

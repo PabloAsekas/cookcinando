@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Select2OptionData } from "ng2-select2/ng2-select2";
 
 import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
@@ -23,16 +24,37 @@ export class RecipeFormComponent implements OnInit {
     typesFoodString: String = "";
     ingredientsString: String = "";
     evento: any;
+    
+    // Elementos para Select2
+    options: Select2Options;
+    dataIngredients: string[];
+    dataTypesFood: string[];
+    ingredients: string[];
+    typesFood: string[];
+    
     constructor (private router: Router, private loginService: LoginService, private usersService: UsersService, private recipesService: RecipesService, activatedRoute: ActivatedRoute) {
+        
+        this.options = {
+            multiple: true,
+            tags: true
+        }
+        
         let id = activatedRoute.snapshot.params['id'];
         if (id){
             this.editar=true;
             this.recipesService.getRecipe(id).subscribe(
-                recipe => {this.recipe = recipe
-                           this.rellenar()},
+                recipe => {
+                    this.recipe = recipe;
+                    this.ingredients = this.recipe.ingredients;
+                    this.typesFood = this.recipe.typesFood;
+                    this.dataIngredients = this.ingredients;
+                    this.dataTypesFood = this.typesFood;
+                },
                 error => console.error(error)
             );
         } else {
+            this.dataIngredients = ['Tomate', 'Queso', 'Pan', 'Jamon', 'Chocolate'];
+            this.dataTypesFood = ['Meritense', 'QueNoEmeritense', 'OjoCuidao','Andaluza', 'Extremeña', 'Madrileña', 'Valenciana'];
             this.guardar=true;
             this.usersService.getUser(this.loginService.user.id).subscribe(
             user => {
@@ -41,35 +63,37 @@ export class RecipeFormComponent implements OnInit {
             },
             error => console.error(error)
         );
-            //this.recipe = { title: "", description: "", thumbnail: "", preparation: "", ingredients: [], typesFood: [], author: this.user}
         }
     }
+
+    // Metodos para Select2
+    changedIngredients(dataIngredients) {
+
+        this.ingredients = dataIngredients.value;
+    }
+
+    changedTypesFood(dataTypesFood) {
+        this.typesFood = dataTypesFood.value;
+    }
+
     
-    rellenar(){
+    /* Mira que sois cazurros de crearos un metodo que ya esta 
+     * implementado por JS, que es el toString() -.-"
+     * */
+
+    /*rellenar(){
         for (let typeFood of this.recipe.typesFood) {
             this.typesFoodString = this.typesFoodString + typeFood + ",";
         }
         for (let ingredient of this.recipe.ingredients) {
             this.ingredientsString = this.ingredientsString + ingredient + ",";
         }
-    }
-    
-    leer(){
-        this.recipe.ingredients=[];
-        for (let ingredient of this.ingredientsString.split(",")) {
-            if(ingredient!=""){
-                this.recipe.ingredients.push(ingredient);
-            }
-        }
-        this.recipe.typesFood=[];
-        for (let typeFood of this.typesFoodString.split(",")) {
-            if(typeFood!=""){
-                this.recipe.typesFood.push(typeFood);
-            }
-        }
-    }
+    }*/
+
     nuevaReceta(){
-        this.leer();
+        //this.leer();
+        this.recipe.ingredients = this.ingredients;
+        this.recipe.typesFood = this.typesFood;
         this.recipesService.newRecipe(this.recipe).subscribe(
             recipe =>{
                 if(this.evento!=null){
@@ -82,8 +106,10 @@ export class RecipeFormComponent implements OnInit {
             error => console.error('Error creando una nueva receta: ' + error)
         );
     }
+
     editarReceta(){
-        this.leer();
+        this.recipe.ingredients = this.ingredients;
+        this.recipe.typesFood = this.typesFood;
         this.recipesService.updateRecipe(this.recipe).subscribe(
             recipe =>{
                 if(this.evento!=null){

@@ -16,10 +16,16 @@
                 <input #imagenCabecera type="file" (change)="saveEvent($event)" name="file" id="input-image" />
                 <h2>Cuerpo de la receta</h2>
                 <div [froalaEditor] [(froalaModel)]="recipe.preparation"></div><!-- SE CAMBIA SOLO EL VALOR DE RECIPE.PREPARATION CUANDO MODIFICACMOS EL EDITOR DE TEXTO-->
-                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta separados por comas"><label>Ingredientes...</label></a>
-                <input class="form-control" name="ingredientes" type="text" [(ngModel)]="ingredientsString">
-                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta separados por comas"><label>Tipos de comida...</label></a>
-                <input class="form-control" name="comidas"  type="text" [(ngModel)]="typesFoodString">
+                <br>
+                
+                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los ingredientes principales de la receta"><label>Ingredientes...</label></a><br>
+                <select2 [data]="dataIngredients" [options]="options" [value]="ingredients" [width]="870" (valueChanged)="changedIngredients($event)"></select2>
+                <br><br>
+                
+                <a title="Modo de escritura" data-toggle="popover" data-trigger="hover" data-content="Escribe los tipos de comida de la receta"><label>Tipos de comida...</label></a><br>
+                <select2 [data]="dataTypesFood" [options]="options" [value]="typesFood" [width]="870" (valueChanged)="changedTypesFood($event)"></select2>
+                <br><br>
+                
                 <button *ngIf="editar" (click)='editarReceta()' class="btn btn-default publicar">Guardar</button>
                 <button *ngIf="guardar" (click)='nuevaReceta()' class="btn btn-default publicar">Publicar</button>
             </div>

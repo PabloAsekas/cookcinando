@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Select2OptionData } from "ng2-select2/ng2-select2";
 
 import { Restaurant } from './restaurant.model';
 import { RestaurantsService } from './restaurants.service';
@@ -14,25 +15,40 @@ import { LoginService } from './login.service';
 })
 
 export class RestaurantFormComponent {
+    
     editar: Boolean;
     guardar: Boolean;
     user: User;
     restaurant: Restaurant;
-    typesFoodString: String = "";
     evento: any;
+
+    // Elementos para Select2
+    options: Select2Options;
+    data: string[];
+    typesFood: string[];
     
     constructor (private router: Router, private loginService: LoginService, private usersService: UsersService, private restaurantsService: RestaurantsService, activatedRoute: ActivatedRoute) {
+        
+        this.options = {
+            multiple: true,
+            tags: true
+        }
+        
         let id = activatedRoute.snapshot.params['id'];
+        
         if (id){
-            this.editar=true;
+            this.editar = true;
             this.restaurantsService.getRestaurant(id).subscribe(
                 restaurant => {
                     this.restaurant = restaurant;
-                    this.rellenar();
+                    this.typesFood = this.restaurant.typesFood;
+                    this.data = this.typesFood;
                 },
                 error => console.error(error)
             );
+
         } else {
+            this.data = ['Meritense', 'QueNoEmeritense', 'OjoCuidao','Andaluza', 'Extremeña', 'Madrileña', 'Valenciana', 'Gallega'];
             this.guardar=true;
             this.usersService.getUser(this.loginService.user.id).subscribe(
                 user => {
@@ -43,23 +59,14 @@ export class RestaurantFormComponent {
             );
         }
     }
-    
-    rellenar(){
-        for (let typeFood of this.restaurant.typesFood) {
-            this.typesFoodString = this.typesFoodString + typeFood + ",";
-        }
+
+    // Metodo para Select2
+    changed(data) {
+        this.typesFood = data.value;
     }
     
-    leer(){
-        this.restaurant.typesFood=[];
-        for (let typeFood of this.typesFoodString.split(",")) {
-            if(typeFood!=""){
-                this.restaurant.typesFood.push(typeFood);
-            }
-        }
-    }
     nuevoRestaurante(){
-        this.leer();
+        this.restaurant.typesFood = this.typesFood;
         this.restaurantsService.newRestaurant(this.restaurant).subscribe(
             restaurant =>{
                 if(this.evento!=null){
@@ -72,8 +79,9 @@ export class RestaurantFormComponent {
             error => console.error('Error creando una nueva receta: ' + error)
         );
     }
+
     editarRestaurante(){
-        this.leer();
+        this.restaurant.typesFood = this.typesFood;
         this.restaurantsService.updateRestaurant(this.restaurant).subscribe(
             restaurant =>{
                 if(this.evento!=null){
@@ -83,9 +91,8 @@ export class RestaurantFormComponent {
                     this.router.navigate(['/restaurantes/', restaurant.id]);
                 }
             },
-            error => console.error('Error editando una receta: ' + error)
+            error => console.error('Error editando un restaurante: ' + error)
         );
-       
     }
     
     saveEvent(event:any) {
