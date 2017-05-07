@@ -83,6 +83,7 @@ VISTA DE CONTENIDO - Page where the content is displayed.
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/diagramaAPIREST.JPG)
 
 ## Frontend Diagrams
+
 - **HEADER**
 
 
@@ -104,6 +105,7 @@ App Component
 
 
 App Routing
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/3app.routing.JPG)
 
 - **LOGIN**
@@ -115,13 +117,36 @@ App Routing
 - **RECETAS**
 
 
+Recipe Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/14recipe.component.JPG)
+
+Recipe Model
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/15recipe.model.JPG)
+
+Recipe Form-Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/16recipe-form.component.JPG)
+
+Recipes Component
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/17recipes.component.JPG)
-![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/18recipes.ingredients.JPG)
+
+Recipe Search
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/19recipe.search.component.JPG)
+
+Recipes Service
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/20recipes.service.JPG)
+
+Recipes Ingredients
+
+![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/18recipes.ingredients.JPG)
+
+Recipes Types of food
+
 ![](https://github.com/PabloAsekas/cookcinando/blob/master/Screenshoots/21recipes.typesfood.JPG)
 
 
